@@ -4,11 +4,6 @@
 
 Fundación Somos F5
 
-## Contacto
-
-- Nombre: Jesús Rivera
-- Cargo: Responsable de Proyectos
-- Mail: [jesus.rivera@factoriaf5.org](mailto:jesus.rivera@factoriaf5.org)
 
 ## Objetivo
 
