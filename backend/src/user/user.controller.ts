@@ -17,6 +17,7 @@ import {
   ApiResponse,
   ApiBearerAuth,
   ApiOperation,
+  ApiOkResponse,
 } from '@nestjs/swagger';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { Role } from '../auth/enums/role.enum';
@@ -24,11 +25,12 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { Public } from '../auth/decorators/public.decorator';
 import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from 'src/auth/guards/role.guard';
+import { User } from 'src/schemas/users.schema';
 
 @ApiTags('user')
 @ApiBearerAuth() // Add this line to enable bearer token authentication for protected routes
-@UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(Role.User) // Add this line to restrict access to admin users only
+// @UseGuards(JwtAuthGuard, RolesGuard)
+// @Roles(Role.User) // Add this line to restrict access to admin users only
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -42,7 +44,8 @@ export class UserController {
 
   @Get()
   @Roles(Role.Admin) // Add this line to restrict access to admin users only
-  @ApiResponse({ status: 200, description: 'List of users' })
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: User, isArray: true })
   findAll() {
     return this.userService.findAll();
   }

@@ -10,20 +10,11 @@ import { config } from 'process';
 
 @Module({
   imports: [
-  /*   UserModule,
-    AuthModule, */
+    UserModule,
+    AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRootAsync(
-      {
-        imports: [ConfigModule],
-        connectionName: 'CRMDB',
-        useFactory: async (config, ConfigService) => ({
-          uri: config.get('MONGO_URI'),
-          // useNewUrlParser: true,
-          // useUnifiedTopology: true,
-        }),
-        inject: [ConfigService]
-      }
+    MongooseModule.forRoot(
+      'mongodb+srv://southcaribbean:Qx0sf2vmsknbTxgC@cluster0.v1ttqqq.mongodb.net/'
     ),
 
   ],
