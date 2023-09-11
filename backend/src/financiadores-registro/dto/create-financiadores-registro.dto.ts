@@ -28,10 +28,6 @@ export class CreateFinanciadoresRegistroDto {
     @IsNotEmpty()
     "nombre-entidad": string;
 
-    @ApiProperty({ example: "74839832934" })
-    @IsNumber()
-    @IsNotEmpty()
-    "código-registro": number;
 
     @ApiProperty({example:"fact1234"})
     @IsString()
@@ -57,15 +53,15 @@ export class CreateFinanciadoresRegistroDto {
     @ApiProperty({example:["Cliente","Donante"]})
     @IsEnum(Relacion)
     @IsString()
-    "relaciòn":string;
+    "relacion":string;
   
     @ApiProperty({example:"Carrer de LLiri 35,Barcelona"})
     @IsString()
-    "direcciòn principal":string;
+    "direccion-principal":string;
   
     @ApiProperty({example:"654-678-897"})
     @IsNumber()
-    "telèfono principal":number;
+    "telefono-principal":number;
 
    @ApiProperty({example:"factoriaf5@mail.com"})
    @IsString()

@@ -8,11 +8,11 @@ export type ProyectoDocument = HydratedDocument <ProyectosRegistro>;
 export class ProyectosRegistro {
 
 @ApiProperty({example:"P8 Mixta"})
-@Prop()
+@Prop({unique:true})
 "proyecto-nombre":string;
 
 @ApiProperty({example:"Factoria20042023"})
-@Prop()
+@Prop({unique:true})
 "proyecto-codigo":string;
 
 @ApiProperty({example:"Factoria Barcelona"})

@@ -21,7 +21,7 @@ export class  PersonaContactoDto {
 
 @IsNumber()
 @ApiProperty({ example: "123-456-789" })
-"telèfono": number;
+"telefono": number;
 
 @IsString()
 @ApiProperty({ example: "juan@example.com" })

@@ -18,25 +18,31 @@ private ProyectosModel : Model <ProyectosRegistro>
     const year = now.getFullYear();
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0'); 
-  const projectCounts = await this.ProyectosModel.count({
-    where:{code: new RegExp(`^${year}-`)}
-  });
+    
+ // Cuento todos los registros existentes,da la cantidad actual de registros en mi BD el countDocuments 
+ const totalRegistros = await this.ProyectosModel.countDocuments({}).exec();
 
-  const code = `${year}${month}${day}-${projectCounts + 1}`;
+ // Determino el nuevo valor para 'proyecto-codigo'
+ const nuevoCodigoRegistro = `R${(totalRegistros + 1).toString().padStart(6, '0')}`;
+
+ // Agrego la fecha al código de registro
+ const proyectoCodigoConFecha = `${nuevoCodigoRegistro}-${year}${month}${day}`;
+
+//console.log(nuevoCodigoRegistro)
 
   // Creo un nuevo objeto ProyectosRegistro con todos los campos asignados lo mismo que hize en la convocatoria de registros
-  const project = new ProyectosRegistro();
+  const project = new this.ProyectosModel({
+    'proyecto-nombre': createProyectosRegistroDto['proyecto-nombre'],
+    'proyecto-codigo': proyectoCodigoConFecha,
+    'centro-gestor': createProyectosRegistroDto['centro-gestor'],
+    responsable: createProyectosRegistroDto.responsable,
+    'proyecto-duracion': createProyectosRegistroDto['proyecto-duracion'],
+    'proyecto-presupuesto': createProyectosRegistroDto['proyecto-presupuesto'],
+    'factoria-presupuesto': createProyectosRegistroDto['factoria-presupuesto'],
+  });
 
-  project['proyecto-nombre'] = createProyectosRegistroDto['proyecto-nombre'];
-  project['proyecto-codigo'] = code;
-  project['centro-gestor'] = createProyectosRegistroDto['centro-gestor'];
-  project.responsable = createProyectosRegistroDto.responsable;
-  project['proyecto-duracion'] = createProyectosRegistroDto['proyecto-duracion'];
-  project['proyecto-presupuesto'] = createProyectosRegistroDto['proyecto-presupuesto'];
-  project['factoria-presupuesto'] = createProyectosRegistroDto['factoria-presupuesto'];
-
-  // Guardo el objeto project en la coleccion correspondiente de MongoDb
-  return this.ProyectosModel.create(project);
+  // Guardo el objeto project en la colección correspondiente de MongoDB
+  return project.save();
 
   }
 

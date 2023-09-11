@@ -9,10 +9,6 @@ export class CreateProyectosRegistroDto {
  @IsString()
  "proyecto-nombre":string;
 
- @ApiProperty({example:"Factoria20042023"})
- @IsString()
- "proyecto-codigo":string;
-
  @ApiProperty({example:"Factoria Barcelona"})
  @IsString()
  "centro-gestor":string;

@@ -15,8 +15,8 @@ export class FinanciadoresRegistro extends Document {
   "nombre-entidad": string;
 
   @ApiProperty({ example: "74839832934" })
-  @Prop({required:true,unique:true})
-  "código-registro": number;
+  @Prop({unique:true})
+  "codigo-registro": string;
 
   @ApiProperty({example:"fact1234"})
   @Prop({required:true,unique:true})
@@ -42,15 +42,15 @@ export class FinanciadoresRegistro extends Document {
 
   @ApiProperty({example:["Cliente","Donante"]})
   @Prop({enum:["Cliente","Donante"]})
-  "relaciòn":string;
+  "relacion":string;
 
   @ApiProperty({example:"Carrer de LLiri 35,Barcelona"})
   @Prop()
-  "direcciòn principal":string;
+  "direccion-principal":string;
 
   @ApiProperty({example:"654-678-897"})
   @Prop()
-  "telèfono principal":number;
+  "telefono-principal":number;
 
   @ApiProperty({example:"factoriaf5@mail.com"})
   @Prop()

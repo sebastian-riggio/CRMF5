@@ -15,15 +15,30 @@ export class FinanciadoresRegistroService {
 
 
  async create(createFinanciadoresRegistroDto: CreateFinanciadoresRegistroDto): Promise <FinanciadoresRegistro> {
-  try {
-    const createdRegister = await this.FinanciadoresModel.create(createFinanciadoresRegistroDto)
-    return createdRegister
-  }catch(error){
-    console.log(error)
-    throw new Error("Error al crear el registro de financiadores");
-  }
 
-  }
+    // Cuento el último registro en la base de datos
+  const ultimoRegistro = await this.FinanciadoresModel.countDocuments({}).exec()
+console.log(ultimoRegistro)
+  // Determinar el número de registro a asignar
+  const numeroRegistro = `R-${(ultimoRegistro + 1).toString().padStart(4,'0')}`
+console.log(numeroRegistro)
+   const registro = new this.FinanciadoresModel({
+   "nombre-entidad":createFinanciadoresRegistroDto['nombre-entidad'],
+    "codigo-registro":numeroRegistro,
+    CIF:createFinanciadoresRegistroDto.CIF,
+    entidad:createFinanciadoresRegistroDto.entidad,
+    "sociedad-tipo":createFinanciadoresRegistroDto['sociedad-tipo'],
+    "sitio-web":createFinanciadoresRegistroDto['sitio-web'],
+     relacion:createFinanciadoresRegistroDto.relacion,
+    "direccion-principal":createFinanciadoresRegistroDto['direccion-principal'],
+    "telefono-principal":createFinanciadoresRegistroDto['telefono-principal'],
+    email:createFinanciadoresRegistroDto.email,
+    "persona-contacto":createFinanciadoresRegistroDto['persona-contacto'],  
+   });
+
+   return registro.save();
+ }
+  
 
   findAll() {
     return `This action returns all financiadoresRegistro`;
