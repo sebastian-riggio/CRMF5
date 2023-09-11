@@ -3,11 +3,11 @@ import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 
-@Controller('convocatoria-registro')
+@Controller('convocatoria')
 export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}
 
-  @Post()
+  @Post('registro')
   create(@Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   }
