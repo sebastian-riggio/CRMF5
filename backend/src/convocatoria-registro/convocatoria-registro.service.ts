@@ -11,9 +11,9 @@ export class ConvocatoriaRegistroService {
 
 constructor(
 @InjectModel(ConvocatoriaRegistro.name)
-private readonly ConvocatoriaModel : Model <ConvocatoriaRegistro>,
+private  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
 @InjectModel(FinanciadoresRegistro.name)
-private readonly FinanciadoresModel: Model <FinanciadoresRegistro>
+private  FinanciadoresModel: Model <FinanciadoresRegistro>
 ){}
 
 

@@ -10,7 +10,7 @@ export class FinanciadoresRegistroService {
 
   constructor(
     @InjectModel(FinanciadoresRegistro.name)
-     private readonly FinanciadoresModel: Model<FinanciadoresRegistro>
+     private  FinanciadoresModel: Model<FinanciadoresRegistro>
   ){}
 
 

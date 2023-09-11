@@ -3,11 +3,11 @@ import { ProyectosRegistrosService } from './proyectos-registros.service';
 import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto';
 import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto';
 
-@Controller('proyectos-registros')
+@Controller('proyectos')
 export class ProyectosRegistrosController {
-  constructor(private readonly proyectosRegistrosService: ProyectosRegistrosService) {}
+  constructor(private proyectosRegistrosService: ProyectosRegistrosService) {}
 
-  @Post()
+  @Post('registro')
   create(@Body() createProyectosRegistroDto: CreateProyectosRegistroDto) {
     return this.proyectosRegistrosService.create(createProyectosRegistroDto);
   }
