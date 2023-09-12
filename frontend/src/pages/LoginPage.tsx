@@ -7,7 +7,7 @@ function LoginPage () {
       <div>
         <Isologo />
       </div>
-      <div className='my-8 mr-8'>
+      <div className='my-8'>
         <LoginTab />
       </div>
     </div>

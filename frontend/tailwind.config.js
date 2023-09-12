@@ -51,9 +51,12 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))'
         },
         FF4700: {
-          DEFAULT: '#FF4700',
+          DEFAULT: '#FF4700', // orange
           dark: '#D63800' // Color más oscuro para hover
         }
+      },
+      fontSize: {
+        input: '10px' // Define un tamaño de fuente personalizado llamado 'input'
       },
       borderRadius: {
         lg: 'var(--radius)',
