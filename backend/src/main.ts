@@ -1,19 +1,28 @@
-import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { AppModule } from './app.module';
+import { NestFactory } from "@nestjs/core";
+import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+  app.enableCors({
+    allowedHeaders: ["content-type"],
+    origin: "http://localhost:5173",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  });
+
+  app.setGlobalPrefix("/api/v1");
+
   const config = new DocumentBuilder()
-    .setTitle('CRMF5')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    // .addTag('CRMF5')
+
+    .setTitle("CRM example")
+    .setDescription("CRM API description")
+    .setVersion("1.0")
+    .addTag("crm")
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup("api", app, document);
 
   await app.listen(3000);
 }
