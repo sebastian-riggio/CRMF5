@@ -1,7 +1,18 @@
+@import url('../src/assets/Fonts/WEB/css/clash-grotesk.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+@font-face {
+  font-family: 'ClashGrotesk-Variable';
+  src: url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.woff2') format('woff2'),
+       url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.woff') format('woff'),
+       url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.ttf') format('truetype');
+       font-weight: 200 700;
+       font-display: swap;
+       font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -72,5 +83,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Open Sans Variable', sans-serif;
+  }
+  h1, h2, h3, h4, h5{
+    font-family: 'ClashGrotesk-Variable';
   }
 }
