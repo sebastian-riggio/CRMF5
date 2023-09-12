@@ -50,10 +50,9 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        '4311B9': {
-          DEFAULT: '#4311B9',
-          dark: '#2F0E88', // Color más oscuro para hover
-          light: '#5A2CBB' // Color más claro para hover
+        FF4700: {
+          DEFAULT: '#FF4700',
+          dark: '#D63800' // Color más oscuro para hover
         }
       },
       borderRadius: {

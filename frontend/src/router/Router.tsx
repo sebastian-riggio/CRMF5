@@ -20,7 +20,6 @@ const CrmRouter = (
     <Route path='/newfinancier' element={<NewFinancierPage />} />
     <Route path='/allfinanciers' element={<AllFinanciersPage />} />
     <Route path='/financier' element={<FinancierPage />} />
-
   </Routes>
 )
 

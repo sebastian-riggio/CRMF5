@@ -3,7 +3,7 @@ import { LoginTab } from '../components/LoginTab'
 
 function LoginPage () {
   return (
-    <div className='min-h-screen flex justify-center items-center bg-gray-100'>
+    <div className='min-h-screen md:flex justify-center items-center bg-gray-100'>
       <div>
         <Isologo />
       </div>
