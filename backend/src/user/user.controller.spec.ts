@@ -3,27 +3,27 @@ import { UserController } from './user.controller';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { createMock } from '@golevelup/ts-jest';
 
 const users = [
   {
-    id: '234',
+    id: '21',
     name: 'John Doe',
     user_name: 'johndoe123',
     password: 'secretpassword',
     email: 'johndoe@example.com',
-    wallet_balance: 1000,
-    id_published_content: [1, 2, 3],
-    id_bought_content: [4, 5, 6],
+   
   },
 ];
 
 describe('UserController', () => {
   let controller: UserController;
+  const users2 = createMock<UpdateUserDto & typeof users>()
   const mockUserService = {
-    findAll: jest.fn().mockImplementation(() => Promise.resolve({ users })),
+    findAll: jest.fn().mockImplementation(() => Promise.resolve({ users2 })),
     create: jest.fn().mockImplementation((createUserDto: CreateUserDto) => {
       const newUser = {
-        id: 2,
+        id: '2',
         ...createUserDto,
       };
       users.push(newUser);
@@ -32,11 +32,11 @@ describe('UserController', () => {
     update: jest
       .fn()
       .mockImplementation((userId: string, updateUserDto: UpdateUserDto) => {
-        const updatedUser = {
+        const updatedUser: Pick<UpdateUserDto, ['token', 'id']> = {
           id: userId,
           ...updateUserDto,
         };
-        const index = users.findIndex((user) => user.id === userId);
+        const index = users2.findIndex((user) => user.id === userId);
         if (index !== -1) {
           return Promise.resolve(updatedUser);
         } else {
@@ -92,7 +92,7 @@ describe('UserController', () => {
 
   it('should update a user', async () => {
     const userId = '222';
-    const updateUser: UpdateUserDto = { name: 'Updated Name' };
+    const updateUser: UpdateUserDto = { user_name: 'Updated user name' };
 
     expect(await controller.update(userId, updateUser)).toEqual({
       id: userId,

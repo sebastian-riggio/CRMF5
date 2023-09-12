@@ -8,8 +8,9 @@ import {
   IsArray,
   IsDateString,
 } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiQuery } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
+import { Role } from '../../auth/enums/role.enum';
 
 export class CreateUserDto {
 
@@ -28,39 +29,18 @@ export class CreateUserDto {
   @IsString()
   password: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    example:  'email@email.com'
+  })
   @IsEmail()
   @IsNotEmpty()
   email: string;
 
-  /* @ApiProperty()
-  @IsNotEmpty()
-  @IsNumber()
-  wallet_balance: number;
-
-  @ApiProperty()
-  @IsNotEmpty()
-  @IsArray()
-  id_published_content: number[];
-
-  @ApiProperty()
-  @IsNotEmpty()
-  @IsArray()
-  id_bought_content: number[];
- */
-  @ApiProperty()
-  @IsOptional()
-  @IsDate()
-  created_at?: Date;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsDate()
-  created_update?: Date;
-
   @ApiProperty()
   @IsOptional()
   @IsArray()
+  @ApiProperty({ enum: Role, enumName: 'User Roles'})
+  // @ApiQuery({ name: 'role', enum: Role })
   @Transform((value) => (value === undefined ? [] : value))
-  roles?: string[];
+  roles?: Role[];
 }
