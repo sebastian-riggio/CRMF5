@@ -3,11 +3,14 @@ import { FinanciadoresRegistroService } from './financiadores-registro.service';
 import { CreateFinanciadoresRegistroDto } from './dto/create-financiadores-registro.dto';
 import { UpdateFinanciadoresRegistroDto } from './dto/update-financiadores-registro.dto';
 import { ObjectId } from 'mongoose';
+import { Public } from 'src/auth/decorators/public.decorator';
+
 
 @Controller('financiadores')
 export class FinanciadoresRegistroController {
   constructor(private readonly financiadoresRegistroService: FinanciadoresRegistroService) {}
 
+  @Public()
   @Post('registro')
   create(@Body() createFinanciadoresRegistroDto: CreateFinanciadoresRegistroDto) {
     return this.financiadoresRegistroService.create(createFinanciadoresRegistroDto);
