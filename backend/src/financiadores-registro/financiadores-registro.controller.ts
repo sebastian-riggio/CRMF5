@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete} from '@nestjs/common';
 import { FinanciadoresRegistroService } from './financiadores-registro.service';
 import { CreateFinanciadoresRegistroDto } from './dto/create-financiadores-registro.dto';
 import { UpdateFinanciadoresRegistroDto } from './dto/update-financiadores-registro.dto';
+import { ObjectId } from 'mongoose';
 
 @Controller('financiadores')
 export class FinanciadoresRegistroController {
@@ -18,17 +19,17 @@ export class FinanciadoresRegistroController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.financiadoresRegistroService.findOne(+id);
+  findOne(@Param('id') id:ObjectId) {
+    return this.financiadoresRegistroService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFinanciadoresRegistroDto: UpdateFinanciadoresRegistroDto) {
-    return this.financiadoresRegistroService.update(+id, updateFinanciadoresRegistroDto);
+  @Patch('actualizar')
+  update(@Body() updateFinanciadoresRegistroDto: UpdateFinanciadoresRegistroDto) {
+    return this.financiadoresRegistroService.update(updateFinanciadoresRegistroDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.financiadoresRegistroService.remove(+id);
+  @Delete('borrar')
+  remove(@Body('id') id:ObjectId) {
+    return this.financiadoresRegistroService.remove(id);
   }
 }

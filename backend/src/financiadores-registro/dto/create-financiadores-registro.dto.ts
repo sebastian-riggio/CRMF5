@@ -2,13 +2,13 @@ import { IsEnum, IsNotEmpty, IsNumber, IsString} from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 import { PersonaContactoDto } from "./personaContactodto";
 
-enum Entidad {
-    OrganismoPublico = "Organismo pùblico",
+export enum Entidad {
+    OrganismoPublico = "Organismo publico",
     Empresa  = "Empresa privada",
     OSAL = "OSAL"
 }
 
-enum Sociedad {
+ export enum Sociedad {
     Mercantil = "Mercantil",
     Asociación = "Asociación",
     Fundación = "Fundación",
@@ -16,7 +16,7 @@ enum Sociedad {
      Organismo ="Organismo"
 }
 
-enum Relacion {
+export enum Relacion {
     Cliente = "Cliente",
     Donante = "Donante"
 }
@@ -33,7 +33,7 @@ export class CreateFinanciadoresRegistroDto {
     @IsString()
     "CIF":string;
 
-    @ApiProperty({ example: ["Organismo pùblico", "Empresa privada", "OSAL"] })
+    @ApiProperty({ example: ["Organismo publico", "Empresa privada", "OSAL"] })
     @IsString()
 	@IsEnum(Entidad)
 	@IsNotEmpty()

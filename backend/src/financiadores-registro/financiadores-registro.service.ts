@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateFinanciadoresRegistroDto } from './dto/create-financiadores-registro.dto';
 import { UpdateFinanciadoresRegistroDto } from './dto/update-financiadores-registro.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { FinanciadoresRegistro } from './schema/financiadores-registro.schema';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 
 @Injectable()
 export class FinanciadoresRegistroService {
@@ -38,21 +38,64 @@ console.log(numeroRegistro)
 
    return registro.save();
  }
+
+
+ async findAll() {
+  try{
+    const allFinanciadores = await this.FinanciadoresModel.find().exec()
+    return {
+      message: 'Todos los financiadores se han recibido correctamente',
+      status:200,
+      financiadores:allFinanciadores
+     };
+  }catch(error){
+    throw error
+  }  
+  }
+
+ async findOne(id:ObjectId) {
+  try{
+    const financiador = await this.FinanciadoresModel.findOne({_id:id})
+    return {
+      message: 'financiador recibido correctamente',
+      status: 200,
+      financiador: financiador
+    };
+  }catch(error){
+    throw error
+  }
+  }
+
+
+async  update(updateFinanciadoresRegistroDto: UpdateFinanciadoresRegistroDto) {
+   try {
+    const updatedFinanciador = await this.FinanciadoresModel.findOneAndUpdate({_id:updateFinanciadoresRegistroDto},
+      
+      {
+        ...updateFinanciadoresRegistroDto
+      });
+      return {
+        message: "Financiador actualizado correctamente",
+        status:200,
+        financiador:updatedFinanciador
+      }
+   }catch(error){
+    throw error 
+  }
+  }
   
-
-  findAll() {
-    return `This action returns all financiadoresRegistro`;
+ async remove(id:ObjectId) {
+  try {
+    const findAndDelete = await this.FinanciadoresModel.findByIdAndDelete(id);
+    if(!findAndDelete) throw new HttpException('Financiador no encontrado',HttpStatus.NOT_FOUND);
+    return {
+      message: 'Financiador eliminado',
+      status: HttpStatus.OK,
+      data: ''
+    };
+  } catch(error){
+    throw error
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} financiadoresRegistro`;
-  }
-
-  update(id: number, updateFinanciadoresRegistroDto: UpdateFinanciadoresRegistroDto) {
-    return `This action updates a #${id} financiadoresRegistro`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} financiadoresRegistro`;
   }
 }
