@@ -12,6 +12,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({
         uri: `mongodb+srv://${configService.get<string>(
