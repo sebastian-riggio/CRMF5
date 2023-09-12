@@ -83,15 +83,15 @@ export function LoginTab () {
         </div>
       </TabsContent>
       <TabsContent value='password'>
-        <div className='min-h-[300px] max-h-[300px]'>
+        <div className='min-h-[300px] max-h-[300px] '>
           <Card className='bg-transparent'>
             <CardHeader className='flex flex-col items-center'>
               <CardTitle>¿Olvidó su contraseña?</CardTitle>
               <CardDescription style={{ textAlign: 'center', fontSize: '12px', width: '250px' }}>
-                Le ofrecemos la opción de recuperar su contraseña de forma sencilla y segura.
+                Le ofrecemos la opción de recuperar su contraseña de forma sencilla y segura. Para ello, ingrese su dirección de correo electrónico y le enviaremos un mensaje con las instrucciones necesarias.
               </CardDescription>
             </CardHeader>
-            <CardContent className='flex flex-col items-center space-y-2'>
+            <CardContent className='flex flex-col items-center space-y-2 mt-2'>
               <div className='space-y-1 w-[250px]'>
                 <Label htmlFor='email'>Email</Label>
                 <Input id='email' type='email' placeholder='Email' className='h-8' />
