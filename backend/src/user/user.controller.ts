@@ -52,7 +52,7 @@ export class UserController {
   // @Public()
   // @ApiOkResponse({ type: User, isArray: true })
   findAll(@Req() req) {
-    console.log(req, 'rrreeee')
+    console.log('rrreeee')
     return this.userService.findAll();
   }
 
