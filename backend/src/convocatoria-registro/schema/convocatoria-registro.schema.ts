@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty } from "@nestjs/swagger";
-import { Document, HydratedDocument, Types } from "mongoose";
-import { FinanciadoresRegistro } from "src/financiadores-registro/schema/financiadores-registro.schema";
+import { Document, HydratedDocument} from "mongoose";
 import { AdjuntarDto } from "../dto/adjuntarDto";
 
 
@@ -12,15 +11,15 @@ export type ConvocatoriaDocument = HydratedDocument<ConvocatoriaRegistro>;
 @Schema()
 export class ConvocatoriaRegistro extends Document{
 
-@ApiProperty({example:"Fcatoria F5"})
-@Prop({ required: true, unique: true })
+@ApiProperty({example:"Ayuntamiento Barcelona"})
+@Prop({ required: true})
 "entidad-convocante":string
 
 @ApiProperty({example:"Recursos Humanos"})
 @Prop()
 "departamento-convocante":string;
 
-@ApiProperty({example:"Formacìon P8"})
+@ApiProperty({example:"Por un mundo mejor"})
 @Prop()
 "titulo":string;
 
@@ -41,9 +40,9 @@ export class ConvocatoriaRegistro extends Document{
 @Prop()
 "trabajo-lineas":string;
 
-@ApiProperty({example:["caixaBank","Aguas-Barcelona","Santander"]})
-@Prop({type:Types.ObjectId,ref:'FinaciadoresRegistro'})
-"dirigido-entidades":FinanciadoresRegistro;
+@ApiProperty({example:["Sin animo de lucro","Financieras","Impacto Social"]})
+@Prop()
+"dirigido-entidades":string;
 
 @ApiProperty({example:"20/10/2023"})
 @Prop()

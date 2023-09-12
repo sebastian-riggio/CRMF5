@@ -36,9 +36,9 @@ export class CreateConvocatoriaRegistroDto {
 @IsString()
 "trabajo-lineas":string;
 
-@ApiProperty({example:["caixaBank","Aguas-Barcelona","Santander"]})
+@ApiProperty({example:["Sin animo de lucro","Financieras","Impacto Social"]})
 @IsString()
-"dirigido-entidades":FinanciadoresRegistro;
+"dirigido-entidades":string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()

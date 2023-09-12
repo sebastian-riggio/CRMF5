@@ -28,8 +28,6 @@ private ProyectosModel : Model <ProyectosRegistro>
  // Agrego la fecha al código de registro
  const proyectoCodigoConFecha = `${nuevoCodigoRegistro}-${year}${month}${day}`;
 
-//console.log(nuevoCodigoRegistro)
-
   // Creo un nuevo objeto ProyectosRegistro con todos los campos asignados lo mismo que hize en la convocatoria de registros
   const project = new this.ProyectosModel({
     'proyecto-nombre': createProyectosRegistroDto['proyecto-nombre'],

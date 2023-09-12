@@ -3,11 +3,11 @@ import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 
-@Controller('gestion-convocatoria')
+@Controller('gestion')
 export class GestionConvocatoriaController {
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
-  @Post()
+  @Post('convocatoria')
   create(@Body() createGestionConvocatoriaDto: CreateGestionConvocatoriaDto) {
     return this.gestionConvocatoriaService.create(createGestionConvocatoriaDto);
   }

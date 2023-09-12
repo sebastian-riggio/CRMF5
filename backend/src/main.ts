@@ -13,7 +13,7 @@ async function bootstrap() {
 
 
 
-  app.setGlobalPrefix('crm')
+  app.setGlobalPrefix('/api/v1')
   
   const config = new DocumentBuilder()
     .setTitle('CRM example')
