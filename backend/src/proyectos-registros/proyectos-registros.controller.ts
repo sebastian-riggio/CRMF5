@@ -2,11 +2,13 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ProyectosRegistrosService } from './proyectos-registros.service';
 import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto';
 import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Controller('proyectos')
 export class ProyectosRegistrosController {
   constructor(private proyectosRegistrosService: ProyectosRegistrosService) {}
 
+  @Public()
   @Post('registro')
   create(@Body() createProyectosRegistroDto: CreateProyectosRegistroDto) {
     return this.proyectosRegistrosService.create(createProyectosRegistroDto);

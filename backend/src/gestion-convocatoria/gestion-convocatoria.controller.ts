@@ -2,12 +2,14 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Controller('gestion')
 export class GestionConvocatoriaController {
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
-  @Post('convocatoria')
+  @Public()
+  @Post('new')
   create(@Body() createGestionConvocatoriaDto: CreateGestionConvocatoriaDto) {
     return this.gestionConvocatoriaService.create(createGestionConvocatoriaDto);
   }

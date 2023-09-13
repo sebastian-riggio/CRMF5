@@ -4,7 +4,6 @@ import { AppService } from "./app.service";
 import { AuthModule } from "./auth/auth.module";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { UserModule } from "./user/user.module";
-import { FinanciadoresRegistroModule } from "./financiadores-registro/financiadores-registro.module";
 import { ConvocatoriaRegistroModule } from "./convocatoria-registro/convocatoria-registro.module";
 import { ProyectosRegistrosModule } from "./proyectos-registros/proyectos-registros.module";
 import { GestionConvocatoriaModule } from "./gestion-convocatoria/gestion-convocatoria.module";
@@ -28,7 +27,6 @@ import { MongooseModule } from "@nestjs/mongoose";
 
     UserModule,
     AuthModule, 
-    FinanciadoresRegistroModule,
     ConvocatoriaRegistroModule,
     ProyectosRegistrosModule,
     GestionConvocatoriaModule,

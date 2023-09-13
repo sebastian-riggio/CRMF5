@@ -2,33 +2,39 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
+import { ObjectId } from 'mongoose';
+import { Public } from 'src/auth/decorators/public.decorator';
 
-@Controller('convocatoria')
+@Controller('announcement')
 export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}
-
-  @Post('registro')
+@Public()
+  @Post('register')
   create(@Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.convocatoriaRegistroService.findAll();
   }
-
+@Public()
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.convocatoriaRegistroService.findOne(+id);
+  findOne(@Param('id') id:ObjectId) {
+    return this.convocatoriaRegistroService.findOne(id);
   }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateConvocatoriaRegistroDto: UpdateConvocatoriaRegistroDto) {
-    return this.convocatoriaRegistroService.update(+id, updateConvocatoriaRegistroDto);
+@Public()
+  @Patch('update')
+  update(@Body() updateConvocatoriaRegistroDto: UpdateConvocatoriaRegistroDto) {
+    return this.convocatoriaRegistroService.update(updateConvocatoriaRegistroDto);
   }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.convocatoriaRegistroService.remove(+id);
+  
+@Public()
+  @Delete('delete')
+  remove(@Body('id') id:ObjectId) {
+    return this.convocatoriaRegistroService.remove(id);
   }
 }
+
+
