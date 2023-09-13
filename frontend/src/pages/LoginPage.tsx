@@ -1,5 +1,5 @@
-import Isologo from '../components/Isologo'
-import { LoginTab } from '../components/LoginTab'
+import Isologo from '@/components/Isologo'
+import { LoginTab } from '@/components/LoginTab'
 
 function LoginPage () {
   return (

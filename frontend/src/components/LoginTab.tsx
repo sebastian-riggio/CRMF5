@@ -77,7 +77,7 @@ export function LoginTab () {
               </div>
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
-              <Button className='h-8 bg-FF4700 text-white hover:bg-FF4700-dark w-[250px]'>Entrar</Button>
+              <Button className='h-8 text-white hover:bg-FF4700-dark w-[250px]'>Entrar</Button>
             </CardFooter>
           </Card>
         </div>
