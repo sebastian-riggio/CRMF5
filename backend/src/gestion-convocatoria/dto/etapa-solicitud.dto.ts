@@ -5,9 +5,7 @@ import { IsNumber, IsString } from "class-validator";
 
 
 export class EtapaSolicitudDto {
-@ApiProperty({example:"Ayuntamiento"})
-@IsString()
-"convocatoria":string;
+
 
 @ApiProperty({example:"Jesus Rivera"})
 @IsString()

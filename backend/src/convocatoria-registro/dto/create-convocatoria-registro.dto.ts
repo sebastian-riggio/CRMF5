@@ -1,6 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean, IsDate, IsNumber, IsString } from "class-validator";
-import { FinanciadoresRegistro } from "src/financiadores-registro/schema/financiadores-registro.schema";
+import { IsBoolean,IsNumber, IsString } from "class-validator";
 import { AdjuntarDto } from "./adjuntarDto";
 
 
