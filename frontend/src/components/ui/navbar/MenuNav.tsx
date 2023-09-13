@@ -1,4 +1,5 @@
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from '../navigation-menu'
+import { Link } from '@radix-ui/react-navigation-menu'
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../navigation-menu'
 
 function MenuNav () {
   return (
@@ -11,16 +12,16 @@ function MenuNav () {
                 Proyectos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div>
-                  <NavigationMenuLink>
+                <Link href='/projects'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Proyectos
                   </NavigationMenuLink>
-                </div>
-                <div>
-                  <NavigationMenuLink>
+                </Link>
+                <Link href='/newproject'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Nuevo proyecto
                   </NavigationMenuLink>
-                </div>
+                </Link>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -34,16 +35,16 @@ function MenuNav () {
                 Convocatorias
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div>
-                  <NavigationMenuLink>
+                <Link href='/allcalls'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Convocatorias
                   </NavigationMenuLink>
-                </div>
-                <div>
-                  <NavigationMenuLink>
-                    Nueva convocatoria
+                </Link>
+                <Link href='/newcall'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Nuevo convocatoria
                   </NavigationMenuLink>
-                </div>
+                </Link>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -57,16 +58,16 @@ function MenuNav () {
                 Financistas
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div>
-                  <NavigationMenuLink>
+                <Link href='/allfinanciers'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Financistas
                   </NavigationMenuLink>
-                </div>
-                <div>
-                  <NavigationMenuLink>
+                </Link>
+                <Link href='/newfinancer'>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Nuevo financista
                   </NavigationMenuLink>
-                </div>
+                </Link>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
