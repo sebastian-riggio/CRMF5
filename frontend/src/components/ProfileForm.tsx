@@ -17,7 +17,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -30,6 +29,7 @@ import {
   PopoverTrigger
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
+import { Card } from './ui/card'
 
 const departamento = [
   { label: 'English', value: 'en' },
@@ -88,167 +88,174 @@ export function AccountForm () {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-        <FormField
-          control={form.control}
-          name='nombre'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Nombre y Apellido</FormLabel>
-              <FormControl>
-                <Input placeholder='Nombre y Apellido' {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className='flex justify-center items-center mt-12'>
+      <Card className='w-[800px] h-[600px]'>
+        <div className='forms flex justify-center'>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+              <FormField
+                control={form.control}
+                name='nombre'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nombre y Apellido</FormLabel>
+                    <FormControl>
+                      <Input placeholder='Nombre y Apellido' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-        <FormField
-          control={form.control}
-          name='departamento'
-          render={({ field }) => (
-            <FormItem className='flex flex-col'>
-              <FormLabel>Departamento o centro gestor</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant='outline'
-                      role='combobox'
-                      className={cn(
-                        'w-[200px] justify-between',
-                        !field.value && 'text-muted-foreground'
-                      )}
-                    >
-                      {field.value
-                        ? departamento.find(
-                          (departamento) => departamento.value === field.value
-                        )?.label
-                        : 'Selecciona el departamento de Factoria F5'}
-                      <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className='w-[200px] p-0'>
-                  <Command>
-                    <CommandInput placeholder='Buscar departamento' />
-                    <CommandEmpty>Departamento no encontrado</CommandEmpty>
-                    <CommandGroup>
-                      {departamento.map((departamento) => (
-                        <CommandItem
-                          value={departamento.label}
-                          key={departamento.value}
-                          onSelect={() => {
-                            form.setValue('departamento', departamento.value)
-                          }}
-                        >
-                          <CheckIcon
+              <FormField
+                control={form.control}
+                name='departamento'
+                render={({ field }) => (
+                  <FormItem className='flex flex-col'>
+                    <FormLabel>Departamento o centro gestor</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant='outline'
+                            role='combobox'
                             className={cn(
-                              'mr-2 h-4 w-4',
-                              departamento.value === field.value
-                                ? 'opacity-100'
-                                : 'opacity-0'
+                              'w-[200px] justify-between',
+                              !field.value && 'text-muted-foreground'
                             )}
-                          />
-                          {departamento.label}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                          >
+                            {field.value
+                              ? departamento.find(
+                                (departamento) => departamento.value === field.value
+                              )?.label
+                              : 'Selecciona el departamento de Factoria F5'}
+                            <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-[200px] p-0'>
+                        <Command>
+                          <CommandInput placeholder='Buscar departamento' />
+                          <CommandEmpty>Departamento no encontrado</CommandEmpty>
+                          <CommandGroup>
+                            {departamento.map((departamento) => (
+                              <CommandItem
+                                value={departamento.label}
+                                key={departamento.value}
+                                onSelect={() => {
+                                  form.setValue('departamento', departamento.value)
+                                }}
+                              >
+                                <CheckIcon
+                                  className={cn(
+                                    'mr-2 h-4 w-4',
+                                    departamento.value === field.value
+                                      ? 'opacity-100'
+                                      : 'opacity-0'
+                                  )}
+                                />
+                                {departamento.label}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-        <FormField
-          control={form.control}
-          name='area'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Área de trabajo en Factoria F5</FormLabel>
-              <FormControl>
-                <Input placeholder='área de trabajo' {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name='fecha'
-          render={({ field }) => (
-            <FormItem className='flex flex-col'>
-              <FormLabel>Fecha inicio de actividad</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant='outline'
-                      className={cn(
-                        'w-[240px] pl-3 text-left font-normal',
-                        !field.value && 'text-muted-foreground'
-                      )}
-                    >
-                      {field.value
-                        ? (
-                            format(field.value, 'PPP')
-                          )
-                        : (
-                          <span>Elige la fecha </span>
-                          )}
-                      <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className='w-auto p-0' align='start'>
-                  <Calendar
-                    mode='single'
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date('1900-01-01')}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+              <FormField
+                control={form.control}
+                name='area'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Área de trabajo en Factoria F5</FormLabel>
+                    <FormControl>
+                      <Input placeholder='área de trabajo' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='fecha'
+                render={({ field }) => (
+                  <FormItem className='flex flex-col'>
+                    <FormLabel>Fecha inicio de actividad</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant='outline'
+                            className={cn(
+                              'w-[240px] pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value
+                              ? (
+                                  format(field.value, 'PPP')
+                                )
+                              : (
+                                <span>Elige la fecha </span>
+                                )}
+                            <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='single'
+                          selected={field.value}
+                      // eslint-disable-next-line react/jsx-handler-names
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date > new Date() || date < new Date('1900-01-01')}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-        <FormField
-          control={form.control}
-          name='correo'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Correo electrónico</FormLabel>
-              <FormControl>
-                <Input placeholder='correo electrónico' {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+              <FormField
+                control={form.control}
+                name='correo'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Correo electrónico</FormLabel>
+                    <FormControl>
+                      <Input placeholder='correo electrónico' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-        <FormField
-          control={form.control}
-          name='telefono'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Teléfono de contacto</FormLabel>
-              <FormControl>
-                <Input placeholder='telefono' {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type='submit'>Cancelar</Button>
-        <Button type='submit'>Crear</Button>
-      </form>
-    </Form>
+              <FormField
+                control={form.control}
+                name='telefono'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Teléfono de contacto</FormLabel>
+                    <FormControl>
+                      <Input placeholder='telefono' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type='submit'>Cancelar</Button>
+              <Button type='submit'>Crear</Button>
+            </form>
+          </Form>
+        </div>
+      </Card>
+    </div>
   )
 }
