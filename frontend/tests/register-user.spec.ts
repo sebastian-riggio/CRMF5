@@ -18,7 +18,7 @@ test.describe('Register user page', () => {
     await expect(titleForm).toHaveCSS('font-weight', '600')
   })
 
-  test('Display sub title',async ({page}) => {
+  test('Display sub title', async ({ page }) => {
     const subtitle = await page.getByText( /Vamos a darle el alta a un nuevo compañero de Factoria F5/i)
 
     await expect(subtitle).toBeVisible()
@@ -26,14 +26,11 @@ test.describe('Register user page', () => {
 })
 
 test.describe('Form', () => {
-
   test('Name and lastname input',async ({page}) => {
     const nameLabel = await page.getByLabel(/nombre y apellidos:/i)
     const nameInput = await page.getByPlaceholder(/name here/i)
 
     await expect(nameLabel).toHaveText(/nombre y apellido:/i)
     await expect(nameInput).toHaveText(/name here:/i)
-
-
   })
 })
