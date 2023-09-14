@@ -1,8 +1,11 @@
-import React from 'react'
+import Navbar from '../../components/Navbar'
 import { AccountForm } from '../../components/ProfileForm'
 
 export default function RegisterUserPage () {
   return (
-    <div><AccountForm /></div>
+    <>
+      <Navbar />
+      <AccountForm />
+    </>
   )
 }
