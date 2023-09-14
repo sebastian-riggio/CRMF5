@@ -27,10 +27,4 @@ export class EtapaJustificacionDto {
 @IsString()
 "notas":string;
 
-
-
-
-
-
-
 }

@@ -7,26 +7,26 @@ enum EstadoSolicitud {
 }
 
 export class EtapaOtorgamientoDto {
-/* @ApiProperty({example:"4/9/2023"})
+ @ApiProperty({example:"4/9/2023"})
 @IsString()
 "fecha-resolucion-final":string;
 
 @ApiProperty({example:"aprobada/denegada"})
 @IsEnum(EstadoSolicitud)
 @IsString()
-"estado-solicitud":string; */
+"estado-solicitud":string; 
 
 @ApiProperty({example:"20000"})
 @IsNumber()
 "monto-concedido":number;
 
-/* @ApiProperty({example:"21/9/2023"})
+ @ApiProperty({example:"21/9/2023"})
 @IsString()
 "fecha-primer-desembolso":string;
 
 @ApiProperty({example:"23/9/23"})
 @IsString()
-"fecha-recepcion-desembolso":string; */
+"fecha-recepcion-desembolso":string; 
 
 @ApiProperty({example:"10000"})
 @IsNumber()
@@ -36,7 +36,7 @@ export class EtapaOtorgamientoDto {
 @IsNumber()
 "porciento-primer-desembolso":number;
 
-/* @ApiProperty({example:"26/9/2023"})
+ @ApiProperty({example:"26/9/2023"})
 @IsString()
 "fecha-inicio-gastos":string;
 
@@ -62,6 +62,6 @@ export class EtapaOtorgamientoDto {
 
 @ApiProperty({example:"PDF"})
 @IsString()
-"adjuntar-resolucion-otorgamiento":string; */
+"adjuntar-resolucion-otorgamiento":string; 
 
 }

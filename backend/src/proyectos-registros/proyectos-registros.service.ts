@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto';
 import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { ProyectosRegistro } from './schema/proyectos-registro.schema';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { autoGenerateCode } from 'src/utils/autoGenrateCode';
 
 @Injectable()
@@ -31,19 +31,63 @@ private ProyectosModel : Model <ProyectosRegistro>
   return project.save();
   }
 
-  findAll() {
-    return `This action returns all proyectosRegistros`;
+ async findAll() {
+  try {
+    const allProjects = await this.ProyectosModel.find().exec()
+    return {
+      message: 'Todas las proyectos se han recibido correctamente',
+      status:200,
+     proyectos:allProjects
+     };
+  }catch(error){
+    throw error
+  } 
+    
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} proyectosRegistro`;
+ async findOne(id:ObjectId) {
+    try {
+      const proyecto = await this.ProyectosModel.findOne({_id:id})
+      return {
+        message: 'Proyecto recibido correctamente',
+        status: 200,
+        proyecto:proyecto
+      }
+    }catch(error){
+      throw error
+    }
   }
 
-  update(id: number, updateProyectosRegistroDto: UpdateProyectosRegistroDto) {
-    return `This action updates a #${id} proyectosRegistro`;
+ async update(updateProyectosRegistroDto: UpdateProyectosRegistroDto) {
+try {
+  const updatedProjects = await this.ProyectosModel.findOneAndUpdate({_id:updateProyectosRegistroDto},
+    {
+       ...updateProyectosRegistroDto
+    });
+
+    return {
+      message: "Proyecto actualizado correctamente",
+      status:200,
+      proyectos:updatedProjects
+    }
+}catch(error){
+  throw error
+}
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} proyectosRegistro`;
+ async remove(id: ObjectId) {
+try {
+  const findAndDelete = await this.ProyectosModel.findByIdAndDelete(id);
+  if(!findAndDelete) throw new HttpException('Proyecto no encontrado',HttpStatus.NOT_FOUND)
+ return {
+    message: 'Proyecto eliminado correctamente',
+    status:HttpStatus.OK,
+    data:""
   }
+}catch(error){
+  throw error
+}
+
+  }
+
 }

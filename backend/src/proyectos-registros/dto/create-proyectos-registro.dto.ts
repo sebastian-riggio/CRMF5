@@ -1,6 +1,13 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
+import { IsEnum, IsNumber, IsString } from "class-validator";
 
+export enum Gestor {
+    people = "Factoria F5 - People and culture",
+    admin = "Factoria F5 - Admin, contabilidad y finanzas",
+    oficina = "Factoria F5 - Oficina soporte proyectos y calidad",
+    direccion = "Factoría F5 - Dirección general "
+
+}
 
 
 export class CreateProyectosRegistroDto {
@@ -9,8 +16,8 @@ export class CreateProyectosRegistroDto {
  @IsString()
  "proyecto-nombre":string;
 
- @ApiProperty({example:"Factoria Barcelona"})
- @IsString()
+ @ApiProperty({example:"Factoria F5 - Dirección general "})
+ @IsEnum(Gestor)
  "centro-gestor":string;
 
  @ApiProperty({example:"Jesús Rivera"})

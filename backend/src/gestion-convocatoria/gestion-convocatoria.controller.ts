@@ -3,6 +3,7 @@ import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 import { Public } from 'src/auth/decorators/public.decorator';
+import { ObjectId } from 'mongoose';
 
 @Controller('gestion')
 export class GestionConvocatoriaController {
@@ -13,24 +14,25 @@ export class GestionConvocatoriaController {
   create(@Body() createGestionConvocatoriaDto: CreateGestionConvocatoriaDto) {
     return this.gestionConvocatoriaService.create(createGestionConvocatoriaDto);
   }
-
+@Public()
   @Get()
   findAll() {
     return this.gestionConvocatoriaService.findAll();
   }
-
+@Public()
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.gestionConvocatoriaService.findOne(+id);
+  findOne(@Param('id') id:ObjectId ) {
+    return this.gestionConvocatoriaService.findOne(id);
   }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto) {
-    return this.gestionConvocatoriaService.update(+id, updateGestionConvocatoriaDto);
+@Public()
+  @Patch('update')
+  update(@Body() updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto) {
+    return this.gestionConvocatoriaService.update(
+      updateGestionConvocatoriaDto);
   }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.gestionConvocatoriaService.remove(+id);
+@Public()
+  @Delete('delete')
+  remove(@Body('id') id:ObjectId) {
+    return this.gestionConvocatoriaService.remove(id);
   }
 }

@@ -23,6 +23,10 @@ export class EtapaResolucionDto {
 @IsString()
 "fecha-real-respuesta":string;
 
+@ApiProperty({example:"Notas del proceso"})
+@IsString()
+"notas":string;
+
 @ApiProperty({example:"PDF"})
 @IsString()
 "adjuntar-resolucion":string;
