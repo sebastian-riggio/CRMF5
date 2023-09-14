@@ -1,6 +1,12 @@
+import MainNewCall from '../../components/MainNewCall'
+import Navbar from '../../components/Navbar'
+
 function NewCallsPage () {
   return (
-    <div>NewCallsPage</div>
+    <>
+      <Navbar />
+      <MainNewCall />
+    </>
   )
 }
 

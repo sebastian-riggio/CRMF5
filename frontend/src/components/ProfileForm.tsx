@@ -29,7 +29,6 @@ import {
   PopoverTrigger
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
-import { Card } from './ui/card'
 
 const departamento = [
   { label: 'English', value: 'en' },
