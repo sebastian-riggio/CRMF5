@@ -10,7 +10,6 @@ import {
 import { Switch } from './ui/switch'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CalendarIcon } from '@radix-ui/react-icons'
-import { format } from 'date-fns'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -86,7 +85,7 @@ const accountFormSchema = z.object({
       message: 'Debe completar este campo'
     }),
   number: z
-    .number()
+    .string()
     .min(2, {
       message: 'Debe completar este campo'
     }),
@@ -95,12 +94,25 @@ const accountFormSchema = z.object({
     .min(2, {
       message: 'Debe completar este campo'
     }),
-
-  area: z.string()
-    .min(5, { message: 'Debes completar con el área' }),
   fecha: z.date({
     required_error: 'Debes ingresar una fecha '
   }),
+  fechaclose: z.date({
+    required_error: 'Debes ingresar una fecha '
+  }),
+  fechatime: z.date({
+    required_error: 'Debes ingresar una fecha '
+  }),
+  fechajus: z.date({
+    required_error: 'Debes ingresar una fecha '
+  }),
+  auditoria: z
+    .string()
+    .min(2, {
+      message: 'Debe completar este campo'
+    }).optional(),
+  area: z.string()
+    .min(5, { message: 'Debes completar con el área' }),
   correo: z.string({ required_error: 'Debes ingresar un correo electrónico' }),
   telefono: z.number().min(9, { message: 'Debes ingresar un número de contacto' })
 
@@ -141,14 +153,14 @@ function MainNewCall () {
       <div className='container mx-auto'>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-            <CardContent>
+            <CardContent className='flex flex-wrap -mx-10'>
               <FormField
                 control={form.control}
                 name='titulo'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Título de convocatoria</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Título de convocatoria</FormLabel>
                       <FormControl>
                         <Input placeholder='Título de convocatoria' {...field} />
                       </FormControl>
@@ -161,9 +173,9 @@ function MainNewCall () {
                 control={form.control}
                 name='tematica'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Temática</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Temática</FormLabel>
                       <FormControl>
                         <Input placeholder='Temática' {...field} />
                       </FormControl>
@@ -176,9 +188,9 @@ function MainNewCall () {
                 control={form.control}
                 name='entidad'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Entidad convocante</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Entidad convocante</FormLabel>
                       <FormControl>
                         <Input placeholder='Entidad convocante' {...field} />
                       </FormControl>
@@ -191,9 +203,9 @@ function MainNewCall () {
                 control={form.control}
                 name='dpto'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Departamento o centro gestor</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Departamento o centro gestor</FormLabel>
                       <FormControl>
                         <Input placeholder='Departamento o centro gestor' {...field} />
                       </FormControl>
@@ -206,9 +218,9 @@ function MainNewCall () {
                 control={form.control}
                 name='url'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Enlace a publicación oficial</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Enlace a publicación oficial</FormLabel>
                       <FormControl>
                         <Input placeholder='https://' {...field} />
                       </FormControl>
@@ -221,9 +233,9 @@ function MainNewCall () {
                 control={form.control}
                 name='urlbases'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Enlace a bases de convocatoria</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Enlace a bases de convocatoria</FormLabel>
                       <FormControl>
                         <Input placeholder='https://' {...field} />
                       </FormControl>
@@ -236,9 +248,9 @@ function MainNewCall () {
                 control={form.control}
                 name='texto'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Líneas específicas de trabajo</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Líneas específicas de trabajo</FormLabel>
                       <FormControl>
                         <Textarea placeholder='Escriba aquí...' {...field} />
                       </FormControl>
@@ -251,9 +263,9 @@ function MainNewCall () {
                 control={form.control}
                 name='entidades'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Entidades a la que se dirige</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Entidades a la que se dirige</FormLabel>
                       <FormControl>
                         <Input placeholder='Entidades a las que se dirige' {...field} />
                       </FormControl>
@@ -266,35 +278,26 @@ function MainNewCall () {
                 control={form.control}
                 name='fecha'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Fecha de apertura</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha de apertura</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <Button
-                              variant='outline'
-                              className={cn(
-                                'w-[240px] pl-3 text-left font-normal',
-                                !field.value && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value
-                                ? (
-                                    format(field.value, 'PPP')
-                                  )
-                                : (
-                                  <span>Elige la fecha </span>
-                                  )}
-                              <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                            </Button>
+                            <div className='relative'>
+                              <Input
+                                placeholder='Fecha de apertura'
+                                {...field}
+                                className='md:pr-8'
+                              />
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                            </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
                             selected={field.value}
-                                                      // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -309,37 +312,28 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='fecha'
+                name='fechaclose'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Fecha de cierre</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha de cierre</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <Button
-                              variant='outline'
-                              className={cn(
-                                'w-[240px] pl-3 text-left font-normal',
-                                !field.value && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value
-                                ? (
-                                    format(field.value, 'PPP')
-                                  )
-                                : (
-                                  <span>Elige fecha</span>
-                                  )}
-                              <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                            </Button>
+                            <div className='relative'>
+                              <Input
+                                placeholder='Fecha de cierre'
+                                {...field}
+                                className='md:pr-8' // Añade espacio para el icono
+                              />
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                            </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
                             selected={field.value}
-                                                      // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -352,39 +346,31 @@ function MainNewCall () {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
-                name='fecha'
+                name='fechatime'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Fecha límite de resolución </FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha límite de resolución </FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <Button
-                              variant='outline'
-                              className={cn(
-                                'w-[240px] pl-3 text-left font-normal',
-                                !field.value && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value
-                                ? (
-                                    format(field.value, 'PPP')
-                                  )
-                                : (
-                                  <span>Elige la fecha </span>
-                                  )}
-                              <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                            </Button>
+                            <div className='relative'>
+                              <Input
+                                placeholder='Fecha límite de resolución'
+                                {...field}
+                                className='md:pr-8' // Añade espacio para el icono
+                              />
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                            </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
                             selected={field.value}
-                                                      // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -397,13 +383,14 @@ function MainNewCall () {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name='titulo'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Período máximo de ejecución</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
                       <FormControl>
                         <Input placeholder='Período máximo de ejecución' {...field} />
                       </FormControl>
@@ -415,37 +402,28 @@ function MainNewCall () {
 
               <FormField
                 control={form.control}
-                name='fecha'
+                name='fechajus'
                 render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Fecha límite de justificación </FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha límite de justificación</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <Button
-                              variant='outline'
-                              className={cn(
-                                'w-[240px] pl-3 text-left font-normal',
-                                !field.value && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value
-                                ? (
-                                    format(field.value, 'PPP')
-                                  )
-                                : (
-                                  <span>Elige la fecha </span>
-                                  )}
-                              <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                            </Button>
+                            <div className='relative'>
+                              <Input
+                                placeholder='Fecha límite de justificación'
+                                {...field}
+                                className='md:pr-8'
+                              />
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
+                            </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
                             selected={field.value}
-                                                      // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -458,16 +436,21 @@ function MainNewCall () {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
-                name='titulo'
+                name='auditoria'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Auditoría externa obligatoria</FormLabel>
-                      <FormControl>
-                        <Switch {...field} />
-                      </FormControl>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2 flex'>
+                      <div>
+                        <FormLabel className='mb-2'>Auditoría externa obligatoria</FormLabel>
+                      </div>
+                      <div>
+                        <FormControl>
+                          <Switch {...field} />
+                        </FormControl>
+                      </div>
                       <FormMessage />
                     </div>
                   </FormItem>
@@ -477,9 +460,9 @@ function MainNewCall () {
                 control={form.control}
                 name='number'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Presupuesto máximo solicitable</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Presupuesto máximo solicitable</FormLabel>
                       <FormControl>
                         <Input placeholder='€' {...field} />
                       </FormControl>
@@ -492,9 +475,9 @@ function MainNewCall () {
                 control={form.control}
                 name='infotexto'
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Información de interés</FormLabel>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Información de interés</FormLabel>
                       <FormControl>
                         <Textarea placeholder='Escriba aquí...' {...field} />
                       </FormControl>
@@ -506,18 +489,22 @@ function MainNewCall () {
               <FormField
                 control={form.control}
                 name='file'
+                shouldUnregister
                 render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Información de interés</FormLabel>
-                      <FormControl>
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormControl className='mb-4'>
                         <Input type='file' {...field} />
                       </FormControl>
-                      <FormControl>
+                      <FormControl className='mb-4'>
                         <Input type='file' {...field} />
                       </FormControl>
                       <FormMessage />
-                      <FormControl>
+                      <FormControl className='mb-4'>
+                        <Input type='file' {...field} />
+                      </FormControl>
+                      <FormControl className='mb-4'>
                         <Input type='file' {...field} />
                       </FormControl>
                     </div>
@@ -525,10 +512,15 @@ function MainNewCall () {
                 )}
               />
             </CardContent>
-            <CardFooter>
-              <Button type='submit'>Cancelar</Button>
-              <Button type='submit'>Crear</Button>
+            <CardFooter className='flex justify-center space-x-6'>
+              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>
+                Cancelar
+              </Button>
+              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>
+                Crear
+              </Button>
             </CardFooter>
+
           </form>
         </Form>
       </div>
