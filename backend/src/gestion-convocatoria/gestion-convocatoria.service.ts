@@ -1,11 +1,13 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { CreateGestionConvocatoriaDto } from "./dto/create-gestion-convocatoria.dto";
 import { UpdateGestionConvocatoriaDto } from "./dto/update-gestion-convocatoria.dto";
 import { InjectModel } from "@nestjs/mongoose";
 import { GestionConvocatoria } from "./schema/gestion-convocatoria.schema";
-import { Model } from "mongoose";
+import { Model, ObjectId } from "mongoose";
 import { ProyectosRegistro } from "src/proyectos-registros/schema/proyectos-registro.schema";
 import { autoGenerateCode } from "src/utils/autoGenrateCode";
+import { ConvocatoriaRegistro } from "src/convocatoria-registro/schema/convocatoria-registro.schema";
+
 
 @Injectable()
 export class GestionConvocatoriaService {
@@ -13,7 +15,10 @@ export class GestionConvocatoriaService {
     @InjectModel(GestionConvocatoria.name)
     private GestionModel: Model<GestionConvocatoria>,
     @InjectModel(ProyectosRegistro.name)
-    private ProyectoModel: Model<ProyectosRegistro>
+    private ProyectoModel: Model<ProyectosRegistro>,
+    @InjectModel(ConvocatoriaRegistro.name)
+    private  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
+
   ) {}
 
   async create(
@@ -27,33 +32,82 @@ export class GestionConvocatoriaService {
     if(!createdGestion){
       throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyectos']}`)
     }
+    const createdConvocatoria = await this.ConvocatoriaModel.findOne({"entidad-convocante":createGestionConvocatoriaDto["financiador"]})
+    if(!createdConvocatoria){
+      throw new BadRequestException(`No hay finaciadores disponibles para gestionar:${createGestionConvocatoriaDto["financiador"]}`)
+    }
 
     const etapa = new this.GestionModel({
+      convocatoria:createGestionConvocatoriaDto.convocatoria,
+      financiador:createGestionConvocatoriaDto.financiador,
       proyecto: createGestionConvocatoriaDto.proyecto,
       "codigo-interno": codigoConFecha,
       "etapa-solicitud": createGestionConvocatoriaDto["etapa-solicitud"],
-      "etapa-otorgamiento":createGestionConvocatoriaDto["etapa-otorgamiento"]
+      "etapa-resolucion":createGestionConvocatoriaDto["etapa-resolucion"],
+      "etapa-otorgamiento":createGestionConvocatoriaDto["etapa-otorgamiento"],
+      "etapa-justificacion":createGestionConvocatoriaDto["etapa-justificacion"],
+      "etapa-cierre":createGestionConvocatoriaDto["etapa-cierre"]
     });
 
     return etapa.save();
   }
 
-  findAll() {
-    return `This action returns all gestionConvocatoria`;
+ async findAll() {
+    try{
+      const AllGestiones = await this.GestionModel.find().exec()
+      return {
+        message: 'Todas las gestiones de convocatorias se han recibido correctamente',
+        status:200,
+        gestiones:AllGestiones
+       };
+    }catch(error){
+      throw error
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} gestionConvocatoria`;
+ async findOne(id:ObjectId) {
+    try{
+      const gestion = await this.GestionModel.findOne({_id:id})
+      return {
+        message: 'Gestion de convocatoria recibida correctamente',
+        status: 200,
+        gestion:gestion
+      };
+    }catch(error){
+      throw error
+    }
   }
 
-  update(
-    id: number,
+ async update(
     updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto
   ) {
-    return `This action updates a #${id} gestionConvocatoria`;
+   try {
+    const updateGestion = await this.GestionModel.findOneAndUpdate({_id:updateGestionConvocatoriaDto},
+      {
+       ...updateGestionConvocatoriaDto
+      });
+      return {
+        message: "gestion actualizada correctamente",
+        status:200,
+        gestion:updateGestion
+      }
+   }catch(error){
+    throw error
+   }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} gestionConvocatoria`;
+ async remove(id:ObjectId) {
+  try {
+    const findAndDelete = await this.GestionModel.findByIdAndDelete(id);
+    if(!findAndDelete) throw new HttpException('Gestion de convocatoria no encontrada',HttpStatus.NOT_FOUND)
+    return {
+  message:'Gestion de convocatoria eliminida correctamente',
+  status:200,
+  data:''
+    }
+  }catch(error){
+    throw error
+  }
+   
   }
 }

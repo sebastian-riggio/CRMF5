@@ -4,6 +4,7 @@ import { GestionConvocatoriaController } from './gestion-convocatoria.controller
 import { MongooseModule } from '@nestjs/mongoose';
 import { GestionConvocatoria, GestionSchema } from './schema/gestion-convocatoria.schema';
 import { ProyectosRegistro, ProyectosRegistroSchema } from 'src/proyectos-registros/schema/proyectos-registro.schema';
+import { ConvocatoriaRegistro, ConvocatoriaRegistroSchema } from 'src/convocatoria-registro/schema/convocatoria-registro.schema';
 
 @Module({
 imports:[
@@ -16,7 +17,12 @@ MongooseModule.forFeature([
   {
     name: ProyectosRegistro.name,
     schema: ProyectosRegistroSchema
-  }
+  },
+  {
+    name: ConvocatoriaRegistro.name,
+    schema: ConvocatoriaRegistroSchema
+    },
+
 ])
 
 
