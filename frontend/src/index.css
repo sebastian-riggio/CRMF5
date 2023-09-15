@@ -2,6 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@fontsource/poppins/300.css;
+@fontsource/poppins/400.css;
+@fontsource/poppins/600.css;
+@fontsource/poppins/700.css;
 
 @font-face {
   font-family: 'ClashGrotesk-Variable';
@@ -86,8 +90,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Open Sans Variable', sans-serif;
+    
   }
   h1, h2, h3, h4, h5{
-    font-family: 'ClashGrotesk-Variable';
+      font-family: 'Poppins', sans-serif;
   }
 }
