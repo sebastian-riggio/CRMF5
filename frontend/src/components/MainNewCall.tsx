@@ -35,17 +35,16 @@ import { toast } from '../components/ui/use-toast'
 import { Separator } from './ui/separator'
 
 /* const departamento = [
-  { label: 'English', value: 'en' },
-  { label: 'French', value: 'fr' },
-  { label: 'German', value: 'de' },
-  { label: 'Spanish', value: 'es' },
-  { label: 'Portuguese', value: 'pt' },
-  { label: 'Russian', value: 'ru' },
-  { label: 'Japanese', value: 'ja' },
-  { label: 'Korean', value: 'ko' },
-  { label: 'Chinese', value: 'zh' }
-] as const */
-
+  { label: 'Factoria F5 - Madrid', value: 'mad' },
+  { label: 'Factoria F5 - Barcelona', value: 'bcn' },
+  { label: 'Factoria F5 - Asturias', value: 'ast' },
+  { label: 'Factoría F5 - People and culture', value: 'p&c' },
+  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
+  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
+  { label: 'Factoría F5 -  Dirección general', value: 'gen' },
+  { label: 'Otro', value: 'otro' },
+] as const
+ */
 const accountFormSchema = z.object({
   titulo: z
     .string()
