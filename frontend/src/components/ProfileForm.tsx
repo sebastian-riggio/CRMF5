@@ -29,6 +29,7 @@ import {
   PopoverTrigger
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
+import accountFormSchema from './accountFormSchema';
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'p&c' },
@@ -37,25 +38,6 @@ const departamento = [
   { label: 'Factoría F5 -  Dirección general', value: 'gen' },
   { label: 'Otro', value: 'otro' }
 ] as const
-
-const accountFormSchema = z.object({
-  nombre: z
-    .string()
-    .min(2, {
-      message: 'Debes completar con el nombre'
-    }),
-  departamento: z.string({
-    required_error: 'Por favor elije un centro gestor de factoria F5'
-  }),
-  area: z.string()
-    .min(5, { message: 'Debes completar con el área' }),
-  fecha: z.date({
-    required_error: 'Debes ingresar una fecha '
-  }),
-  correo: z.string({ required_error: 'Debes ingresar un correo electrónico' }),
-  telefono: z.string().min(9, { message: 'Debes ingresar un número de contacto' })
-
-})
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 

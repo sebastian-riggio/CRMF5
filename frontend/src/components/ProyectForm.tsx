@@ -37,7 +37,8 @@ import { toast } from './ui/use-toast';
 import { Separator } from './ui/separator';
 import { useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
-import { createProject} from '../services/proyectos';
+import { createProject } from '../services/proyectos';
+import accountFormSchema from './accountFormSchema';
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
@@ -46,29 +47,6 @@ const departamento = [
   { label: 'Factoría F5 -  Dirección general', value: 'Factoría F5-Dirección general' },
   { label: 'Otro', value: 'Otro' },
 ] as const;
-
-const accountFormSchema = z.object({
- 'proyecto-nombre': z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-  'centro-gestor': z.string().min(2, {
-    message: 'Debe completar este campo',
-  
-  }),
-  'responsable': z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-  'proyecto-duracion': z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-  'proyecto-presupuesto': z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-
-  'factoria-presupuesto': z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-});
 
 type AccountFormValues = z.infer<typeof accountFormSchema>;
 

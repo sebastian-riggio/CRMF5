@@ -71,7 +71,39 @@ const accountFormSchema = z.object({
     area: z.string()
         .min(5, { message: 'Debes completar con el área' }),
     correo: z.string({ required_error: 'Debes ingresar un correo electrónico' }),
-    telefono: z.number().min(9, { message: 'Debes ingresar un número de contacto' })
+    telefono: z.number().min(9, { message: 'Debes ingresar un número de contacto' }),
+
+// ProyectForm
+    'proyecto-nombre': z.string().min(2, {
+         message: 'Debe completar este campo',
+     }),
+    'centro-gestor': z.string().min(2, {
+        message: 'Debe completar este campo',
+
+    }),
+    'responsable': z.string().min(2, {
+        message: 'Debe completar este campo',
+    }),
+    'proyecto-duracion': z.string().min(2, {
+        message: 'Debe completar este campo',
+    }),
+    'proyecto-presupuesto': z.string().min(2, {
+        message: 'Debe completar este campo',
+    }),
+
+    'factoria-presupuesto': z.string().min(2, {
+        message: 'Debe completar este campo',
+    }),
+
+// ProfileForm
+    nombre: z
+        .string()
+        .min(2, {
+            message: 'Debes completar con el nombre'
+        }),
+    departamento: z.string({
+        required_error: 'Por favor elije un centro gestor de factoria F5'
+    }),
 
 });
 
