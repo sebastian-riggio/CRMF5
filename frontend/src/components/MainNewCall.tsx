@@ -52,6 +52,11 @@ const accountFormSchema = z.object({
     .min(2, {
       message: 'Debe completar este campo'
     }),
+  periodomaximo: z
+    .string()
+    .min(2, {
+      message: 'Debe completar este campo'
+    }),
   tematica: z
     .string()
     .min(2, {
@@ -94,16 +99,16 @@ const accountFormSchema = z.object({
     .min(2, {
       message: 'Debe completar este campo'
     }),
-  fecha: z.date({
+  fecha: z.string({
     required_error: 'Debes ingresar una fecha '
   }),
-  fechaclose: z.date({
+  fechaclose: z.string({
     required_error: 'Debes ingresar una fecha '
   }),
-  fechatime: z.date({
+  fechatime: z.string({
     required_error: 'Debes ingresar una fecha '
   }),
-  fechajus: z.date({
+  fechajus: z.string({
     required_error: 'Debes ingresar una fecha '
   }),
   auditoria: z
@@ -290,14 +295,15 @@ function MainNewCall () {
                                 {...field}
                                 className='md:pr-8'
                               />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
                             </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
-                            selected={field.value}
+                            selected={new Date(field.value)}
+                            // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -324,16 +330,17 @@ function MainNewCall () {
                               <Input
                                 placeholder='Fecha de cierre'
                                 {...field}
-                                className='md:pr-8' // Añade espacio para el icono
+                                className='md:pr-8'
                               />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
                             </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
-                            selected={field.value}
+                            selected={new Date(field.value)}
+                            // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -361,16 +368,17 @@ function MainNewCall () {
                               <Input
                                 placeholder='Fecha límite de resolución'
                                 {...field}
-                                className='md:pr-8' // Añade espacio para el icono
+                                className='md:pr-8'
                               />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' /> {/* Coloca el icono dentro del campo */}
+                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
                             </div>
                           </FormControl>
                         </PopoverTrigger>
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
-                            selected={field.value}
+                            selected={new Date(field.value)}
+                            // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -386,7 +394,7 @@ function MainNewCall () {
 
               <FormField
                 control={form.control}
-                name='titulo'
+                name='periodomaximo'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -423,7 +431,8 @@ function MainNewCall () {
                         <PopoverContent className='w-auto p-0' align='start'>
                           <Calendar
                             mode='single'
-                            selected={field.value}
+                            selected={new Date(field.value)}
+                            // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date('1900-01-01')}
@@ -491,24 +500,32 @@ function MainNewCall () {
                 name='file'
                 shouldUnregister
                 render={({ field }) => (
-                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                    <div className='my-2'>
+                  <div className='my-2 flex flex-wrap -mx-4'>
+                    <FormItem className='w-1/2 px-4 mb-4'>
                       <FormLabel className='mb-2'>Información de interés</FormLabel>
-                      <FormControl className='mb-4'>
+                      <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
-                      <FormControl className='mb-4'>
+                    </FormItem>
+                    <FormItem className='w-1/2 px-4 mb-4'>
+                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
-                      <FormMessage />
-                      <FormControl className='mb-4'>
+                    </FormItem>
+                    <FormItem className='w-1/2 px-4 mb-4'>
+                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
-                      <FormControl className='mb-4'>
+                    </FormItem>
+                    <FormItem className='w-1/2 px-4 mb-4'>
+                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
-                    </div>
-                  </FormItem>
+                    </FormItem>
+                  </div>
                 )}
               />
             </CardContent>
