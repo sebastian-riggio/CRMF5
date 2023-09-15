@@ -1,5 +1,5 @@
 import Navbar from '../../components/Navbar'
-import ProyectForm from '../../components/proyectForm'
+import ProyectForm from '../../components/ProyectForm'
 
 function NewProjectPage () {
   return (
