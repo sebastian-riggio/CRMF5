@@ -7,19 +7,18 @@ import { Search } from './ui/navbar/search'
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isCrossIcon, setIsCrossIcon] = useState(false) // Estado para el icono de cruz
+  const [isCrossIcon, setIsCrossIcon] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
 
-    // Cambia el estado del icono a cruz cuando se abre el menú
     setIsCrossIcon(!isCrossIcon)
   }
 
   useEffect(() => {
     const handleResize = () => {
       setIsMenuOpen(false)
-      setIsCrossIcon(false) // Restablece el estado del icono al cerrar el menú
+      setIsCrossIcon(false) 
     }
 
     window.addEventListener('resize', handleResize)
@@ -49,19 +48,20 @@ function Navbar () {
               )
             : (
               <Menu />
-              )}
+            )}
+          <div><Separator orientation="vertical" className='w-px h-6 bg-gray-900' /></div>
           <UserNav />
         </button>
       </div>
       {isMenuOpen && (
-        <div className='md:hidden'>
+        <div className='flex-grow' >
           <MenuNav />
         </div>
       )}
       <Separator />
       {!isMenuOpen && (
         <div className='md:hidden flex justify-center'>
-          <Search /> {/* Centra Search debajo del separador en vista móvil */}
+          <Search />
         </div>
       )}
     </>
