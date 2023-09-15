@@ -1,0 +1,38 @@
+function CourseForm() {
+
+
+  const [name, setName] = useState("");
+  const [topic, setTopic] = useState(""); 
+  const [difficulty, setLevel] = useState(""); 
+  const [tags, setTags] = useState<string[]>([]);
+  const [content, setContent] = useState("");
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const courseData = {
+      name,
+      topic,
+      difficulty,
+      tags:tags[0].split(","),
+      content,
+    };
+console.log(courseData)
+
+
+    try {
+      const userId = auth?.user?.data._id
+      console.log(userId)
+      const response: AxiosResponse = await createCourse(userId,courseData,{
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true
+      })
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+  }, []);
