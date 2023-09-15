@@ -8,29 +8,30 @@ import { Public } from 'src/auth/decorators/public.decorator';
 @Controller('announcement')
 export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}
-@Public()
+
+// @Public()
   @Post('register')
   create(@Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   }
 
-  @Public()
+ // @Public()
   @Get()
   findAll() {
     return this.convocatoriaRegistroService.findAll();
   }
-@Public()
+// @Public()
   @Get(':id')
   findOne(@Param('id') id:ObjectId) {
     return this.convocatoriaRegistroService.findOne(id);
   }
-@Public()
+// @Public()
   @Patch('update')
   update(@Body() updateConvocatoriaRegistroDto: UpdateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.update(updateConvocatoriaRegistroDto);
   }
   
-@Public()
+// @Public()
   @Delete('delete')
   remove(@Body('id') id:ObjectId) {
     return this.convocatoriaRegistroService.remove(id);

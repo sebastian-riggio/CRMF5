@@ -4,7 +4,7 @@ import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto'
 import { InjectModel } from '@nestjs/mongoose';
 import { ProyectosRegistro } from './schema/proyectos-registro.schema';
 import { Model, ObjectId } from 'mongoose';
-import { autoGenerateCode } from 'src/utils/autoGenrateCode';
+import { autoGenerateCode } from 'src/utils/autoGenerateCode';
 
 @Injectable()
 export class ProyectosRegistrosService {
