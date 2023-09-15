@@ -11,6 +11,7 @@ import { Input } from '../components/ui/input'
 import { Label } from '../components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 type TabValue = 'account' | 'password';
 
@@ -77,7 +78,9 @@ export function LoginTab () {
               </div>
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
-              <Button className='h-8 text-white hover:bg-FF4700-dark w-[250px]'>Entrar</Button>
+              <Link to='/'>
+                <Button className='h-8 text-white hover:bg-FF4700-dark w-[250px]'>Entrar</Button>
+              </Link>
             </CardFooter>
           </Card>
         </div>
@@ -98,7 +101,9 @@ export function LoginTab () {
               </div>
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
-              <Button className='h-8 bg-FF4700 text-white hover:bg-FF4700-dark w-[250px]'>Recuperar contraseña</Button>
+              <Link to='/notfound'>
+                <Button className='h-8 bg-FF4700 text-white hover:bg-FF4700-dark w-[250px]'>Recuperar contraseña</Button>
+              </Link>
             </CardFooter>
           </Card>
         </div>
