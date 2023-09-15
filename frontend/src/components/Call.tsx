@@ -1,132 +1,26 @@
-import { Textarea } from './ui/textarea'
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle
-} from './ui/card'
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
-import { Switch } from './ui/switch'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { CalendarIcon } from '@radix-ui/react-icons'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-import { useState } from 'react'
-import { cn } from '../lib/utils'
-import { Button } from '../components/ui/button'
-import { Calendar } from '../components/ui/calendar'
-
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from '../components/ui/form'
-import { Input } from './ui/input'
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger
-} from './ui/popover'
-import { toast } from '../components/ui/use-toast'
-import { Separator } from './ui/separator'
+import accountFormSchema from './accountFormSchema';
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '../components/ui/accordion'
-
-/* const departamento = [
-  { label: 'Factoria F5 - Madrid', value: 'mad' },
-  { label: 'Factoria F5 - Barcelona', value: 'bcn' },
-  { label: 'Factoria F5 - Asturias', value: 'ast' },
-  { label: 'Factoría F5 - People and culture', value: 'p&c' },
-  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
-  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
-  { label: 'Factoría F5 -  Dirección general', value: 'gen' },
-  { label: 'Otro', value: 'otro' },
-] as const
- */
-const accountFormSchema = z.object({
-    titulo: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    periodomaximo: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    tematica: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    entidad: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    dpto: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    url: z.string({ required_error: 'Por favor ingrese un URL' }),
-    urlbases: z.string({ required_error: 'Por favor ingrese un URL' }),
-    texto: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    infotexto: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    entidades: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    number: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    file: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }),
-    fecha: z.string({
-        required_error: 'Debes ingresar una fecha '
-    }),
-    fechaclose: z.string({
-        required_error: 'Debes ingresar una fecha '
-    }),
-    fechatime: z.string({
-        required_error: 'Debes ingresar una fecha '
-    }),
-    fechajus: z.string({
-        required_error: 'Debes ingresar una fecha '
-    }),
-    auditoria: z
-        .string()
-        .min(2, {
-            message: 'Debe completar este campo'
-        }).optional(),
-    area: z.string()
-        .min(5, { message: 'Debes completar con el área' }),
-    correo: z.string({ required_error: 'Debes ingresar un correo electrónico' }),
-    telefono: z.number().min(9, { message: 'Debes ingresar un número de contacto' })
-
-})
+} from '../components/ui/accordion';
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from './ui/card';
+import { Form, FormControl, FormItem, FormLabel, FormMessage } from '../components/ui/form';
+import { Input } from './ui/input';
+import { Separator } from './ui/separator';
+import { Switch } from './ui/switch';
+import { Textarea } from './ui/textarea';
+import { toast } from '../components/ui/use-toast';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
