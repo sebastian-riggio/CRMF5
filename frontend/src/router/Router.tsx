@@ -10,6 +10,7 @@ import AllProjectsPage from '../pages/projects/AllProjectsPage'
 import NewProjectPage from '../pages/projects/NewProjectPage'
 import RegisterUserPage from '../pages/user/RegisterUserPage'
 import NotFoundPage from '../pages/NotFoundPage'
+import CallPage from '../pages/calls/CallPage'
 
 const CrmRouter = (
   <Routes>
@@ -19,6 +20,7 @@ const CrmRouter = (
     <Route path='/allprojects' element={<AllProjectsPage />} />
     <Route path='/allcalls' element={<AllCallsPage />} />
     <Route path='/newcall' element={<NewCallPage />} />
+    <Route path='/call' element={<CallPage />} />
     <Route path='/newfinancier' element={<NewFinancierPage />} />
     <Route path='/allfinanciers' element={<AllFinanciersPage />} />
     <Route path='/financier' element={<FinancierPage />} />
