@@ -31,9 +31,6 @@ import {
 import { toast } from '../components/ui/use-toast'
 
 const departamento = [
-  { label: 'Factoria F5 - Madrid', value: 'mad' },
-  { label: 'Factoria F5 - Barcelona', value: 'bcn' },
-  { label: 'Factoria F5 - Asturias', value: 'ast' },
   { label: 'Factoría F5 - People and culture', value: 'p&c' },
   { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
   { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
@@ -56,7 +53,7 @@ const accountFormSchema = z.object({
     required_error: 'Debes ingresar una fecha '
   }),
   correo: z.string({ required_error: 'Debes ingresar un correo electrónico' }),
-  telefono: z.number().min(9, { message: 'Debes ingresar un número de contacto' })
+  telefono: z.string().min(9, { message: 'Debes ingresar un número de contacto' })
 
 })
 
@@ -75,6 +72,7 @@ export function AccountForm () {
   })
 
   function onSubmit (data: AccountFormValues) {
+    console.log(data)
     toast({
       title: 'Crea un nuevo usurario para Factoria F5:',
       description: (
