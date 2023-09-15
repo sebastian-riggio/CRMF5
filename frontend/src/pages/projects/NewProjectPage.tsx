@@ -1,6 +1,12 @@
+import Navbar from '../../components/Navbar'
+import ProyectForm from '../../components/proyectForm'
+
 function NewProjectPage () {
   return (
-    <div>NewProjectPage</div>
+    <>
+      <Navbar />
+      <ProyectForm />
+    </>
   )
 }
 

@@ -11,7 +11,8 @@ module.exports = {
       'plugin:react/jsx-runtime',
       'plugin:react-hooks/recommended',
       'standard',
-      'standard-jsx'
+      'standard-jsx',
+      'prettier'
     ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
