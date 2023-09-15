@@ -12,6 +12,7 @@ export class ProyectosRegistrosController {
   @Public()
   @Post('register')
   create(@Body() createProyectosRegistroDto: CreateProyectosRegistroDto) {
+    console.log(createProyectosRegistroDto)
     return this.proyectosRegistrosService.create(createProyectosRegistroDto);
   }
   

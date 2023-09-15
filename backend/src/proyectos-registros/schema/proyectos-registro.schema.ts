@@ -19,11 +19,7 @@ export class ProyectosRegistro {
 "Factoria F5 - Admin, contabilidad y finanzas",
 "Factoria F5 - Oficina soporte proyectos y calidad",
  "Factoría F5 - Dirección general "]})
-@Prop({enum:["Factoria F5 - People and culture",
-"Factoria F5 - Admin, contabilidad y finanzas",
-"Factoria F5 - Oficina soporte proyectos y calidad",
- "Factoría F5 - Dirección general "
-]})
+@Prop()
 
 "centro-gestor":string;
 

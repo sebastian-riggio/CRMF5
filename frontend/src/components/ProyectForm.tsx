@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Textarea } from './ui/textarea';
 import {
   Card,
@@ -35,33 +36,36 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { toast } from './ui/use-toast';
 import { Separator } from './ui/separator';
 import { useForm } from 'react-hook-form';
+import { AxiosResponse } from 'axios';
+import { createProject} from '../services/proyectos';
 
 const departamento = [
-  { label: 'Factoría F5 - People and culture', value: 'p&c' },
-  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
-  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
-  { label: 'Factoría F5 -  Dirección general', value: 'gen' },
-  { label: 'Otro', value: 'otro' },
+  { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
+  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'Factoría F5-Admin, contabilidad y finanza' },
+  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'Factoría F5-Oficina soporte proyectos y calida' },
+  { label: 'Factoría F5 -  Dirección general', value: 'Factoría F5-Dirección general' },
+  { label: 'Otro', value: 'Otro' },
 ] as const;
 
 const accountFormSchema = z.object({
-  titulo: z.string().min(2, {
+ 'proyecto-nombre': z.string().min(2, {
     message: 'Debe completar este campo',
   }),
-  departamento: z.string().min(2, {
+  'centro-gestor': z.string().min(2, {
+    message: 'Debe completar este campo',
+  
+  }),
+  'responsable': z.string().min(2, {
     message: 'Debe completar este campo',
   }),
-  responsable: z.string().min(2, {
+  'proyecto-duracion': z.string().min(2, {
     message: 'Debe completar este campo',
   }),
-  mesesDuracion: z.string().min(2, {
-    message: 'Debe completar este campo',
-  }),
-  presupuestoProyecto: z.string().min(2, {
+  'proyecto-presupuesto': z.string().min(2, {
     message: 'Debe completar este campo',
   }),
 
-  presupuestoFactoria: z.string().min(2, {
+  'factoria-presupuesto': z.string().min(2, {
     message: 'Debe completar este campo',
   }),
 });
@@ -80,8 +84,14 @@ function ProyectForm() {
     defaultValues,
   });
 
-  function onSubmit(data: AccountFormValues) {
-    console.log(data);
+  async function onSubmit(data: AccountFormValues) {
+    try {
+      const response: AxiosResponse = await createProject(data);
+      console.log(response)
+    } catch (error) {
+      console.error('Error al enviar la solicitud:', error);
+    }
+
     toast({
       title: 'Crea un nuevo usurario para Factoria F5:',
       description: (
@@ -91,6 +101,7 @@ function ProyectForm() {
       ),
     });
   }
+  useEffect(() => {}, []);
   return (
     <Card className="m-4">
       <CardHeader>
@@ -108,7 +119,7 @@ function ProyectForm() {
             <CardContent>
               <FormField
                 control={form.control}
-                name="titulo"
+                name="proyecto-nombre"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -124,7 +135,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="departamento"
+                name="centro-gestor"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
                     <div className="my-2 flex justifiy flex-wrap md:flex-nowrap">
@@ -163,7 +174,7 @@ function ProyectForm() {
                                   key={departamento.value}
                                   onSelect={() => {
                                     form.setValue(
-                                      'departamento',
+                                      'centro-gestor',
                                       departamento.value
                                     );
                                   }}
@@ -210,7 +221,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="mesesDuracion"
+                name="proyecto-duracion"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -226,7 +237,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="presupuestoProyecto"
+                name="proyecto-presupuesto"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -242,7 +253,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="presupuestoFactoria"
+                name="factoria-presupuesto"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">

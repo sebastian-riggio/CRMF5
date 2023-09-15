@@ -1,6 +1,7 @@
+import { Projects } from "../interfaces/projects";
 import { axiosPrivate } from "./AxiosPrivate";
 
 
-  export const createProyect = ()=> {
-    return axiosPrivate.post(`/projects/register`)
+  export const createProject = (data:Projects)=> {
+    return axiosPrivate.post(`/projects/register`,data)
   }
