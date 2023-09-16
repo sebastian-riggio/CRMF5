@@ -1,9 +1,10 @@
 import { Link } from '@radix-ui/react-navigation-menu'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../navigation-menu'
 
-function MenuNav () {
+function DesktopMenuNav () {
   return (
     <>
+      <div className='flex space-x-4'>
       <div>
         <NavigationMenu>
           <NavigationMenuList>
@@ -72,8 +73,9 @@ function MenuNav () {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+        </div>
       </div>
     </>
   )
 }
-export default MenuNav
+export default DesktopMenuNav
