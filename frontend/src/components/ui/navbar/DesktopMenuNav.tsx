@@ -13,7 +13,7 @@ function DesktopMenuNav () {
                 Proyectos
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <Link href='/projects'>
+                <Link href='/allprojects'>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Proyectos
                   </NavigationMenuLink>
