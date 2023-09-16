@@ -11,7 +11,7 @@ function MobileMenuNav() {
     return (
         <div className='h-screen w-screen flex flex-col'>
             <div className='m-20 flex-grow'>
-                <div className='mx-10'>
+                <div className='mx-5'>
                     <Accordion type='single' collapsible>
                         <AccordionItem value='item-1'>
                             <AccordionTrigger>PROYECTOS</AccordionTrigger>
@@ -28,7 +28,7 @@ function MobileMenuNav() {
                         </AccordionItem>
                     </Accordion>
                 </div>
-                <div className='mx-10'>
+                <div className='mx-5'>
                     <Accordion type='single' collapsible>
                         <AccordionItem value='item-1'>
                             <AccordionTrigger>CONVOCATORIAS</AccordionTrigger>
@@ -45,7 +45,7 @@ function MobileMenuNav() {
                         </AccordionItem>
                     </Accordion>
                 </div>
-                <div className='mx-10'>
+                <div className='mx-5'>
                     <Accordion type='single' collapsible>
                         <AccordionItem value='item-1'>
                             <AccordionTrigger>FINANCISTAS</AccordionTrigger>

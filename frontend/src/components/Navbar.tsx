@@ -3,7 +3,7 @@ import { Separator } from './ui/separator'
 import MobileMenuNav from './ui/navbar/MobileMenuNav'
 import UserNav from './ui/navbar/user-nav'
 import { Menu } from 'lucide-react'
-import { Search } from './ui/navbar/search'
+import { SearchInput } from './ui/navbar/search'
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,12 +30,13 @@ function Navbar () {
 
   return (
     <>
-      <div className='flex items-center justify-between h-full p-4'>
+      <div className='flex items-center justify-between h-full p-3'>
         <img
           src='src/assets/LogoFactoria.png'
-          className='max-w-[100px] h-auto mb-7 ml-7'
+          className='max-w-[90px] h-auto mb-7 ml-5 mt-2'
           alt='isologo-f5'
         />
+        <div className="mr-5">
         <button
           className='md:hidden flex items-center space-x-4'
           onClick={toggleMenu}
@@ -51,7 +52,8 @@ function Navbar () {
             )}
           <div><Separator orientation="vertical" className='w-px h-6 bg-gray-900' /></div>
           <UserNav />
-        </button>
+          </button>
+        </div>
       </div>
       {isMenuOpen && (
         <div className='flex-grow' >
@@ -60,8 +62,8 @@ function Navbar () {
       )}
       <Separator />
       {!isMenuOpen && (
-        <div className='md:hidden flex justify-center'>
-          <Search />
+        <div className='md:hidden flex justify-start ml-4 mt-3'>
+          <SearchInput />
         </div>
       )}
     </>
