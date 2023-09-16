@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Separator } from './ui/separator'
-import MenuNav from './ui/navbar/MenuNav'
+import MobileMenuNav from './ui/navbar/MobileMenuNav'
 import UserNav from './ui/navbar/user-nav'
 import { Menu } from 'lucide-react'
 import { Search } from './ui/navbar/search'
@@ -55,7 +55,7 @@ function Navbar () {
       </div>
       {isMenuOpen && (
         <div className='flex-grow' >
-          <MenuNav />
+          <MobileMenuNav />
         </div>
       )}
       <Separator />

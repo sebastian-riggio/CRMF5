@@ -1,10 +1,4 @@
-import { Button } from '../button'
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage
-} from '../avatar'
-
+import React from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,9 +8,21 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger
-} from '../dropdown-menu'
+} from '../dropdown-menu';
+import { Button } from '../button';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage
+} from '../avatar';
 
-function UserNav () {
+function UserNav() {
+  const handleMenuItemClick = (event: React.MouseEvent) => {
+    // esto es para evitar la propagación del evento al menú exterior, ya que tenía colapso :/
+    event.stopPropagation(); 
+    // !IMPORTANTE. Hay que MANEJAR LOS CLICK Y testear como se comporta el codigo.
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -38,23 +44,23 @@ function UserNav () {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={handleMenuItemClick}>
             Perfil
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={handleMenuItemClick}>
             Configuración
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleMenuItemClick}>
           Cerrar Sesión
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
 
-export default UserNav
+export default UserNav;
