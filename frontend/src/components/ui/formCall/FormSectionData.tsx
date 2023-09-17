@@ -19,7 +19,7 @@ interface FormSectionProps {
 
 function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch = false, showCalendarIcon = false, pdfUrl }: FormSectionProps) {
     return (
-        <div className='flex flex-wrap mx-5'>
+        <div className='flex flex-wrap mx-6'>
             <FormItem className='w-full'>
                 <div className='my-3'>
                     <FormLabel className='mb-2'>{title}</FormLabel>
