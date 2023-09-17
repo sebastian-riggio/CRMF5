@@ -5,7 +5,7 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle, 
 } from './ui/card';
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
 

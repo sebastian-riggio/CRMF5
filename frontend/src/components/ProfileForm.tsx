@@ -30,6 +30,10 @@ import {
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
 import accountFormSchema from './accountFormSchema';
+import { Textarea } from './ui/textarea'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Separator } from '@radix-ui/react-separator'
+import { Link } from 'react-router-dom'
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'p&c' },
@@ -66,6 +70,15 @@ export function AccountForm () {
   }
 
   return (
+    <Card className="m-4">
+      <CardHeader>
+        <CardTitle>Nuevo Usuario</CardTitle>
+        <Textarea>
+         Completar los datos del nuevo usuario del Factoria F5
+        </Textarea>
+      </CardHeader>
+      
+      <Separator />
     <div className='container mx-auto'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
@@ -238,10 +251,15 @@ export function AccountForm () {
               </FormItem>
             )}
           />
+         <CardFooter>
           <Button type='submit'>Cancelar</Button>
+          <Link to='/home'>
           <Button type='submit'>Crear</Button>
+          </Link>
+         </CardFooter>
         </form>
       </Form>
     </div>
+    </Card>
   )
 }
