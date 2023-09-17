@@ -1,6 +1,6 @@
 import MenuMobileItem from '../MenuMobileItem';
 
-function MobileMenuNav() {
+function AdminMobileMenuNav() {
     return (
         <div className='h-screen w-screen flex flex-col'>
             <div className='m-20 flex-grow'>
@@ -27,9 +27,17 @@ function MobileMenuNav() {
                         { url: '/newfinancier', text: 'SUBIR NUEVO FINANCISTA' },
                     ]}
                 />
+                <MenuMobileItem
+                    title="USUARIOS"
+                    links={[
+                        { url: '/allusers', text: 'USUARIOS' },
+                        { url: '/registeruser', text: 'CREAR NUEVO USUARIO' },
+                    ]}
+                />
+
             </div>
         </div>
     );
 }
 
-export default MobileMenuNav;
+export default AdminMobileMenuNav;
