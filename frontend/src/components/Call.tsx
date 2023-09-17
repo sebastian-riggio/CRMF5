@@ -15,12 +15,10 @@ import {
     CardHeader,
     CardTitle,
 } from './ui/card';
-import { Form, FormControl, FormItem, FormLabel, FormMessage } from '../components/ui/form';
-import { Input } from './ui/input';
-import { Separator } from './ui/separator';
-import { Switch } from './ui/switch';
-import { Textarea } from './ui/textarea';
 import { toast } from '../components/ui/use-toast';
+import FormSectionData from '../components/ui/formCall/FormSectionData';
+import { Separator } from './ui/separator';
+import { Form } from './ui/form';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
@@ -46,273 +44,124 @@ function Call() {
             )
         })
     }
-    // SOLO PARA TEST
-    // Genera un valor aleatorio para la temática 
-    const contenidoAleatorio = generarContenidoAleatorio();
-
-    function generarContenidoAleatorio() {
-        const contenidos = ['Contenido 1', 'Contenido 2', 'Contenido 3', 'Contenido 4', 'Contenido 5']; 
-        const indiceAleatorio = Math.floor(Math.random() * contenidos.length);
-        return contenidos[indiceAleatorio];
-    }
 
     return (
-        <Card className='m-2 md:m-4 lg:m-8 xl:m-15'>
+        <Card className='m-2 md:m-4 lg:mt-8 xl:mx-20'>
             <CardHeader>
                 <CardTitle>
                     Título de prueba
-                    {/* Aqui hay que traer el titulo de la convocatoria */}
+                    {/* Aca hay que traer el titulo de la convocatoria */}
                 </CardTitle>
             </CardHeader>
+
             <Separator />
+
             <div className='container mx-auto'>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-                        <CardContent className='flex flex-wrap -mx-10'>
-                            <Card className='m-2 w-full px-2 '>
-{ /*   DATOS GENERALES   */}                                
-                            <Accordion type="single" collapsible>
-                                <AccordionItem value="item-1">
-                                    <AccordionTrigger>DATOS GENERALES</AccordionTrigger>
+                        <CardContent className='flex flex-wrap '>
+
+                            { /*   DATOS GENERALES   */}
+                            <Card className='m-2 w-full px-2 mt-8 '>
+                                <Accordion type="single" collapsible>
+                                    <AccordionItem value="item-1">
+                                        <AccordionTrigger>DATOS GENERALES</AccordionTrigger>
                                         <AccordionContent>
                                             <div className='flex flex-wrap'>
-
-                                                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                    
-                                                        <div className='my-2'>
-                                                            <FormLabel className='mb-2'>Temática</FormLabel>
-                                                            <FormControl>
-                                                                <Input disabled value={contenidoAleatorio} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </div>
-                                                    </FormItem>
-
-                                                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                        <div className='my-2'>
-                                                            <FormLabel className='mb-2'>Entidad convocante</FormLabel>
-                                                            <FormControl>
-                                                                <Input disabled value={contenidoAleatorio} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </div>
-                                                    </FormItem>
-                                            
-                                            
-                                                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                        <div className='my-2'>
-                                                            <FormLabel className='mb-2'>Departamento o centro gestor</FormLabel>
-                                                            <FormControl>
-                                                            <Input disabled value={contenidoAleatorio} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </div>
-                                                    </FormItem>
-                                            
-                                                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                        <div className='my-2'>
-                                                            <FormLabel className='mb-2'>Enlace a publicación oficial</FormLabel>
-                                                            <FormControl>
-                                                            <Input disabled value={contenidoAleatorio} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </div>
-                                                    </FormItem>
-                                           
-                                                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                        <div className='my-2'>
-                                                            <FormLabel className='mb-2'>Enlace a bases de convocatoria</FormLabel>
-                                                            <FormControl>
-                                                            <Input disabled value={contenidoAleatorio} />
-                                                            </FormControl>
-                                                            <FormMessage />
-                                                        </div>
-                                                    </FormItem>
-                                           
-                                                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2'>Líneas específicas de trabajo</FormLabel>
-                                                    <FormControl>
-                                                        <Textarea disabled value={contenidoAleatorio} />
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+                                                    <FormSectionData title='Temática' inputPlaceholder='Temática' />
                                                 </div>
-                                            </FormItem>
-                                          
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2'>Entidades a la que se dirige</FormLabel>
-                                                    <FormControl>
-                                                        <Input disabled value={contenidoAleatorio} />
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-2'>
+                                                    <FormSectionData title='Entidad convocante' inputPlaceholder='Entidad convocante' />
                                                 </div>
-                                                </FormItem>
-                                          
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2 flex'>
-                                                    <div>
-                                                        <FormLabel className='mb-2'>Auditoría externa obligatoria</FormLabel>
-                                                    </div>
-                                                    <div>
-                                                        <FormControl>
-                                                            <Switch disabled />
-                                                        </FormControl>
-                                                    </div>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Departamento o centro gestor' inputPlaceholder='Departamento o centro gestor' />
                                                 </div>
-                                            </FormItem>
-                                     
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2 md:mb-0'>Fecha de apertura</FormLabel>
-                                                    <FormControl>
-                                                        <div className='relative'>
-                                                            <Input
-                                                                className='md:pr-8' disabled value={contenidoAleatorio}
-                                                            />
-                                                        </div>
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Enlace a publicación oficial' inputPlaceholder="https://www.ejemplo.com" />
                                                 </div>
-                                                </FormItem>
-                                       
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2 md:mb-0'>Fecha de cierre</FormLabel>
-                                                    <FormControl>
-                                                        <div className='relative'>
-                                                            <Input
-                                                                className='md:pr-8' disabled value={contenidoAleatorio}
-                                                            />
-                                                        </div>
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Enlace a bases de convocatoria' inputPlaceholder="https://www.ejemplo.com" />
                                                 </div>
-                                                </FormItem>
-                                        
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2 md:mb-0'>Fecha limite de resolución</FormLabel>
-                                                    <FormControl>
-                                                        <div className='relative'>
-                                                            <Input
-                                                                className='md:pr-8' disabled value={contenidoAleatorio}
-                                                            />
-                                                        </div>
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title="Líneas específicas de trabajo" isTextarea />
                                                 </div>
-                                            </FormItem>
-                                            
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
-                                                    <FormControl>
-                                                        <Input disabled value={contenidoAleatorio} />
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Entidades a las que se dirige' inputPlaceholder="Entidades a las que se dirige" />
                                                 </div>
-                                            </FormItem>
-                                            
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2 md:mb-0'>Fecha limite de justificación</FormLabel>
-                                                    <FormControl>
-                                                        <div className='relative'>
-                                                            <Input
-                                                                className='md:pr-8' disabled value={contenidoAleatorio}
-                                                            />
-                                                        </div>
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title="Auditoría externa obligatoria" isSwitch />
                                                 </div>
-                                            </FormItem>
-                                            
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2'>Presupuesto máximo solicitable</FormLabel>
-                                                    <FormControl>
-                                                        <Input disabled value={contenidoAleatorio} />
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Fecha de apertura"
+                                                        inputPlaceholder="Selecciona una fecha"
+                                                        showCalendarIcon
+                                                    />
                                                 </div>
-                                            </FormItem>
-                                            
-                                            <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                                                <div className='my-2'>
-                                                    <FormLabel className='mb-2'>Información de interés</FormLabel>
-                                                    <FormControl>
-                                                        <Textarea disabled value={contenidoAleatorio} />
-                                                    </FormControl>
-                                                    <FormMessage />
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Fecha de cierre"
+                                                        inputPlaceholder="Selecciona una fecha"
+                                                        showCalendarIcon
+                                                    />
                                                 </div>
-                                            </FormItem>
-                                           
-                                            <FormItem className='w-1/2 px-4 mb-4'>
-                                                <FormLabel className='mb-2'>Información de interés</FormLabel>
-                                                <FormControl>
-                                                    <Input disabled value={contenidoAleatorio} />
-                                                    {/* {showPDF && (
-                                                    <div>
-                                                        <button onClick={descargarPDF}>Descargar PDF</button>
-                                                    </div>
-                                                )} */}
-                                                </FormControl>
-                                                </FormItem>
-                                            
-                                            <FormItem className='w-1/2 px-4 mb-4'>
-                                                <FormLabel className='mb-2'>Información de interés</FormLabel>
-                                                <FormControl>
-                                                    <Input disabled value={contenidoAleatorio} />
-                                                    {/* {showPDF && (
-                                                    <div>
-                                                        <button onClick={descargarPDF}>Descargar PDF</button>
-                                                    </div>
-                                                )} */}
-                                                </FormControl>
-                                                </FormItem>
-                                            
-                                            <FormItem className='w-1/2 px-4 mb-4'>
-                                                <FormLabel className='mb-2'>Información de interés</FormLabel>
-                                                <FormControl>
-                                                    <Input disabled value={contenidoAleatorio} />
-                                                    {/* {showPDF && (
-                                                    <div>
-                                                        <button onClick={descargarPDF}>Descargar PDF</button>
-                                                    </div>
-                                                )} */}
-                                                </FormControl>
-                                                </FormItem>
-                                      
-                                            <FormItem className='w-1/2 px-4 mb-4'>
-                                                <FormLabel className='mb-2'>Información de interés</FormLabel>
-                                                <FormControl>
-                                                    <Input disabled value={contenidoAleatorio} />
-                                                    {/* {showPDF && (
-                                                    <div>
-                                                        <button onClick={descargarPDF}>Descargar PDF</button>
-                                                    </div>
-                                                )} */}
-                                                </FormControl>
-                                                </FormItem>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Fecha limite de resolución"
+                                                        inputPlaceholder="Selecciona una fecha"
+                                                        showCalendarIcon
+                                                    />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Período máximo de ejecución' inputPlaceholder="24 meses" />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Fecha límite de justificación' inputPlaceholder="24 meses" />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title='Presupuesto máximo solicitable' inputPlaceholder="20000 €" />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData title="Otra información" isTextarea />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Información de interés"
+                                                        inputPlaceholder="Nombre del archivo PDF"
+                                                        pdfUrl='URL_del_archivo_PDF'
+                                                    />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Información de interés"
+                                                        inputPlaceholder="Nombre del archivo PDF"
+                                                        pdfUrl='URL_del_archivo_PDF'
+                                                    />
+                                                </div>
+                                                <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                                                    <FormSectionData
+                                                        title="Información de interés"
+                                                        inputPlaceholder="Nombre del archivo PDF"
+                                                        pdfUrl='URL_del_archivo_PDF'
+                                                    />
+                                                </div>
                                             </div>
-
-                                    </AccordionContent>
-                                </AccordionItem>
+                                        </AccordionContent>
+                                    </AccordionItem>
                                 </Accordion>
                             </Card>
 
-{ /*   ETAPA DE SOLICITUD   */} 
+                            { /*   ETAPA DE SOLICITUD   */}
                             <Card className='m-2 w-full px-2 '>
-                            <Accordion type="single" collapsible>
-                                <AccordionItem value="item-2">
-                                    <AccordionTrigger>ETAPA DE SOLICITUD</AccordionTrigger>
-                                    <AccordionContent>
-                                        Yes. It adheres to the WAI-ARIA design pattern.
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
+                                <Accordion type="single" collapsible>
+                                    <AccordionItem value="item-2">
+                                        <AccordionTrigger>ETAPA DE SOLICITUD</AccordionTrigger>
+                                        <AccordionContent>
+                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </Accordion>
                             </Card>
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
@@ -353,7 +202,7 @@ function Call() {
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>          
+                            </Card>
                         </CardContent>
                     </form>
                 </Form>

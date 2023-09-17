@@ -3,7 +3,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from './accordion'; 
+} from './accordion';
 import { Link } from 'react-router-dom';
 
 interface AdminMenuItemProps {
