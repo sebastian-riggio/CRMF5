@@ -1,109 +1,51 @@
-import { Link } from '@radix-ui/react-navigation-menu'
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../navigation-menu'
+import MenuItem from '../MenuItem'
 
-function DesktopMenuNav() {
+function AdminDesktopMenuNav() {
   return (
     <>
       <div className='flex space-x-4'>
-
         <div>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  PROYECTOS
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <Link href='/allprojects'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      PROYECTOS
-                    </NavigationMenuLink>
-                  </Link>
-                  <Link href='/newproject'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      SUBIR NUEVO PROYECTO
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <MenuItem
+            title="PROYECTOS"
+            links={[
+              { url: '/allprojects', text: 'PROYECTOS' },
+              { url: '/newproject', text: 'SUBIR NUEVO PROYECTO' },
+            ]}
+          />
         </div>
 
         <div>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  CONVOCATORIAS
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <Link href='/allcalls'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      CONVOCATORIAS
-                    </NavigationMenuLink>
-                  </Link>
-                  <Link href='/newcall'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      SUBIR NUEVA CONVOCATORIA
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <MenuItem
+            title="CONVOCATORIAS"
+            links={[
+              { url: '/allcalls', text: 'CONVOCATORIAS' },
+              { url: '/newcall', text: 'SUBIR NUEVA CONVOCATORIA' },
+            ]}
+          />
         </div>
 
         <div>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  FINANCISTAS
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <Link href='/allfinanciers'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      FINANCISTAS
-                    </NavigationMenuLink>
-                  </Link>
-                  <Link href='/newfinancer'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      SUBIR NUEVO FINANCISTA
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <MenuItem
+            title="FINANCISTAS"
+            links={[
+              { url: '/allfinanciers', text: 'FINANCISTAS' },
+              { url: '/newfinancer', text: 'SUBIR NUEVO FINANCISTA' },
+            ]}
+          />
         </div>
 
         <div>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  USUARIOS
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <Link href='/allfinanciers'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      USUARIOS
-                    </NavigationMenuLink>
-                  </Link>
-                  <Link href='/registeruser'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      CREAR NUEVO USUARIO
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <MenuItem
+            title="USUARIOS"
+            links={[
+              { url: '/allusers', text: 'USUARIOS' },
+              { url: '/registeruser', text: 'CREAR NUEVO USUARIO' },
+            ]}
+          />
         </div>
 
       </div>
     </>
   )
 }
-export default DesktopMenuNav
+export default AdminDesktopMenuNav
