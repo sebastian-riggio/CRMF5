@@ -38,7 +38,12 @@ const newConvocatoria = new this.ConvocatoriaModel({
 
 
 });
-return newConvocatoria.save()
+return {
+  message: 'Se ha registrado correctamente la convocatoria',
+  status:200,
+  convocatoria:newConvocatoria
+  .save()
+} 
 
   }
 
