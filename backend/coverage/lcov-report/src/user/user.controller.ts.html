@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/19</span>
+                <span class='fraction'>0/23</span>
             </div>
         
             
@@ -148,7 +148,10 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,9 +173,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,6 +215,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,17 +261,19 @@
   ApiOkResponse,
   ApiBody,
 } from '@nestjs/swagger';
-import { Roles } from '../auth/decorators/roles.decorator';
-import { Role } from '../auth/enums/role.enum';
+<span class="cstat-no" title="statement not covered" >import { Roles } from '../auth/decorators/roles.decorator';</span>
+<span class="cstat-no" title="statement not covered" >import { Role } from '../auth/enums/role.enum';</span>
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 <span class="cstat-no" title="statement not covered" >import { Public } from '../auth/decorators/public.decorator';</span>
-import { AuthGuard } from '@nestjs/passport';
-import { RolesGuard } from 'src/auth/guards/role.guard';
-import { User } from 'src/schemas/users.schema';
+<span class="cstat-no" title="statement not covered" >import { AuthGuard } from '@nestjs/passport';</span>
+<span class="cstat-no" title="statement not covered" >import { RolesGuard } from '../auth/guards/role.guard';</span>
+// import { RolesGuard } from 'src/auth/guards/role.guard';
+// import { User } from 'src/schemas/users.schema';
 &nbsp;
 @ApiTags('user')
 @ApiBearerAuth() // Add this line to enable bearer token authentication for protected routes
-// @UseGuards(JwtAuthGuard, RolesGuard)
+// @UseGuards(JwtAuthGuard)
+@UseGuards(AuthGuard('jwt'), RolesGuard)
 // @Roles(Role.User) // Add this line to restrict access to admin users only
 @Controller('user')
 export <span class="cstat-no" title="statement not covered" >class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >UserController </span>{</span></span>
@@ -281,11 +289,11 @@ export <span class="cstat-no" title="statement not covered" >class <span class="
   }
 &nbsp;
   @Get()
-  // @Roles(Role.Admin) // Add this line to restrict access to admin users only
+  @Roles(Role.User) // Add this line to restrict access to admin users only
   @ApiBearerAuth()
-  @Public()
+  // @Public()
   // @ApiOkResponse({ type: User, isArray: true })
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  findAll(</span>) {</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  findAll(</span>@Req() req) {</span>
 <span class="cstat-no" title="statement not covered" >    return this.userService.findAll();</span>
   }
 &nbsp;
@@ -300,6 +308,7 @@ export <span class="cstat-no" title="statement not covered" >class <span class="
   @Patch(':id')
   @ApiResponse({ status: 200, description: 'User updated' })
   @ApiResponse({ status: 404, description: 'User not found' })
+  @Public()
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  update(</span></span>
     @Req() req,
     @Param('id') id: string,
@@ -325,7 +334,7 @@ export <span class="cstat-no" title="statement not covered" >class <span class="
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-08T23:36:01.209Z
+                at 2023-09-17T11:27:00.571Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
