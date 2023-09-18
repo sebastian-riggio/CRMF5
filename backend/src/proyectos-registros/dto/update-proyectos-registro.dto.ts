@@ -1,5 +1,5 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { CreateProyectosRegistroDto, Gestor } from './create-proyectos-registro.dto';
+import { CreateProyectosRegistroDto } from './create-proyectos-registro.dto';
 import { IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ObjectId } from 'mongoose';
 
@@ -13,7 +13,6 @@ export class UpdateProyectosRegistroDto extends PartialType(CreateProyectosRegis
     "proyecto-nombre":string;
    
     @ApiProperty({example:"Factoria F5 - Dirección general "})
-    @IsEnum(Gestor)
     "centro-gestor":string;
    
     @ApiProperty({example:"Jesús Rivera"})
