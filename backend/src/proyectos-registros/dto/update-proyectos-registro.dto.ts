@@ -13,6 +13,7 @@ export class UpdateProyectosRegistroDto extends PartialType(CreateProyectosRegis
     "proyecto-nombre":string;
    
     @ApiProperty({example:"Factoria F5 - Dirección general "})
+    @IsString()
     "centro-gestor":string;
    
     @ApiProperty({example:"Jesús Rivera"})
