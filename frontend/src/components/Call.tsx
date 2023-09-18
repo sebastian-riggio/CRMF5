@@ -19,6 +19,7 @@ import { toast } from '../components/ui/use-toast';
 import { Separator } from './ui/separator';
 import { Form } from './ui/form';
 import GeneralData from './ui/formCall/GeneralData';
+import ApplicationStage from './ui/formCall/ApplicationStage';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
@@ -81,7 +82,7 @@ function Call() {
                                     <AccordionItem value="item-2">
                                         <AccordionTrigger>ETAPA DE SOLICITUD</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <ApplicationStage/>
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>

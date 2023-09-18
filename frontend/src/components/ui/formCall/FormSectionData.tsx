@@ -5,7 +5,7 @@ import { Switch } from '../switch'
 import { CalendarIcon } from '@radix-ui/react-icons';
 
 
-interface FormSectionProps {
+export interface FormSectionProps {
     title: string;
     label?: string;
     inputType?: string;
@@ -25,12 +25,12 @@ function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch
                     <FormLabel className='mb-2'>{title}</FormLabel>
                     <FormControl>
                         {isTextarea ? (
-                            <Textarea disabled />
+                            <Textarea />
                         ) : isSwitch ? (
-                            <Switch disabled />
+                            <Switch  />
                         ) : (
                             <div className='relative'>
-                                <Input disabled placeholder={inputPlaceholder} />
+                                <Input placeholder={inputPlaceholder} />
                                 {showCalendarIcon && (
                                     <CalendarIcon className='absolute right-2 top-1/2 transform -translate-y-1/2' />
                                 )}
