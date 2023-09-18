@@ -33,11 +33,12 @@ import {
 } from './ui/form';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { toast } from './ui/use-toast';
 import { Separator } from './ui/separator';
 import { useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
 import { createProject} from '../services/proyectos';
+import { toast } from './ui/use-toast';
+import { ToastAction } from '@radix-ui/react-toast';
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
@@ -88,18 +89,25 @@ function ProyectForm() {
     try {
       const response: AxiosResponse = await createProject(data);
       console.log(response)
+      toast({
+        title: 'Crea un nuevo usurario para Factoria F5:',
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+          </pre>
+        ),
+      });
     } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      })
       console.error('Error al enviar la solicitud:', error);
     }
 
-    toast({
-      title: 'Crea un nuevo usurario para Factoria F5:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    
   }
   useEffect(() => {}, []);
   return (
