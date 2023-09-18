@@ -16,6 +16,20 @@ module.exports = {
       }
     },
     extend: {
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -51,12 +65,12 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))'
         },
         FF4700: {
-          DEFAULT: '#FF4700', // orange
-          dark: '#D63800' // Color más oscuro para hover
+          DEFAULT: '#FF4700',
+          dark: '#D63800' 
         }
       },
       fontSize: {
-        input: '10px' // Define un tamaño de fuente personalizado llamado 'input'
+        input: '10px'
       },
       borderRadius: {
         lg: 'var(--radius)',
