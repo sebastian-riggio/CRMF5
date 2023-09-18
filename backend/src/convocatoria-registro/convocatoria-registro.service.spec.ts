@@ -5,6 +5,9 @@ import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registr
 import { HttpStatus } from '@nestjs/common';
 import { AdjuntarDto } from './dto/adjuntarDto';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
+import { getModelToken } from '@nestjs/mongoose';
+import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
+
 
 const convocatoria = {
   _id:"65044504c7d7b5d92dce9b4e",
@@ -37,6 +40,8 @@ const convocatoria = {
 
 describe('ConvocatoriaRegistroService', () => {
   let service: ConvocatoriaRegistroService;
+ 
+
  
 const mockConvocatoriaRegistro =  {
   findOne:jest.fn().mockImplementation((id:ObjectId) => {
@@ -83,20 +88,25 @@ create:jest.fn().mockImplementation((registroConvocatoria:CreateConvocatoriaRegi
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ConvocatoriaRegistroService]
+      providers: [ConvocatoriaRegistroService, { provide:getModelToken(ConvocatoriaRegistro.name),
+        useValue:{mockConvocatoriaRegistro, find: jest.fn(), findOne:jest.fn(),findByIdAndDelete:jest.fn(),findOneAndUpdate:jest.fn(), new: jest.fn(),
+          exec: jest.fn(),} /*jest.fn()*/}
+      ]
     })
-    .overrideProvider(ConvocatoriaRegistroService)
-    .useValue(mockConvocatoriaRegistro)
+   // .overrideProvider(ConvocatoriaRegistroService)
+   // .useValue(mockConvocatoriaRegistro) 
     .compile();
 
     service = module.get<ConvocatoriaRegistroService>(ConvocatoriaRegistroService);
+   
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
 it('findAll:Todos los registros de convocatorias se han recibido correctamente', async () => {
-  expect(await service.findAll())
+  const register = await service.findAll()
+  expect(register).toBeDefined()
 });
 
 it('findOne: Registro de convocatoria recibida correctamente', async () => {

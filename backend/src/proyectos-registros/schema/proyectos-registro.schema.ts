@@ -19,8 +19,8 @@ export class ProyectosRegistro {
 "Factoria F5 - Admin, contabilidad y finanzas",
 "Factoria F5 - Oficina soporte proyectos y calidad",
  "Factoría F5 - Dirección general "]})
-@Prop()
 
+@Prop()
 "centro-gestor":string;
 
 @ApiProperty({example:"Jesús Rivera"})

@@ -4,7 +4,7 @@ import { UpdateGestionConvocatoriaDto } from "./dto/update-gestion-convocatoria.
 import { InjectModel } from "@nestjs/mongoose";
 import { GestionConvocatoria } from "./schema/gestion-convocatoria.schema";
 import { Model, ObjectId } from "mongoose";
-import { ProyectosRegistro } from "src/proyectos-registros/schema/proyectos-registro.schema";
+import { ProyectosRegistro } from "../proyectos-registros/schema/proyectos-registro.schema";
 import { autoGenerateCode } from "src/utils/autoGenerateCode";
 import { ConvocatoriaRegistro } from "src/convocatoria-registro/schema/convocatoria-registro.schema";
 

@@ -12,7 +12,7 @@ export class ConvocatoriaRegistroService {
 
 constructor(
 @InjectModel(ConvocatoriaRegistro.name)
-private  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
+private readonly  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
 
 ){}
  async create(createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
@@ -50,7 +50,7 @@ return {
 
  async findAll() {
     try{
-      const AllConvocatorias = await this.ConvocatoriaModel.find().exec()
+      const AllConvocatorias = await this.ConvocatoriaModel.find()
       return {
         message: 'Todas las convocatorias se han recibido correctamente',
         status:200,

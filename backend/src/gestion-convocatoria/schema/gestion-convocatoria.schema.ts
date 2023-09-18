@@ -14,7 +14,7 @@ export type GestionDocument = HydratedDocument<GestionConvocatoria>;
 @Schema()
 export class GestionConvocatoria extends Document {
 
-@ApiProperty({example:"financiacion patra cursos educativos online"})
+@ApiProperty({example:"financiacion para cursos educativos online"})
 @Prop()
 "convocatoria":string;
 

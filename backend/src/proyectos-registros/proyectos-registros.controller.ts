@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ProyectosRegistrosService } from './proyectos-registros.service';
 import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto';
 import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto';
-import { Public } from 'src/auth/decorators/public.decorator';
+import { Public } from '../auth/decorators/public.decorator';
 import { ObjectId } from 'mongoose';
 
 @Controller('projects')
