@@ -2,11 +2,14 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
-import { Public } from 'src/auth/decorators/public.decorator';
+import { Public } from '../auth/decorators/public.decorator';
 import { ObjectId } from 'mongoose';
 
 @Controller('gestion')
 export class GestionConvocatoriaController {
+  static findAll(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
   @Public()
