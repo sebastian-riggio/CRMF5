@@ -38,34 +38,34 @@ test.describe('New project page', () => {
      })
     
      test('responsible input', async ({ page }) => {
-      const workLabel = page.getByText('Responsable F5')
-      await expect(workLabel).toBeVisible()
+      const responsibleLabel = page.getByText('Responsable F5')
+      await expect(responsibleLabel).toBeVisible()
     
-      const workInput = page.getByPlaceholder(/persona responsable Factoria F5/i)
-      await expect(workInput).toBeVisible()
+      const responsibleInput = page.getByPlaceholder(/persona responsable Factoria F5/i)
+      await expect(responsibleInput).toBeVisible()
        })
     
        test('Months of duration input', async ({ page }) => {
-        const dateLabel = page.getByText('Meses Duración')
-        await expect(dateLabel).toBeVisible()
+        const monthsLabel = page.getByText('Meses Duración')
+        await expect(monthsLabel).toBeVisible()
       
-        const dateInput = page.getByLabel(/Meses Duración/i)
-        await expect(dateInput).toBeVisible()
+        const monthsInput = page.getByLabel(/Meses Duración/i)
+        await expect(monthsInput).toBeVisible()
        })
     
        test('Project budget input', async ({ page }) => {
-        const emailLabel = page.getByText('Presupuesto proyecto')
-        await expect(emailLabel).toBeVisible()
+        const budgetLabel = page.getByText('Presupuesto proyecto')
+        await expect(budgetLabel).toBeVisible()
       
-        const emailInput = page.getByPlaceholder(/presupuesto proyecto/i)
-        await expect(emailInput).toBeVisible()
+        const budgetInput = page.getByPlaceholder(/presupuesto proyecto/i)
+        await expect(budgetInput).toBeVisible()
          })
     
       test('Factoria budget input', async ({ page }) => {
-        const phoneLabel = page.getByText('Presupuesto Factoria F5')
-        await expect(phoneLabel).toBeVisible()
+        const budgetFactLabel = page.getByText('Presupuesto Factoria F5')
+        await expect(budgetFactLabel).toBeVisible()
         
-        const phoneInput = page.getByPlaceholder(/Presupuesto Factoria F5/i)
-        await expect(phoneInput).toBeVisible()
+        const budgetFactInput = page.getByPlaceholder(/Presupuesto Factoria F5/i)
+        await expect(budgetFactInput).toBeVisible()
          })
      })
