@@ -412,25 +412,25 @@ function MainNewCall () {
                 render={({ field }) => (
                   <div className='my-2 flex flex-wrap -mx-4'>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Memoria técnica</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Presupuesto</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Formulario solicitud</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Otra documentación</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
