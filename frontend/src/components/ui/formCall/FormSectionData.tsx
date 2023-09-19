@@ -1,8 +1,7 @@
 import { FormItem, FormLabel, FormControl, FormMessage } from '../form';
 import { Input } from '../input';
 import { Textarea } from '../textarea';
-import { Switch } from '../switch'
-import { CalendarIcon } from '@radix-ui/react-icons';
+import { Switch } from '../switch';
 
 
 export interface FormSectionProps {
@@ -13,11 +12,10 @@ export interface FormSectionProps {
     inputPlaceholder?: string;
     isTextarea?: boolean;
     isSwitch?: boolean;
-    showCalendarIcon?: boolean;
     pdfUrl?: string;
 }
 
-function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch = false, showCalendarIcon = false, pdfUrl }: FormSectionProps) {
+function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch = false, pdfUrl }: FormSectionProps) {
     return (
         <div className='flex flex-wrap mx-6'>
             <FormItem className='w-full'>
@@ -31,9 +29,6 @@ function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch
                         ) : (
                             <div className='relative'>
                                 <Input placeholder={inputPlaceholder} />
-                                {showCalendarIcon && (
-                                    <CalendarIcon className='absolute right-2 top-1/2 transform -translate-y-1/2' />
-                                )}
                                 {pdfUrl && (
                                     <a href={pdfUrl} target="_blank" rel="noopener noreferrer">
                                         Ver o Descargar PDF
