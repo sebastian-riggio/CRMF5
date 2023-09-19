@@ -97,13 +97,21 @@ const accountFormSchema = z.object({
 
 // ProfileForm
     nombre: z
-        .string()
-        .min(2, {
-            message: 'Debes completar con el nombre'
+        .string( {
+            required_error: 'Debes completar con el nombre'
         }),
     departamento: z.string({
-        required_error: 'Por favor elije un centro gestor de factoria F5'
+        required_error: 'Elije un centro gestor de factoria F5'
     }),
+
+    area: z.string({
+        required_error: 'Elije una área'
+    }),
+
+    telefono: z.string({
+        required_error: 'Debes completar con teléfono de contacto'
+    }),
+
 
 });
 

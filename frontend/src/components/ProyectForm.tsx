@@ -84,10 +84,9 @@ function ProyectForm() {
     <Card className="m-4">
       <CardHeader>
         <CardTitle>Nuevo Proyecto</CardTitle>
-        <Textarea>
           Vamos a dar comienzo a un nuevo proyecto. ¡Por favor asegurate de que
           todos los campos estén completos!
-        </Textarea>
+      
       </CardHeader>
 
       <Separator />
