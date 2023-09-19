@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <>
-      <div className='flex items-center h-full p-3 justify-between'>
+      <div className='flex items-center h-full p-3 container mx-auto'>
     
         <div className='flex items-center'>
           <img
@@ -41,7 +41,7 @@ function Navbar() {
             alt='isologo-f5'
           />
         </div>
-        <div className='flex items-center  mt-2'>
+        <div className='flex items-center mt-2 ml-auto'>
           <div className='ml-10 mt-2 mr-10'>
             {!isMobileView && <DesktopMenuNav />}
           </div>
@@ -78,11 +78,6 @@ function Navbar() {
         </div>
       )}
       <Separator />
-      {!isMenuOpen && (
-        <div className='md:hidden flex justify-start ml-4 mt-3'>
-          <SearchInput />
-        </div>
-      )}
 
     </>
   )

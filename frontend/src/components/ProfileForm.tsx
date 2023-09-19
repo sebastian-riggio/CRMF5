@@ -3,7 +3,6 @@ import { CalendarIcon, CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 import { format } from 'date-fns'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
 import { Calendar } from '../components/ui/calendar'
@@ -30,10 +29,9 @@ import {
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
 import accountFormSchema from './accountFormSchema';
-import { Textarea } from './ui/textarea'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Separator } from '@radix-ui/react-separator'
-import { Link } from 'react-router-dom'
+
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'p&c' },
@@ -73,15 +71,14 @@ export function AccountForm () {
     <Card className="m-4">
       <CardHeader>
         <CardTitle>Nuevo Usuario</CardTitle>
-        <Textarea>
-         Completar los datos del nuevo usuario del Factoria F5
-        </Textarea>
+          Completar los datos del nuevo usuario del Factoria F5
       </CardHeader>
       
       <Separator />
     <div className='container mx-auto'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+        <CardContent>
           <FormField
             control={form.control}
             name='nombre'
@@ -251,11 +248,10 @@ export function AccountForm () {
               </FormItem>
             )}
           />
+           </CardContent>
          <CardFooter>
           <Button type='submit'>Cancelar</Button>
-          <Link to='/home'>
           <Button type='submit'>Crear</Button>
-          </Link>
          </CardFooter>
         </form>
       </Form>

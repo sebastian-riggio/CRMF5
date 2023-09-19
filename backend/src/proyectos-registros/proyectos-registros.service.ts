@@ -12,7 +12,7 @@ constructor(
 @InjectModel(ProyectosRegistro.name)
 private ProyectosModel : Model <ProyectosRegistro>
 
-){}
+){} 
 
  async create(createProyectosRegistroDto: CreateProyectosRegistroDto): Promise<ProyectosRegistro> {
 

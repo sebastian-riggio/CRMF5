@@ -19,6 +19,11 @@ import { toast } from '../components/ui/use-toast';
 import { Separator } from './ui/separator';
 import { Form } from './ui/form';
 import GeneralData from './ui/formCall/GeneralData';
+import ApplicationStage from './ui/formCall/ApplicationStage';
+import NegotationStage from './ui/formCall/NegotiationStage';
+import ConcessionStage from './ui/formCall/ ConcessionStage';
+import JustificationStage from './ui/formCall/JustificationStage';
+import ClosingStage from './ui/formCall/ClosingStage';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
@@ -46,9 +51,9 @@ function Call() {
     }
 
     return (
-        <Card className='m-2 md:m-4 lg:mt-8 xl:mx-20'>
+        <Card className='m-2 container mx-auto'>
             <CardHeader>
-                <CardTitle>
+                <CardTitle className='container mx-auto'>
                     Título de prueba
                     {/* Aca hay que traer el titulo de la convocatoria */}
                 </CardTitle>
@@ -65,7 +70,7 @@ function Call() {
                             <Card className='m-2 w-full px-2 mt-8 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-1">
-                                        <AccordionTrigger>DATOS GENERALES</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>DATOS GENERALES</AccordionTrigger>
                                         <AccordionContent>
                                             <div >
                                                 <GeneralData />
@@ -79,9 +84,9 @@ function Call() {
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-2">
-                                        <AccordionTrigger>ETAPA DE SOLICITUD</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE SOLICITUD</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <ApplicationStage/>
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
@@ -89,9 +94,9 @@ function Call() {
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-3">
-                                        <AccordionTrigger>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <NegotationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
@@ -99,9 +104,9 @@ function Call() {
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger>ETAPA DE OTORGAMIENTO</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE OTORGAMIENTO</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <ConcessionStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
@@ -109,9 +114,9 @@ function Call() {
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <JustificationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
@@ -119,9 +124,9 @@ function Call() {
                             <Card className='m-2 w-full px-2 '>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger>ETAPA DE CIERRE</AccordionTrigger>
+                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE CIERRE</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <ClosingStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
