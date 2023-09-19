@@ -33,12 +33,14 @@ import {
 } from './ui/form';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { toast } from './ui/use-toast';
 import { Separator } from './ui/separator';
 import { useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
-import { createProject } from '../services/proyectos';
+import { createProject} from '../services/proyectos';
+import { toast } from './ui/use-toast';
+import { ToastAction } from '@radix-ui/react-toast';
 import accountFormSchema from './accountFormSchema';
+
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
@@ -84,10 +86,9 @@ function ProyectForm() {
     <Card className="m-4">
       <CardHeader>
         <CardTitle>Nuevo Proyecto</CardTitle>
-        <Textarea>
           Vamos a dar comienzo a un nuevo proyecto. ¡Por favor asegurate de que
           todos los campos estén completos!
-        </Textarea>
+      
       </CardHeader>
 
       <Separator />

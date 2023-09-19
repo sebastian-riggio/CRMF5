@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProyectosRegistrosController } from './proyectos-registros.controller';
 import { ProyectosRegistrosService } from './proyectos-registros.service';
+import { ProyectosRegistro } from './schema/proyectos-registro.schema';
+import { getModelToken } from '@nestjs/mongoose';
 
 describe('ProyectosRegistrosController', () => {
   let controller: ProyectosRegistrosController;
@@ -8,7 +10,7 @@ describe('ProyectosRegistrosController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProyectosRegistrosController],
-      providers: [ProyectosRegistrosService],
+      providers: [ProyectosRegistrosService, { provide:getModelToken(ProyectosRegistro.name), useValue: jest.fn() }],
     }).compile();
 
     controller = module.get<ProyectosRegistrosController>(ProyectosRegistrosController);

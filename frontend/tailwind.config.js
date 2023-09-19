@@ -16,6 +16,11 @@ module.exports = {
       }
     },
     extend: {
+      borderWidth: {
+        '1': '1px',
+        '2': '2px',
+        '3': '3px',
+      }, 
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -90,8 +95,8 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
-      }
-    }
+      },
+    },
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [require('tailwindcss-animate')],
 }

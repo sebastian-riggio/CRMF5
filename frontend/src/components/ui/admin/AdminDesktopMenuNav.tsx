@@ -1,6 +1,6 @@
 import MenuItem from '../MenuItem'
 
-function DesktopMenuNav() {
+function AdminDesktopMenuNav() {
   return (
     <>
       <div className='flex space-x-4'>
@@ -33,8 +33,19 @@ function DesktopMenuNav() {
             ]}
           />
         </div>
+
+        <div>
+          <MenuItem
+            title="USUARIOS"
+            links={[
+              { url: '/allusers', text: 'USUARIOS' },
+              { url: '/registeruser', text: 'CREAR NUEVO USUARIO' },
+            ]}
+          />
+        </div>
+
       </div>
     </>
   )
 }
-export default DesktopMenuNav
+export default AdminDesktopMenuNav
