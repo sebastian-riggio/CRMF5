@@ -33,9 +33,9 @@ private ProyectosModel : Model <ProyectosRegistro>
 
  async findAll() {
   try {
-    const allProjects = await this.ProyectosModel.find().exec()
+    const allProjects = await this.ProyectosModel.find()
     return {
-      message: 'Todas las proyectos se han recibido correctamente',
+      message: 'Todos las proyectos se han recibido correctamente',
       status:200,
      proyectos:allProjects
      };
