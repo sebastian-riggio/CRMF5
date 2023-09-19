@@ -73,7 +73,7 @@ function ConcessionStage() {
                     Cancelar
                 </Button>
                 <Button type='submit' className='w-20 hover:bg-FF4700-dark text-white font-bold rounded ml-2 '>
-                    Crear
+                    Actualizar
                 </Button>
             </div>
         </div>

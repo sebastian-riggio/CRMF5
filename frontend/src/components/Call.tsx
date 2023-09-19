@@ -22,6 +22,7 @@ import GeneralData from './ui/formCall/GeneralData';
 import ApplicationStage from './ui/formCall/ApplicationStage';
 import NegotationStage from './ui/formCall/NegotiationStage';
 import ConcessionStage from './ui/formCall/ ConcessionStage';
+import JustificationStage from './ui/formCall/JustificationStage';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
@@ -114,7 +115,7 @@ function Call() {
                                     <AccordionItem value="item-4">
                                         <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <JustificationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
