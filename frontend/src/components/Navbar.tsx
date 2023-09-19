@@ -78,11 +78,6 @@ function Navbar() {
         </div>
       )}
       <Separator />
-      {!isMenuOpen && (
-        <div className='md:hidden flex justify-start ml-4 mt-3'>
-          <SearchInput />
-        </div>
-      )}
 
     </>
   )
