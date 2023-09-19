@@ -31,7 +31,7 @@ import {
 import { toast } from '../components/ui/use-toast'
 import accountFormSchema from './accountFormSchema';
 import { Textarea } from './ui/textarea'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Card, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Separator } from '@radix-ui/react-separator'
 import { Link } from 'react-router-dom'
 
