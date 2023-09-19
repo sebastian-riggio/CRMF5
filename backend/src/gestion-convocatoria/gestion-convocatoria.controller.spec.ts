@@ -8,6 +8,19 @@ import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.
 import { ConvocatoriaRegistro } from 'src/convocatoria-registro/schema/convocatoria-registro.schema';
 
 
+const createConvocatoria = {
+  
+    "convocatoria": "financiacion patra cursos educativos online",
+    "financiador": "Ayuntamiento Barcelona",
+    "proyecto": "monetize wireless supply-chains",
+    "etapa-solicitud": "Etapa Solicitud",
+    "etapa-resolucion": "Etapa Resolucion",
+    "etapa-otorgamiento": "Etapa Otorgamiento",
+    "etapa-justificacion": "Etapa Justificaciòn",
+    "etapa-cierre": "Etapa Cierre"
+  
+}
+
 const gestionConvocatoria = {
   "message": "Todas las gestiones de convocatorias se han recibido correctamente",
   "status": 200,
@@ -163,16 +176,20 @@ describe('GestionConvocatoriaController', () => {
 
 
   create:jest.fn().mockImplementation((registroGestionConvocatoria:CreateGestionConvocatoriaDto) => {
-    return Promise.resolve({
-      message: 'Se ha registrado correctamente la gestión convocatoria',
-      status:200,
-      gestionConvocatoria: {
-        _id:"65044504c7d7b5d92dce9b4e",
-        ...registroGestionConvocatoria,
+    return Promise.resolve(
+      {
+        "convocatoria": "financiacion patra cursos educativos online",
+        "financiador": "Ayuntamiento Barcelona",
+        "proyecto": "monetize wireless supply-chains",
+        "etapa-solicitud": "Etapa Solicitud",
+        "etapa-resolucion": "Etapa Resolucion",
+        "etapa-otorgamiento": "Etapa Otorgamiento",
+        "etapa-justificacion": "Etapa Justificaciòn",
+        "etapa-cierre": "Etapa Cierre",
+        "_id": "6509a5e59caab8599d04d92d",
+        "__v": 0
       }
-   
-    
-    })
+    )
   })
 
   }
@@ -199,8 +216,18 @@ describe('GestionConvocatoriaController', () => {
   it('findAll:Todas las Gestiones de convocatorias se han recibido correctament', async () => {
     const result:any = gestionConvocatoria;
     expect(await controller.findAll()).toStrictEqual(result);
-  
+  });
 
-});
+  it('Crear Nueva Gestión de convocatoria', async () => {
+    const nuevaGestion:any = gestionConvocatoria;
+    expect (await controller.create(nuevaGestion)).toMatchObject(
+    createConvocatoria
+    );
+
+
+    
+  });
+ 
+
 });
 
