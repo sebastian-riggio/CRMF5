@@ -96,7 +96,11 @@ create:jest.fn().mockImplementation((registroConvocatoria:CreateConvocatoriaRegi
     expect(service).toBeDefined();
   });
 it('findAll:Todos los registros de convocatorias se han recibido correctamente', async () => {
-  expect(await service.findAll())
+  expect(await service.findAll()).toMatchObject({
+     message: 'Todas las convocatorias se han recibido correctamente',
+    status:200,
+    convocatoria:convocatoria
+  })
 });
 
 it('findOne: Registro de convocatoria recibida correctamente', async () => {
