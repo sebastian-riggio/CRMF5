@@ -8,6 +8,8 @@ import { DataTable } from "./data-table";
 
 const baseUrl = 'http://localhost:3000/api/v1/projects';
 
+
+
 type projectsTable = z.infer<typeof accountFormSchema>
 
 type projectColumns = Pick<projectsTable, 'titulo' | 'fecha' | 'dpto'| 'responsable' >
