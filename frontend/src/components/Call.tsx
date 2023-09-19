@@ -20,6 +20,7 @@ import { Separator } from './ui/separator';
 import { Form } from './ui/form';
 import GeneralData from './ui/formCall/GeneralData';
 import ApplicationStage from './ui/formCall/ApplicationStage';
+import NegotationStage from './ui/formCall/NegotiationStage';
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
@@ -92,7 +93,7 @@ function Call() {
                                     <AccordionItem value="item-3">
                                         <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
                                         <AccordionContent>
-                                            Yes. It adheres to the WAI-ARIA design pattern.
+                                            <NegotationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
