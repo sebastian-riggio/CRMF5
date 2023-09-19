@@ -18,7 +18,7 @@ function ApplicationStage() {
 
       <Separator className='my-5' />
 
-      <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+      <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 flex justify-center'>
         <DatePicker title='Fecha en la que se ha entregado la propuesta' />
       </div>
 
@@ -49,7 +49,7 @@ function ApplicationStage() {
             Cancelar
           </Button>
           <Button type='submit' className='w-20 hover:bg-FF4700-dark text-white font-bold rounded ml-2 '>
-            Crear
+            Actualizar
           </Button>
       </div>
 
