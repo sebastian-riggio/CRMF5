@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695077398016" clover="3.2.0">
-  <project timestamp="1695077398017" name="All files">
-    <metrics statements="640" coveredstatements="306" conditionals="29" coveredconditionals="10" methods="82" coveredmethods="36" elements="751" coveredelements="352" complexity="0" loc="640" ncloc="640" packages="22" files="47" classes="47"/>
+<coverage generated="1695109978546" clover="3.2.0">
+  <project timestamp="1695109978547" name="All files">
+    <metrics statements="640" coveredstatements="303" conditionals="29" coveredconditionals="9" methods="82" coveredmethods="35" elements="751" coveredelements="347" complexity="0" loc="640" ncloc="640" packages="22" files="47" classes="47"/>
     <package name="src">
       <metrics statements="32" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
       <file name="app.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\app.controller.ts">
@@ -214,7 +214,7 @@
       </file>
     </package>
     <package name="src.convocatoria-registro">
-      <metrics statements="48" coveredstatements="37" conditionals="1" coveredconditionals="1" methods="12" coveredmethods="12"/>
+      <metrics statements="48" coveredstatements="34" conditionals="1" coveredconditionals="0" methods="12" coveredmethods="11"/>
       <file name="convocatoria-registro.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.controller.ts">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
@@ -245,32 +245,32 @@
         <line num="22" count="0" type="stmt"/>
       </file>
       <file name="convocatoria-registro.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.service.ts">
-        <metrics statements="25" coveredstatements="20" conditionals="1" coveredconditionals="1" methods="6" coveredmethods="6"/>
+        <metrics statements="25" coveredstatements="17" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="5"/>
         <line num="1" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
-        <line num="104" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="112" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.convocatoria-registro.dto">
