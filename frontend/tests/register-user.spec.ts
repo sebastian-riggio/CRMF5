@@ -7,13 +7,13 @@ test.beforeEach(async ({ page }) => {
 test.describe('Register user page', () => {
 
   test('Display form title', async ({ page }) => {
-    const titleForm = await page.getByRole('heading', { name: /nuevo usuario/i})
+    const titleForm = page.getByRole('heading', { name: /nuevo usuario/i})
   
     await expect(titleForm).toBeVisible();
     })
 
   test('Display sub title', async ({ page }) => {
-    const subtitle = await page.getByText( /Completar los datos del nuevo usuario del Factoria F5/i)
+    const subtitle = page.getByText( /Completar los datos del nuevo usuario del Factoria F5/i)
 
     await expect(subtitle).toBeVisible()
   })
