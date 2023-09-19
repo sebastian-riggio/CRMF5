@@ -5,8 +5,8 @@ import { InjectModel } from "@nestjs/mongoose";
 import { GestionConvocatoria } from "./schema/gestion-convocatoria.schema";
 import { Model, ObjectId } from "mongoose";
 import { ProyectosRegistro } from "../proyectos-registros/schema/proyectos-registro.schema";
-import { autoGenerateCode } from "src/utils/autoGenerateCode";
-import { ConvocatoriaRegistro } from "src/convocatoria-registro/schema/convocatoria-registro.schema";
+import { autoGenerateCode } from "../utils/autoGenerateCode";
+import { ConvocatoriaRegistro } from "../convocatoria-registro/schema/convocatoria-registro.schema";
 
 
 @Injectable()
@@ -87,7 +87,7 @@ export class GestionConvocatoriaService {
        ...updateGestionConvocatoriaDto
       });
       return {
-        message: "gestion actualizada correctamente",
+        message: 'Gestion actualizada correctamente',
         status:200,
         gestion:updateGestion
       }

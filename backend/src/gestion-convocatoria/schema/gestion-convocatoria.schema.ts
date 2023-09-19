@@ -1,13 +1,13 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty } from "@nestjs/swagger";
 import { HydratedDocument, Types,Document } from "mongoose";
-import { ProyectosRegistro } from "src/proyectos-registros/schema/proyectos-registro.schema";
+import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";
 import { EtapaSolicitudDto } from "../dto/etapa-solicitud.dto";
 import { EtapaResolucionDto } from "../dto/etapa-resolucion.dto";
 import { EtapaOtorgamientoDto } from "../dto/etapa-otorgamiento.dto";
 import { EtapaJustificacionDto } from "../dto/etapa-justificacion.dto";
 import { EtapaCierreDto } from "../dto/etapa-cierre.dto";
-import { ConvocatoriaRegistro } from "src/convocatoria-registro/schema/convocatoria-registro.schema";
+import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";
 
 export type GestionDocument = HydratedDocument<GestionConvocatoria>;
 
