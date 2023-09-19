@@ -1,11 +1,10 @@
 import { FormItem, FormLabel, FormControl, FormMessage } from '../form';
 import { Input } from '../input';
 import { Textarea } from '../textarea';
-import { Switch } from '../switch'
-import { CalendarIcon } from '@radix-ui/react-icons';
+import { Switch } from '../switch';
 
 
-interface FormSectionProps {
+export interface FormSectionProps {
     title: string;
     label?: string;
     inputType?: string;
@@ -13,11 +12,10 @@ interface FormSectionProps {
     inputPlaceholder?: string;
     isTextarea?: boolean;
     isSwitch?: boolean;
-    showCalendarIcon?: boolean;
     pdfUrl?: string;
 }
 
-function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch = false, showCalendarIcon = false, pdfUrl }: FormSectionProps) {
+function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch = false, pdfUrl }: FormSectionProps) {
     return (
         <div className='flex flex-wrap mx-6'>
             <FormItem className='w-full'>
@@ -25,15 +23,12 @@ function FormSectionData({ title, inputPlaceholder, isTextarea = false, isSwitch
                     <FormLabel className='mb-2'>{title}</FormLabel>
                     <FormControl>
                         {isTextarea ? (
-                            <Textarea disabled />
+                            <Textarea />
                         ) : isSwitch ? (
-                            <Switch disabled />
+                            <Switch  />
                         ) : (
                             <div className='relative'>
-                                <Input disabled placeholder={inputPlaceholder} />
-                                {showCalendarIcon && (
-                                    <CalendarIcon className='absolute right-2 top-1/2 transform -translate-y-1/2' />
-                                )}
+                                <Input placeholder={inputPlaceholder} />
                                 {pdfUrl && (
                                     <a href={pdfUrl} target="_blank" rel="noopener noreferrer">
                                         Ver o Descargar PDF

@@ -59,9 +59,9 @@ function MainNewCall () {
   }
 
   return (
-    <Card className='m-4'>
+    <Card className='container mx-auto'>
       <CardHeader>
-        <CardTitle>Nueva convocatoria</CardTitle>
+        <CardTitle className='container mx-auto'>Nueva convocatoria</CardTitle>
         {/* <CardTitle>subtitulo</CardTitle> */}
       </CardHeader>
       <Separator />
