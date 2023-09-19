@@ -1,0 +1,1378 @@
+[{
+  "_id": {
+    "$oid": "6504ffa287b0eea5616c86cd"
+  },
+  "proyecto-nombre": "monetize wireless supply-chains",
+  "proyecto-codigo": "R000001-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Frankie Dicki",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 3323.050674982369,
+  "factoria-presupuesto": 4813.7245532125235,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa287b0eea5616c86d0"
+  },
+  "proyecto-nombre": "mesh customized infrastructures",
+  "proyecto-codigo": "R000002-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Delores D'Amore",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 4219.216623576358,
+  "factoria-presupuesto": 5269.848856143653,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa287b0eea5616c86d3"
+  },
+  "proyecto-nombre": "target customized schemas",
+  "proyecto-codigo": "R000003-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Loretta Turner",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 1921.9801798462868,
+  "factoria-presupuesto": 1352.9936869163066,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa387b0eea5616c86d6"
+  },
+  "proyecto-nombre": "whiteboard integrated technologies",
+  "proyecto-codigo": "R000004-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jackie Walsh",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 8584.051287267357,
+  "factoria-presupuesto": 8514.336209511384,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa387b0eea5616c86d9"
+  },
+  "proyecto-nombre": "aggregate web-enabled action-items",
+  "proyecto-codigo": "R000005-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Gerardo Collier",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 5822.626879438758,
+  "factoria-presupuesto": 5826.338650193065,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa387b0eea5616c86dc"
+  },
+  "proyecto-nombre": "embrace turn-key technologies",
+  "proyecto-codigo": "R000006-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Lee Weissnat MD",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 2784.447133075446,
+  "factoria-presupuesto": 7658.4684564732015,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa387b0eea5616c86df"
+  },
+  "proyecto-nombre": "reinvent impactful channels",
+  "proyecto-codigo": "R000007-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Ramiro Sauer",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 4845.290438039228,
+  "factoria-presupuesto": 7493.050560122356,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa487b0eea5616c86e2"
+  },
+  "proyecto-nombre": "redefine sexy deliverables",
+  "proyecto-codigo": "R000008-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Pat Dooley",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 8444.817572133616,
+  "factoria-presupuesto": 3624.4788139592856,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa487b0eea5616c86e5"
+  },
+  "proyecto-nombre": "innovate one-to-one markets",
+  "proyecto-codigo": "R000009-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Jodi Roberts",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 5526.905355975032,
+  "factoria-presupuesto": 8708.49601435475,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa487b0eea5616c86e8"
+  },
+  "proyecto-nombre": "mesh one-to-one deliverables",
+  "proyecto-codigo": "R000010-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Alyssa Labadie",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 1922.6606835145503,
+  "factoria-presupuesto": 9572.933634743094,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa487b0eea5616c86eb"
+  },
+  "proyecto-nombre": "transform mission-critical solutions",
+  "proyecto-codigo": "R000011-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Gerard Hills",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 4468.541532289237,
+  "factoria-presupuesto": 8946.724186418578,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa587b0eea5616c86ee"
+  },
+  "proyecto-nombre": "recontextualize 24/7 deliverables",
+  "proyecto-codigo": "R000012-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Malcolm Nikolaus-Gerhold",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 5444.15706419386,
+  "factoria-presupuesto": 6151.330385124311,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa587b0eea5616c86f1"
+  },
+  "proyecto-nombre": "deliver rich blockchains",
+  "proyecto-codigo": "R000013-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Frances Mueller",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 5993.123756488785,
+  "factoria-presupuesto": 6529.029027558863,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa587b0eea5616c86f4"
+  },
+  "proyecto-nombre": "unleash sexy architectures",
+  "proyecto-codigo": "R000014-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Willie Carter",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 9671.848356723785,
+  "factoria-presupuesto": 7007.320203818381,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa587b0eea5616c86f7"
+  },
+  "proyecto-nombre": "enable wireless metrics",
+  "proyecto-codigo": "R000015-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Antoinette Blick",
+  "proyecto-duracion": "1 meses",
+  "proyecto-presupuesto": 9382.05757457763,
+  "factoria-presupuesto": 3355.4294409696013,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa687b0eea5616c86fa"
+  },
+  "proyecto-nombre": "facilitate collaborative architectures",
+  "proyecto-codigo": "R000016-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Deanna Beahan",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 6325.49328240566,
+  "factoria-presupuesto": 5442.793456371874,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa687b0eea5616c86fd"
+  },
+  "proyecto-nombre": "evolve visionary paradigms",
+  "proyecto-codigo": "R000017-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Dr. Mildred Fritsch",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 7691.630358342081,
+  "factoria-presupuesto": 5311.380006605759,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa687b0eea5616c8700"
+  },
+  "proyecto-nombre": "empower revolutionary bandwidth",
+  "proyecto-codigo": "R000018-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Harold Lehner",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 5732.789620291442,
+  "factoria-presupuesto": 7341.085649793968,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa687b0eea5616c8703"
+  },
+  "proyecto-nombre": "harness sticky portals",
+  "proyecto-codigo": "R000019-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Dr. Roderick Jakubowski",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 4342.15149958618,
+  "factoria-presupuesto": 7666.879499331117,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa787b0eea5616c8706"
+  },
+  "proyecto-nombre": "mesh killer mindshare",
+  "proyecto-codigo": "R000020-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Tara Turner",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 8215.801069745794,
+  "factoria-presupuesto": 8083.515091100708,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa787b0eea5616c8709"
+  },
+  "proyecto-nombre": "deliver web-enabled partnerships",
+  "proyecto-codigo": "R000021-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Joshua Harber MD",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 8633.379979757592,
+  "factoria-presupuesto": 6065.732916817069,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa787b0eea5616c870c"
+  },
+  "proyecto-nombre": "scale ubiquitous users",
+  "proyecto-codigo": "R000022-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Ian Mayert",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 8578.073140000924,
+  "factoria-presupuesto": 2247.936240164563,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa787b0eea5616c870f"
+  },
+  "proyecto-nombre": "exploit strategic paradigms",
+  "proyecto-codigo": "R000023-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Wilbert Botsford",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 7180.209493963048,
+  "factoria-presupuesto": 7119.472505291924,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa887b0eea5616c8712"
+  },
+  "proyecto-nombre": "facilitate compelling systems",
+  "proyecto-codigo": "R000024-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Florence Rogahn PhD",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 5445.6642414443195,
+  "factoria-presupuesto": 9516.311100218445,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa887b0eea5616c8715"
+  },
+  "proyecto-nombre": "visualize ubiquitous architectures",
+  "proyecto-codigo": "R000025-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Alberta Fisher",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 3797.5535704754293,
+  "factoria-presupuesto": 2326.3079484459013,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa887b0eea5616c8718"
+  },
+  "proyecto-nombre": "morph wireless eyeballs",
+  "proyecto-codigo": "R000026-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Dana Berge",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 1428.32161183469,
+  "factoria-presupuesto": 1674.975492991507,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa987b0eea5616c871b"
+  },
+  "proyecto-nombre": "whiteboard magnetic action-items",
+  "proyecto-codigo": "R000027-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Sylvester Anderson PhD",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 9560.56964234449,
+  "factoria-presupuesto": 3369.9711356312037,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa987b0eea5616c871e"
+  },
+  "proyecto-nombre": "leverage granular supply-chains",
+  "proyecto-codigo": "R000028-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Paulette Quitzon MD",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 6419.793389504775,
+  "factoria-presupuesto": 1349.2930284701288,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa987b0eea5616c8721"
+  },
+  "proyecto-nombre": "brand out-of-the-box systems",
+  "proyecto-codigo": "R000029-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Lynette Bogisich",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 3148.1115233618766,
+  "factoria-presupuesto": 3701.755946269259,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffa987b0eea5616c8724"
+  },
+  "proyecto-nombre": "innovate compelling e-commerce",
+  "proyecto-codigo": "R000030-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Lucia Carter",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 2996.372174238786,
+  "factoria-presupuesto": 3542.3719095997512,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaa87b0eea5616c8727"
+  },
+  "proyecto-nombre": "grow open-source supply-chains",
+  "proyecto-codigo": "R000031-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Nichole Torphy",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 1318.654477596283,
+  "factoria-presupuesto": 8675.795404240489,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaa87b0eea5616c872a"
+  },
+  "proyecto-nombre": "transition front-end networks",
+  "proyecto-codigo": "R000032-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Hugo Bernier",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 4795.645617879927,
+  "factoria-presupuesto": 6653.2597311306745,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaa87b0eea5616c872d"
+  },
+  "proyecto-nombre": "reintermediate real-time mindshare",
+  "proyecto-codigo": "R000033-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Brooke Green",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 5733.764435630292,
+  "factoria-presupuesto": 3128.171639982611,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaa87b0eea5616c8730"
+  },
+  "proyecto-nombre": "unleash sticky e-commerce",
+  "proyecto-codigo": "R000034-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Carla Zieme",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 5680.828892858699,
+  "factoria-presupuesto": 8319.291942054406,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffab87b0eea5616c8733"
+  },
+  "proyecto-nombre": "envisioneer sexy channels",
+  "proyecto-codigo": "R000035-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Sean Steuber",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 4359.371876576915,
+  "factoria-presupuesto": 8105.784223647788,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffab87b0eea5616c8736"
+  },
+  "proyecto-nombre": "strategize killer models",
+  "proyecto-codigo": "R000036-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Edgar Yost",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 2980.2135643549263,
+  "factoria-presupuesto": 8756.529296282679,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffac87b0eea5616c8739"
+  },
+  "proyecto-nombre": "transform scalable networks",
+  "proyecto-codigo": "R000037-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Monica Carter",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 5024.127019569278,
+  "factoria-presupuesto": 6148.4347665682435,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffac87b0eea5616c873c"
+  },
+  "proyecto-nombre": "recontextualize robust e-commerce",
+  "proyecto-codigo": "R000038-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Herbert Pfeffer",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 6228.972658282146,
+  "factoria-presupuesto": 9626.448626862839,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffac87b0eea5616c873f"
+  },
+  "proyecto-nombre": "iterate bricks-and-clicks content",
+  "proyecto-codigo": "R000039-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Dr. Kristin Kuhic",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 3208.023621700704,
+  "factoria-presupuesto": 2957.3530717752874,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffac87b0eea5616c8742"
+  },
+  "proyecto-nombre": "embrace visionary channels",
+  "proyecto-codigo": "R000040-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Jessica Wehner",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 6634.695001645014,
+  "factoria-presupuesto": 8598.308730637655,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffad87b0eea5616c8745"
+  },
+  "proyecto-nombre": "syndicate holistic applications",
+  "proyecto-codigo": "R000041-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jack Kuhic",
+  "proyecto-duracion": "1 meses",
+  "proyecto-presupuesto": 5541.80613765493,
+  "factoria-presupuesto": 2023.846876109019,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffad87b0eea5616c8748"
+  },
+  "proyecto-nombre": "repurpose viral infrastructures",
+  "proyecto-codigo": "R000042-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Lawrence Lindgren",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 3143.660078989342,
+  "factoria-presupuesto": 2696.916332701221,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffad87b0eea5616c874b"
+  },
+  "proyecto-nombre": "seize dot-com relationships",
+  "proyecto-codigo": "R000043-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Jaime Rohan I",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 1877.553477883339,
+  "factoria-presupuesto": 9487.898483173922,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffad87b0eea5616c874e"
+  },
+  "proyecto-nombre": "maximize one-to-one architectures",
+  "proyecto-codigo": "R000044-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Hilda Satterfield-D'Amore",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 7596.0932520683855,
+  "factoria-presupuesto": 1909.5134399831295,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffae87b0eea5616c8751"
+  },
+  "proyecto-nombre": "synergize 24/7 platforms",
+  "proyecto-codigo": "R000045-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Lynn Murray",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 1861.407162155956,
+  "factoria-presupuesto": 4257.083945674822,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffae87b0eea5616c8754"
+  },
+  "proyecto-nombre": "visualize plug-and-play deliverables",
+  "proyecto-codigo": "R000046-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Jason Murphy",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 3987.9865066614,
+  "factoria-presupuesto": 7699.994443682954,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffae87b0eea5616c8757"
+  },
+  "proyecto-nombre": "matrix sexy metrics",
+  "proyecto-codigo": "R000047-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jonathon Dickens",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 1771.5373707469553,
+  "factoria-presupuesto": 2373.411767417565,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffae87b0eea5616c875a"
+  },
+  "proyecto-nombre": "unleash open-source action-items",
+  "proyecto-codigo": "R000048-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Andre Lind",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 2498.9547627046704,
+  "factoria-presupuesto": 7716.74763225019,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaf87b0eea5616c875d"
+  },
+  "proyecto-nombre": "engage open-source infrastructures",
+  "proyecto-codigo": "R000049-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Ramon Beier",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 7662.959044333547,
+  "factoria-presupuesto": 9880.62433572486,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaf87b0eea5616c8760"
+  },
+  "proyecto-nombre": "incentivize web-enabled metrics",
+  "proyecto-codigo": "R000050-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Patrick Lang",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 8105.658912099898,
+  "factoria-presupuesto": 7664.574783993885,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaf87b0eea5616c8763"
+  },
+  "proyecto-nombre": "incentivize transparent applications",
+  "proyecto-codigo": "R000051-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Krystal Kertzmann",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 4612.676515011117,
+  "factoria-presupuesto": 1296.5574234258384,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffaf87b0eea5616c8766"
+  },
+  "proyecto-nombre": "reintermediate killer paradigms",
+  "proyecto-codigo": "R000052-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Dr. Marion Kessler",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 2467.7036309149116,
+  "factoria-presupuesto": 5944.982320768759,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb087b0eea5616c8769"
+  },
+  "proyecto-nombre": "redefine user-centric paradigms",
+  "proyecto-codigo": "R000053-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Alicia Lubowitz",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 5715.81176109612,
+  "factoria-presupuesto": 2435.1016611326486,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb087b0eea5616c876c"
+  },
+  "proyecto-nombre": "engage 24/365 applications",
+  "proyecto-codigo": "R000054-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Kurt Huels",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 5740.417068358511,
+  "factoria-presupuesto": 6810.642743483186,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb187b0eea5616c876f"
+  },
+  "proyecto-nombre": "visualize intuitive ROI",
+  "proyecto-codigo": "R000055-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Dr. Rosemary Nienow",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 7699.711196124554,
+  "factoria-presupuesto": 7905.212063807994,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb187b0eea5616c8772"
+  },
+  "proyecto-nombre": "aggregate rich e-commerce",
+  "proyecto-codigo": "R000056-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Sally Bartoletti",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 3367.677639471367,
+  "factoria-presupuesto": 8330.036005936563,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb187b0eea5616c8775"
+  },
+  "proyecto-nombre": "leverage dynamic action-items",
+  "proyecto-codigo": "R000057-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Lynette Heller",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 3212.382670259103,
+  "factoria-presupuesto": 2833.6820111144334,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb187b0eea5616c8778"
+  },
+  "proyecto-nombre": "streamline transparent schemas",
+  "proyecto-codigo": "R000058-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Antonia Weber",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 6032.836373429745,
+  "factoria-presupuesto": 8033.099100226536,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb287b0eea5616c877b"
+  },
+  "proyecto-nombre": "maximize best-of-breed users",
+  "proyecto-codigo": "R000059-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Al Renner",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 7876.3035838492215,
+  "factoria-presupuesto": 4713.64558278583,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb287b0eea5616c877e"
+  },
+  "proyecto-nombre": "synergize synergistic users",
+  "proyecto-codigo": "R000060-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Clint Fisher",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 7080.061389598995,
+  "factoria-presupuesto": 5650.075472192839,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb287b0eea5616c8781"
+  },
+  "proyecto-nombre": "disintermediate ubiquitous e-commerce",
+  "proyecto-codigo": "R000061-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Katie Mraz",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 7565.051162848249,
+  "factoria-presupuesto": 2644.7694306261837,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb287b0eea5616c8784"
+  },
+  "proyecto-nombre": "matrix real-time networks",
+  "proyecto-codigo": "R000062-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "May Reynolds Jr.",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 1493.8247706741095,
+  "factoria-presupuesto": 9150.105406995863,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb387b0eea5616c8787"
+  },
+  "proyecto-nombre": "engage 24/7 initiatives",
+  "proyecto-codigo": "R000063-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Kathryn Bruen PhD",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 5857.757889432833,
+  "factoria-presupuesto": 7335.7899591792375,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb387b0eea5616c878a"
+  },
+  "proyecto-nombre": "utilize next-generation platforms",
+  "proyecto-codigo": "R000064-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Charles Schneider-Nolan",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 9007.994257844985,
+  "factoria-presupuesto": 4353.762386366725,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb387b0eea5616c878d"
+  },
+  "proyecto-nombre": "embrace frictionless metrics",
+  "proyecto-codigo": "R000065-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Dr. Larry Halvorson",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 3286.196695640683,
+  "factoria-presupuesto": 8705.244669923559,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb387b0eea5616c8790"
+  },
+  "proyecto-nombre": "brand out-of-the-box initiatives",
+  "proyecto-codigo": "R000066-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Clyde Mraz Jr.",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 8324.497181456536,
+  "factoria-presupuesto": 7796.88549763523,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb487b0eea5616c8793"
+  },
+  "proyecto-nombre": "morph back-end experiences",
+  "proyecto-codigo": "R000067-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Miss Mable Upton-Sanford",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 9917.064873501658,
+  "factoria-presupuesto": 1800.1636802218854,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb487b0eea5616c8796"
+  },
+  "proyecto-nombre": "recontextualize impactful platforms",
+  "proyecto-codigo": "R000068-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Mrs. Marjorie Nitzsche",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 1530.6237961631268,
+  "factoria-presupuesto": 8023.193794535473,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb487b0eea5616c8799"
+  },
+  "proyecto-nombre": "empower next-generation architectures",
+  "proyecto-codigo": "R000069-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Timmy Armstrong-Kihn",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 3667.3485334031284,
+  "factoria-presupuesto": 5242.301247315481,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb487b0eea5616c879c"
+  },
+  "proyecto-nombre": "productize mission-critical eyeballs",
+  "proyecto-codigo": "R000070-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Tomas Ward",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 7167.576517909765,
+  "factoria-presupuesto": 9637.15017773211,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb587b0eea5616c879f"
+  },
+  "proyecto-nombre": "expedite killer methodologies",
+  "proyecto-codigo": "R000071-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Agnes DuBuque",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 5392.0387527905405,
+  "factoria-presupuesto": 5259.483539033681,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb587b0eea5616c87a2"
+  },
+  "proyecto-nombre": "target impactful mindshare",
+  "proyecto-codigo": "R000072-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Robin Kovacek",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 2741.433787625283,
+  "factoria-presupuesto": 2707.30738225393,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb687b0eea5616c87a5"
+  },
+  "proyecto-nombre": "brand holistic blockchains",
+  "proyecto-codigo": "R000073-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Mark Ernser",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 4112.851770594716,
+  "factoria-presupuesto": 7157.483690185472,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb687b0eea5616c87a8"
+  },
+  "proyecto-nombre": "expedite global markets",
+  "proyecto-codigo": "R000074-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jane Reichert",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 2314.082592725754,
+  "factoria-presupuesto": 6221.671940991655,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb687b0eea5616c87ab"
+  },
+  "proyecto-nombre": "leverage magnetic experiences",
+  "proyecto-codigo": "R000075-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Patricia Kunze",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 3945.531010394916,
+  "factoria-presupuesto": 1452.3682401049882,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb687b0eea5616c87ae"
+  },
+  "proyecto-nombre": "scale impactful eyeballs",
+  "proyecto-codigo": "R000076-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Claire Olson",
+  "proyecto-duracion": "8 meses",
+  "proyecto-presupuesto": 6890.633141854778,
+  "factoria-presupuesto": 3690.448750508949,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb787b0eea5616c87b1"
+  },
+  "proyecto-nombre": "redefine collaborative experiences",
+  "proyecto-codigo": "R000077-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Ismael Williamson",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 3116.3438085932285,
+  "factoria-presupuesto": 7244.257003301755,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb787b0eea5616c87b4"
+  },
+  "proyecto-nombre": "synergize user-centric relationships",
+  "proyecto-codigo": "R000078-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Betsy Yundt",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 2829.7826785128564,
+  "factoria-presupuesto": 5621.361140161753,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb787b0eea5616c87b7"
+  },
+  "proyecto-nombre": "strategize customized schemas",
+  "proyecto-codigo": "R000079-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Franklin Feeney",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 5862.745706457645,
+  "factoria-presupuesto": 2154.916275991127,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb787b0eea5616c87ba"
+  },
+  "proyecto-nombre": "deploy viral content",
+  "proyecto-codigo": "R000080-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Leroy Graham",
+  "proyecto-duracion": "1 meses",
+  "proyecto-presupuesto": 6669.376691337675,
+  "factoria-presupuesto": 3197.814476210624,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb887b0eea5616c87bd"
+  },
+  "proyecto-nombre": "reinvent rich blockchains",
+  "proyecto-codigo": "R000081-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Johnny Franey",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 8298.438364174217,
+  "factoria-presupuesto": 7549.753376515582,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb887b0eea5616c87c0"
+  },
+  "proyecto-nombre": "extend real-time paradigms",
+  "proyecto-codigo": "R000082-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Debbie Kihn DDS",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 4239.1145513392985,
+  "factoria-presupuesto": 4719.251992646605,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb887b0eea5616c87c3"
+  },
+  "proyecto-nombre": "orchestrate turn-key communities",
+  "proyecto-codigo": "R000083-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Elmer Treutel",
+  "proyecto-duracion": "2 meses",
+  "proyecto-presupuesto": 4260.774939786643,
+  "factoria-presupuesto": 6985.016181599349,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb887b0eea5616c87c6"
+  },
+  "proyecto-nombre": "strategize global applications",
+  "proyecto-codigo": "R000084-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Lamar Kilback-Weber",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 4953.918999992311,
+  "factoria-presupuesto": 7435.121586546302,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb987b0eea5616c87c9"
+  },
+  "proyecto-nombre": "engineer killer networks",
+  "proyecto-codigo": "R000085-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Angie Feeney",
+  "proyecto-duracion": "3 meses",
+  "proyecto-presupuesto": 7619.096444454044,
+  "factoria-presupuesto": 5638.0763503257185,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb987b0eea5616c87cc"
+  },
+  "proyecto-nombre": "innovate user-centric communities",
+  "proyecto-codigo": "R000086-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "April Hickle",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 1139.3911042250693,
+  "factoria-presupuesto": 1514.2918380443007,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb987b0eea5616c87cf"
+  },
+  "proyecto-nombre": "implement dynamic content",
+  "proyecto-codigo": "R000087-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Mrs. Sheryl Lind",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 3372.3158766515553,
+  "factoria-presupuesto": 2688.6380633804947,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffb987b0eea5616c87d2"
+  },
+  "proyecto-nombre": "syndicate end-to-end relationships",
+  "proyecto-codigo": "R000088-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Yolanda Pouros",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 9645.69716877304,
+  "factoria-presupuesto": 9297.467296710238,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffba87b0eea5616c87d5"
+  },
+  "proyecto-nombre": "envisioneer customized markets",
+  "proyecto-codigo": "R000089-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Rodolfo Abshire",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 7376.517293509096,
+  "factoria-presupuesto": 9098.630668595433,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffba87b0eea5616c87d8"
+  },
+  "proyecto-nombre": "disintermediate transparent architectures",
+  "proyecto-codigo": "R000090-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Stacey Beatty",
+  "proyecto-duracion": "12 meses",
+  "proyecto-presupuesto": 9225.927830673754,
+  "factoria-presupuesto": 1214.0393469017,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffba87b0eea5616c87db"
+  },
+  "proyecto-nombre": "incubate proactive synergies",
+  "proyecto-codigo": "R000091-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Eddie McGlynn",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 3502.6360768824816,
+  "factoria-presupuesto": 5048.268266953528,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffba87b0eea5616c87de"
+  },
+  "proyecto-nombre": "matrix out-of-the-box relationships",
+  "proyecto-codigo": "R000092-20230916",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Josephine Murray",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 1044.237828347832,
+  "factoria-presupuesto": 1418.626733822748,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbb87b0eea5616c87e1"
+  },
+  "proyecto-nombre": "incubate plug-and-play infrastructures",
+  "proyecto-codigo": "R000093-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Sarah Quitzon",
+  "proyecto-duracion": "10 meses",
+  "proyecto-presupuesto": 2917.650188319385,
+  "factoria-presupuesto": 3078.153058188036,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbb87b0eea5616c87e4"
+  },
+  "proyecto-nombre": "streamline granular web services",
+  "proyecto-codigo": "R000094-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Dominic West",
+  "proyecto-duracion": "1 meses",
+  "proyecto-presupuesto": 2560.481967870146,
+  "factoria-presupuesto": 2230.4675031919032,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbb87b0eea5616c87e7"
+  },
+  "proyecto-nombre": "expedite cross-platform niches",
+  "proyecto-codigo": "R000095-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Cody Thompson",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 6570.610808907077,
+  "factoria-presupuesto": 9443.207889562473,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbc87b0eea5616c87ea"
+  },
+  "proyecto-nombre": "brand enterprise methodologies",
+  "proyecto-codigo": "R000096-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Terrance Hills",
+  "proyecto-duracion": "4 meses",
+  "proyecto-presupuesto": 8654.646188253537,
+  "factoria-presupuesto": 1574.7517314739525,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbc87b0eea5616c87ed"
+  },
+  "proyecto-nombre": "embrace frictionless blockchains",
+  "proyecto-codigo": "R000097-20230916",
+  "centro-gestor": "Factoria F5 - People and culture",
+  "responsable": "Gregory O'Connell",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 9017.51091144979,
+  "factoria-presupuesto": 8685.994910541922,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbc87b0eea5616c87f0"
+  },
+  "proyecto-nombre": "optimize end-to-end users",
+  "proyecto-codigo": "R000098-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Zachary Conn",
+  "proyecto-duracion": "9 meses",
+  "proyecto-presupuesto": 7499.009839724749,
+  "factoria-presupuesto": 1592.7217355929315,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbc87b0eea5616c87f3"
+  },
+  "proyecto-nombre": "synergize transparent metrics",
+  "proyecto-codigo": "R000099-20230916",
+  "centro-gestor": "Factoria F5 - Oficina soporte proyectos y calidad",
+  "responsable": "Claude Collins",
+  "proyecto-duracion": "7 meses",
+  "proyecto-presupuesto": 1484.0219169855118,
+  "factoria-presupuesto": 4782.993174856529,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6504ffbd87b0eea5616c87f6"
+  },
+  "proyecto-nombre": "disintermediate real-time supply-chains",
+  "proyecto-codigo": "R000100-20230916",
+  "centro-gestor": "Factoría F5 - Dirección general",
+  "responsable": "Hubert Oberbrunner",
+  "proyecto-duracion": "11 meses",
+  "proyecto-presupuesto": 7666.340285213664,
+  "factoria-presupuesto": 3991.6952850762755,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650850b57fd5783becb94df4"
+  },
+  "proyecto-nombre": "P10 Barcelona",
+  "proyecto-codigo": "R000101-20230918",
+  "centro-gestor": "Factoría F5-Dirección general",
+  "responsable": "Seba riggio",
+  "proyecto-duracion": "5 meses",
+  "proyecto-presupuesto": 3000,
+  "factoria-presupuesto": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65096d59b0787b6f7d34f91e"
+  },
+  "proyecto-nombre": "P2 Mixta Full-Stack",
+  "proyecto-codigo": "R000102-20230919",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jesus Rivera",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 23000,
+  "factoria-presupuesto": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6509a96c36c42d1bdc65052b"
+  },
+  "proyecto-nombre": "P12 Mixta Full-Stack",
+  "proyecto-codigo": "R000103-20230919",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jesus Rivera",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 23000,
+  "factoria-presupuesto": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6509a9d00357467fdcbfbca3"
+  },
+  "proyecto-nombre": "P18 Mixta Full-Stack",
+  "proyecto-codigo": "R000104-20230919",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jesus Rivera",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 23000,
+  "factoria-presupuesto": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6509aca0bf81eedcc59c18c1"
+  },
+  "proyecto-nombre": "P25 Mixta Full-Stack",
+  "proyecto-codigo": "R000105-20230919",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jesus Rivera",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 23000,
+  "factoria-presupuesto": 15000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6509accd01ed2ba75614b9b3"
+  },
+  "proyecto-nombre": "P157 Mixta Full-Stack",
+  "proyecto-codigo": "R000106-20230919",
+  "centro-gestor": "Factoria F5 - Admin, contabilidad y finanzas",
+  "responsable": "Jesus Rivera",
+  "proyecto-duracion": "6 meses",
+  "proyecto-presupuesto": 23000,
+  "factoria-presupuesto": 15000,
+  "__v": 0
+}]
