@@ -2,10 +2,15 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { GestionConvocatoriaController } from './gestion-convocatoria.controller';
 import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { HttpStatus } from '@nestjs/common';
-import { ObjectId } from 'mongoose';
+import mongoose, { ObjectId } from 'mongoose';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { ConvocatoriaRegistro } from 'src/convocatoria-registro/schema/convocatoria-registro.schema';
+import { EtapaSolicitudDto } from './dto/etapa-solicitud.dto';
+import { EtapaResolucionDto } from './dto/etapa-resolucion.dto';
+import { EtapaOtorgamientoDto } from './dto/etapa-otorgamiento.dto';
+import { EtapaJustificacionDto } from './dto/etapa-justificacion.dto';
+import { EtapaCierreDto } from './dto/etapa-cierre.dto';
 
 
 const createConvocatoria = {
@@ -168,7 +173,7 @@ describe('GestionConvocatoriaController', () => {
       });
     }),
 
-    remove: jest.fn().mockResolvedValue({
+    delete: jest.fn().mockResolvedValue({
       message:'Gestion de convocatoria eliminida correctamente',
       status:HttpStatus.OK,
       data:''
@@ -223,10 +228,22 @@ describe('GestionConvocatoriaController', () => {
     expect (await controller.create(nuevaGestion)).toMatchObject(
     createConvocatoria
     );
-
-
-    
   });
+
+  it ('Actualizar una gestion de convocatoria', async () => {
+    const id = new mongoose.Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
+    const updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto = {
+      
+      'etapa-solicitud': new EtapaSolicitudDto,
+      'etapa-resolucion': new EtapaResolucionDto,
+      'etapa-otorgamiento': new EtapaOtorgamientoDto,
+      'etapa-justificacion': new EtapaJustificacionDto,
+      'etapa-cierre': new EtapaCierreDto
+    };
+
+    expect(await service.update(updateGestionConvocatoriaDto));
+
+  })
  
 
 });
