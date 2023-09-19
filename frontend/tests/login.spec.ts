@@ -1,4 +1,4 @@
-import { test, describe, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('http://localhost:5173/')
@@ -42,7 +42,7 @@ test.describe('Form Login "Cuenta" ', () => {
 })
 
 
-//REVISAR PORQUE NO PASAN LOS TEST AL HACER CLICK EN CONTRASEÑA!!!! 
+// REVISAR PORQUE NO PASAN LOS TEST AL HACER CLICK EN CONTRASEÑA!!!! 
 
 // test.describe('Form Login "Constraseña" ', () => {
 //   test('Display form title', async ({ page }) => {
