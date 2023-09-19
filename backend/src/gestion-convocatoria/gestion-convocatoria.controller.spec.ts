@@ -2,10 +2,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { GestionConvocatoriaController } from './gestion-convocatoria.controller';
 import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { HttpStatus } from '@nestjs/common';
-import mongoose, { ObjectId } from 'mongoose';
+import mongoose, { ObjectId, Types } from 'mongoose';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
-import { ConvocatoriaRegistro } from 'src/convocatoria-registro/schema/convocatoria-registro.schema';
 import { EtapaSolicitudDto } from './dto/etapa-solicitud.dto';
 import { EtapaResolucionDto } from './dto/etapa-resolucion.dto';
 import { EtapaOtorgamientoDto } from './dto/etapa-otorgamiento.dto';
@@ -173,9 +172,9 @@ describe('GestionConvocatoriaController', () => {
       });
     }),
 
-    delete: jest.fn().mockResolvedValue({
+   remove: jest.fn().mockResolvedValue({
       message:'Gestion de convocatoria eliminida correctamente',
-      status:HttpStatus.OK,
+      status:200,
       data:''
   }),
 
@@ -244,7 +243,14 @@ describe('GestionConvocatoriaController', () => {
     expect(await service.update(updateGestionConvocatoriaDto));
 
   })
- 
+it('Deberia borrar una gestión de convocatoria', async () => {
+  expect(await controller.remove(expect.any(Types.ObjectId))).toMatchObject({
+    message:'Gestion de convocatoria eliminida correctamente',
+    status:200,
+    data:''
+  })
 
 });
 
+
+})
