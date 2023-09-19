@@ -19,16 +19,21 @@ private readonly ProyectosModel : Model <ProyectosRegistro>
   const totalRegistros = await this.ProyectosModel.countDocuments({});
   const nuevoCodigoRegistro = `R${(totalRegistros + 1).toString().padStart(6, '0')}`;
   const proyectoCodigoConFecha = `${nuevoCodigoRegistro}${autoGenerateCode()}`;
-  const project = (await this.ProyectosModel.create(createProyectosRegistroDto))
-   return {
-    projecto:project
-   } 
-   
+  const project = await this.ProyectosModel.create({
+  ...createProyectosRegistroDto,
+    'proyecto-codigo': proyectoCodigoConFecha,
+  });
+  return {
+  message:'Proyecto creado con exito',
+  status:200,
+  proyecto:project
+  
   }
-
+  
+  }
  async findAll() {
   try {
-    const allProjects = await this.ProyectosModel.find()
+    const allProjects = await this.ProyectosModel.find().exec()
     return {
       message: 'Todos las proyectos se han recibido correctamente',
       status:200,
@@ -76,7 +81,7 @@ try {
   if(!findAndDelete) throw new HttpException('Proyecto no encontrado',HttpStatus.NOT_FOUND)
  return {
     message: 'Proyecto eliminado correctamente',
-    status:HttpStatus.OK,
+    status:200,
     data:""
   }
 }catch(error){

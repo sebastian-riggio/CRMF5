@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
-import mongoose, { ObjectId, Schema } from 'mongoose';
+import mongoose, { Model, ObjectId,Schema } from 'mongoose';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { AdjuntarDto } from './dto/adjuntarDto';
@@ -8,78 +8,38 @@ import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registr
 import { getModelToken } from '@nestjs/mongoose';
 import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
 
-const convocatoria = [ {
-  _id: '65044504c7d7b5d92dce9b4e',
-  entidad_convocante: 'Ayuntamiento Barcelona',
-  departamento_convocante: 'Recursos Humanos',
+
+const convocatoria =  {
+  _id : '65044504c7d7b5d92dce9b4e',
+  entidadConvocante: 'Ayuntamiento Barcelona',
+  departamentoConvocante: 'Recursos Humanos',
   titulo: 'Educacion para todos',
-  publicacion_oficial: 'http//:convocatoria.com',
-  convocatoria_enlace: 'http//:convocatoria.com',
+  publicacionOficial: 'http//:convocatoria.com',
+  convocatoriaEnlace: 'http//:convocatoria.com',
   tematica: 'Para organizaciones sin fines de lucro',
-  trabajo_lineas: 'Simples notas',
-  dirigido_entidades: 'Educativas',
-  fecha_apertura: '20/10/2023',
-  fecha_cierre: '20/10/2023',
-  fecha_resolucion: '20/10/2023',
-  periodo_ejecucion: '5 meses',
-  fecha_justificacion: '3/11/2023',
+  trabajoLineas: 'Simples notas',
+  dirigidoEntidades: 'Educativas',
+  fechaApertura: '20/10/2023',
+  fechaCierre: '20/10/2023',
+  fechaResolucion: '20/10/2023',
+  periodoEjecucion: '5 meses',
+  fechaJustificacion: '3/11/2023',
   auditoria: false,
   presupuesto: 10000,
-  otra_informacion: 'Notas de interes',
+  otraInformacion: 'Notas de interes',
 
   documentacion: {
-    memoria_tecnica: 'PDF',
+    memoriaTecnica: 'PDF',
     presupuesto: 'PDF',
-    formulario_solicitud: 'PDF',
-    otra_documentacion: 'PDF',
+    formularioSolicitud: 'PDF',
+    otraDocumentacion: 'PDF',
   }
 }
-]
+
 describe('ConvocatoriaRegistroService', () => {
   let service: ConvocatoriaRegistroService;
-
-  const mockConvocatoriaRegistro = {
-    findOne: jest.fn().mockImplementation((id: ObjectId) => {
-      return Promise.resolve({
-        message: 'Convocatoria recibida correctamente',
-        status: 200,
-        convocatoria: convocatoria,
-      });
-    }),
-    findAll: jest.fn().mockReturnValue(
-      Promise.resolve({
-        message: 'Todas las convocatorias se han recibido correctamente',
-        status: 200,
-        convocatoria: convocatoria,
-      }),
-    ),
-    update: jest
-      .fn()
-      .mockImplementation(
-        (updatedConvocatoria: UpdateConvocatoriaRegistroDto) => {
-          return Promise.resolve({
-            message: 'Registro de convocatoria actualizado correctamente',
-            status: HttpStatus.OK,
-            data: convocatoria,
-          });
-        },
-      ),
-    create: jest
-      .fn()
-      .mockImplementation(
-        (registroConvocatoria: CreateConvocatoriaRegistroDto) => {
-          return Promise.resolve({
-            message: 'Se ha registrado correctamente la convocatoria',
-            status: 200,
-            convocatoria: {
-              _id: '65044504c7d7b5d92dce9b4e',
-              ...registroConvocatoria,
-            },
-          });
-        },
-      ),
-  };
-
+  let model : Model<ConvocatoriaRegistro>
+ 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -87,22 +47,57 @@ describe('ConvocatoriaRegistroService', () => {
         {
           provide: getModelToken(ConvocatoriaRegistro.name),
           useValue: {
-            mockConvocatoriaRegistro,
-            find: jest.fn(),
-            findOne: jest.fn(),
             findByIdAndDelete: jest.fn(),
             findOneAndUpdate: jest.fn(),
-            new: jest.fn(),
-            constructor: jest.fn(),
-            create: jest.fn(),
+            new: jest.fn().mockResolvedValue(convocatoria),
+            constructor: jest.fn().mockResolvedValue(convocatoria),
             exec: jest.fn(),
             inject:jest.fn(),
+           findOne: jest.fn().mockImplementation((id: ObjectId) => {
+            return Promise.resolve({
+              message: 'Convocatoria recibida correctamente',
+              status: 200,
+              convocatoria: convocatoria,
+            });
+          }),
+          create: jest
+          .fn()
+          .mockImplementation(
+            (registroConvocatoria: CreateConvocatoriaRegistroDto) => {
+              return Promise.resolve({
+                message: 'Se ha registrado correctamente la convocatoria',
+                status: 200,
+                convocatoria: {
+                  _id: '65044504c7d7b5d92dce9b4e',
+                  ...registroConvocatoria,
+                },
+              });
+            },
+          ),
+           find: jest.fn().mockReturnValue(
+            Promise.resolve({
+              message: 'Todas las convocatorias se han recibido correctamente',
+              status: 200,
+              convocatoria: convocatoria,
+            }),
+          ), 
+          update: jest
+            .fn()
+            .mockImplementation(
+              (updatedConvocatoria: UpdateConvocatoriaRegistroDto) => {
+                return Promise.resolve({
+                  message: 'Registro de convocatoria actualizado correctamente',
+                  status: HttpStatus.OK,
+                  data: convocatoria,
+                });
+              },
+            ),
           },
         },
       ],
     }).compile();
 
-
+    model = module.get<Model<ConvocatoriaRegistro>>(getModelToken('ConvocatoriaRegistro'))
     service = module.get<ConvocatoriaRegistroService>(
       ConvocatoriaRegistroService,
     );
@@ -111,20 +106,41 @@ describe('ConvocatoriaRegistroService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('findAll:Todos los registros de convocatorias se han recibido correctamente', async () => {
- 
-    const register = await service.findAll();
-    expect(register) .toMatchObject({
+ jest.spyOn(model,'find').mockReturnValue({
+ exec: jest.fn().mockResolvedValueOnce(convocatoria),
+ }as any );
+    const response = await service.findAll();
+    expect(response) .toEqual({
      message: 'Todas las convocatorias se han recibido correctamente',
       status: 200, 
       convocatoria: convocatoria,
     }); 
   });
-
-  it('findOne: Registro de convocatoria recibida correctamente', async () => {
-    const id = new Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
-    expect(await service.findOne(id));
+  it('findOne: Convocatoria recibida correctamente', async () => {
+    const id = new Schema.Types.ObjectId ('65044504c7d7b5d92dce9b4e')
+   jest.spyOn(model,'findOne').mockResolvedValueOnce(convocatoria)
+    expect(await service.findOne(id)).toMatchObject({
+      message: 'Convocatoria recibida correctamente',
+        status: 200,
+        convocatoria: convocatoria
+    });
   });
+
+  it('findOne: Manejo de errores',async () => {
+    model.findOne = jest.fn().mockRejectedValue(new Error ('Error de busqueda'))
+    const id = new Schema.Types.ObjectId ('65044504c7d7b5d92dce9b4e')
+    try{
+      await service.findOne(id)
+      fail('La funcion findOne no lanzo la excepcion ')
+    }catch(error){
+      expect(error.message).toBe('Error de busqueda')
+    }
+  })
 
   it('update: registro de convocatoria actualizado correctamente', async () => {
     const id = new mongoose.Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
@@ -172,12 +188,12 @@ describe('ConvocatoriaRegistroService', () => {
       'otra-informacion': 'otras notas',
       documentacion: new AdjuntarDto(),
     };
-    expect(await service.create(newConvocatoria));
+    expect(await service.create(newConvocatoria))
   });
   it('remove:Debe eliminar un registro de convocatoria correctamente', async () => {
     jest.spyOn(service, 'remove').mockResolvedValue({
       message: 'Convocatoria eliminada correctamente',
-      status: HttpStatus.OK,
+      status:200,
       data: '',
     });
   });
@@ -185,4 +201,6 @@ describe('ConvocatoriaRegistroService', () => {
   it('HttpsStatus:Compruebo que mis respuestas de estado tengan el comportamiento esperado', async () => {
     jest.spyOn(service, 'remove').mockRejectedValue(new HttpException('Convocatoria no encontrada', HttpStatus.NOT_FOUND));
   });
+
+
 });

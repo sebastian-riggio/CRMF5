@@ -26,7 +26,7 @@ return {
   }
 async findAll() {
     try{
-      const AllConvocatorias = await this.ConvocatoriaModel.find()
+      const AllConvocatorias = await this.ConvocatoriaModel.find().exec()
       return {
         message: 'Todas las convocatorias se han recibido correctamente',
         status:200,
@@ -80,7 +80,7 @@ async remove(id:ObjectId) {
       if(!findAndDelete) throw new HttpException('Convocatoria no encontrada',HttpStatus.NOT_FOUND)
     return {
            message: 'Convocatoria eliminada correctamente',
-           status:HttpStatus.OK,
+           status:200,
            data:''
     } 
     
