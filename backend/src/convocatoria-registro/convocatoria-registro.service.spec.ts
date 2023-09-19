@@ -8,7 +8,7 @@ import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registr
 import { getModelToken } from '@nestjs/mongoose';
 import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
 
-const convocatoria = {
+const convocatoria = [ {
   _id: '65044504c7d7b5d92dce9b4e',
   entidad_convocante: 'Ayuntamiento Barcelona',
   departamento_convocante: 'Recursos Humanos',
@@ -32,9 +32,9 @@ const convocatoria = {
     presupuesto: 'PDF',
     formulario_solicitud: 'PDF',
     otra_documentacion: 'PDF',
-  },
-};
-
+  }
+}
+]
 describe('ConvocatoriaRegistroService', () => {
   let service: ConvocatoriaRegistroService;
 
@@ -96,7 +96,7 @@ describe('ConvocatoriaRegistroService', () => {
             constructor: jest.fn(),
             create: jest.fn(),
             exec: jest.fn(),
-            inject:jest.fn()
+            inject:jest.fn(),
           },
         },
       ],
@@ -112,8 +112,13 @@ describe('ConvocatoriaRegistroService', () => {
     expect(service).toBeDefined();
   });
   it('findAll:Todos los registros de convocatorias se han recibido correctamente', async () => {
+ 
     const register = await service.findAll();
-    expect(register).toBeDefined();
+    expect(register) .toMatchObject({
+     message: 'Todas las convocatorias se han recibido correctamente',
+      status: 200, 
+      convocatoria: convocatoria,
+    }); 
   });
 
   it('findOne: Registro de convocatoria recibida correctamente', async () => {

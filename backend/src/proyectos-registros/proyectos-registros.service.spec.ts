@@ -46,7 +46,7 @@ describe('ProyectosRegistrosService', () => {
           });
         },
       ),
-/*     create: jest
+    create: jest
       .fn()
       .mockImplementation(
         (registroProyecto: CreateProyectosRegistroDto) => {
@@ -59,7 +59,7 @@ describe('ProyectosRegistrosService', () => {
             },
           });
         },
-      ), */
+      ), 
   };
 
 
@@ -81,7 +81,7 @@ describe('ProyectosRegistrosService', () => {
             constructor: jest.fn(),
             create: jest.fn(),
             exec: jest.fn(),
-            inject:jest.fn()
+            countDocuments:jest.fn()
           },}
         ],
     }).compile();
@@ -93,7 +93,7 @@ describe('ProyectosRegistrosService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-  it ('findALl:Todos las proyectos se han recibido correctamente', async () => {
+  it ('findAll:Todos las proyectos se han recibido correctamente', async () => {
     const register = await service.findAll();
     expect(register).toBeDefined();
   });
@@ -131,5 +131,16 @@ describe('ProyectosRegistrosService', () => {
     jest.spyOn(service, 'remove').mockRejectedValue(new HttpException('Convocatoria no encontrada', HttpStatus.NOT_FOUND));
   });
 
+  it('create:Proyecto registrado correctamente',async () => {
+    const newProject : CreateProyectosRegistroDto = {
+  'proyecto-nombre': 'P8 Mixta',
+  'centro-gestor': 'Factoria F5 - Dirección general ',
+  'responsable': 'Jesús Rivera',
+  'proyecto-duracion':'6 meses',
+  'proyecto-presupuesto': 23000,
+  'factoria-presupuesto': 15000
+    };
+    expect(await service.create(newProject))
+  })
 
 })

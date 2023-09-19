@@ -10,25 +10,20 @@ import { autoGenerateCode } from '../utils/autoGenerateCode';
 export class ProyectosRegistrosService {
 constructor(
 @InjectModel(ProyectosRegistro.name)
-private ProyectosModel : Model <ProyectosRegistro>
+private readonly ProyectosModel : Model <ProyectosRegistro>
 
 ){}
 
- async create(createProyectosRegistroDto: CreateProyectosRegistroDto): Promise<ProyectosRegistro> {
+ async create(createProyectosRegistroDto: CreateProyectosRegistroDto){
 
-  const totalRegistros = await this.ProyectosModel.countDocuments({}).exec();
+  const totalRegistros = await this.ProyectosModel.countDocuments({});
   const nuevoCodigoRegistro = `R${(totalRegistros + 1).toString().padStart(6, '0')}`;
   const proyectoCodigoConFecha = `${nuevoCodigoRegistro}${autoGenerateCode()}`;
-  const project = new this.ProyectosModel({
-    'proyecto-nombre': createProyectosRegistroDto['proyecto-nombre'],
-    'proyecto-codigo': proyectoCodigoConFecha,
-    'centro-gestor': createProyectosRegistroDto['centro-gestor'],
-    responsable: createProyectosRegistroDto.responsable,
-    'proyecto-duracion': createProyectosRegistroDto['proyecto-duracion'],
-    'proyecto-presupuesto': createProyectosRegistroDto['proyecto-presupuesto'],
-    'factoria-presupuesto': createProyectosRegistroDto['factoria-presupuesto'],
-  });
-  return project.save();
+  const project = (await this.ProyectosModel.create(createProyectosRegistroDto))
+   return {
+    projecto:project
+   } 
+   
   }
 
  async findAll() {
