@@ -5,6 +5,7 @@ import CrmRouter from './router/Router.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import '@fontsource-variable/open-sans'
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>

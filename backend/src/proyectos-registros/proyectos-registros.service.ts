@@ -90,4 +90,8 @@ try {
 
   }
 
+  async deleteAll(): Promise<void> {
+    await this.ProyectosModel.deleteMany({}).exec();
+  }
+
 }

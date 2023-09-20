@@ -1,5 +1,5 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { CreateProyectosRegistroDto} from './create-proyectos-registro.dto';
+import { CreateProyectosRegistroDto } from './create-proyectos-registro.dto';
 import { IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ObjectId } from 'mongoose';
 

@@ -3,8 +3,8 @@ import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { GestionConvocatoriaController } from './gestion-convocatoria.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GestionConvocatoria, GestionSchema } from './schema/gestion-convocatoria.schema';
-import { ProyectosRegistro, ProyectosRegistroSchema } from 'src/proyectos-registros/schema/proyectos-registro.schema';
-import { ConvocatoriaRegistro, ConvocatoriaRegistroSchema } from 'src/convocatoria-registro/schema/convocatoria-registro.schema';
+import { ProyectosRegistro, ProyectosRegistroSchema } from '../proyectos-registros/schema/proyectos-registro.schema';
+import { ConvocatoriaRegistro, ConvocatoriaRegistroSchema } from '../convocatoria-registro/schema/convocatoria-registro.schema';
 
 @Module({
 imports:[
