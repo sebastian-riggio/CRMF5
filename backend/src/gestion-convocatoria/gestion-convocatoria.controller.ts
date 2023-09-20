@@ -7,9 +7,7 @@ import { ObjectId } from 'mongoose';
 
 @Controller('gestion')
 export class GestionConvocatoriaController {
-  static findAll(): any {
-    throw new Error('Method not implemented.');
-  }
+ 
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
   @Public()
@@ -30,8 +28,7 @@ export class GestionConvocatoriaController {
 @Public()
   @Patch('update')
   update(@Body() updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto) {
-    return this.gestionConvocatoriaService.update(
-      updateGestionConvocatoriaDto);
+    return this.gestionConvocatoriaService.update(updateGestionConvocatoriaDto);
   }
 @Public()
   @Delete('delete')
