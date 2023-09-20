@@ -103,16 +103,6 @@ const accountFormSchema = z.object({
     departamento: z.string({
         required_error: 'Elije un centro gestor de factoria F5'
     }),
-
-    area: z.string({
-        required_error: 'Elije una área'
-    }),
-
-    telefono: z.string({
-        required_error: 'Debes completar con teléfono de contacto'
-    }),
-
-
 });
 
 export default accountFormSchema;

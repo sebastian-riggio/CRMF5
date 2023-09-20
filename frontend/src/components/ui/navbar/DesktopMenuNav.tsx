@@ -9,7 +9,7 @@ function DesktopMenuNav() {
             title="PROYECTOS"
             links={[
               { url: '/allprojects', text: 'PROYECTOS' },
-              { url: '/newproject', text: 'SUBIR NUEVO PROYECTO' },
+              { url: '/newproject', text: 'NUEVO PROYECTO' },
             ]}
           />
         </div>
@@ -19,7 +19,7 @@ function DesktopMenuNav() {
             title="CONVOCATORIAS"
             links={[
               { url: '/allcalls', text: 'CONVOCATORIAS' },
-              { url: '/newcall', text: 'SUBIR NUEVA CONVOCATORIA' },
+              { url: '/newcall', text: 'NUEVA CONVOCATORIA' },
             ]}
           />
         </div>
@@ -29,7 +29,7 @@ function DesktopMenuNav() {
             title="FINANCISTAS"
             links={[
               { url: '/allfinanciers', text: 'FINANCISTAS' },
-              { url: '/newfinancer', text: 'SUBIR NUEVO FINANCISTA' },
+              { url: '/newfinancer', text: 'NUEVO FINANCISTA' },
             ]}
           />
         </div>
