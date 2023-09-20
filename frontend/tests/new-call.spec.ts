@@ -75,7 +75,7 @@ test.describe('Form register new user', () => {
     const entitesLabel = page.getByText('Entidades a la que se dirige')
     await expect(entitesLabel).toBeVisible()
 
-    const entitesInput = page.getByPlaceholder(/Entidades a la que se dirige/i)
+    const entitesInput = page.getByPlaceholder(/Entidades a las que se dirige/i)
     await expect(entitesInput).toBeVisible()
   })
 
@@ -137,34 +137,34 @@ test.describe('Form register new user', () => {
   })
 
   test('Information of interest input', async ({ page }) => {
-    const budgetLabel = page.getByText('Información de interés')
-    await expect(budgetLabel).toBeVisible()
+    const infoLabel = page.getByText('Información de interés')
+    await expect(infoLabel).toBeVisible()
 
-    const budgetInput = page.getByPlaceholder(/escriba aqui.../i)
-    await expect(budgetInput).toBeVisible()
+    const infoInput = page.locator('textarea[name="texto"]')
+    await expect(infoInput).toBeVisible()
   })
 
   test('Technical memory input', async ({ page }) => {
     const memoryLabel = page.getByText('Memoria técnica')
     await expect(memoryLabel).toBeVisible()
 
-    const memoryInput = page.getByPlaceholder(/seleccionar archivo/i)
+    const memoryInput = page.locator('[data-testid="file-memory"]')
     await expect(memoryInput).toBeVisible()
   })
 
   test('Budget input', async ({ page }) => {
-    const budgetLabel = page.getByText('Presupuesto')
-    await expect(budgetLabel).toBeVisible()
+    const budgetDocLabel = page.getByText('Presupuesto')
+    await expect(budgetDocLabel).toBeVisible()
 
-    const budgetInput = page.getByPlaceholder(/seleccionar archivo/i)
-    await expect(budgetInput).toBeVisible()
+    const budgetDocInput = page.locator('[data-testid="file-budget"]')
+    await expect(budgetDocInput).toBeVisible()
   })
 
   test('Application form input', async ({ page }) => {
     const formLabel = page.getByText('Formulario solicitud')
     await expect(formLabel).toBeVisible()
 
-    const formInput = page.getByPlaceholder(/seleccionar archivo/i)
+    const formInput = page.locator('[data-testid="file-application-form"]')
     await expect(formInput).toBeVisible()
   })
 
@@ -172,7 +172,7 @@ test.describe('Form register new user', () => {
     const documentLabel = page.getByText('Otra documentación')
     await expect(documentLabel).toBeVisible()
 
-    const documentInput = page.getByPlaceholder(/seleccionar archivo/i)
+    const documentInput = page.locator('[data-testid="file-other-docs"]')
     await expect(documentInput).toBeVisible()
   })
 })

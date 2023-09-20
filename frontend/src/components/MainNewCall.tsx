@@ -406,25 +406,25 @@ function MainNewCall () {
                     <FormItem className='w-1/2 px-4 mb-4'>
                       <FormLabel className='mb-2'>Memoria técnica</FormLabel>
                       <FormControl>
-                        <Input type='file' {...field} />
+                        <Input type='file' {...field} data-testid='file-memory' />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
                       <FormLabel className='mb-2'>Presupuesto</FormLabel>
                       <FormControl>
-                        <Input type='file' {...field} />
+                        <Input type='file' {...field} data-testid='file-budget' />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
                       <FormLabel className='mb-2'>Formulario solicitud</FormLabel>
                       <FormControl>
-                        <Input type='file' {...field} />
+                        <Input type='file' {...field} data-testid='file-application-form' />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
                       <FormLabel className='mb-2'>Otra documentación</FormLabel>
                       <FormControl>
-                        <Input type='file' {...field} />
+                        <Input type='file' {...field} data-testid='file-other-docs' />
                       </FormControl>
                     </FormItem>
                   </div>
