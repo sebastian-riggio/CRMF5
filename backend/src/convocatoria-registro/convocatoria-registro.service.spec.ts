@@ -47,7 +47,7 @@ describe('ConvocatoriaRegistroService', () => {
         {
           provide: getModelToken(ConvocatoriaRegistro.name),
           useValue: {
-            findByIdAndDelete: jest.fn(),
+             findByIdAndDelete: jest.fn(),
             findOneAndUpdate: jest.fn(),
             new: jest.fn().mockResolvedValue(convocatoria),
             constructor: jest.fn().mockResolvedValue(convocatoria),
@@ -73,7 +73,7 @@ describe('ConvocatoriaRegistroService', () => {
                 },
               });
             },
-          ),
+          ), 
            find: jest.fn().mockReturnValue(
             Promise.resolve({
               message: 'Todas las convocatorias se han recibido correctamente',
@@ -91,7 +91,7 @@ describe('ConvocatoriaRegistroService', () => {
                   data: convocatoria,
                 });
               },
-            ),
+            ), 
           },
         },
       ],
@@ -202,5 +202,5 @@ describe('ConvocatoriaRegistroService', () => {
     jest.spyOn(service, 'remove').mockRejectedValue(new HttpException('Convocatoria no encontrada', HttpStatus.NOT_FOUND));
   });
 
-
+ 
 });

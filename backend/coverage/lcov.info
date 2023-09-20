@@ -540,6 +540,25 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
+SF:src\gestion-convocatoria\gestion-convocatoria.controller.ts
+FN:10,(anonymous_4)
+FN:13,(anonymous_5)
+FN:17,(anonymous_6)
+FN:22,(anonymous_7)
+FN:27,(anonymous_8)
+FN:32,(anonymous_9)
+FN:38,(anonymous_10)
+FNF:7
+FNH:4
+FNDA:0,(anonymous_4)
+FNDA:5,(anonymous_5)
+FNDA:1,(anonymous_6)
+FNDA:1,(anonymous_7)
+FNDA:0,(anonymous_8)
+FNDA:0,(anonymous_9)
+FNDA:1,(anonymous_10)
+=======
 SF:src/gestion-convocatoria/gestion-convocatoria.controller.ts
 FN:11,(anonymous_4)
 FN:15,(anonymous_5)
@@ -555,12 +574,29 @@ FNDA:1,(anonymous_6)
 FNDA:1,(anonymous_7)
 FNDA:0,(anonymous_8)
 FNDA:1,(anonymous_9)
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
 DA:1,1
 DA:2,1
 DA:3,1
 DA:4,1
 DA:5,1
 DA:9,1
+<<<<<<< HEAD
+DA:11,0
+DA:13,5
+DA:17,1
+DA:18,1
+DA:22,1
+DA:23,1
+DA:27,1
+DA:28,0
+DA:32,1
+DA:33,0
+DA:38,1
+DA:39,1
+LF:18
+LH:15
+=======
 DA:11,6
 DA:15,1
 DA:16,1
@@ -574,6 +610,7 @@ DA:35,1
 DA:36,1
 LF:17
 LH:16
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
 BRF:0
 BRH:0
 end_of_record

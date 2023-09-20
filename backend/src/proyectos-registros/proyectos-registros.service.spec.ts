@@ -9,12 +9,12 @@ import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto'
 
 const proyecto = {
   _id:"65044504c7d7b5d92dce9b4e",
-  'proyecto-nombre': 'P8 Mixta',
-  'centro-gestor': 'Factoria F5 - Dirección general ',
-  'responsable': 'Jesús Rivera',
-  'proyecto-duracion':'6 meses',
-  'proyecto-presupuesto': 23000,
-  'factoria-presupuesto': 15000
+  proyectoNombre: 'P8 Mixta',
+  centroGestor: "Factoria F5 - Admin, contabilidad y finanzas",
+  responsable: "Jesus Rivera",
+  proyectoDuracion:"6 meses",
+  proyectoPresupuesto:23000,
+  factoriaPresupuesto:15000
 }
 
 describe('ProyectosRegistrosService', () => {
@@ -127,12 +127,12 @@ describe('ProyectosRegistrosService', () => {
     const id = new mongoose.Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
     const updateProyectoDto: UpdateProyectosRegistroDto = {
       _id: id, 
-  "proyecto-nombre": "P8 Mixta",
-  "centro-gestor": "Factoria F5 - Dirección general",
-  "responsable": "Jesús Rivera",
-  "proyecto-duracion": "6 meses",
-  "proyecto-presupuesto": 23000,
-  "factoria-presupuesto": 15000
+      proyectoNombre: 'P8 Mixta',
+      centroGestor: "Factoria F5 - Admin, contabilidad y finanzas",
+      responsable: "Jesus Rivera",
+      proyectoDuracion:"6 meses",
+      proyectoPresupuesto:23000,
+      factoriaPresupuesto:15000
       
     };
 
@@ -153,12 +153,12 @@ describe('ProyectosRegistrosService', () => {
 
   it('create:Proyecto registrado correctamente',async () => {
     const newProject : CreateProyectosRegistroDto = {
-  'proyecto-nombre': 'P8 Mixta',
-  'centro-gestor': 'Factoria F5 - Dirección general ',
-  'responsable': 'Jesús Rivera',
-  'proyecto-duracion':'6 meses',
-  'proyecto-presupuesto': 23000,
-  'factoria-presupuesto': 15000
+      proyectoNombre: 'P8 Mixta',
+      centroGestor: "Factoria F5 - Admin, contabilidad y finanzas",
+      responsable: "Jesus Rivera",
+      proyectoDuracion:"6 meses",
+      proyectoPresupuesto:23000,
+      factoriaPresupuesto:15000
     };
     expect(await service.create(newProject))
   })

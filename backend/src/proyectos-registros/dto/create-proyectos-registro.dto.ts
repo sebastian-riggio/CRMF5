@@ -4,25 +4,25 @@ import { IsNumber, IsString } from 'class-validator';
 export class CreateProyectosRegistroDto {
   @ApiProperty({ example: 'P8 Mixta' })
   @IsString()
-  'proyecto-nombre': string;
+  proyectoNombre: string;
 
   @ApiProperty({ example: 'Factoria F5 - Dirección general ' })
   @IsString()
-  'centro-gestor': string;
+  centroGestor: string;
 
   @ApiProperty({ example: 'Jesús Rivera' })
   @IsString()
-  'responsable': string;
+  responsable: string;
 
   @ApiProperty({ example: '6 meses' })
   @IsString()
-  'proyecto-duracion': string;
+  proyectoDuracion: string;
 
   @ApiProperty({ example: 23000 })
   @IsNumber()
-  'proyecto-presupuesto': number;
+  proyectoPresupuesto: number;
 
   @ApiProperty({ example: 15000 })
   @IsNumber()
-  'factoria-presupuesto': number;
+  factoriaPresupuesto: number;
 }

@@ -21,7 +21,7 @@ private readonly ProyectosModel : Model <ProyectosRegistro>
   const proyectoCodigoConFecha = `${nuevoCodigoRegistro}${autoGenerateCode()}`;
   const project = await this.ProyectosModel.create({
   ...createProyectosRegistroDto,
-    'proyecto-codigo': proyectoCodigoConFecha,
+    proyectoCodigo: proyectoCodigoConFecha,
   });
   return {
   message:'Proyecto creado con exito',
