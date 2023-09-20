@@ -28,8 +28,7 @@ export class GestionConvocatoriaController {
 @Public()
   @Patch('update')
   update(@Body() updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto) {
-    return this.gestionConvocatoriaService.update(
-      updateGestionConvocatoriaDto);
+    return this.gestionConvocatoriaService.update(updateGestionConvocatoriaDto);
   }
 @Public()
   @Delete('delete')

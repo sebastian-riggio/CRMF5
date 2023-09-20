@@ -1,8 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GestionConvocatoriaController } from './gestion-convocatoria.controller';
 import { GestionConvocatoriaService } from './gestion-convocatoria.service';
-import { HttpStatus } from '@nestjs/common';
-import mongoose, { ObjectId, Types } from 'mongoose';
+import mongoose, { ObjectId, Schema, Types } from 'mongoose';
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
 import { EtapaSolicitudDto } from './dto/etapa-solicitud.dto';
@@ -10,6 +9,7 @@ import { EtapaResolucionDto } from './dto/etapa-resolucion.dto';
 import { EtapaOtorgamientoDto } from './dto/etapa-otorgamiento.dto';
 import { EtapaJustificacionDto } from './dto/etapa-justificacion.dto';
 import { EtapaCierreDto } from './dto/etapa-cierre.dto';
+
 
 
 const createConvocatoria = {
@@ -159,7 +159,7 @@ describe('GestionConvocatoriaController', () => {
     findOne: jest.fn().mockImplementation((id: ObjectId) => {
       return Promise.resolve({
         message: 'Gestion de convocatoria recibida correctamente',
-        status: HttpStatus.OK,
+        status: 200,
         data:gestionConvocatoria
       });
     }),
@@ -167,14 +167,14 @@ describe('GestionConvocatoriaController', () => {
     update: jest.fn().mockImplementation((updatedGestionConvocatoria:UpdateGestionConvocatoriaDto) => {
       return Promise.resolve({
         message: 'Gestion actualizada correctamente',
-        status: HttpStatus.OK,
+        status: 200,
         data:gestionConvocatoria
       });
     }),
 
    remove: jest.fn().mockResolvedValue({
       message:'Gestion de convocatoria eliminida correctamente',
-      status:200,
+      status: 200,
       data:''
   }),
 
@@ -240,7 +240,12 @@ describe('GestionConvocatoriaController', () => {
       'etapa-cierre': new EtapaCierreDto
     };
 
-    expect(await service.update(updateGestionConvocatoriaDto));
+    expect(await service.update(updateGestionConvocatoriaDto)).toMatchObject({
+      message: 'Gestion actualizada correctamente',
+      status: 200,
+      data:gestionConvocatoria
+
+    });
 
   })
 it('Deberia borrar una gestión de convocatoria', async () => {
@@ -251,6 +256,15 @@ it('Deberia borrar una gestión de convocatoria', async () => {
   })
 
 });
+it('Gestion de convocatoria recibida correctamente', async () => {
+  const id = new Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
+  expect( await controller.findOne(id)).toMatchObject({
+    message: 'Gestion de convocatoria recibida correctamente',
+    status: 200,
+   data:gestionConvocatoria
+
+  })
+})
 
 
 })

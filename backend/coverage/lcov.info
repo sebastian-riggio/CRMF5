@@ -1,5 +1,5 @@
 TN:
-SF:src\app.controller.ts
+SF:src/app.controller.ts
 FN:6,(anonymous_2)
 FN:9,(anonymous_3)
 FNF:2
@@ -18,7 +18,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\app.module.ts
+SF:src/app.module.ts
 FN:16,(anonymous_1)
 FNF:1
 FNH:0
@@ -41,7 +41,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\app.service.ts
+SF:src/app.service.ts
 FN:5,(anonymous_1)
 FNF:1
 FNH:1
@@ -55,7 +55,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\main.ts
+SF:src/main.ts
 FN:5,bootstrap
 FNF:1
 FNH:0
@@ -77,7 +77,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\auth.module.ts
+SF:src/auth/auth.module.ts
 FN:19,(anonymous_1)
 FNF:1
 FNH:0
@@ -103,7 +103,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\controllers\auth.controller.ts
+SF:src/auth/controllers/auth.controller.ts
 FN:13,(anonymous_4)
 FN:23,(anonymous_5)
 FN:32,(anonymous_6)
@@ -134,7 +134,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\decorators\public.decorator.ts
+SF:src/auth/decorators/public.decorator.ts
 FN:5,(anonymous_0)
 FNF:1
 FNH:1
@@ -148,7 +148,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\decorators\roles.decorator.ts
+SF:src/auth/decorators/roles.decorator.ts
 FN:5,(anonymous_0)
 FNF:1
 FNH:1
@@ -162,7 +162,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\dto\signin.dto.ts
+SF:src/auth/dto/signin.dto.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -176,7 +176,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\enums\role.enum.ts
+SF:src/auth/enums/role.enum.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -192,7 +192,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src\auth\guards\jwt-auth.guard.ts
+SF:src/auth/guards/jwt-auth.guard.ts
 FN:9,(anonymous_2)
 FN:12,(anonymous_3)
 FNF:2
@@ -217,7 +217,7 @@ BRF:1
 BRH:1
 end_of_record
 TN:
-SF:src\auth\guards\role.guard.ts
+SF:src/auth/guards/role.guard.ts
 FN:14,(anonymous_2)
 FN:16,(anonymous_3)
 FN:30,(anonymous_4)
@@ -253,7 +253,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src\auth\services\auth.service.ts
+SF:src/auth/services/auth.service.ts
 FN:9,(anonymous_4)
 FN:13,(anonymous_5)
 FN:24,(anonymous_6)
@@ -285,7 +285,7 @@ BRF:3
 BRH:3
 end_of_record
 TN:
-SF:src\auth\strategies\jwt.strategy.ts
+SF:src/auth/strategies/jwt.strategy.ts
 FN:9,(anonymous_2)
 FN:18,(anonymous_3)
 FNF:2
@@ -306,7 +306,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\auth\strategies\local.strategy.ts
+SF:src/auth/strategies/local.strategy.ts
 FN:8,(anonymous_2)
 FN:15,(anonymous_3)
 FNF:2
@@ -330,7 +330,7 @@ BRF:1
 BRH:1
 end_of_record
 TN:
-SF:src\convocatoria-registro\convocatoria-registro.controller.ts
+SF:src/convocatoria-registro/convocatoria-registro.controller.ts
 FN:10,(anonymous_4)
 FN:14,(anonymous_5)
 FN:20,(anonymous_6)
@@ -368,7 +368,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\convocatoria-registro.module.ts
+SF:src/convocatoria-registro/convocatoria-registro.module.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -383,7 +383,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\convocatoria-registro.service.ts
+SF:src/convocatoria-registro/convocatoria-registro.service.ts
 FN:13,(anonymous_4)
 FN:18,(anonymous_5)
 FN:27,(anonymous_6)
@@ -430,7 +430,7 @@ BRF:1
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\dto\adjuntarDto.ts
+SF:src/convocatoria-registro/dto/adjuntarDto.ts
 FNF:0
 FNH:0
 DA:1,4
@@ -446,7 +446,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\dto\create-convocatoria-registro.dto.ts
+SF:src/convocatoria-registro/dto/create-convocatoria-registro.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -476,7 +476,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\dto\update-convocatoria-registro.dto.ts
+SF:src/convocatoria-registro/dto/update-convocatoria-registro.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -508,7 +508,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\convocatoria-registro\schema\convocatoria-registro.schema.ts
+SF:src/convocatoria-registro/schema/convocatoria-registro.schema.ts
 FNF:0
 FNH:0
 DA:1,4
@@ -540,6 +540,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src\gestion-convocatoria\gestion-convocatoria.controller.ts
 FN:10,(anonymous_4)
 FN:13,(anonymous_5)
@@ -557,12 +558,30 @@ FNDA:1,(anonymous_7)
 FNDA:0,(anonymous_8)
 FNDA:0,(anonymous_9)
 FNDA:1,(anonymous_10)
+=======
+SF:src/gestion-convocatoria/gestion-convocatoria.controller.ts
+FN:11,(anonymous_4)
+FN:15,(anonymous_5)
+FN:20,(anonymous_6)
+FN:25,(anonymous_7)
+FN:30,(anonymous_8)
+FN:35,(anonymous_9)
+FNF:6
+FNH:5
+FNDA:6,(anonymous_4)
+FNDA:1,(anonymous_5)
+FNDA:1,(anonymous_6)
+FNDA:1,(anonymous_7)
+FNDA:0,(anonymous_8)
+FNDA:1,(anonymous_9)
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
 DA:1,1
 DA:2,1
 DA:3,1
 DA:4,1
 DA:5,1
 DA:9,1
+<<<<<<< HEAD
 DA:11,0
 DA:13,5
 DA:17,1
@@ -577,11 +596,26 @@ DA:38,1
 DA:39,1
 LF:18
 LH:15
+=======
+DA:11,6
+DA:15,1
+DA:16,1
+DA:20,1
+DA:21,1
+DA:25,1
+DA:26,1
+DA:30,1
+DA:31,0
+DA:35,1
+DA:36,1
+LF:17
+LH:16
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
 BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\gestion-convocatoria.module.ts
+SF:src/gestion-convocatoria/gestion-convocatoria.module.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -598,7 +632,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\gestion-convocatoria.service.ts
+SF:src/gestion-convocatoria/gestion-convocatoria.service.ts
 FN:14,(anonymous_4)
 FN:24,(anonymous_5)
 FN:55,(anonymous_6)
@@ -661,7 +695,7 @@ BRF:3
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\create-gestion-convocatoria.dto.ts
+SF:src/gestion-convocatoria/dto/create-gestion-convocatoria.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -689,7 +723,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\etapa-cierre.dto.ts
+SF:src/gestion-convocatoria/dto/etapa-cierre.dto.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -707,7 +741,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\etapa-justificacion.dto.ts
+SF:src/gestion-convocatoria/dto/etapa-justificacion.dto.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -725,7 +759,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\etapa-otorgamiento.dto.ts
+SF:src/gestion-convocatoria/dto/etapa-otorgamiento.dto.ts
 FN:4,(anonymous_2)
 FNF:1
 FNH:1
@@ -758,7 +792,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\etapa-resolucion.dto.ts
+SF:src/gestion-convocatoria/dto/etapa-resolucion.dto.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -777,7 +811,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\etapa-solicitud.dto.ts
+SF:src/gestion-convocatoria/dto/etapa-solicitud.dto.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -794,7 +828,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\dto\update-gestion-convocatoria.dto.ts
+SF:src/gestion-convocatoria/dto/update-gestion-convocatoria.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -817,7 +851,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\gestion-convocatoria\schema\gestion-convocatoria.schema.ts
+SF:src/gestion-convocatoria/schema/gestion-convocatoria.schema.ts
 FNF:0
 FNH:0
 DA:1,2
@@ -847,7 +881,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\proyectos-registros.controller.ts
+SF:src/proyectos-registros/proyectos-registros.controller.ts
 FN:10,(anonymous_4)
 FN:14,(anonymous_5)
 FN:21,(anonymous_6)
@@ -886,7 +920,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\proyectos-registros.module.ts
+SF:src/proyectos-registros/proyectos-registros.module.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -901,7 +935,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\proyectos-registros.service.ts
+SF:src/proyectos-registros/proyectos-registros.service.ts
 FN:11,(anonymous_4)
 FN:17,(anonymous_5)
 FN:34,(anonymous_6)
@@ -952,7 +986,7 @@ BRF:1
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\dto\create-proyectos-registro.dto.ts
+SF:src/proyectos-registros/dto/create-proyectos-registro.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -970,7 +1004,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\dto\update-proyectos-registro.dto.ts
+SF:src/proyectos-registros/dto/update-proyectos-registro.dto.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -990,7 +1024,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\proyectos-registros\schema\proyectos-registro.schema.ts
+SF:src/proyectos-registros/schema/proyectos-registro.schema.ts
 FNF:0
 FNH:0
 DA:1,4
@@ -1010,7 +1044,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\schemas\users.schema.ts
+SF:src/schemas/users.schema.ts
 FN:32,(anonymous_2)
 FN:38,(anonymous_3)
 FN:43,(anonymous_4)
@@ -1059,7 +1093,7 @@ BRF:3
 BRH:0
 end_of_record
 TN:
-SF:src\user\user.controller.ts
+SF:src/user/user.controller.ts
 FN:39,(anonymous_4)
 FN:46,(anonymous_5)
 FN:55,(anonymous_6)
@@ -1103,7 +1137,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\user\user.module.ts
+SF:src/user/user.module.ts
 FN:13,(anonymous_1)
 FNF:1
 FNH:0
@@ -1123,7 +1157,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\user\user.service.ts
+SF:src/user/user.service.ts
 FN:10,(anonymous_4)
 FN:14,(anonymous_5)
 FN:28,(anonymous_6)
@@ -1179,7 +1213,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src\user\dto\create-user.dto.ts
+SF:src/user/dto/create-user.dto.ts
 FN:44,(anonymous_2)
 FNF:1
 FNH:0
@@ -1203,7 +1237,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src\user\dto\update-user.dto.ts
+SF:src/user/dto/update-user.dto.ts
 FNF:0
 FNH:0
 DA:1,0
@@ -1215,7 +1249,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\utils\autoGenerateCode.ts
+SF:src/utils/autoGenerateCode.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1232,7 +1266,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src\utils\calculoPorcentaje.ts
+SF:src/utils/calculoPorcentaje.ts
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
