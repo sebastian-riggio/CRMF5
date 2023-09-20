@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const AccountFormSchema = z.object({
+const accountFormSchema = z.object({
   titulo: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
@@ -105,4 +105,4 @@ const AccountFormSchema = z.object({
   })
 })
 
-export default AccountFormSchema
+export default accountFormSchema

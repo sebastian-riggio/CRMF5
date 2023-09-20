@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import accountFormSchema from '@/components/accountFormSchema'
+import accountFormSchema from '../../../components/accountFormSchema'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
 import { access } from 'fs'
