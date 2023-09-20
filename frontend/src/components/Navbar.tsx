@@ -72,11 +72,13 @@ function Navbar() {
           </button>
         </div>
       </div>
+      <div>
       {isMenuOpen && (
-        <div className='flex-grow' >
+          <div className='flex-grow' >
           <MobileMenuNav />
-        </div>
-      )}
+          </div>
+        )}
+      </div>
       <Separator />
 
     </>

@@ -4,7 +4,7 @@ import SearchInput from './search';
 function MobileMenuNav() {
     return (
         <div className='h-screen w-screen flex flex-col container mx-auto '>
-            <div className='m-20 flex-grow'>
+            <div className='m-10 flex-grow'>
                 <MenuMobileItem 
                     title="PROYECTOS"
                     links={[
@@ -28,7 +28,7 @@ function MobileMenuNav() {
                         { url: '/newfinancier', text: 'SUBIR NUEVO FINANCISTA' },
                     ]}
                 />
-                <div className='container mx-auto mt-12'>
+                <div className='mt-5'>
                     <SearchInput />
                 </div>
             </div>

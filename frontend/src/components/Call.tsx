@@ -15,7 +15,6 @@ import {
     CardHeader,
     CardTitle,
 } from './ui/card';
-import { toast } from '../components/ui/use-toast';
 import { Separator } from './ui/separator';
 import { Form } from './ui/form';
 import GeneralData from './ui/formCall/GeneralData';
@@ -39,21 +38,10 @@ function Call() {
         defaultValues
     })
 
-    function onSubmit(data: AccountFormValues) {
-        toast({
-            title: 'Crea un nuevo usurario para Factoria F5:',
-            description: (
-                <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-                    <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            )
-        })
-    }
-
     return (
-        <Card className='m-2 container mx-auto'>
+        <Card className='mt-5 pb-5 container mx-auto'>
             <CardHeader>
-                <CardTitle className='container mx-auto'>
+                <CardTitle>
                     Título de prueba
                     {/* Aca hay que traer el titulo de la convocatoria */}
                 </CardTitle>
@@ -61,16 +49,16 @@ function Call() {
 
             <Separator />
 
-            <div className='container mx-auto'>
+            <div>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-                        <CardContent className='flex flex-wrap '>
+                    <form className='space-y-8'>
+                        <CardContent className='p-0 flex flex-wrap '>
 
                             { /*   DATOS GENERALES   */}
-                            <Card className='m-2 w-full px-2 mt-8 '>
-                                <Accordion type="single" collapsible>
+                            {/* <Card className='m-2 w-full  mt-8'> */}
+                            <Accordion className='m-2 w-full  mt-8' type="single" collapsible>
                                     <AccordionItem value="item-1">
-                                        <AccordionTrigger className='m-2 container mx-auto'>DATOS GENERALES</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>DATOS GENERALES</AccordionTrigger>
                                         <AccordionContent>
                                             <div >
                                                 <GeneralData />
@@ -78,59 +66,59 @@ function Call() {
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
+                            {/* </Card> */}
 
                             { /*   ETAPA DE SOLICITUD   */}
-                            <Card className='m-2 w-full px-2 '>
-                                <Accordion type="single" collapsible>
+                            {/* <Card className='m-2 w-full'> */}
+                            <Accordion className='m-2 w-full' type="single" collapsible>
                                     <AccordionItem value="item-2">
-                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE SOLICITUD</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>ETAPA DE SOLICITUD</AccordionTrigger>
                                         <AccordionContent>
                                             <ApplicationStage/>
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
-                            <Card className='m-2 w-full px-2 '>
-                                <Accordion type="single" collapsible>
+                          {/*   </Card> */}
+                           {/*  <Card className='m-2 w-full'> */}
+                            <Accordion className='m-2 w-full' type="single" collapsible>
                                     <AccordionItem value="item-3">
-                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
                                         <AccordionContent>
                                             <NegotationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
-                            <Card className='m-2 w-full px-2 '>
-                                <Accordion type="single" collapsible>
+                            {/* </Card> */}
+                            {/* <Card className='m-2 w-full'> */}
+                            <Accordion className='m-2 w-full' type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE OTORGAMIENTO</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>ETAPA DE OTORGAMIENTO</AccordionTrigger>
                                         <AccordionContent>
                                             <ConcessionStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
-                            <Card className='m-2 w-full px-2 '>
-                                <Accordion type="single" collapsible>
+                           {/*  </Card> */}
+                            {/* <Card className='m-2 w-full'> */}
+                            <Accordion className='m-2 w-full' type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
                                         <AccordionContent>
                                             <JustificationStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
-                            <Card className='m-2 w-full px-2 '>
-                                <Accordion type="single" collapsible>
+                            {/* </Card> */}
+                            {/* <Card className='m-2 w-full'> */}
+                            <Accordion className='m-2 w-full' type="single" collapsible>
                                     <AccordionItem value="item-4">
-                                        <AccordionTrigger className='m-2 container mx-auto'>ETAPA DE CIERRE</AccordionTrigger>
+                                        <AccordionTrigger className='px-3'>ETAPA DE CIERRE</AccordionTrigger>
                                         <AccordionContent>
                                             <ClosingStage />
                                         </AccordionContent>
                                     </AccordionItem>
                                 </Accordion>
-                            </Card>
+                            {/* </Card> */}
                         </CardContent>
                     </form>
                 </Form>

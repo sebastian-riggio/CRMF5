@@ -7,7 +7,7 @@ import { Separator } from '../separator';
 
 function NegotationStage() {
     return (
-        <div className='flex flex-wrap container mx-auto'>
+        <div className='flex flex-wrap'>
             
             <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 flex justify-center'>
                 <DatePicker title='Fecha de resolución provisional' />
@@ -31,7 +31,7 @@ function NegotationStage() {
 
             <Separator className='my-5' />
 
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-8'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-6'>
                 <Label htmlFor="pdf">Resolución provisional</Label>
                 <Input type="file" />
             </div>

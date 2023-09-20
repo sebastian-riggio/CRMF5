@@ -8,12 +8,12 @@ import FormSectionData from './FormSectionData';
 
 function ConcessionStage() {
     return (
-        <div className='flex flex-wrap container mx-auto'>
+        <div className='flex flex-wrap'>
 
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3'>
                 <FormSectionData title='Estado de solicitud' inputPlaceholder='Estado' />
             </div>
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3'>
                 <FormSectionData title='Monto final concedido' inputPlaceholder='€' />
             </div>
 
@@ -22,10 +22,10 @@ function ConcessionStage() {
             <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 flex justify-center'>
                 <DatePicker title='Fecha prevista de primer desembolso' />
             </div>
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3'>
                 <FormSectionData title='Monto de primer desembolso' inputPlaceholder='€' />
             </div>
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3'>
                 <FormSectionData title='Porcentaje de primer desembolso' inputPlaceholder='%' />
             </div>
 
@@ -55,13 +55,13 @@ function ConcessionStage() {
 
             <Separator className='my-5' />
 
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-2'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3'>
                 <FormSectionData title='Periocidad de informes de seguimiento' inputPlaceholder=' meses' />
             </div>
 
             <Separator className='my-5' />
             
-            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-8'>
+            <div className='w-full md:w-full lg:w-1/2 xl:w-1/3 px-6'>
                 <Label htmlFor="pdf">Resolución de otorgamiento</Label>
                 <Input type="file" />
             </div>

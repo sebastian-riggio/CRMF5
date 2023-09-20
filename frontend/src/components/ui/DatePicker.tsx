@@ -21,7 +21,7 @@ function DatePicker({ title }: DateProps) {
 
     return (
         <div className='flex flex-wrap mx-6'>
-            <FormItem className='w-full'>
+            <FormItem>
                 <div className='my-3'>
                     <FormLabel className='mb-2'> {title} </FormLabel>
                     <Popover>
@@ -29,7 +29,7 @@ function DatePicker({ title }: DateProps) {
                             <Button
                                 variant={'outline'}
                                 className={cn(
-                                    "w-[280px] justify-start text-left font-normal",
+                                    "w-[250px] justify-start text-left font-normal",
                                     !date && "text-muted-foreground"
                                 )}
                             >
