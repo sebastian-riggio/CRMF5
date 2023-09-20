@@ -7,9 +7,7 @@ import { ObjectId } from 'mongoose';
 
 @Controller('gestion')
 export class GestionConvocatoriaController {
-  static findAll(): any {
-    throw new Error('Method not implemented.');
-  }
+ 
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
   @Public()

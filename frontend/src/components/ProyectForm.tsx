@@ -38,17 +38,17 @@ import { Separator } from './ui/separator';
 import { useForm } from 'react-hook-form';
 import { AxiosResponse } from 'axios';
 import { createProject } from '../services/proyectos';
-import accountFormSchema from './accountFormSchema';
+import proyectPost from '../interfaces/proyectPost';
 
 const departamento = [
-  { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
-  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'Factoría F5-Admin, contabilidad y finanza' },
-  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'Factoría F5-Oficina soporte proyectos y calida' },
-  { label: 'Factoría F5 -  Dirección general', value: 'Factoría F5-Dirección general' },
+  { label: 'Factoría F5-People and culture', value: 'Factoría F5-People and culture' },
+  { label: 'Factoría F5-Admin,contabilidad y finanzas', value: 'Factoría F5-Admin,contabilidad y finanza' },
+  { label: 'Factoría F5-Oficina soporte proyectos y calidad', value: 'Factoría F5-Oficina soporte proyectos y calida' },
+  { label: 'Factoría F5-Dirección general', value: 'Factoría F5-Dirección general' },
   { label: 'Otro', value: 'Otro' },
 ] as const;
 
-type AccountFormValues = z.infer<typeof accountFormSchema>;
+type AccountFormValues = z.infer<typeof proyectPost>;
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
@@ -58,7 +58,7 @@ const defaultValues: Partial<AccountFormValues> = {
 
 function ProyectForm() {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(accountFormSchema),
+    resolver: zodResolver(proyectPost),
     defaultValues,
   });
 
@@ -79,7 +79,7 @@ function ProyectForm() {
       ),
     });
   }
-  useEffect(() => {}, []);
+ useEffect(() => {}, []);
   return (
     <Card className="m-4">
       <CardHeader>
@@ -97,7 +97,7 @@ function ProyectForm() {
             <CardContent>
               <FormField
                 control={form.control}
-                name="proyecto-nombre"
+                name= "proyectoNombre"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -113,7 +113,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="centro-gestor"
+                name="centroGestor"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
                     <div className="my-2 flex justifiy flex-wrap md:flex-nowrap">
@@ -152,7 +152,7 @@ function ProyectForm() {
                                   key={departamento.value}
                                   onSelect={() => {
                                     form.setValue(
-                                      'centro-gestor',
+                                      'centroGestor',
                                       departamento.value
                                     );
                                   }}
@@ -199,7 +199,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="proyecto-duracion"
+                name="proyectoDuracion"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -215,7 +215,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="proyecto-presupuesto"
+                name="proyectoPresupuesto"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
@@ -231,7 +231,7 @@ function ProyectForm() {
 
               <FormField
                 control={form.control}
-                name="factoria-presupuesto"
+                name="factoriaPresupuesto"
                 render={({ field }) => (
                   <FormItem className="md:flex-wrap">
                     <div className="my-2 flex flex-wrap">
