@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CallAndProject() {
+export default function CallAndProject () {
   return (
     <div>CallAndProject</div>
   )
