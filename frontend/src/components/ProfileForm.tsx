@@ -28,7 +28,7 @@ import {
   PopoverTrigger
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
-import accountFormSchema from './accountFormSchema';
+import AccountFormSchema from './AccountFormSchema';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Separator } from '@radix-ui/react-separator'
 
@@ -41,7 +41,7 @@ const departamento = [
   { label: 'Otro', value: 'otro' }
 ] as const
 
-type AccountFormValues = z.infer<typeof accountFormSchema>
+type AccountFormValues = z.infer<typeof AccountFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
@@ -51,7 +51,7 @@ const defaultValues: Partial<AccountFormValues> = {
 
 export function AccountForm () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(accountFormSchema),
+    resolver: zodResolver(AccountFormSchema),
     defaultValues
   })
 

@@ -1,5 +1,3 @@
-"use client"
-
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -7,8 +5,8 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getFilteredRowModel,
-  useReactTable,
-} from "@tanstack/react-table"
+  useReactTable
+} from '@tanstack/react-table'
 
 import {
   Table,
@@ -16,20 +14,20 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from "../../../components/ui/table"
-import { Button } from "../../../components/ui/button"
-import { Input } from "../../../components/ui/input"
-import { useState } from "react"
+  TableRow
+} from '../../../components/ui/table'
+import { Button } from '../../../components/ui/button'
+import { Input } from '../../../components/ui/input'
+import { useState } from 'react'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData, TValue> ({
   columns,
-  data,
+  data
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const table = useReactTable({
@@ -46,18 +44,17 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-       <div className="flex items-center py-4">
+      <div className='flex items-center py-4'>
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("centro-gestor")?.getFilterValue() as string || table.getColumn("proyecto-nombre")?.getFilterValue() as string) ?? ""}
+          placeholder='Filter emails...'
+          value={(table.getColumn('centro-gestor')?.getFilterValue() as string || table.getColumn('proyecto-nombre')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
-            table.getColumn("centro-gestor")?.setFilterValue(event.target.value) &&  table.getColumn("proyecto-nombre")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
+            table.getColumn('centro-gestor')?.setFilterValue(event.target.value) && table.getColumn('proyecto-nombre')?.setFilterValue(event.target.value)}
+          className='max-w-sm'
         />
       </div>
-      <div className="rounded-md border">
-        <Table id="allProjectsTable">
+      <div className='rounded-md border'>
+        <Table id='allProjectsTable'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -77,41 +74,43 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  ))}
+            {table.getRowModel().rows?.length
+              ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && 'selected'}
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
+                )
+              : (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className='h-24 text-center'>
+                    No results.
+                  </TableCell>
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
+                )}
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className='flex items-center justify-end space-x-2 py-4'>
         <Button
-          variant="outline"
-          size="sm"
+          variant='outline'
+          size='sm'
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
           Previous
         </Button>
         <Button
-          variant="outline"
-          size="sm"
+          variant='outline'
+          size='sm'
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >

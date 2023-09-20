@@ -1,39 +1,38 @@
-import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import accountFormSchema from './accountFormSchema';
-
-import { Textarea } from './ui/textarea';
+import * as z from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Textarea } from './ui/textarea'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
-} from './ui/card';
-import { Switch } from './ui/switch';
-import { CalendarIcon } from '@radix-ui/react-icons';
+  CardTitle
+} from './ui/card'
+import { Switch } from './ui/switch'
+import { CalendarIcon } from '@radix-ui/react-icons'
 
-import { Button } from '../components/ui/button';
-import { Calendar } from '../components/ui/calendar';
+import { Button } from '../components/ui/button'
+import { Calendar } from '../components/ui/calendar'
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-} from '../components/ui/form';
-import { Input } from './ui/input';
+  FormMessage
+} from '../components/ui/form'
+import { Input } from './ui/input'
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
-} from './ui/popover';
-import { toast } from '../components/ui/use-toast';
-import { Separator } from './ui/separator';
+  PopoverTrigger
+} from './ui/popover'
+import { toast } from '../components/ui/use-toast'
+import { Separator } from './ui/separator'
+import AccountFormSchema from './AccountFormSchema'
 
-type AccountFormValues = z.infer<typeof accountFormSchema>
+type AccountFormValues = z.infer<typeof AccountFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
@@ -43,7 +42,7 @@ const defaultValues: Partial<AccountFormValues> = {
 
 function MainNewCall () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(accountFormSchema),
+    resolver: zodResolver(AccountFormSchema),
     defaultValues
   })
 
