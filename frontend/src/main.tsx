@@ -4,11 +4,17 @@ import './index.css'
 import CrmRouter from './router/Router.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import '@fontsource-variable/open-sans'
+import Navbar from './components/Navbar.tsx'
 
+function shouldShowNavbar () {
+  const { pathname } = window.location
+  return pathname !== '/'
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
+      {shouldShowNavbar() && <Navbar />}
       {CrmRouter}
     </BrowserRouter>
   </React.StrictMode>

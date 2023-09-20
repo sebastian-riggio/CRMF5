@@ -1,11 +1,11 @@
 import Isologo from '../components/Isologo'
 import { LoginTab } from '../components/LoginTab'
 
-function LoginPage() {
+function LoginPage () {
   return (
     <div>
       <div className='min-h-screen md:flex justify-center items-center bg-gray-100'>
-        <div >
+        <div>
           <Isologo />
         </div>
         <div className='my-8'>
