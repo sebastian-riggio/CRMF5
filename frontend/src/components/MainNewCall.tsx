@@ -30,20 +30,13 @@ import {
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
 import { Separator } from './ui/separator'
-import AccountFormSchema from './AccountFormSchema'
+import accountFormSchema from './accountFormSchema'
 
-type AccountFormValues = z.infer<typeof AccountFormSchema>
-
-// This can come from your database or API.
-const defaultValues: Partial<AccountFormValues> = {
-  // name: "Your name",
-  // dob: new Date("2023-01-23"),
-}
+type AccountFormValues = z.infer<typeof accountFormSchema>
 
 function MainNewCall () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(AccountFormSchema),
-    defaultValues
+    resolver: zodResolver(accountFormSchema)
   })
 
   function onSubmit (data: AccountFormValues) {
@@ -60,8 +53,8 @@ function MainNewCall () {
   return (
     <Card className='container mx-auto'>
       <CardHeader>
-        <CardTitle className='container mx-auto'>Nueva convocatoria</CardTitle>
-        {/* <CardTitle>subtitulo</CardTitle> */}
+        <CardTitle className='container mx-auto'>Nueva convocatoria
+        </CardTitle>
       </CardHeader>
       <Separator />
       <div className='container mx-auto'>
