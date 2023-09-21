@@ -1,5 +1,3 @@
-
-
 export interface ConvocatoriaRegistro {
 entidadConvocante: string;
 departamentoConvocante: string;
@@ -9,11 +7,11 @@ convocatoriaEnlace: string;
 tematica: string;
 trabajoLineas: string;
 dirigidoEntidades: string;
-fechaApertura: Date;
-fechaCierre:  Date;
-fechaResolucion: Date;
+fechaApertura: string;
+fechaCierre: string;
+fechaResolucion: string;
 periodoEjecucion: string;
-fechaJustificacion: Date;
+fechaJustificacion: string;
 auditoria: string;
 presupuesto: string;
 otraInformacion: string;

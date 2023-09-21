@@ -30,17 +30,17 @@ import {
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
 import { Separator } from './ui/separator'
-import gestionRegistroPost from '../interfaces/gestionregistroPost'
+import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import { useEffect } from 'react'
+import DatePicker from './ui/DatePicker'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
 function MainNewCall () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(gestionRegistroPost),
-    defaultValues
+    resolver: zodResolver(gestionRegistroPost)
   })
 
   async function onSubmit (data: AccountFormValues) {
@@ -59,7 +59,7 @@ function MainNewCall () {
       )
     })
   }
-  useEffect(() => {}, []);
+  useEffect(() => {}, [])
   return (
     <Card className='container mx-auto'>
       <CardHeader>
@@ -201,28 +201,14 @@ function MainNewCall () {
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <div className='relative'>
-                              <Input 
-                                placeholder='Fecha de apertura'
+                            <div>
+                              <DatePicker
+                                title=''
                                 {...field}
-                                className='md:pr-8'
-
                               />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
                             </div>
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className='w-auto p-0' align='start'>
-                          <Calendar
-                            mode='single'
-                            selected={new Date(field.value)}
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date('2000-01-01')}
-                            initialFocus
-                          />
-                        </PopoverContent>
                       </Popover>
                       <FormMessage />
                     </div>

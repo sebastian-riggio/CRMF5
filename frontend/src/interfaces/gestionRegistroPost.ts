@@ -27,13 +27,13 @@ const gestionRegistroPost = z.object({
   dirigidoEntidades: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  fechaApertura: z.date(),
-  fechaCierre: z.date(),
-  fechaResolucion: z.date(),
+  fechaApertura: z.string(),
+  fechaCierre: z.string(),
+  fechaResolucion: z.string(),
   periodoEjecucion: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  fechaJustificacion: z.date(),
+  fechaJustificacion: z.string(),
   auditoria: z.string(),
   presupuesto: z.string().min(2, {
     message: 'Debe completar este campo'
@@ -44,16 +44,16 @@ const gestionRegistroPost = z.object({
 
   memoriaTecnica: z.string().min(2, {
     message: 'Debe completar este campo'
-  }),
+  }).optional(),
   modeloPresupuesto: z.string().min(2, {
     message: 'Debe completar este campo'
-  }),
+  }).optional(),
   formularioSolicitud: z.string().min(2, {
     message: 'Debe completar este campo'
-  }),
+  }).optional(),
   otraDocumentacion: z.string().min(2, {
     message: 'Debe completar este campo'
-  })
+  }).optional()
 })
 
 export default gestionRegistroPost

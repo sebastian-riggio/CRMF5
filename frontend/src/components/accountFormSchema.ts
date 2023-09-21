@@ -110,7 +110,7 @@ const accountFormSchema = z.object({
   fechadeinicio: z.date({ required_error: 'Debe ingresar la fecha en la que se ha entregado la propuesta' }),
   numerotramite: z.string({ required_error: 'Debe ingresar el número de trámite' }),
   numeroexpediente: z.string({ required_error: 'Debe ingresar el número de expediente' }),
-  recibooficial: z.string({ required_error: 'Debe ingresar el recibo' })
+  recibooficial: z.string({ required_error: 'Debe ingresar el número de expediente' })
 
 })
 
