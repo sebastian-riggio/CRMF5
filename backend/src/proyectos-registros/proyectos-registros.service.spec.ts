@@ -1,19 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProyectosRegistrosService } from './proyectos-registros.service';
-<<<<<<< HEAD
-import { ProyectosRegistro } from './schema/proyectos-registro.schema';
-import { getModelToken } from '@nestjs/mongoose';
-
-
-const proyecto = {
-  _id:'65044504c7d7b5d92dce9b4e',
-  'proyecto-nombre': 'P8 Mixta',
-  'centro-gestor': 'Factoria F5 - Dirección general ',
-  'responsable': 'Jesús Rivera',
-  'proyecto-duracion':'6 meses',
-  'proyecto-presupuesto': 23000,
-  'factoria-presupuesto': 15000
-=======
 import { getModelToken } from '@nestjs/mongoose';
 import { ProyectosRegistro } from './schema/proyectos-registro.schema';
 import mongoose, { Model, ObjectId, Schema } from 'mongoose';
@@ -29,7 +15,6 @@ const proyecto = {
   proyectoDuracion:"6 meses",
   proyectoPresupuesto:23000,
   factoriaPresupuesto:15000
->>>>>>> feature/Bd-Ariel
 }
 
 describe('ProyectosRegistrosService', () => {
@@ -47,9 +32,6 @@ describe('ProyectosRegistrosService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-<<<<<<< HEAD
-      providers: [ProyectosRegistrosService, { provide:getModelToken(ProyectosRegistro.name), useValue: jest.fn() }],
-=======
       providers: [ProyectosRegistrosService,
         { provide:getModelToken(ProyectosRegistro.name),
           useValue:{
@@ -102,7 +84,6 @@ describe('ProyectosRegistrosService', () => {
             inject:jest.fn()
           },}
         ],
->>>>>>> feature/Bd-Ariel
     }).compile();
 
     service = module.get<ProyectosRegistrosService>(
@@ -113,14 +94,6 @@ describe('ProyectosRegistrosService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-<<<<<<< HEAD
-
-  it('findAll: Todos los proyectos se han recibido correctamente',async () =>{
-    expect(await service.findAll())
-      
-    })
-  });
-=======
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -200,4 +173,3 @@ describe('ProyectosRegistrosService', () => {
   })
 
 })
->>>>>>> feature/Bd-Ariel
