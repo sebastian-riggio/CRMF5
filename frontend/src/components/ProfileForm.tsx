@@ -79,14 +79,14 @@ export function AccountForm () {
   }
 
   return (
-    <Card className="m-4">
-      <CardHeader>
-        <CardTitle>Nuevo Usuario</CardTitle>
+    <div className='container mx-auto m-4 border-1 border-solid border-input rounded-xl'>
+      <div className='flex flex-col space-y-1.5 p-6'>
+        <h3 className='text-2xl font-semibold leading-none tracking-tight'>Nuevo Usuario</h3>
         Completar los datos del nuevo usuario del Factoria F5
-      </CardHeader>
+      </div>
 
       <Separator />
-      <div className='container mx-auto'>
+      <div className=''>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
             <CardContent>
@@ -268,6 +268,6 @@ export function AccountForm () {
           </form>
         </Form>
       </div>
-    </Card>
+    </div>
   )
 }
