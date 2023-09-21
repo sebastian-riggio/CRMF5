@@ -63,8 +63,8 @@ function MainNewCall () {
   return (
     <Card className='container mx-auto'>
       <CardHeader>
-        <CardTitle className='container mx-auto'>Nueva convocatoria</CardTitle>
-        {/* <CardTitle>subtitulo</CardTitle> */}
+        <CardTitle className='container mx-auto'>Nueva convocatoria
+        </CardTitle>
       </CardHeader>
       <Separator />
       <div className='container mx-auto'>
