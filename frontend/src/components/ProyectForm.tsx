@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { Textarea } from './ui/textarea'
 import {
   Card,
   CardContent,
@@ -39,7 +38,7 @@ import { AxiosResponse } from 'axios'
 import { createProject } from '../services/proyectos'
 import { toast } from './ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
-import AccountFormSchema from './AccountFormSchema'
+import accountFormSchema from './accountFormSchema'
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },
@@ -49,7 +48,7 @@ const departamento = [
   { label: 'Otro', value: 'Otro' }
 ] as const
 
-type AccountFormValues = z.infer<typeof AccountFormSchema>;
+type AccountFormValues = z.infer<typeof accountFormSchema>;
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
@@ -59,7 +58,7 @@ const defaultValues: Partial<AccountFormValues> = {
 
 function ProyectForm () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(AccountFormSchema),
+    resolver: zodResolver(accountFormSchema),
     defaultValues
   })
 
