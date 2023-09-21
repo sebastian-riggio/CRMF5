@@ -2,7 +2,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import AccountFormSchema from './accountFormSchema'
+import accountFormSchema from './accountFormSchema'
 import {
   Accordion,
   AccordionContent,
@@ -21,17 +21,11 @@ import { Form } from './ui/form'
 import GeneralProject from './ui/project/GeneralProject'
 import CallAndProject from './ui/project/CallAndProject'
 
-type AccountFormValues = z.infer<typeof AccountFormSchema>;
-
-const defaultValues: Partial<AccountFormValues> = {
-  // name: "Your name",
-  // dob: new Date("2023-01-23"),
-}
+type AccountFormValues = z.infer<typeof accountFormSchema>;
 
 function Project () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(AccountFormSchema),
-    defaultValues
+    resolver: zodResolver(accountFormSchema)
   })
 
   function onSubmit (data: AccountFormValues) {
@@ -58,6 +52,7 @@ function Project () {
               </CardHeader>
               <Separator />
               <div>
+                {/* Datos general de un proyecto */}
                 <GeneralProject />
               </div>
             </form>
@@ -65,10 +60,11 @@ function Project () {
         </Card>
       </CardContent>
       <Card className='m-2 w-full px-2 mt-8 '>
-        <Accordion type='single' collapsible>
+        <Accordion className='m-2 w-full' type='single' collapsible>
           <AccordionItem value='item-1'>
-            <AccordionTrigger className='m-2 container mx-auto'>CONVOCATORIAS APLICADAS </AccordionTrigger>
+            <AccordionTrigger className='px-3'>CONVOCATORIAS APLICADAS </AccordionTrigger>
             <AccordionContent>
+              {/* Convocatorias que están asociadas a un proyecto */}
               <CallAndProject />
             </AccordionContent>
           </AccordionItem>

@@ -11,54 +11,54 @@ export class UpdateConvocatoriaRegistroDto extends PartialType(CreateConvocatori
 _id:ObjectId;
 
 @IsString()
-"entidad-convocante":string;
+entidadConvocante:string;
 
 @IsString()
-"departamento-convocante":string;
+departamentoConvocante:string;
 
 @IsString()
-"titulo":string;
+titulo:string;
 
 @IsString()
-"publicacion-oficial":string;
+publicacionOficial:string;
 
 @IsString()
-"convocatoria-enlace":string;
+convocatoriaEnlace:string;
 
 @IsString()
-"tematica":string;
+tematica:string;
 
 @IsString()
-"trabajo-lineas":string;
+trabajoLineas:string;
 
 @IsString()
-"dirigido-entidades":string;
+dirigidoEntidades:string;
 
 
 @IsString()
-"fecha-apertura":string;
+fechaApertura:string;
 
 @IsString()
-"fecha-cierre":string;
+fechaCierre:string;
 
 @IsString()
-"fecha-resolucion":string;
+fechaResolucion:string;
 
 @IsString()
-"periodo-ejecucion":string;
+periodoEjecucion:string;
 
 @IsString()
-"fecha-justificacion":string;
+fechaJustificacion:string;
 
 @IsBoolean()
-"auditoria":boolean;
+auditoria:boolean;
 
 @IsNumber()
-"presupuesto":number;
+presupuesto:number;
 
 @IsString()
-"otra-informacion":string;
+otraInformacion:string;
 
 @IsString()
-"documentacion":AdjuntarDto;
+documentacion:AdjuntarDto;
 }

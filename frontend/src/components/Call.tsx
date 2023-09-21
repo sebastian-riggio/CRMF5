@@ -15,7 +15,6 @@ import {
   CardHeader,
   CardTitle
 } from './ui/card'
-import { Separator } from './ui/separator'
 import { Form } from './ui/form'
 import GeneralData from './ui/formCall/GeneralData'
 import ApplicationStage from './ui/formCall/ApplicationStage'
@@ -75,7 +74,7 @@ function Call () {
                     </div>
                   </AccordionContent>
                 </AccordionItem>
-              </Accordion>
+              </Accordion> 
               {/* </Card> */}
 
               {/*   ETAPA DE SOLICITUD   */}

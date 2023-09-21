@@ -3,16 +3,16 @@ import { CalendarIcon, CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 import { format } from 'date-fns'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { cn } from '../lib/utils'
-import { Button } from '../components/ui/button'
-import { Calendar } from '../components/ui/calendar'
+import { cn } from '../../lib/utils'
+import { Button } from '../ui/button'
+import { Calendar } from '../ui/calendar'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem
-} from '../components/ui/command'
+} from '../ui/command'
 import {
   Form,
   FormControl,
@@ -20,16 +20,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../components/ui/form'
-import { Input } from '../components/ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from '../components/ui/popover'
-import { toast } from '../components/ui/use-toast'
-import AccountFormSchema from './accountFormSchema';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
+} from '../ui/popover'
+import { toast } from '../ui/use-toast'
+import AccountFormSchema from '../accountFormSchema';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Separator } from '@radix-ui/react-separator'
 
 
@@ -66,7 +66,7 @@ export function AccountForm () {
     }
   })
 
-  function onSubmit (data: AccountFormValues) {
+  function onSubmit (data: z.infer<typeof ProfileFormSchema>) {
     console.log(data)
     toast({
       title: 'Crea un nuevo usurario para Factoria F5:',
@@ -79,9 +79,9 @@ export function AccountForm () {
   }
 
   return (
-    <div className='container mx-auto m-4 border-1 border-solid border-input rounded-xl'>
-      <div className='flex flex-col space-y-1.5 p-6'>
-        <h3 className='text-2xl font-semibold leading-none tracking-tight'>Nuevo Usuario</h3>
+    <div className='container mx-auto my-0 border-1 border-solid border-input rounded-xl'>
+      <div className='flex flex-col space-y-1.5 py-6'>
+        <h3 className='text-2xl font-semibold leading-none tracking-tight mb-4'>Nuevo Usuario</h3>
         Completar los datos del nuevo usuario del Factoria F5
       </div>
 
@@ -89,14 +89,14 @@ export function AccountForm () {
       <div className=''>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-            <CardContent>
+            <div className='mt-8'>
               <FormField
                 control={form.control}
                 name='nombre'
                 render={({ field }) => (
                   <FormItem>
                     <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Nombre y Apellido</FormLabel>
+                      <FormLabel className='pb-4'>Nombre y Apellido</FormLabel>
                       <FormControl>
                         <Input placeholder='Nombre y Apellido' {...field} />
                       </FormControl>
@@ -121,7 +121,7 @@ export function AccountForm () {
                                 variant='outline'
                                 role='combobox'
                                 className={cn(
-                                  'w-[200px] justify-between',
+                                  'justify-between',
                                   !field.value && 'text-muted-foreground'
                                 )}
                               >
@@ -134,7 +134,7 @@ export function AccountForm () {
                               </Button>
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className='w-[200px] p-0'>
+                          <PopoverContent className='p-0'>
                             <Command>
                               <CommandInput placeholder='Buscar departamento' />
                               <CommandEmpty>Departamento no encontrado</CommandEmpty>
@@ -260,7 +260,7 @@ export function AccountForm () {
                   </FormItem>
                 )}
               />
-            </CardContent>
+            </div>
             <CardFooter>
               <Button type='submit'>Cancelar</Button>
               <Button type='submit'>Crear</Button>

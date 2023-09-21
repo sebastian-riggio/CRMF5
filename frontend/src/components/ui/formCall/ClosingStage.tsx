@@ -4,6 +4,7 @@ import DatePicker from '../DatePicker'
 import { Button } from '../button'
 import { Separator } from '../separator'
 import FormSectionData from './FormSectionData'
+import { toast } from '../use-toast'
 
 function ClosingStage () {
   return (
@@ -33,10 +34,27 @@ function ClosingStage () {
       </div>
       <Separator className='my-5' />
       <div className=' w-full md:w-full mt-5 flex justify-center'>
-        <Button type='submit' className='w-20 hover:bg-FF4700-dark text-white font-bold rounded mr-2'>
+        <Button
+          variant='outline'
+          onClick={() => {
+            toast({
+              title: 'Acaba de borrar su formulario.',
+              description: 'Ya no podrá modificarlo.'
+            })
+          }}
+        >
           Cancelar
         </Button>
-        <Button type='submit' className='w-20 hover:bg-FF4700-dark text-white font-bold rounded ml-2 '>
+        <Button
+          className='w-20 rounded ml-2 '
+          variant='outline'
+          onClick={() => {
+            toast({
+              title: 'Acaba de actualizar su formulario.',
+              description: 'Ya no podrá modificarlo.'
+            })
+          }}
+        >
           Actualizar
         </Button>
       </div>

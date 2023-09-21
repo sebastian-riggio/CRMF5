@@ -13,75 +13,75 @@ export class ConvocatoriaRegistro extends Document{
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @Prop({ required: true})
-"entidad-convocante":string
+entidadConvocante:string
 
 @ApiProperty({example:"Recursos Humanos"})
 @Prop()
-"departamento-convocante":string;
+departamentoConvocante:string;
 
 @ApiProperty({example:"Por un mundo mejor"})
 @Prop()
-"titulo":string;
+titulo:string;
 
 @ApiProperty({example:"http//:factoriaf5.com"})
 @Prop()
-"publicacion-oficial":string;
+publicacionOficial:string;
 
 
 @ApiProperty({example:"http//:factoria-convocatoria.com"})
 @Prop()
-"convocatoria-enlace":string;
+convocatoriaEnlace:string;
 
 @ApiProperty({example:"Programacíon"})
 @Prop()
-"tematica":string;
+tematica:string;
 
 @ApiProperty({example:"Palabras claves o texto???"})
 @Prop()
-"trabajo-lineas":string;
+trabajoLineas:string;
 
 @ApiProperty({example:["Sin animo de lucro","Financieras","Impacto Social"]})
 @Prop()
-"dirigido-entidades":string;
+dirigidoEntidades:string;
 
 @ApiProperty({example:"20/10/2023"})
 @Prop()
-"fecha-apertura":string;
+fechaApertura:string;
 
 @ApiProperty({example:"28/10/2023"})
 @Prop()
-"fecha-cierre":string;
+fechaCierre:string;
 
 @ApiProperty({example:"6/11/2023"})
 @Prop()
-"fecha-resolucion":string
+fechaResolucion:string
 
 @ApiProperty({example:"5 meses"})
 @Prop()
-"periodo-ejecucion":string;
+periodoEjecucion:string;
 
 @ApiProperty({example:"8/11/2023"})
 @Prop()
-"fecha-justificacion":string;
+fechaJustificacion:string;
 
 
 @ApiProperty({example:["si","no"]})
 @Prop({default:false})
-"auditoria":boolean;
+auditoria:boolean;
 
 
 @ApiProperty({example:"40000 euros"})
 @Prop()
-"presupuesto":number;
+presupuesto:number;
 
 
 @ApiProperty({example:"palabras claves etc.."})
 @Prop()
-"otra-informacion":string;
+otraInformacion:string;
 
 @ApiProperty({example:"PDF"})
 @Prop({type:AdjuntarDto})
-"documentacion":AdjuntarDto
+documentacion:AdjuntarDto
 
 }
 

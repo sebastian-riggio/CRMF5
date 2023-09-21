@@ -79,7 +79,6 @@ const accountFormSchema = z.object({
   }),
   'centro-gestor': z.string().min(2, {
     message: 'Debe completar este campo'
-
   }),
   responsable: z.string().min(2, {
     message: 'Debe completar este campo'
@@ -102,7 +101,17 @@ const accountFormSchema = z.object({
     }),
   departamento: z.string({
     required_error: 'Elije un centro gestor de factoria F5'
-  })
+  }),
+
+  // ApplicationStage
+  proyecto: z.string({ required_error: 'Debe elegir un proyecto' }),
+  tecnico: z.string({ required_error: 'Ingrese el Técnico responsable' }),
+  propuesta: z.string({ required_error: 'Debe ingresar la fecha en la que se ha entregado la propuesta' }),
+  fechadeinicio: z.date({ required_error: 'Debe ingresar la fecha en la que se ha entregado la propuesta' }),
+  numerotramite: z.string({ required_error: 'Debe ingresar el número de trámite' }),
+  numeroexpediente: z.string({ required_error: 'Debe ingresar el número de expediente' }),
+  recibooficial: z.string({ required_error: 'Debe ingresar el recibo' })
+
 })
 
 export default accountFormSchema
