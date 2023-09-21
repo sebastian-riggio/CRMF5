@@ -28,16 +28,16 @@ const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'responsable',
     // header: 'Responsable',
-    header: () => <div className="text-right">Responsable</div>,
+    header: () => <div className='text-right'>Responsable</div>,
     cell: ({ row }) => {
       const amount = row.getValue('responsable')
       const formatted = new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'EUR',
+        currency: 'EUR'
       }).format(amount)
- 
-      return <div className="text-right text-red-500 font-medium">{amount}</div>
-    },
+
+      return <div className='text-right text-red-500 font-medium'>{amount}</div>
+    }
   }
 ]
 
@@ -48,12 +48,12 @@ function AllProjectsPage () {
     axios.get(baseUrl).then((response) => {
       setData(response)
     })
-    }, [])
-    if(!data) return null
-    console.log(data.data.proyectos)
+  }, [])
+  if (!data) return null
+  console.log(data.data.proyectos)
   return (
     <div className='container mx-auto'>
-      <h1 className="text-4xl font-semibold">Nuestros proyectos</h1>
+      <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
       <DataTable columns={columns} data={data.data.proyectos} />
     </div>
   )
