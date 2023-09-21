@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,71 +96,71 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { ApiProperty } from "@nestjs/swagger";</span>
-<span class="cstat-no" title="statement not covered" >import { IsString } from "class-validator";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiProperty } from "@nestjs/swagger";
+import { IsString } from "class-validator";
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export class E</span>tapaResolucionDto {
+export class EtapaResolucionDto {
 @ApiProperty({example:"20/9/2023"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"fecha-resolucion":string;</span>
+"fecha-resolucion":string;
 &nbsp;
 @ApiProperty({example:"24/9/2023"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"fecha-limite-entrega":string</span>
+"fecha-limite-entrega":string
 &nbsp;
 @ApiProperty({example:"28/9/2023"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"fecha-real-entrega":string;</span>
+"fecha-real-entrega":string;
 &nbsp;
 @ApiProperty({example:"30/9/2023"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"fecha-limite-responder":string;</span>
+"fecha-limite-responder":string;
 &nbsp;
 @ApiProperty({example:"31/9/2023"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"fecha-real-respuesta":string;</span>
+"fecha-real-respuesta":string;
 &nbsp;
 @ApiProperty({example:"Notas del proceso"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"notas":string;</span>
+"notas":string;
 &nbsp;
 @ApiProperty({example:"PDF"})
 @IsString()
-<span class="cstat-no" title="statement not covered" >"adjuntar-resolucion":string;</span>
+"adjuntar-resolucion":string;
 &nbsp;
 }</pre></td></tr></table></pre>
 
@@ -169,7 +169,15 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-09-19T10:54:01.898Z
+=======
+<<<<<<< HEAD
+                at 2023-09-19T20:15:38.603Z
+=======
+                at 2023-09-19T20:46:40.360Z
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+>>>>>>> feature/Bd-Ariel
             </div>
         <script src="../../../prettify.js"></script>
         <script>

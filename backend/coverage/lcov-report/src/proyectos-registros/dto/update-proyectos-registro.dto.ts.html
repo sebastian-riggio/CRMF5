@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,80 +103,80 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { ApiProperty, PartialType } from '@nestjs/swagger';</span>
-<span class="cstat-no" title="statement not covered" >import { CreateProyectosRegistroDto} from './create-proyectos-registro.dto';</span>
-<span class="cstat-no" title="statement not covered" >import { IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiProperty, PartialType } from '@nestjs/swagger';
+import { CreateProyectosRegistroDto} from './create-proyectos-registro.dto';
+import { IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ObjectId } from 'mongoose';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export class U</span>pdateProyectosRegistroDto extends PartialType(CreateProyectosRegistroDto) {
+export class UpdateProyectosRegistroDto extends PartialType(CreateProyectosRegistroDto) {
     @IsNotEmpty()
     @IsMongoId()
-<span class="cstat-no" title="statement not covered" >    _id:ObjectId;</span>
+    _id:ObjectId;
 &nbsp;
     @ApiProperty({example:"P8 Mixta"})
     @IsString()
-<span class="cstat-no" title="statement not covered" >    "proyecto-nombre":string;</span>
+    "proyecto-nombre":string;
    
     @ApiProperty({example:"Factoria F5 - Dirección general "})
     @IsString()
-<span class="cstat-no" title="statement not covered" >    "centro-gestor":string;</span>
+    "centro-gestor":string;
    
     @ApiProperty({example:"Jesús Rivera"})
     @IsString()
-<span class="cstat-no" title="statement not covered" >    "responsable":string;</span>
+    "responsable":string;
    
     
    @ApiProperty({example:"6 meses"})
    @IsString()
-<span class="cstat-no" title="statement not covered" >   "proyecto-duracion":string;</span>
+   "proyecto-duracion":string;
    
    @ApiProperty({example:23000})
    @IsNumber()
-<span class="cstat-no" title="statement not covered" >   "proyecto-presupuesto":number;</span>
+   "proyecto-presupuesto":number;
    
    @ApiProperty({example:15000})
    @IsNumber()
-<span class="cstat-no" title="statement not covered" >   "factoria-presupuesto":number;</span>
+   "factoria-presupuesto":number;
 &nbsp;
 &nbsp;
 &nbsp;
@@ -190,7 +190,15 @@ import { ObjectId } from 'mongoose';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2023-09-19T10:54:01.898Z
+=======
+<<<<<<< HEAD
+                at 2023-09-19T20:15:38.603Z
+=======
+                at 2023-09-19T20:46:40.360Z
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+>>>>>>> feature/Bd-Ariel
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -12,43 +12,19 @@ export class ConvocatoriaRegistroService {
 
 constructor(
 @InjectModel(ConvocatoriaRegistro.name)
-private  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
+private readonly  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
 
 ){}
  async create(createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
- 
-const newConvocatoria = new this.ConvocatoriaModel({
-  "entidad-convocante":createConvocatoriaRegistroDto['entidad-convocante'],
-  "departamento-convocante":createConvocatoriaRegistroDto['departamento-convocante'],
-  titulo:createConvocatoriaRegistroDto.titulo,
-  "publicacion-oficial":createConvocatoriaRegistroDto['publicacion-oficial'],
-  "convocatoria-enlace":createConvocatoriaRegistroDto['convocatoria-enlace'],
-  tematica:createConvocatoriaRegistroDto.tematica,
-  "trabajo-lineas":createConvocatoriaRegistroDto['trabajo-lineas'],
-  "dirigido-entidades":createConvocatoriaRegistroDto['dirigido-entidades'],
-  "fecha-apertura":createConvocatoriaRegistroDto['fecha-apertura'],
-  "fecha-cierre":createConvocatoriaRegistroDto['fecha-cierre'],
-  "fecha-resolucion":createConvocatoriaRegistroDto['fecha-resolucion'],
-  "periodo-ejecucion":createConvocatoriaRegistroDto['periodo-ejecucion'],
-  "fecha-justificacion":createConvocatoriaRegistroDto['fecha-justificacion'],
-  auditoria:createConvocatoriaRegistroDto.auditoria,
-  presupuesto:createConvocatoriaRegistroDto.presupuesto,
-  "otra-informacion":createConvocatoriaRegistroDto['otra-informacion'],
-  documentacion:createConvocatoriaRegistroDto.documentacion
-
-
-});
+ const newConvocatoria = await this.ConvocatoriaModel.create(createConvocatoriaRegistroDto)
 return {
   message: 'Se ha registrado correctamente la convocatoria',
   status:200,
   convocatoria:newConvocatoria
-  .save()
-} 
 
+}
   }
-
-
- async findAll() {
+async findAll() {
     try{
       const AllConvocatorias = await this.ConvocatoriaModel.find().exec()
       return {
@@ -104,12 +80,20 @@ async remove(id:ObjectId) {
       if(!findAndDelete) throw new HttpException('Convocatoria no encontrada',HttpStatus.NOT_FOUND)
     return {
            message: 'Convocatoria eliminada correctamente',
-           status:HttpStatus.OK,
+           status:200,
            data:''
     } 
     
     }catch(error){
       throw error 
+    }
+  }
+
+  async postPDF(){
+    try{
+
+    }catch(error){
+      
     }
   }
 }

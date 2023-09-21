@@ -5,20 +5,20 @@ import { IsString } from "class-validator";
 export class AdjuntarDto {
 @ApiProperty({example:"PDF"})
 @IsString()
-"memoria-tecnica":string;
+memoriaTecnica:string;
 
-@ApiProperty({example:"PDF"})
+/* @ApiProperty({example:"PDF"})
 @IsString()
-"presupuesto":string;
-
-
-@ApiProperty({example:"PDF"})
-@IsString()
-"formulario-solicitud":string;
+modeloPresupuesto:string;
 
 
 @ApiProperty({example:"PDF"})
 @IsString()
-"otra-documentacion":string;
+formularioSolicitud:string;
+
+
+@ApiProperty({example:"PDF"})
+@IsString()
+otraDocumentacion:string; */
 }
 

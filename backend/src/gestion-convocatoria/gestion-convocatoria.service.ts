@@ -87,7 +87,7 @@ export class GestionConvocatoriaService {
        ...updateGestionConvocatoriaDto
       });
       return {
-        message: "gestion actualizada correctamente",
+        message: 'Gestion actualizada correctamente',
         status:200,
         gestion:updateGestion
       }
