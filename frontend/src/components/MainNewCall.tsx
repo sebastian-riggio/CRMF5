@@ -201,12 +201,10 @@ function MainNewCall () {
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <div>
-                              <DatePicker
-                                title=''
-                                {...field}
-                              />
-                            </div>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
                           </FormControl>
                         </PopoverTrigger>
                       </Popover>
@@ -225,27 +223,12 @@ function MainNewCall () {
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <div className='relative'>
-                              <Input
-                                placeholder='Fecha de cierre'
-                                {...field}
-                                className='md:pr-8'
-                              />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
-                            </div>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className='w-auto p-0' align='start'>
-                          <Calendar
-                            mode='single'
-                            selected={new Date(field.value)}
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date('2000-01-01')}
-                            initialFocus
-                          />
-                        </PopoverContent>
                       </Popover>
                       <FormMessage />
                     </div>
@@ -263,27 +246,12 @@ function MainNewCall () {
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <div className='relative'>
-                              <Input
-                                placeholder='Fecha límite de resolución'
-                                {...field}
-                                className='md:pr-8'
-                              />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
-                            </div>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className='w-auto p-0' align='start'>
-                          <Calendar
-                            mode='single'
-                            selected={new Date(field.value)}
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date('1900-01-01')}
-                            initialFocus
-                          />
-                        </PopoverContent>
                       </Popover>
                       <FormMessage />
                     </div>
@@ -317,27 +285,12 @@ function MainNewCall () {
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
-                            <div className='relative'>
-                              <Input
-                                placeholder='Fecha límite de justificación'
-                                {...field}
-                                className='md:pr-8'
-                              />
-                              <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
-                            </div>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className='w-auto p-0' align='start'>
-                          <Calendar
-                            mode='single'
-                            selected={new Date(field.value)}
-                            // eslint-disable-next-line react/jsx-handler-names
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date('1900-01-01')}
-                            initialFocus
-                          />
-                        </PopoverContent>
                       </Popover>
                       <FormMessage />
                     </div>
