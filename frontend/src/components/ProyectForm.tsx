@@ -39,7 +39,7 @@ import { AxiosResponse } from 'axios'
 import { createProject } from '../services/proyectos'
 import { toast } from './ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
-import AccountFormSchema from './AccountFormSchema'
+import AccountFormSchema from './accountFormSchema'
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5-People and culture' },

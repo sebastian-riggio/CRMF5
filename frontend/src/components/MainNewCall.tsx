@@ -30,7 +30,7 @@ import {
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
 import { Separator } from './ui/separator'
-import AccountFormSchema from './AccountFormSchema'
+import AccountFormSchema from './accountFormSchema'
 
 type AccountFormValues = z.infer<typeof AccountFormSchema>
 

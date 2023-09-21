@@ -2,7 +2,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import accountFormSchema from './AccountFormSchema'
+import accountFormSchema from './accountFormSchema'
 import {
   Accordion,
   AccordionContent,
@@ -23,6 +23,7 @@ import NegotationStage from './ui/formCall/NegotiationStage'
 import ConcessionStage from './ui/formCall/ ConcessionStage'
 import JustificationStage from './ui/formCall/JustificationStage'
 import ClosingStage from './ui/formCall/ClosingStage'
+
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
