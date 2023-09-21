@@ -1,41 +1,70 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, ParseFilePipeBuilder } from '@nestjs/common';
 import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 import { ObjectId } from 'mongoose';
-import { Public } from 'src/auth/decorators/public.decorator';
+import { Public } from '../auth/decorators/public.decorator';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
 
 @Controller('announcement')
 export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}
 
-// @Public()
+ @Public()
   @Post('register')
   create(@Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   }
 
- // @Public()
+  @Public()
   @Get()
   findAll() {
     return this.convocatoriaRegistroService.findAll();
   }
-// @Public()
+ @Public()
   @Get(':id')
   findOne(@Param('id') id:ObjectId) {
     return this.convocatoriaRegistroService.findOne(id);
   }
-// @Public()
+ @Public()
   @Patch('update')
   update(@Body() updateConvocatoriaRegistroDto: UpdateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.update(updateConvocatoriaRegistroDto);
   }
   
-// @Public()
+ @Public()
   @Delete('delete')
   remove(@Body('id') id:ObjectId) {
     return this.convocatoriaRegistroService.remove(id);
   }
+
+@Public()
+@UseInterceptors(FileInterceptor('file'))
+@Post('upload')
+async uploadFileAndPassValidation(
+  @Body() body: ConvocatoriaRegistro,
+  @UploadedFile()file: Express.Multer.File,
+) {
+ if(!file){
+  return{error:'No se subio ningun archivo'}
+ }
+ try{
+  const newConvocatoria = new ConvocatoriaRegistro(body);
+  newConvocatoria.documentacion = {
+  memoriaTecnica: file.buffer.toString('base64')
+  };
+  await newConvocatoria.save()
+  return {message:'Convocatoria subida'}
+ }catch(error){
+  return{error:'Error al guardar archivos'}
+ }
+}
+ 
+  
 }
 
-
+/* 
+postPdf(@Body() adjuntarDto:AdjuntarDto){
+  return this.convocatoriaRegistroService.create(adjuntarDto)
+} */

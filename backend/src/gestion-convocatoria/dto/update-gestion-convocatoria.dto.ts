@@ -10,14 +10,7 @@ import { IsArray, IsString } from "class-validator";
 export class UpdateGestionConvocatoriaDto extends PartialType(
   CreateGestionConvocatoriaDto
 ) {
-  @ApiProperty({ example: "financiacion patra cursos educativos online" })
-  @IsString()
-  "convocatoria": string;
 
-
-  @ApiProperty({ example: "R-0001-20230912" })
-  @IsString()
-  "codigo-interno": string;
 
   @ApiProperty({ example: "Etapa Solicitud" })
   @IsArray()

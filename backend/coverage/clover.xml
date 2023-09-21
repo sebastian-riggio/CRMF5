@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1695120842061" clover="3.2.0">
   <project timestamp="1695120842061" name="All files">
     <metrics statements="639" coveredstatements="233" conditionals="29" coveredconditionals="9" methods="82" coveredmethods="23" elements="750" coveredelements="265" complexity="0" loc="639" ncloc="639" packages="22" files="47" classes="47"/>
+=======
+<coverage generated="1695154538829" clover="3.2.0">
+  <project timestamp="1695154538829" name="All files">
+    <metrics statements="639" coveredstatements="456" conditionals="29" coveredconditionals="11" methods="83" coveredmethods="45" elements="751" coveredelements="512" complexity="0" loc="639" ncloc="639" packages="22" files="47" classes="47"/>
+>>>>>>> feature/Bd-Ariel
     <package name="src">
       <metrics statements="32" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
-      <file name="app.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\app.controller.ts">
+      <file name="app.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/app.controller.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -13,7 +19,7 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
       </file>
-      <file name="app.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\app.module.ts">
+      <file name="app.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/app.module.ts">
         <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -28,13 +34,13 @@
         <line num="16" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
       </file>
-      <file name="app.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\app.service.ts">
+      <file name="app.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/app.service.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
       </file>
-      <file name="main.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\main.ts">
+      <file name="main.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/main.ts">
         <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -51,7 +57,7 @@
     </package>
     <package name="src.auth">
       <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="auth.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\auth.module.ts">
+      <file name="auth.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/auth.module.ts">
         <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -72,7 +78,7 @@
     </package>
     <package name="src.auth.controllers">
       <metrics statements="16" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="auth.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\controllers\auth.controller.ts">
+      <file name="auth.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/controllers/auth.controller.ts">
         <metrics statements="16" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -94,13 +100,13 @@
     </package>
     <package name="src.auth.decorators">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="public.decorator.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\decorators\public.decorator.ts">
+      <file name="public.decorator.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/decorators/public.decorator.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="19" type="stmt"/>
       </file>
-      <file name="roles.decorator.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\decorators\roles.decorator.ts">
+      <file name="roles.decorator.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/decorators/roles.decorator.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -109,7 +115,7 @@
     </package>
     <package name="src.auth.dto">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="signin.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\dto\signin.dto.ts">
+      <file name="signin.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/dto/signin.dto.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -120,7 +126,7 @@
     </package>
     <package name="src.auth.enums">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="role.enum.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\enums\role.enum.ts">
+      <file name="role.enum.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/enums/role.enum.ts">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="2" count="6" type="stmt"/>
@@ -129,7 +135,7 @@
     </package>
     <package name="src.auth.guards">
       <metrics statements="30" coveredstatements="28" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
-      <file name="jwt-auth.guard.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\guards\jwt-auth.guard.ts">
+      <file name="jwt-auth.guard.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/guards/jwt-auth.guard.ts">
         <metrics statements="11" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -143,7 +149,7 @@
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
       </file>
-      <file name="role.guard.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\guards\role.guard.ts">
+      <file name="role.guard.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/guards/role.guard.ts">
         <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
@@ -168,7 +174,7 @@
     </package>
     <package name="src.auth.services">
       <metrics statements="14" coveredstatements="12" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="2"/>
-      <file name="auth.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\services\auth.service.ts">
+      <file name="auth.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/services/auth.service.ts">
         <metrics statements="14" coveredstatements="12" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
@@ -188,7 +194,7 @@
     </package>
     <package name="src.auth.strategies">
       <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
-      <file name="jwt.strategy.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\strategies\jwt.strategy.ts">
+      <file name="jwt.strategy.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/strategies/jwt.strategy.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -199,7 +205,7 @@
         <line num="10" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
       </file>
-      <file name="local.strategy.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\strategies\local.strategy.ts">
+      <file name="local.strategy.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/auth/strategies/local.strategy.ts">
         <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -214,13 +220,14 @@
       </file>
     </package>
     <package name="src.convocatoria-registro">
-      <metrics statements="47" coveredstatements="21" conditionals="1" coveredconditionals="0" methods="12" coveredmethods="6"/>
-      <file name="convocatoria-registro.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.controller.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <metrics statements="48" coveredstatements="35" conditionals="1" coveredconditionals="0" methods="12" coveredmethods="11"/>
+      <file name="convocatoria-registro.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/convocatoria-registro.controller.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="6" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
@@ -234,7 +241,7 @@
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
       </file>
-      <file name="convocatoria-registro.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.module.ts">
+      <file name="convocatoria-registro.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/convocatoria-registro.module.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -243,48 +250,48 @@
         <line num="5" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
       </file>
-      <file name="convocatoria-registro.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.service.ts">
-        <metrics statements="25" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="convocatoria-registro.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/convocatoria-registro.service.ts">
+        <metrics statements="25" coveredstatements="18" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="5"/>
         <line num="1" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="81" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.convocatoria-registro.dto">
       <metrics statements="51" coveredstatements="51" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="adjuntarDto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\dto\adjuntarDto.ts">
+      <file name="adjuntarDto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/dto/adjuntarDto.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
       </file>
-      <file name="create-convocatoria-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\dto\create-convocatoria-registro.dto.ts">
+      <file name="create-convocatoria-registro.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/dto/create-convocatoria-registro.dto.ts">
         <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -308,7 +315,7 @@
         <line num="73" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
       </file>
-      <file name="update-convocatoria-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\dto\update-convocatoria-registro.dto.ts">
+      <file name="update-convocatoria-registro.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/dto/update-convocatoria-registro.dto.ts">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -337,56 +344,77 @@
     </package>
     <package name="src.convocatoria-registro.schema">
       <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="convocatoria-registro.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\schema\convocatoria-registro.schema.ts">
+      <file name="convocatoria-registro.schema.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/convocatoria-registro/schema/convocatoria-registro.schema.ts">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
-        <line num="75" count="2" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="53" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="80" count="4" type="stmt"/>
+        <line num="84" count="4" type="stmt"/>
+        <line num="88" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.gestion-convocatoria">
-      <metrics statements="64" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="12" coveredmethods="0"/>
+<<<<<<< HEAD
+      <metrics statements="65" coveredstatements="23" conditionals="3" coveredconditionals="0" methods="13" coveredmethods="4"/>
       <file name="gestion-convocatoria.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\gestion-convocatoria.controller.ts">
-        <metrics statements="17" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <metrics statements="18" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+=======
+      <metrics statements="64" coveredstatements="24" conditionals="3" coveredconditionals="0" methods="12" coveredmethods="5"/>
+      <file name="gestion-convocatoria.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/gestion-convocatoria.controller.ts">
+        <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+<<<<<<< HEAD
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+=======
+        <line num="11" count="6" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
       </file>
-      <file name="gestion-convocatoria.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\gestion-convocatoria.module.ts">
+      <file name="gestion-convocatoria.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/gestion-convocatoria.module.ts">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -397,16 +425,20 @@
         <line num="7" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="gestion-convocatoria.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\gestion-convocatoria.service.ts">
-        <metrics statements="39" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
+=======
+      <file name="gestion-convocatoria.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/gestion-convocatoria.service.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="39" coveredstatements="8" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
@@ -441,171 +473,201 @@
       </file>
     </package>
     <package name="src.gestion-convocatoria.dto">
-      <metrics statements="91" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="89" coveredstatements="89" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+<<<<<<< HEAD
       <file name="create-gestion-convocatoria.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\create-gestion-convocatoria.dto.ts">
-        <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+=======
+      <file name="create-gestion-convocatoria.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/create-gestion-convocatoria.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="etapa-cierre.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\etapa-cierre.dto.ts">
-        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+=======
+      <file name="etapa-cierre.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/etapa-cierre.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="etapa-justificacion.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\etapa-justificacion.dto.ts">
-        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+=======
+      <file name="etapa-justificacion.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/etapa-justificacion.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="etapa-otorgamiento.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\etapa-otorgamiento.dto.ts">
-        <metrics statements="20" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+=======
+      <file name="etapa-otorgamiento.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/etapa-otorgamiento.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="etapa-resolucion.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\etapa-resolucion.dto.ts">
-        <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+=======
+      <file name="etapa-resolucion.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/etapa-resolucion.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="etapa-solicitud.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\etapa-solicitud.dto.ts">
-        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+=======
+      <file name="etapa-solicitud.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/etapa-solicitud.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="update-gestion-convocatoria.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\dto\update-gestion-convocatoria.dto.ts">
-        <metrics statements="16" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
+=======
+      <file name="update-gestion-convocatoria.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/dto/update-gestion-convocatoria.dto.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.gestion-convocatoria.schema">
-      <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+<<<<<<< HEAD
       <file name="gestion-convocatoria.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\gestion-convocatoria\schema\gestion-convocatoria.schema.ts">
-        <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+=======
+      <file name="gestion-convocatoria.schema.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/gestion-convocatoria/schema/gestion-convocatoria.schema.ts">
+>>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.proyectos-registros">
-      <metrics statements="53" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="12" coveredmethods="0"/>
-      <file name="proyectos-registros.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.controller.ts">
-        <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+      <metrics statements="53" coveredstatements="39" conditionals="1" coveredconditionals="0" methods="12" coveredmethods="11"/>
+      <file name="proyectos-registros.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/proyectos-registros.controller.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
       </file>
-      <file name="proyectos-registros.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.module.ts">
+      <file name="proyectos-registros.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/proyectos-registros.module.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -614,31 +676,31 @@
         <line num="5" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
       </file>
-      <file name="proyectos-registros.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.service.ts">
-        <metrics statements="29" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
+      <file name="proyectos-registros.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/proyectos-registros.service.ts">
+        <metrics statements="29" coveredstatements="21" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
@@ -648,54 +710,54 @@
       </file>
     </package>
     <package name="src.proyectos-registros.dto">
-      <metrics statements="20" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="create-proyectos-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\dto\create-proyectos-registro.dto.ts">
-        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="create-proyectos-registro.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/dto/create-proyectos-registro.dto.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
       </file>
-      <file name="update-proyectos-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\dto\update-proyectos-registro.dto.ts">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+      <file name="update-proyectos-registro.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/dto/update-proyectos-registro.dto.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.proyectos-registros.schema">
-      <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="proyectos-registro.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\schema\proyectos-registro.schema.ts">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="proyectos-registro.schema.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/proyectos-registros/schema/proyectos-registro.schema.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.schemas">
       <metrics statements="27" coveredstatements="16" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
-      <file name="users.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\schemas\users.schema.ts">
+      <file name="users.schema.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/schemas/users.schema.ts">
         <metrics statements="27" coveredstatements="16" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -728,7 +790,7 @@
     </package>
     <package name="src.user">
       <metrics statements="63" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="13" coveredmethods="0"/>
-      <file name="user.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\user\user.controller.ts">
+      <file name="user.controller.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/user/user.controller.ts">
         <metrics statements="23" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -754,7 +816,7 @@
         <line num="85" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
       </file>
-      <file name="user.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\user\user.module.ts">
+      <file name="user.module.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/user/user.module.ts">
         <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -766,7 +828,7 @@
         <line num="14" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
       </file>
-      <file name="user.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\user\user.service.ts">
+      <file name="user.service.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/user/user.service.ts">
         <metrics statements="31" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
@@ -803,7 +865,7 @@
     </package>
     <package name="src.user.dto">
       <metrics statements="14" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="create-user.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\user\dto\create-user.dto.ts">
+      <file name="create-user.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/user/dto/create-user.dto.ts">
         <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
@@ -817,7 +879,7 @@
         <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="45" count="2" type="stmt"/>
       </file>
-      <file name="update-user.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\user\dto\update-user.dto.ts">
+      <file name="update-user.dto.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/user/dto/update-user.dto.ts">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -825,17 +887,17 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="15" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="autoGenerateCode.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\utils\autoGenerateCode.ts">
-        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+      <metrics statements="15" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="autoGenerateCode.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/utils/autoGenerateCode.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
       </file>
-      <file name="calculoPorcentaje.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\utils\calculoPorcentaje.ts">
+      <file name="calculoPorcentaje.ts" path="/Users/sebastianriggio/Desktop/CRMF5/backend/src/utils/calculoPorcentaje.ts">
         <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>

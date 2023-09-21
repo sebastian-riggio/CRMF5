@@ -1,5 +1,5 @@
 import { Projects } from "../interfaces/projects";
-import { axiosPrivate } from "./AxiosPrivate";
+import { axiosPrivate } from "./axiosPrivate";
 
 
   export const createProject = (data:Projects)=> {

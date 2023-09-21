@@ -9,35 +9,35 @@ export class ProyectosRegistro {
 
 @ApiProperty({example:"P8 Mixta"})
 @Prop({unique:true})
-"proyecto-nombre":string;
+proyectoNombre:string;
 
 @ApiProperty({example:"Factoria20042023"})
 @Prop({unique:true})
-"proyecto-codigo":string;
+proyectoCodigo:string;
 
 @ApiProperty({example:["Factoria F5 - People and culture",
 "Factoria F5 - Admin, contabilidad y finanzas",
 "Factoria F5 - Oficina soporte proyectos y calidad",
  "Factoría F5 - Dirección general "]})
-@Prop()
 
-"centro-gestor":string;
+@Prop()
+centroGestor:string;
 
 @ApiProperty({example:"Jesús Rivera"})
 @Prop()
-"responsable":string;
+responsable:string;
 
 @ApiProperty({example:"6 meses"})
 @Prop()
-"proyecto-duracion":string;
+proyectoDuracion:string;
 
 @ApiProperty({example:23000})
 @Prop()
-"proyecto-presupuesto":number;
+proyectoPresupuesto:number;
 
 @ApiProperty({example:15000})
 @Prop()
-"factoria-presupuesto":number;
+factoriaPresupuesto:number;
 }
 
 export const ProyectosRegistroSchema = SchemaFactory.createForClass(ProyectosRegistro) 

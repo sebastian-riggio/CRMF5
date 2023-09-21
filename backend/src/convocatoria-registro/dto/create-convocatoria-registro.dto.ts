@@ -9,70 +9,70 @@ export class CreateConvocatoriaRegistroDto {
 
 @ApiProperty({example:"Factoria F5"})
 @IsString()
-"entidad-convocante":string;
+entidadConvocante:string;
 
 @ApiProperty({example:"Recursos Humanos"})
 @IsString()
-"departamento-convocante":string;
+departamentoConvocante:string;
 
 @ApiProperty({example:"Formacìon P8"})
 @IsString()
-"titulo":string;
+titulo:string;
 
 @ApiProperty({example:"http//:factoriaf5.com"})
 @IsString()
-"publicacion-oficial":string;
+publicacionOficial:string;
 
 @ApiProperty({example:"http//:factoria-convocatoria.com"})
 @IsString()
-"convocatoria-enlace":string;
+convocatoriaEnlace:string;
 
 @ApiProperty({example:"Programacíon"})
 @IsString()
-"tematica":string;
+tematica:string;
 
 @ApiProperty({example:"Palabras claves o texto???"})
 @IsString()
-"trabajo-lineas":string;
+trabajoLineas:string;
 
 @ApiProperty({example:["Sin animo de lucro","Financieras","Impacto Social"]})
 @IsString()
-"dirigido-entidades":string;
+dirigidoEntidades:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-"fecha-apertura":string;
+fechaApertura:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-"fecha-cierre":string;
+fechaCierre:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-"fecha-resolucion":string;
+fechaResolucion:string;
 
 @ApiProperty({example:"5 meses"})
 @IsString()
-"periodo-ejecucion":string;
+periodoEjecucion:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-"fecha-justificacion":string;
+fechaJustificacion:string;
 
 @ApiProperty({example:["si","no"]})
 @IsBoolean()
-"auditoria":boolean;
+auditoria:boolean;
 
 @ApiProperty({example:"40000 euros"})
 @IsNumber()
-"presupuesto":number;
+presupuesto:number;
 
 
 @ApiProperty({example:"palabras claves etc.."})
 @IsString()
-"otra-informacion":string;
+otraInformacion:string;
 
 @ApiProperty({example:"PDF"})
 @IsString()
-"documentacion":AdjuntarDto;
+documentacion:AdjuntarDto;
 }
