@@ -1,11 +1,6 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-<<<<<<< HEAD
-import { CreateProyectosRegistroDto } from './create-proyectos-registro.dto';
-import { IsEnum, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-=======
 import { CreateProyectosRegistroDto} from './create-proyectos-registro.dto';
 import { IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
->>>>>>> feature/Bd-Ariel
 import { ObjectId } from 'mongoose';
 
 export class UpdateProyectosRegistroDto extends PartialType(CreateProyectosRegistroDto) {
