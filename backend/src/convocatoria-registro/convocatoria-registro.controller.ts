@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, ParseFilePipeBuilder } from '@nestjs/common';
 import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 import { ObjectId } from 'mongoose';
 import { Public } from '../auth/decorators/public.decorator';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
 
 @Controller('announcement')
 export class ConvocatoriaRegistroController {
@@ -37,7 +39,32 @@ export class ConvocatoriaRegistroController {
     return this.convocatoriaRegistroService.remove(id);
   }
 
-
+@Public()
+@UseInterceptors(FileInterceptor('file'))
+@Post('upload')
+async uploadFileAndPassValidation(
+  @Body() body: ConvocatoriaRegistro,
+  @UploadedFile()file: Express.Multer.File,
+) {
+ if(!file){
+  return{error:'No se subio ningun archivo'}
+ }
+ try{
+  const newConvocatoria = new ConvocatoriaRegistro(body);
+  newConvocatoria.documentacion = {
+  memoriaTecnica: file.buffer.toString('base64')
+  };
+  await newConvocatoria.save()
+  return {message:'Convocatoria subida'}
+ }catch(error){
+  return{error:'Error al guardar archivos'}
+ }
+}
+ 
+  
 }
 
-
+/* 
+postPdf(@Body() adjuntarDto:AdjuntarDto){
+  return this.convocatoriaRegistroService.create(adjuntarDto)
+} */

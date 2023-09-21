@@ -1,7 +1,7 @@
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import accountFormSchema from './accountFormSchema';
+
 
 import { Textarea } from './ui/textarea';
 import {
@@ -32,8 +32,13 @@ import {
 } from './ui/popover';
 import { toast } from '../components/ui/use-toast';
 import { Separator } from './ui/separator';
+import gestionRegistroPost from '../interfaces/gestionregistroPost';
+import { AxiosResponse } from 'axios';
+import { createdRegistroGestion } from '../services/registroConvocatoria';
+import { useEffect } from 'react';
 
-type AccountFormValues = z.infer<typeof accountFormSchema>
+
+type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
 // This can come from your database or API.
 const defaultValues: Partial<AccountFormValues> = {
@@ -43,11 +48,18 @@ const defaultValues: Partial<AccountFormValues> = {
 
 function MainNewCall () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(accountFormSchema),
+    resolver: zodResolver(gestionRegistroPost),
     defaultValues
   })
 
-  function onSubmit (data: AccountFormValues) {
+ async function onSubmit (data: AccountFormValues) {
+
+try {
+  const response: AxiosResponse = await createdRegistroGestion(data)
+  console.log(response)
+}catch(error){
+  console.log(error)
+}
     toast({
       title: 'Crea un nuevo usurario para Factoria F5:',
       description: (
@@ -57,7 +69,7 @@ function MainNewCall () {
       )
     })
   }
-
+  useEffect(() => {}, []);
   return (
     <Card className='m-4'>
       <CardHeader>
@@ -101,7 +113,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='entidad'
+                name='entidadConvocante'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -116,7 +128,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='dpto'
+                name='departamentoConvocante'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -131,7 +143,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='url'
+                name='publicacionOficial'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -146,7 +158,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='urlbases'
+                name='convocatoriaEnlace'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -161,7 +173,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='texto'
+                name='trabajoLineas'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -176,7 +188,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='entidades'
+                name='dirigidoEntidades'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -191,7 +203,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='fecha'
+                name='fechaApertura'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -200,10 +212,11 @@ function MainNewCall () {
                         <PopoverTrigger asChild>
                           <FormControl>
                             <div className='relative'>
-                              <Input
+                              <Input 
                                 placeholder='Fecha de apertura'
                                 {...field}
                                 className='md:pr-8'
+                                
                               />
                               <CalendarIcon className='absolute right-2 top-2 h-6 w-6 text-gray-500 pointer-events-none' />
                             </div>
@@ -216,7 +229,7 @@ function MainNewCall () {
                             // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
-                              date > new Date() || date < new Date('1900-01-01')}
+                              date > new Date() || date < new Date('2000-01-01')}
                             initialFocus
                           />
                         </PopoverContent>
@@ -228,7 +241,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='fechaclose'
+                name='fechaCierre'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -253,7 +266,7 @@ function MainNewCall () {
                             // eslint-disable-next-line react/jsx-handler-names
                             onSelect={field.onChange}
                             disabled={(date) =>
-                              date > new Date() || date < new Date('1900-01-01')}
+                              date > new Date() || date < new Date('2000-01-01')}
                             initialFocus
                           />
                         </PopoverContent>
@@ -266,7 +279,7 @@ function MainNewCall () {
 
               <FormField
                 control={form.control}
-                name='fechatime'
+                name='fechaResolucion'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -275,7 +288,7 @@ function MainNewCall () {
                         <PopoverTrigger asChild>
                           <FormControl>
                             <div className='relative'>
-                              <Input
+                              <Input type='datetime-local'
                                 placeholder='Fecha límite de resolución'
                                 {...field}
                                 className='md:pr-8'
@@ -304,7 +317,7 @@ function MainNewCall () {
 
               <FormField
                 control={form.control}
-                name='periodomaximo'
+                name='periodoEjecucion'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -320,7 +333,7 @@ function MainNewCall () {
 
               <FormField
                 control={form.control}
-                name='fechajus'
+                name='fechaJustificacion'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -377,7 +390,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='number'
+                name='presupuesto'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -392,7 +405,7 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='infotexto'
+                name='otraInformacion'
                 render={({ field }) => (
                   <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <div className='my-2'>
@@ -407,30 +420,30 @@ function MainNewCall () {
               />
               <FormField
                 control={form.control}
-                name='file'
+                name='memoriaTecnica'
                 shouldUnregister
                 render={({ field }) => (
                   <div className='my-2 flex flex-wrap -mx-4'>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Memoria Técnica</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Modelo Presupuesto</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Formulario de Solicitud</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>
                     </FormItem>
                     <FormItem className='w-1/2 px-4 mb-4'>
-                      <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <FormLabel className='mb-2'>Otra Documentacíon</FormLabel>
                       <FormControl>
                         <Input type='file' {...field} />
                       </FormControl>

@@ -88,4 +88,12 @@ async remove(id:ObjectId) {
       throw error 
     }
   }
+
+  async postPDF(){
+    try{
+
+    }catch(error){
+      
+    }
+  }
 }
