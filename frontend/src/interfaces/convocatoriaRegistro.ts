@@ -13,10 +13,9 @@ fechaResolucion: string;
 periodoEjecucion: string;
 fechaJustificacion: string;
 auditoria: string;
-presupuesto: string;
+presupuesto: number;
 otraInformacion: string;
 memoriaTecnica: string;
 modeloPresupuesto: string;
 formularioSolicitud: string;
-otraDocumentacion: string;
 }

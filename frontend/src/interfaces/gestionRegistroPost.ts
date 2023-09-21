@@ -34,7 +34,7 @@ const gestionRegistroPost = z.object({
     message: 'Debe completar este campo'
   }),
   fechaJustificacion: z.string(),
-  auditoria: z.string(),
+  auditoria: z.string().optional(),
   presupuesto: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
@@ -49,9 +49,6 @@ const gestionRegistroPost = z.object({
     message: 'Debe completar este campo'
   }).optional(),
   formularioSolicitud: z.string().min(2, {
-    message: 'Debe completar este campo'
-  }).optional(),
-  otraDocumentacion: z.string().min(2, {
     message: 'Debe completar este campo'
   }).optional()
 })
