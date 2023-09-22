@@ -46,7 +46,7 @@ export class ConvocatoriaRegistroController {
 async uploadFileAndPassValidation(
   @UploadedFile()file: Express.Multer.File,
   
-) {console.log(file)
+)  {
  if(!file){
   return{error:'No se subio ningun archivo'}
  } 
