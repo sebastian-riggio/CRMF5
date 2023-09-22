@@ -8,7 +8,7 @@ import {
 } from './ui/card'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 
-import { cn } from '../lib/utils'
+import { cn, formatDate } from '../lib/utils'
 import {
   Command,
   CommandEmpty,
@@ -38,6 +38,7 @@ import { useForm } from 'react-hook-form'
 import { AxiosResponse } from 'axios'
 import { createProject } from '../services/proyectos'
 import proyectPost from '../interfaces/proyectPost'
+import DatePicker from './ui/DatePicker'
 
 const departamento = [
   { label: 'Factoría F5-People and culture', value: 'Factoría F5-People and culture' },
@@ -126,7 +127,7 @@ function ProyectForm () {
                               variant='outline'
                               role='combobox'
                               className={cn(
-                                'w-[200px] justify-between',
+                                'w-[350px] justify-center',
                                 !field.value && 'text-muted-foreground'
                               )}
                             >
@@ -248,10 +249,55 @@ function ProyectForm () {
                   </FormItem>
                 )}
               />
+
+              <FormField
+                control={form.control}
+                name='fechaInicio'
+                render={({ field }) => (
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha de inicio </FormLabel>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <FormControl>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
+                          </FormControl>
+                        </PopoverTrigger>
+                      </Popover>
+                      <FormMessage />
+                    </div>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='fechaCierre'
+                render={({ field }) => (
+                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <div className='my-2'>
+                      <FormLabel className='mb-2 md:mb-0'>Fecha de finalización </FormLabel>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <FormControl>
+                            <DatePicker
+                              title=''
+                              {...field}
+                            />
+                          </FormControl>
+                        </PopoverTrigger>
+                      </Popover>
+                      <FormMessage />
+                    </div>
+                  </FormItem>
+                )}
+              />
             </CardContent>
-            <CardFooter>
-              <Button type='submit'>Cancelar</Button>
-              <Button type='submit'>Crear Proyecto</Button>
+            <CardFooter className='flex justify-center space-x-6'>
+              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Cancelar</Button>
+              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Crear Proyecto</Button>
             </CardFooter>
           </form>
         </Form>
