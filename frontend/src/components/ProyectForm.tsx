@@ -44,6 +44,9 @@ const departamento = [
   { label: 'Factoría F5-Admin,contabilidad y finanzas', value: 'Factoría F5-Admin,contabilidad y finanza' },
   { label: 'Factoría F5-Oficina soporte proyectos y calidad', value: 'Factoría F5-Oficina soporte proyectos y calida' },
   { label: 'Factoría F5-Dirección general', value: 'Factoría F5-Dirección general' },
+  { label: 'Factoria F5 - Madrid', value: 'Factoria F5 - Madrid' },
+  { label: 'Factoria F5 - Asturias', value: 'Factoria F5 - Asturias' },
+  { label: 'Factoria F5 - Barcelona', value: 'Factoria F5 - Barcelona' },
   { label: 'Otro', value: 'Otro' }
 ] as const
 
