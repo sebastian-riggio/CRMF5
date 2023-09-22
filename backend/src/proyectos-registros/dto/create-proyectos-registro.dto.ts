@@ -25,4 +25,13 @@ export class CreateProyectosRegistroDto {
   @ApiProperty({ example: 15000 })
   @IsNumber()
   factoriaPresupuesto: number;
+
+  @ApiProperty({example:"20/3/2023"})
+  @IsString()
+  fechaInicio:string;
+  
+  @ApiProperty({example:"20/3/2023"})
+  @IsString()
+  fechaCierre:string;
+
 }

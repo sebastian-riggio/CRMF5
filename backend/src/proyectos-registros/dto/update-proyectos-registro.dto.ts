@@ -33,8 +33,12 @@ proyectoNombre: string;
    @IsNumber()
    factoriaPresupuesto:number;
 
-
-
-
+   @ApiProperty({example:"20/3/2023"})
+   @IsString()
+   fechaInicio:string;
+   
+   @ApiProperty({example:"20/3/2023"})
+   @IsString()
+   fechaCierre:string;
 
 }

@@ -38,6 +38,16 @@ proyectoPresupuesto:number;
 @ApiProperty({example:15000})
 @Prop()
 factoriaPresupuesto:number;
+
+@ApiProperty({example:"20/3/2023"})
+@Prop()
+fechaInicio:string;
+
+
+@ApiProperty({example:"20/3/2023"})
+@Prop()
+fechaCierre:string;
+
 }
 
 export const ProyectosRegistroSchema = SchemaFactory.createForClass(ProyectosRegistro) 
