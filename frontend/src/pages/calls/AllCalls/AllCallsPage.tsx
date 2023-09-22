@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import accountFormSchema from '../../../components/accountFormSchema'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
-import { access } from 'fs'
 import { DataTableCalls } from './date-table-calls'
 
 const baseUrl = 'http://localhost:3000/api/v1/gestion'
@@ -11,55 +10,49 @@ const baseUrl = 'http://localhost:3000/api/v1/gestion'
 // las validaciones salen del accountFormSchema pero después deberíamos ver dónde están realmente
 type gestionTable = z.infer<typeof accountFormSchema>
 
-// Hay que ver como llamar a los proyectos 
+// Hay que ver como llamar a los proyectos
 
 type gestionColumns = Pick<gestionTable, 'titulo' | 'entidad' | 'proyecto' | 'fecha' | 'fechaclose'>
 
-const columns: ColumnDef<gestionColumns>[]=[
+const columns: ColumnDef<gestionColumns>[] = [
   {
-    accessorKey: 'convocatoria-nombre',
+    accessorKey: 'convocatoria',
     header: 'Titulo'
   },
   {
-    accessorKey: 'financiadores',
-    header: 'Financistas'
+    accessorKey: 'financiador',
+    header: 'Entidad'
   },
   {
-    accessorKey: 'fecha-inicio',
+    accessorKey: 'etapa-solicutud[responsable]',
     header: 'Fecha inicio'
   },
   {
-    accessorKey: 'fecha-limita',
+    accessorKey: 'fecha-limite',
     header: 'Fecha limite'
   },
   {
-    accessorKey: 'proyecto-nombre',
-    header: () => {
-      const amount = row.getValue('Proyecto')
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'EUR'
-      }).format(amount)
-      return <div className='text-right text-red-500 font-medium'>{amount}</div>
-    }
+    accessorKey: 'proyecto',
+    header: 'Proyecto'
   }
 ]
 
 function AllCallsPage () {
   const [data, setData] = useState()
+  console.log(data)
 
   useEffect(() => {
-    axios.get(baseUrl).then((response)=> {
+    axios.get(baseUrl).then((response) => {
       setData(response)
     })
-  },[])
+  }, [])
   if (!data) return null
-  console.log(data.data.gestion)
+  console.log(data.data.gestiones)
 
   return (
     <div className='container mx-auto'>
       <h1 className='text-4xl font-semibold'>Convocatorias</h1>
-      <DataTableCalls columns={columns} data={data.data.proyectos} />
+      <DataTableCalls columns={columns} data={data.data.gestiones} />
     </div>
   )
 }
