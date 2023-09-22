@@ -5,4 +5,6 @@ responsable: string;
 proyectoDuracion: string;
 proyectoPresupuesto: string;
 factoriaPresupuesto: string;
+fechadeInicio: Date;
+fechaCierre: Date
 }

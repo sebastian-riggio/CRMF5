@@ -41,12 +41,12 @@ factoriaPresupuesto:number;
 
 @ApiProperty({example:"20/3/2023"})
 @Prop()
-fechaInicio:string;
+fechaInicio:Date;
 
 
 @ApiProperty({example:"20/3/2023"})
 @Prop()
-fechaCierre:string;
+fechaCierre:Date;
 
 }
 

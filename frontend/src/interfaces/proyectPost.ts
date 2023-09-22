@@ -21,7 +21,10 @@ const proyectPost = z.object({
   }),
   factoriaPresupuesto: z.string().min(2, {
     message: 'Debe completar este campo'
-  })
+  }),
+
+  fechaInicio: z.date(),
+  fechaCierre: z.date()
 
 })
 
