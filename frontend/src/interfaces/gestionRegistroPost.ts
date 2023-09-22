@@ -27,13 +27,13 @@ const gestionRegistroPost = z.object({
   dirigidoEntidades: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  fechaApertura: z.string(),
-  fechaCierre: z.string(),
-  fechaResolucion: z.string(),
+  fechaApertura: z.date().optional(),
+  fechaCierre: z.date().optional(),
+  fechaResolucion: z.date().optional(),
   periodoEjecucion: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  fechaJustificacion: z.string(),
+  fechaJustificacion: z.date().optional(),
   auditoria: z.string().optional(),
   presupuesto: z.string().min(2, {
     message: 'Debe completar este campo'

@@ -1,8 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsBoolean,IsNumber, IsString } from "class-validator";
-import { AdjuntarDto } from "./adjuntarDto";
-
-
 
 
 export class CreateConvocatoriaRegistroDto {
@@ -41,15 +38,15 @@ dirigidoEntidades:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-fechaApertura:string;
+fechaApertura:Date;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-fechaCierre:string;
+fechaCierre:Date;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-fechaResolucion:string;
+fechaResolucion:Date;
 
 @ApiProperty({example:"5 meses"})
 @IsString()
@@ -57,7 +54,7 @@ periodoEjecucion:string;
 
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-fechaJustificacion:string;
+fechaJustificacion:Date;
 
 @ApiProperty({example:["si","no"]})
 @IsBoolean()
@@ -74,5 +71,19 @@ otraInformacion:string;
 
 @ApiProperty({example:"PDF"})
 @IsString()
-documentacion:AdjuntarDto;
+memoriaTecnica:string;
+
+ @ApiProperty({example:"PDF"})
+@IsString()
+modeloPresupuesto:string;
+
+
+@ApiProperty({example:"PDF"})
+@IsString()
+formularioSolicitud:string;
+
+
+@ApiProperty({example:"PDF"})
+@IsString()
+otraDocumentacion:string; 
 }

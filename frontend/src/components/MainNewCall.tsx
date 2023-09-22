@@ -35,6 +35,8 @@ import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import { useEffect } from 'react'
 import DatePicker from './ui/DatePicker'
+import { format } from 'date-fns'
+import es from 'date-fns/locale/es'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
@@ -44,8 +46,15 @@ function MainNewCall () {
   })
 
   async function onSubmit (data: AccountFormValues) {
+    const dataToSend = {
+      ...data,
+      fechaApertura: data.fechaApertura ? format(data.fechaApertura, 'dd/MM/yyyy', { locale: es }) : '',
+      fechaCierre: data.fechaCierre ? format(data.fechaCierre, 'dd/MM/yyyy', { locale: es }) : '',
+      fechaResolucion: data.fechaResolucion ? format(data.fechaResolucion, 'dd/MM/yyyy', { locale: es }) : '',
+      fechaJustificacion: data.fechaJustificacion ? format(data.fechaJustificacion, 'dd/MM/yyyy', { locale: es }) : ''
+    }
     try {
-      const response: AxiosResponse = await createdRegistroGestion(data)
+      const response: AxiosResponse = await createdRegistroGestion(dataToSend)
       console.log(response)
     } catch (error) {
       console.log(error)
