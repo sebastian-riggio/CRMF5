@@ -3,6 +3,8 @@ import { GestionConvocatoriaService } from './gestion-convocatoria.service';
 import { GestionConvocatoria } from './schema/gestion-convocatoria.schema';
 import { Model } from 'mongoose';
 import { getModelToken } from '@nestjs/mongoose';
+import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.dto';
+import { ProyectosRegistro } from 'src/proyectos-registros/schema/proyectos-registro.schema';
 
 const createConvocatoria = {
   convocatoria: 'financiacion patra cursos educativos online',
@@ -75,12 +77,90 @@ const convocatoria = {
       },
       __v: 0,
     },
-    {
-      _id: '6508a6daa8a7690ab7ccd8ac',
-      convocatoria: 'financiacion patra cursos educativos online',
-      financiador: 'Ayuntamiento Madrid',
-      proyecto: 'monetize wireless supply-chains',
-      'codigo-interno': 'R000002-20230918',
+    
+  ],
+};
+
+describe('GestionConvocatoriaService', () => {
+  let service: GestionConvocatoriaService;
+  let model: Model<GestionConvocatoria>;
+  let modelProyecto: Model<ProyectosRegistro>
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        GestionConvocatoriaService,
+        {
+          provide: getModelToken(GestionConvocatoria.name),
+          useValue: {
+            find: jest.fn().mockReturnValue(
+              Promise.resolve({
+                message:
+                  'Todas las gestiones de convocatorias se han recibido correctamente',
+                status: 200,
+                gestiones: convocatoria,
+              })
+            ),
+
+            create: jest
+            .fn()
+            .mockImplementation(
+              (createGestionConvocatoria: CreateGestionConvocatoriaDto) => {
+                return Promise.resolve({
+                  gestiones: {
+                    _id: '65044504c7d7b5d92dce9b4e',
+                    ...createGestionConvocatoria,
+                  },
+                });
+              },
+            ),
+
+
+          },
+        },
+      ],
+    }).compile();
+
+    service = module.get<GestionConvocatoriaService>(
+      GestionConvocatoriaService
+    );
+    model = module.get<Model<GestionConvocatoria>>(
+      getModelToken('GestionConvocatoria')
+    );
+    modelProyecto = module.get<Model<ProyectosRegistro>>(
+      getModelToken('ProyectosRegistro')
+
+    );
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('Debería traerme todas las gestiones de convocatorias', async () => {
+    jest.spyOn(model, 'find').mockReturnValue({
+      exec: jest.fn().mockResolvedValueOnce(convocatoria),
+    } as any);
+    const response = await service.findAll();
+    expect(response).toEqual({
+      message:
+        'Todas las gestiones de convocatorias se han recibido correctamente',
+      status: 200,
+      gestiones: convocatoria,
+    });
+  });
+
+  /* it('Deberia crear uan gestion de convocatoria correctamente', async () => {
+   const newGestionConvocatoria: CreateGestionConvocatoriaDto = {
+
+
+    convocatoria: 'financiacion patra cursos educativos online',
+      financiador: 'Ayuntamiento Barcelona',
+      proyecto:<modelProyecto>
+      'codigo-interno': 'R000001-20230918',
       'etapa-solicitud': {
         responsable: 'Jesus Rivera',
         'fecha-propuesta': '23/9/2023',
@@ -129,61 +209,12 @@ const convocatoria = {
         'ultimo-pago-porcentaje': 15,
         'documento-cierre': 'PDF',
       },
-      __v: 0,
-    },
-  ],
+    
+     
+    
+
+     
 };
-
-describe('GestionConvocatoriaService', () => {
-  let service: GestionConvocatoriaService;
-  let model: Model<GestionConvocatoria>;
-
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        GestionConvocatoriaService,
-        {
-          provide: getModelToken(GestionConvocatoria.name),
-          useValue: {
-            find: jest.fn().mockReturnValue(
-              Promise.resolve({
-                message:
-                  'Todas las gestiones de convocatorias se han recibido correctamente',
-                status: 200,
-                gestiones: convocatoria,
-              })
-            ),
-          },
-        },
-      ],
-    }).compile();
-
-    service = module.get<GestionConvocatoriaService>(
-      GestionConvocatoriaService
-    );
-    model = module.get<Model<GestionConvocatoria>>(
-      getModelToken('GestionConvocatoria')
-    );
-  });
-
-  it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('Debería traerme todas las gestiones de convocatorias', async () => {
-    jest.spyOn(model, 'find').mockReturnValue({
-      exec: jest.fn().mockResolvedValueOnce(convocatoria),
-    } as any);
-    const response = await service.findAll();
-    expect(response).toEqual({
-      message:
-        'Todas las gestiones de convocatorias se han recibido correctamente',
-      status: 200,
-      gestiones: convocatoria,
-    });
-  });
+expect(await service.create(newGestionConvocatoria))
+  }) */
 });
