@@ -48,6 +48,7 @@
     --input: 214.3 31.8% 91.4%;
     /* --ring: 222.2 84% 4.9%; */
     --ring: var(--primary);
+    --success: hsl(173, 84%, 78%);
 
     --radius: 0.5rem;
   }

@@ -27,7 +27,7 @@ async function seedDatabase() {
         .toString()
         .padStart(2, '0')}${currentDate.getDate().toString().padStart(2, '0')}`;
 
-        const projectData = {
+        const projectData:any = {
           "proyecto-nombre": faker.company.buzzPhrase(),
           "proyecto-codigo": `Factoria${faker.date.future().getFullYear()}${faker.date.future().getMonth() + 1}${faker.date.future().getDate()}`,
           "centro-gestor": faker.helpers.arrayElement([
@@ -42,7 +42,7 @@ async function seedDatabase() {
           "factoria-presupuesto": faker.number.float({ min: 1000, max: 10000 }),
         };
 
-      const createdProject = await projectService.create(projectData);
+      const createdProject: any = await projectService.create(projectData);
       projects.push(createdProject);
     }
 

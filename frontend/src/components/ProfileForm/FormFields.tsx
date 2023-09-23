@@ -46,13 +46,13 @@ export function FormFields () {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-        <div className='mt-8'>
+        <div className='mt-3 max-w-2xl flex flex-col gap-2 mx-auto'>
           <FormField
             control={form.control}
             name='nombre'
             render={({ field }) => (
               <FormItem>
-                <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
+                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap'>
                   <FormLabel className='pb-4'>Nombre y Apellido</FormLabel>
                   <FormControl>
                     <Input placeholder='Nombre y Apellido' {...field} className=''/>
@@ -69,7 +69,7 @@ export function FormFields () {
             render={({ field }) => {
               return (
                 <FormItem className='flex flex-col'>
-                  <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
+                  <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap gap-4'>
                     <FormLabel>Departamento o centro gestor</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
@@ -79,7 +79,7 @@ export function FormFields () {
                             role='combobox'
                             className={cn(
                               'justify-between',
-                              !field.value && 'text-muted-foreground'
+                              !field.value && 'text-muted-foreground py-6'
                             )}
                           >
                             {field.value
@@ -130,7 +130,7 @@ export function FormFields () {
             name='area'
             render={({ field }) => (
               <FormItem>
-                <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
+                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap gap-4'>
                   <FormLabel>Área de trabajo en Factoria F5</FormLabel>
                   <FormControl>
                     <Input placeholder='área de trabajo' {...field} />
@@ -145,7 +145,7 @@ export function FormFields () {
             name='fecha'
             render={({ field }) => (
               <FormItem className=''>
-                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap'>
+                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap gap-4'>
                   <FormLabel>Fecha inicio de actividad</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -192,7 +192,7 @@ export function FormFields () {
             name='correo'
             render={({ field }) => (
               <FormItem>
-                <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
+                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap gap-4'>
                   <FormLabel>Correo electrónico</FormLabel>
                   <FormControl>
                     <Input placeholder='correo electrónico' {...field} />
@@ -208,7 +208,7 @@ export function FormFields () {
             name='telefono'
             render={({ field }) => (
               <FormItem>
-                <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
+                <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap gap-4'>
                   <FormLabel>Teléfono de contacto</FormLabel>
                   <FormControl>
                     <Input placeholder='telefono' {...field} />
@@ -218,10 +218,10 @@ export function FormFields () {
               </FormItem>
             )}
           />
-          <CardFooter>
-            <Button type='submit'>Cancelar</Button>
-            <Button type='submit'>Crear</Button>
-          </CardFooter>
+          <div className='mt-4'>
+            <Button className='mr-4' variant='outline' type='submit'>Cancelar</Button>
+            <Button className='bg-[var(--success)] text-foreground' type='submit'>Crear</Button>
+          </div>
         </div>
       </form>
     </Form>

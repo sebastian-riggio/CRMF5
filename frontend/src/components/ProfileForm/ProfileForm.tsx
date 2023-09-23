@@ -24,10 +24,10 @@ export const ProfileFormSchema = z.object({
 export function AccountForm () {
 
   return (
-    <div className='container mx-auto my-0 border-1 border-solid border-input rounded-xl'>
-      <div className='flex flex-col space-y-1.5 py-6'>
+    <div className='container mx-auto my-9 border-1 border-solid border-input rounded-xl py-8'>
+      <div className='flex flex-col space-y-1.5'>
         <h3 className='text-2xl font-semibold leading-none tracking-tight mb-4'>Nuevo Usuario</h3>
-        Completar los datos del nuevo usuario del Factoria F5
+        Completar los datos del nuevo usuario de Factoria F5
       </div>
 
       <Separator />
