@@ -10,10 +10,7 @@ import {
   CardTitle
 } from './ui/card'
 import { Switch } from './ui/switch'
-import { CalendarIcon } from '@radix-ui/react-icons'
-
 import { Button } from '../components/ui/button'
-import { Calendar } from '../components/ui/calendar'
 import {
   Form,
   FormControl,
@@ -25,7 +22,6 @@ import {
 import { Input } from './ui/input'
 import {
   Popover,
-  PopoverContent,
   PopoverTrigger
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
@@ -269,29 +265,6 @@ function MainNewCall () {
                       <FormControl>
                         <Input placeholder='Período máximo de ejecución' {...field} />
                       </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name='fechaJustificacion'
-                render={({ field }) => (
-                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                    <div className='my-2'>
-                      <FormLabel className='mb-2 md:mb-0'>Fecha límite de justificación</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <DatePicker
-                              title=''
-                              {...field}
-                            />
-                          </FormControl>
-                        </PopoverTrigger>
-                      </Popover>
                       <FormMessage />
                     </div>
                   </FormItem>
