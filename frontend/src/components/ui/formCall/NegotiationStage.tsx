@@ -17,11 +17,11 @@ import {
 import { CardContent } from '../card'
 
 const negotationSchema = z.object({
-  resolucionprovisional: z.string().optional(),
-  limitedeentrega: z.string().optional(),
+  resolucionprovisional: z.date().optional(),
+  limitedeentrega: z.date().optional(),
   realdeentrega: z.date().optional(),
-  limiterespuesta: z.string().optional(),
-  realrespuesta: z.string().optional(),
+  limiterespuesta: z.date().optional(),
+  realrespuesta: z.date().optional(),
   resolucion: z.string().optional()
 })
 
