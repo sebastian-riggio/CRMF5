@@ -48,11 +48,11 @@ export class UserController {
   }
 
   @Get()
-  @Roles(Role.User) // Add this line to restrict access to admin users only
+  @Roles(Role.Admin) // Add this line to restrict access to admin users only
   @ApiBearerAuth()
   // @Public()
   // @ApiOkResponse({ type: User, isArray: true })
-  findAll(@Req() req) {
+  findAll() {
     return this.userService.findAll();
   }
 

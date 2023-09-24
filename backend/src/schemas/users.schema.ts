@@ -17,6 +17,14 @@ export class User extends Document {
   'email': string;
   @Prop()
   'role': string;
+  @Prop()
+  'departamento': string;
+  @Prop()
+  'area': string;
+  @Prop()
+  'inicioActividad': Date;
+  @Prop()
+  'telefono': string;
 /*   @Prop()
   'wallet_balance': number; 
   @Prop({ required: false })

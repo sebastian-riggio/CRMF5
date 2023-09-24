@@ -12,7 +12,6 @@ const users = [
     user_name: 'johndoe123',
     password: 'secretpassword',
     email: 'johndoe@example.com',
-   
   },
 ];
 
@@ -20,7 +19,7 @@ describe('UserController', () => {
   let controller: UserController;
   const users2 = createMock<UpdateUserDto & typeof users>()
   const mockUserService = {
-    findAll: jest.fn().mockImplementation(() => Promise.resolve({ users2 })),
+    findAll: jest.fn().mockImplementation(() => Promise.resolve({ users })),
     create: jest.fn().mockImplementation((createUserDto: CreateUserDto) => {
       const newUser = {
         id: '2',
@@ -32,7 +31,7 @@ describe('UserController', () => {
     update: jest
       .fn()
       .mockImplementation((userId: string, updateUserDto: UpdateUserDto) => {
-        const updatedUser: Pick<UpdateUserDto, ['token', 'id']> = {
+        const updatedUser = {
           id: userId,
           ...updateUserDto,
         };
@@ -92,11 +91,19 @@ describe('UserController', () => {
 
   it('should update a user', async () => {
     const userId = '222';
-    const updateUser: UpdateUserDto = { user_name: 'Updated user name' };
+    const updateUser: UpdateUserDto = { user_name: 'Updated user name', token: 'dzcxasd' };
 
-    expect(await controller.update(userId, updateUser)).toEqual({
+    const mockReq = {
+      user: {
+        sub: 'asdasdasd'
+      },
+      headers: jest.fn(x => x)
+    }
+
+    expect(await controller.update(mockReq ,userId, updateUser)).toEqual({
       id: userId,
-      name: 'Updated Name',
+      user_name: 'Updated user name',
+      token: 'dzcxasd'
     });
   });
   it('should delete a user', async () => {
