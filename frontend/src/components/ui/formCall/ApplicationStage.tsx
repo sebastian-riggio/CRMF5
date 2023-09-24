@@ -16,6 +16,7 @@ import {
   FormMessage
 } from '../form'
 import { CardContent } from '../card'
+import { useState } from 'react'
 
 const applicationStage = z.object({
   proyecto: z.string().optional(),
@@ -33,8 +34,10 @@ function ApplicationStage () {
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(applicationStage)
   })
+  const [selectedProject, setSelectedProject] = useState<string>('')
 
   function onSubmit (data: AccountFormValues) {
+    data.proyecto = selectedProject
     console.log(data)
     toast({
       title: '¡Genial!',
@@ -50,12 +53,12 @@ function ApplicationStage () {
             <FormField
               control={form.control}
               name='proyecto'
-              render={({ }) => (
+              render={({}) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
                     <FormLabel className='mb-2'>Proyecto Factoria F5</FormLabel>
                     <FormControl>
-                      <SearchProjects />
+                      <SearchProjects onSelectProject={setSelectedProject} />
                     </FormControl>
                     <FormMessage />
                   </div>
