@@ -17,23 +17,23 @@ module.exports = {
     },
     extend: {
       borderWidth: {
-        '1': '1px',
-        '2': '2px',
-        '3': '3px',
-      }, 
+        1: '1px',
+        2: '2px',
+        3: '3px'
+      },
       keyframes: {
-        "accordion-down": {
+        'accordion-down': {
           from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 'var(--radix-accordion-content-height)' }
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
-        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: 0 }
+        }
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out'
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -71,7 +71,7 @@ module.exports = {
         },
         FF4700: {
           DEFAULT: '#FF4700',
-          dark: '#D63800' 
+          dark: '#D63800'
         }
       },
       fontSize: {
@@ -95,8 +95,8 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
-      },
-    },
+      }
+    }
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate')]
 }

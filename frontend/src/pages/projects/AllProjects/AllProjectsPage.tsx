@@ -23,7 +23,7 @@ const columns: ColumnDef<projectColumns>[] = [
   },
   {
     accessorKey: 'centro-gestor',
-    header: 'Gestor'
+    header: 'Centro Gestor'
   },
   {
     accessorKey: 'responsable',
@@ -52,7 +52,7 @@ function AllProjectsPage () {
   if (!data) return null
   console.log(data.data.proyectos)
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto mt-5'>
       <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
       <DataTable columns={columns} data={data.data.proyectos} />
     </div>

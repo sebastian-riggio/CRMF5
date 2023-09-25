@@ -11,14 +11,12 @@ import NewProjectPage from '../pages/projects/NewProjectPage'
 import RegisterUserPage from '../pages/user/RegisterUserPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import CallPage from '../pages/calls/CallPage'
-import AdminHomePage from '../pages/admin/AdminHomePage'
 import ProjectViewPage from '../pages/projects/ProjectViewPage'
 
 const CrmRouter = (
   <Routes>
     <Route path='/' element={<LoginPage />} />
     <Route path='/home' element={<HomePage />} />
-    <Route path='/adminhome' element={<AdminHomePage />} />
     <Route path='/newproject' element={<NewProjectPage />} />
     <Route path='/allprojects' element={<AllProjectsPage />} />
     <Route path='/project' element={<ProjectViewPage />} />

@@ -60,6 +60,12 @@ const defaultValues: Partial<AccountFormValues> = {
 }
 
 function ProyectForm () {
+  useEffect(() => {
+    toast({
+      title: '¡Esta por crear un nuevo proyecto!',
+      description: 'Por favor asegurse de que todos los campos estén completos.'
+    })
+  }, [])
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(proyectPost),
     defaultValues
@@ -84,225 +90,224 @@ function ProyectForm () {
   }
   useEffect(() => {}, [])
   return (
-    <Card className='m-4'>
-      <CardHeader>
-        <CardTitle>Nuevo Proyecto</CardTitle>
-        Vamos a dar comienzo a un nuevo proyecto. ¡Por favor asegurate de que
-        todos los campos estén completos!
-
-      </CardHeader>
-
-      <Separator />
-      <div className='container mx-auto'>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-            <CardContent>
-              <FormField
-                control={form.control}
-                name='proyectoNombre'
-                render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Nombre del Proyecto</FormLabel>
-                      <FormControl>
-                        <Input placeholder='Nombre del proyecto' {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name='centroGestor'
-                render={({ field }) => (
-                  <FormItem className='flex flex-col'>
-                    <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
-                      <FormLabel>Centro gestor</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant='outline'
-                              role='combobox'
-                              className={cn(
-                                'w-[350px] justify-center',
-                                !field.value && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value
-                                ? departamento.find(
-                                  (departamento) =>
-                                    departamento.value === field.value
-                                )?.label
-                                : 'Selecciona el departamento de Factoria F5'}
-                              <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className='w-[200px] p-0'>
-                          <Command>
-                            <CommandInput placeholder='Buscar departamento' />
-                            <CommandEmpty>
-                              Departamento no encontrado
-                            </CommandEmpty>
-                            <CommandGroup>
-                              {departamento.map((departamento) => (
-                                <CommandItem
-                                  value={departamento.label}
-                                  key={departamento.value}
-                                  onSelect={() => {
-                                    form.setValue(
-                                      'centroGestor',
-                                      departamento.value
-                                    )
-                                  }}
-                                >
-                                  <CheckIcon
-                                    className={cn(
-                                      'mr-2 h-4 w-4',
+    <div className='container mx-auto mt-5'>
+      <h1 className='text-4xl font-semibold mb-5'>Nuevo Proyecto</h1>
+      <Card>
+        <div>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+              <CardContent>
+                <FormField
+                  control={form.control}
+                  name='proyectoNombre'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Nombre del Proyecto</FormLabel>
+                        <FormControl>
+                          <Input placeholder='Nombre del proyecto' {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <Separator className='my-5' />
+                <FormField
+                  control={form.control}
+                  name='centroGestor'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Centro gestor</FormLabel>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <FormControl>
+                              <Button
+                                variant='outline'
+                                role='combobox'
+                                className={cn(
+                                  'w-[350px] justify-center',
+                                  !field.value && 'text-muted-foreground'
+                                )}
+                              >
+                                {field.value
+                                  ? departamento.find(
+                                    (departamento) =>
                                       departamento.value === field.value
-                                        ? 'opacity-100'
-                                        : 'opacity-0'
-                                    )}
-                                  />
-                                  {departamento.label}
-                                </CommandItem>
-                              ))}
-                            </CommandGroup>
-                          </Command>
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
+                                  )?.label
+                                  : 'Selecciona el departamento de Factoria F5'}
+                                <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+                              </Button>
+                            </FormControl>
+                          </PopoverTrigger>
+                          <PopoverContent className='w-[200px] p-0'>
+                            <Command>
+                              <CommandInput placeholder='Buscar departamento' />
+                              <CommandEmpty>
+                                Departamento no encontrado
+                              </CommandEmpty>
+                              <CommandGroup>
+                                {departamento.map((departamento) => (
+                                  <CommandItem
+                                    value={departamento.label}
+                                    key={departamento.value}
+                                    onSelect={() => {
+                                      form.setValue(
+                                        'centroGestor',
+                                        departamento.value
+                                      )
+                                    }}
+                                  >
+                                    <CheckIcon
+                                      className={cn(
+                                        'mr-2 h-4 w-4',
+                                        departamento.value === field.value
+                                          ? 'opacity-100'
+                                          : 'opacity-0'
+                                      )}
+                                    />
+                                    {departamento.label}
+                                  </CommandItem>
+                                ))}
+                              </CommandGroup>
+                            </Command>
+                          </PopoverContent>
+                        </Popover>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name='responsable'
-                render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Responsable F5</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder='Persona responsable Factoria F5'
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
+                <FormField
+                  control={form.control}
+                  name='responsable'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Responsable de F5</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder='Persona responsable Factoria F5'
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <Separator className='my-5' />
+                <FormField
+                  control={form.control}
+                  name='proyectoDuracion'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Meses duración</FormLabel>
+                        <FormControl>
+                          <Input type='number' placeholder='Meses Duración' {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name='proyectoDuracion'
-                render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Meses Duración</FormLabel>
-                      <FormControl>
-                        <Input placeholder='Meses Duración' {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
+                <FormField
+                  control={form.control}
+                  name='proyectoPresupuesto'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Presupuesto del proyecto</FormLabel>
+                        <FormControl>
+                          <Input
+                            type='number'
+                            placeholder='€'
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name='proyectoPresupuesto'
-                render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Presupuesto proyecto</FormLabel>
-                      <FormControl>
-                        <Input placeholder='Presupuesto Proyecto' {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name='factoriaPresupuesto'
-                render={({ field }) => (
-                  <FormItem className='md:flex-wrap'>
-                    <div className='my-2 flex flex-wrap'>
-                      <FormLabel>Presupuesto Factoria F5</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder='Presupuesto Factoria F5'
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name='fechaInicio'
-                render={({ field }) => (
-                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                    <div className='my-2'>
-                      <FormLabel className='mb-2 md:mb-0'>Fecha de inicio </FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <DatePicker
-                              title=''
-                              {...field}
-                            />
-                          </FormControl>
-                        </PopoverTrigger>
-                      </Popover>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='fechaCierre'
-                render={({ field }) => (
-                  <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                    <div className='my-2'>
-                      <FormLabel className='mb-2 md:mb-0'>Fecha de finalización </FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <DatePicker
-                              title=''
-                              {...field}
-                            />
-                          </FormControl>
-                        </PopoverTrigger>
-                      </Popover>
-                      <FormMessage />
-                    </div>
-                  </FormItem>
-                )}
-              />
-            </CardContent>
-            <CardFooter className='flex justify-center space-x-6'>
-              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Cancelar</Button>
-              <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Crear Proyecto</Button>
-            </CardFooter>
-          </form>
-        </Form>
-      </div>
-    </Card>
+                <FormField
+                  control={form.control}
+                  name='factoriaPresupuesto'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Presupuesto de Factoria F5</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder='€'
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <Separator className='my-5' />
+                <FormField
+                  control={form.control}
+                  name='fechaInicio'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de inicio </FormLabel>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <FormControl>
+                              <DatePicker
+                                title=''
+                                {...field}
+                              />
+                            </FormControl>
+                          </PopoverTrigger>
+                        </Popover>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='fechaCierre'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de finalización </FormLabel>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <FormControl>
+                              <DatePicker
+                                title=''
+                                {...field}
+                              />
+                            </FormControl>
+                          </PopoverTrigger>
+                        </Popover>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+              <CardFooter className='flex justify-center space-x-6'>
+                <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Cancelar</Button>
+                <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>Crear</Button>
+              </CardFooter>
+            </form>
+          </Form>
+        </div>
+      </Card>
+    </div>
   )
 }
 export default ProyectForm
