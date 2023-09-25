@@ -5,26 +5,26 @@ import { IsString } from "class-validator";
 export class EtapaJustificacionDto {
 @ApiProperty({example:"20/10/2023"})
 @IsString()
-"fecha-entrega":string;
+fechaEntrega:string;
 
 @ApiProperty({example:"25/10/2023"})
 @IsString()
-"fecha-limite-primer-requerimiento":string;
+fechaLimitePrimerRequerimiento:string;
 
 @ApiProperty({example:"28/10/2023"})
 @IsString()
-"fecha-respuesta-requerimiento-primero":string;
+fechaRespuestaRequerimientoPrimero:string;
 
 @ApiProperty({example:"30/10/2023"})
 @IsString()
-"fecha-limite-segundo-requerimiento":string;
+fechaLimiteSegundoRequerimiento:string;
 
 @ApiProperty({example:"1/11/2023"})
 @IsString()
-"fecha-respuesta-requerimiento-segundo":string;
+fechaRespuestaRequerimientoSegundo:string;
 
 @ApiProperty({example:"Solo son notas de seguimientos de estado del proyecto"})
 @IsString()
-"notas":string;
+notas:string;
 
 }

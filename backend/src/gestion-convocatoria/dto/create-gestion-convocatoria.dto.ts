@@ -11,40 +11,44 @@ import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convoca
 export class CreateGestionConvocatoriaDto {
 @ApiProperty({example:"financiacion patra cursos educativos online"})
 @IsString()
-"convocatoria":string;
+convocatoria:string;
 
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @IsString()
-"financiador":ConvocatoriaRegistro
+financiador:ConvocatoriaRegistro
 
 
 @ApiProperty({ example: "Proyecto Factoria" })
 @IsString()
-"proyecto": ProyectosRegistro;
+proyecto: ProyectosRegistro;
+
+@ApiProperty({example:"20/4/2023"})
+@IsString()
+fechaApertura:ConvocatoriaRegistro
 
 @ApiProperty({example:"R-0001-20230912"})
 @IsString()
-"codigo-interno":string;
+codigoInterno:string;
 
 @ApiProperty({ example: "Etapa Solicitud" })
 @IsArray()
-"etapa-solicitud": EtapaSolicitudDto;
+etapaSolicitud: EtapaSolicitudDto;
 
 @ApiProperty({ example: "Etapa Resolucion" })
 @IsArray()
-"etapa-resolucion": EtapaResolucionDto;
+etapaResolucion: EtapaResolucionDto;
 
 @ApiProperty({ example: "Etapa Otorgamiento" })
 @IsArray()
-"etapa-otorgamiento": EtapaOtorgamientoDto;
+etapaOtorgamiento: EtapaOtorgamientoDto;
 
 @ApiProperty({example:"Etapa Justificaciòn"})
 @IsArray()
-"etapa-justificacion":EtapaJustificacionDto;
+etapaJustificacion:EtapaJustificacionDto;
 
 
 @ApiProperty({example:"Etapa Cierre"})
 @IsArray()
-"etapa-cierre":EtapaCierreDto;  
+etapaCierre:EtapaCierreDto;  
 }

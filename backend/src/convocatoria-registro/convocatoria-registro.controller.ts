@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, ParseFilePipeBuilder } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile} from '@nestjs/common';
 import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
