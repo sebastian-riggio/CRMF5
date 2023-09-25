@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { AuthModule } from "./auth/auth.module";
@@ -8,6 +8,7 @@ import { ConvocatoriaRegistroModule } from "./convocatoria-registro/convocatoria
 import { ProyectosRegistrosModule } from "./proyectos-registros/proyectos-registros.module";
 import { GestionConvocatoriaModule } from "./gestion-convocatoria/gestion-convocatoria.module";
 import { MongooseModule } from "@nestjs/mongoose";
+import { json } from "express";
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MongooseModule } from "@nestjs/mongoose";
       }),
       inject: [ConfigService],
     }),
+    
 
     UserModule,
     AuthModule, 
@@ -34,4 +36,10 @@ import { MongooseModule } from "@nestjs/mongoose";
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(json()) 
+      .forRoutes({ path: '*', method: RequestMethod.ALL }); // Aplica el middleware a todas las rutas y métodos
+  }
+}

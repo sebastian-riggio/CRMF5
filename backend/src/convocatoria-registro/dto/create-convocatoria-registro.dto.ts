@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean,IsNumber, IsString } from "class-validator";
+import { Type } from "class-transformer";
+import { IsBoolean,IsDate,IsNumber, IsString } from "class-validator";
 
 
 export class CreateConvocatoriaRegistroDto {
@@ -37,15 +38,15 @@ trabajoLineas:string;
 dirigidoEntidades:string;
 
 @ApiProperty({example:"20/10/2023"})
-@IsString()
+@IsDate()
 fechaApertura:Date;
 
 @ApiProperty({example:"20/10/2023"})
-@IsString()
+@IsDate()
 fechaCierre:Date;
 
 @ApiProperty({example:"20/10/2023"})
-@IsString()
+@IsDate()
 fechaResolucion:Date;
 
 @ApiProperty({example:"5 meses"})
@@ -53,7 +54,7 @@ fechaResolucion:Date;
 periodoEjecucion:string;
 
 @ApiProperty({example:"20/10/2023"})
-@IsString()
+@IsDate()
 fechaJustificacion:Date;
 
 @ApiProperty({example:["si","no"]})

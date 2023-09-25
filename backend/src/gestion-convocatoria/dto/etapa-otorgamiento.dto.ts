@@ -9,59 +9,59 @@ enum EstadoSolicitud {
 export class EtapaOtorgamientoDto {
  @ApiProperty({example:"4/9/2023"})
 @IsString()
-"fecha-resolucion-final":string;
+fechaResolucionFinal:string;
 
 @ApiProperty({example:"aprobada/denegada"})
 @IsEnum(EstadoSolicitud)
 @IsString()
-"estado-solicitud":string; 
+estadoSolicitud:string; 
 
 @ApiProperty({example:"20000"})
 @IsNumber()
-"monto-concedido":number;
+montoConcedido:number;
 
  @ApiProperty({example:"21/9/2023"})
 @IsString()
-"fecha-primer-desembolso":string;
+fechaPrimerDesembolso:string;
 
 @ApiProperty({example:"23/9/23"})
 @IsString()
-"fecha-recepcion-desembolso":string; 
+fechaRecepcionDesembolso:string; 
 
 @ApiProperty({example:"10000"})
 @IsNumber()
-"monto-primer-desembolso":number;
+montoPrimerDesembolso:number;
 
 @ApiProperty({example:"20%"})
 @IsNumber()
-"porciento-primer-desembolso":number;
+porcientoPrimerDesembolso:number;
 
  @ApiProperty({example:"26/9/2023"})
 @IsString()
-"fecha-inicio-gastos":string;
+fechaInicioGastos:string;
 
 @ApiProperty({example:"28/9/2023"})
 @IsString()
-"fecha-finalizacion-gastos":string;
+fechaFinalizacionGastos:string;
 
 @ApiProperty({example:"1/10/2023"})
 @IsString()
-"fecha-primer-seguimiento":string;
+fechaPrimerSeguimiento:string;
 
 @ApiProperty({example:"3/10/2023"})
 @IsString()
-"fecha-limite-informe-final-tecnico":string;
+fechaLimiteInformeFinalTecnico:string;
 
 @ApiProperty({example:"6/10/2023"})
 @IsString()
-"fecha-limite-informe-final-economico":string;
+fechaLimiteInformeFinalEconomico:string;
 
 @ApiProperty({example:"(mensual, trimestral, semestral, anual, solo informe final)"})
 @IsString()
-"seguimiento-informes":string;
+seguimientoInformes:string;
 
 @ApiProperty({example:"PDF"})
 @IsString()
-"adjuntar-resolucion-otorgamiento":string; 
+adjuntarResolucionOtorgamiento:string; 
 
 }

@@ -41,7 +41,7 @@ export class UpdateConvocatoriaRegistroDto extends PartialType(
   @IsString()
   dirigidoEntidades: string;
 
-  @IsDate()
+  @IsString()
   fechaApertura: Date;
 
   @IsDate()

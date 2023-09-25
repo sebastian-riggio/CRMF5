@@ -28,42 +28,55 @@ export class GestionConvocatoriaService {
     const etapaSolicitud = await this.GestionModel.countDocuments({}).exec();
     const codigoEtapa = `R${(etapaSolicitud + 1).toString().padStart(6, "0")}`;
     const codigoConFecha = `${codigoEtapa}${autoGenerateCode()}`;
-    const createdGestion = await this.ProyectoModel.findOne({"proyecto-nombre":createGestionConvocatoriaDto["proyecto"]}).exec()
+    const createdGestion = await this.ProyectoModel.findOne({proyectoNombre:createGestionConvocatoriaDto["proyecto"]}).exec()
     if(!createdGestion){
       throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyectos']}`)
     }
-    const createdConvocatoria = await this.ConvocatoriaModel.findOne({"entidad-convocante":createGestionConvocatoriaDto["financiador"]})
+    const createdConvocatoria = await this.ConvocatoriaModel.findOne({entidadConvocante:createGestionConvocatoriaDto["financiador"]})
     if(!createdConvocatoria){
       throw new BadRequestException(`No hay finaciadores disponibles para gestionar:${createGestionConvocatoriaDto["financiador"]}`)
     }
 
+    const createdFechaApertura = await this.ConvocatoriaModel.findOne({fechaApertura:createGestionConvocatoriaDto["fechaApertura"]})
+    if(!createdFechaApertura){
+      throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaApertura"]}`)
+    }
+
     const etapa = new this.GestionModel({
       convocatoria:createGestionConvocatoriaDto.convocatoria,
-      financiador:createGestionConvocatoriaDto.financiador,
+      financiador:createGestionConvocatoriaDto.financiador,//pudo ponerla asi y la creo por el id createdConvocatoria._id,
       proyecto: createGestionConvocatoriaDto.proyecto,
-      "codigo-interno": codigoConFecha,
-      "etapa-solicitud": createGestionConvocatoriaDto["etapa-solicitud"],
-      "etapa-resolucion":createGestionConvocatoriaDto["etapa-resolucion"],
-      "etapa-otorgamiento":createGestionConvocatoriaDto["etapa-otorgamiento"],
-      "etapa-justificacion":createGestionConvocatoriaDto["etapa-justificacion"],
-      "etapa-cierre":createGestionConvocatoriaDto["etapa-cierre"]
+      fechaApertura:createGestionConvocatoriaDto.fechaApertura,
+      codigoInterno: codigoConFecha,
+      etapaSolicitud: createGestionConvocatoriaDto.etapaSolicitud,
+      etapaResolucion:createGestionConvocatoriaDto.etapaResolucion,
+      etapaOtorgamiento:createGestionConvocatoriaDto.etapaOtorgamiento,
+      etapaJustificacion:createGestionConvocatoriaDto.etapaJustificacion,
+      etapaCierre:createGestionConvocatoriaDto.etapaCierre
     });
 
     return etapa.save();
   }
 
- async findAll() {
-    try{
-      const AllGestiones = await this.GestionModel.find().exec()
+  async findAll() {
+    try {
+      const allGestiones = await this.GestionModel
+        .find()
+       // .populate('fechaApertura')// Cargo la referencia 'fechaApertura' que no funciona aqui porq estoy tratando un ObjectID
+       // .populate('proyecto') 
+       // .populate('financiador')
+        .exec();
+  
       return {
         message: 'Todas las gestiones de convocatorias se han recibido correctamente',
-        status:200,
-        gestiones:AllGestiones
-       };
-    }catch(error){
-      throw error
+        status: 200,
+        gestiones: allGestiones
+      };
+    } catch (error) {
+      throw error;
     }
   }
+  
 
  async findOne(id:ObjectId) {
     try{
@@ -110,4 +123,5 @@ export class GestionConvocatoriaService {
   }
    
   }
+
 }

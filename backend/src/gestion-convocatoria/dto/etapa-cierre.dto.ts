@@ -5,27 +5,27 @@ import { IsNumber, IsString } from "class-validator";
 export class EtapaCierreDto{
 @ApiProperty({example:"2/11/2023"})
 @IsString()
-"fecha-aprobacion-oficial":string;
+fechaAprobacionOficial:string;
 
 @ApiProperty({example:"aprobada"})
 @IsString()
-"estado-resolucion":string;
+estadoResolucion:string;
 
 @ApiProperty({example:"23/11/2023"})
 @IsString()
-"fecha-recepcion-pago-final":string;
+fechaRecepcionPagoFinal:string;
 
 @ApiProperty({example:"18000"})
 @IsNumber()
-"monto-total-recibido":number;
+montoTotalRecibido:number;
 
 @ApiProperty({example:"20%"})
 @IsNumber()
-"ultimo-pago-porcentaje":number;
+ultimoPagoPorcentaje:number;
 
 @ApiProperty({example:"PDF"})
 @IsString()
-"documento-cierre":string;
+documentoCierre:string;
 
 
 
