@@ -1,3 +1,4 @@
+import { CalendarDashboard } from '../components/home/CalendarDashboard'
 import CardReview from '../components/home/CardReview'
 import { SideBar } from '../components/home/SideBar'
 import { Card } from '../components/ui/card'
@@ -14,7 +15,10 @@ function HomePage () {
           <div className='lg:col-span-1 ml-3'>
             <Separator orientation='vertical' />
           </div>
-{/*           <div>
+          <div>
+            <CalendarDashboard />
+          </div>
+          {/*           <div>
             <CardReview />
           </div> */}
         </div>
