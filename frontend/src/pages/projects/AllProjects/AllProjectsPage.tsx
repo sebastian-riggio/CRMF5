@@ -16,7 +16,8 @@ const formatDate = (dateString: string) => {
 const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'proyectoNombre',
-    header: 'Titulo'
+    header: 'Titulo',
+    cell: ({row}) => <Link to={`/project/${row.getValue('_id')}`}>{row.getValue('proyectoNombre')}</Link>
   },
   {
     accessorKey: 'fechaInicio',
