@@ -14,7 +14,9 @@ const proyectos = {
   responsable: "Jesus Rivera",
   proyectoDuracion:"6 meses",
   proyectoPresupuesto:23000,
-  factoriaPresupuesto:15000
+  factoriaPresupuesto:15000,
+  fechaInicio:new Date("28/8/2023"),
+  fechaCierre:new Date("28/8/2023")
 }
 
 
@@ -98,7 +100,9 @@ describe('ProyectosRegistrosController', () => {
       responsable: "Jesus Rivera",
       proyectoDuracion:"6 meses",
       proyectoPresupuesto:23000,
-      factoriaPresupuesto:15000
+      factoriaPresupuesto:15000,
+      fechaInicio:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023")
     };
     expect(await controller.update(updateProyecto))
   });
@@ -118,7 +122,9 @@ describe('ProyectosRegistrosController', () => {
       responsable: "Jesus Rivera",
       proyectoDuracion:"6 meses",
       proyectoPresupuesto:23000,
-      factoriaPresupuesto:15000
+      factoriaPresupuesto:15000,
+      fechaInicio:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023")
     };
     expect(await controller.create(newProyecto))
     

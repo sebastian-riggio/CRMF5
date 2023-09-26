@@ -1,27 +1,27 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { IsDate, IsString } from "class-validator";
 
 
 export class EtapaJustificacionDto {
 @ApiProperty({example:"20/10/2023"})
-@IsString()
-fechaEntrega:string;
+@IsDate()
+fechaEntrega:Date;
 
 @ApiProperty({example:"25/10/2023"})
-@IsString()
-fechaLimitePrimerRequerimiento:string;
+@IsDate()
+fechaLimitePrimerRequerimiento:Date;
 
 @ApiProperty({example:"28/10/2023"})
-@IsString()
-fechaRespuestaRequerimientoPrimero:string;
+@IsDate()
+fechaRespuestaRequerimientoPrimero:Date;
 
 @ApiProperty({example:"30/10/2023"})
-@IsString()
-fechaLimiteSegundoRequerimiento:string;
+@IsDate()
+fechaLimiteSegundoRequerimiento:Date;
 
 @ApiProperty({example:"1/11/2023"})
-@IsString()
-fechaRespuestaRequerimientoSegundo:string;
+@IsDate()
+fechaRespuestaRequerimientoSegundo:Date;
 
 @ApiProperty({example:"Solo son notas de seguimientos de estado del proyecto"})
 @IsString()
