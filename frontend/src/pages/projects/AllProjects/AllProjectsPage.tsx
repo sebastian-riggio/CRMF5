@@ -5,6 +5,8 @@ import { DataTable } from './data-table'
 import proyectPost from '../../../interfaces/proyectPost'
 import { getProjects } from '../../../services/proyectos'
 import { formatDate } from '../../../lib/utils'
+import GoBack from '../../../components/GoBack'
+import { Link } from 'react-router-dom'
 
 type projectsTable = z.infer<typeof proyectPost>
 
@@ -56,10 +58,17 @@ function AllProjectsPage () {
   if (!data) return null
   console.log(data)
   return (
-    <div className='container mx-auto mt-5'>
-      <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
-      <DataTable columns={columns} data={data.data.proyectos} />
-    </div>
+    <>
+      <div>
+        <Link to='http://localhost:5173/home'>
+          <GoBack />
+        </Link>
+      </div>
+      <div className='container mx-auto mt-5'>
+        <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
+        <DataTable columns={columns} data={data.data.proyectos} />
+      </div>
+    </>
   )
 }
 

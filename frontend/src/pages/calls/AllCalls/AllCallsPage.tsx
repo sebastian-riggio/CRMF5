@@ -6,6 +6,8 @@ import { DataTableCalls } from './date-table-calls'
 import gestionConvocatoria from '../../../interfaces/gestionConvocatoria'
 import { formatDate } from '../../../lib/utils'
 import { getAllGestion } from '../../../services/gestion'
+import GoBack from '../../../components/GoBack'
+import { Link } from 'react-router-dom'
 
 type gestionTable = z.infer<typeof gestionConvocatoria>
 
@@ -49,10 +51,17 @@ function AllCallsPage () {
   console.log(data.data.gestiones)
 
   return (
-    <div className='container mx-auto'>
-      <h1 className='text-4xl font-semibold'>Convocatorias</h1>
-      <DataTableCalls columns={columns} data={data.data.gestiones} />
-    </div>
+    <>
+      <div>
+        <Link to='http://localhost:5173/home'>
+          <GoBack />
+        </Link>
+      </div>
+      <div className='container mx-auto'>
+        <h1 className='text-4xl font-semibold'>Convocatorias</h1>
+        <DataTableCalls columns={columns} data={data.data.gestiones} />
+      </div>
+    </>
   )
 }
 
