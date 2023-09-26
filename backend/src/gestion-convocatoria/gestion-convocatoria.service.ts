@@ -42,11 +42,17 @@ export class GestionConvocatoriaService {
       throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaApertura"]}`)
     }
 
+    const createdFechaCierre = await this.ConvocatoriaModel.findOne({fechaCierre:createGestionConvocatoriaDto["fechaCierre"]})
+    if(!createdFechaCierre){
+      throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaCierre"]}`)
+    }
+
     const etapa = new this.GestionModel({
       convocatoria:createGestionConvocatoriaDto.convocatoria,
       financiador:createGestionConvocatoriaDto.financiador,//pudo ponerla asi y la creo por el id createdConvocatoria._id,
       proyecto: createGestionConvocatoriaDto.proyecto,
       fechaApertura:createGestionConvocatoriaDto.fechaApertura,
+      fechaCierre:createGestionConvocatoriaDto.fechaCierre,
       codigoInterno: codigoConFecha,
       etapaSolicitud: createGestionConvocatoriaDto.etapaSolicitud,
       etapaResolucion:createGestionConvocatoriaDto.etapaResolucion,

@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { DataTable } from './data-table';
 import proyectPost from '../../../interfaces/proyectPost';
 import { getProjects } from '../../../services/proyectos';
+import { formatDate } from '../../../lib/utils';
 import GoBack from '../../../components/GoBack';
 import { Link } from 'react-router-dom';
 
@@ -17,10 +18,9 @@ type projectColumns = Pick<
   | 'responsable'
   | 'fechaCierre'
 >;
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString();
-};
-const columns: ColumnDef<projectColumns>[] = [
+/* 
+
+ */ const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'proyectoNombre',
     header: 'Titulo',
@@ -83,7 +83,7 @@ function AllProjectsPage() {
           <GoBack />
         </Link>
       </div>
-    
+
       <Link to={'http://localhost:5173/project/:id'}></Link>
       <div className="container mx-auto mt-5">
         <h1 className="text-4xl font-semibold">Nuestros proyectos</h1>

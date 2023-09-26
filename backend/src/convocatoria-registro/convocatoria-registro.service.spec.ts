@@ -3,7 +3,6 @@ import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import mongoose, { Model, ObjectId,Schema } from 'mongoose';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { AdjuntarDto } from './dto/adjuntarDto';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 import { getModelToken } from '@nestjs/mongoose';
 import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
@@ -27,13 +26,10 @@ const convocatoria =  {
   auditoria: false,
   presupuesto: 10000,
   otraInformacion: 'Notas de interes',
-
-  documentacion: {
-    memoriaTecnica: 'PDF',
-    presupuesto: 'PDF',
-    formularioSolicitud: 'PDF',
-    otraDocumentacion: 'PDF',
-  }
+  memoriaTecnica: 'PDF',
+  modeloPresupuesto: 'PDF',
+  formularioSolicitud: 'PDF',
+  otraDocumentacion: 'PDF',
 }
 
 describe('ConvocatoriaRegistroService', () => {
@@ -154,15 +150,18 @@ describe('ConvocatoriaRegistroService', () => {
       tematica:"Programacion",
       trabajoLineas:"esto es un trabajo muy adaptable a cambios",
       dirigidoEntidades:"Publicas",
-      fechaApertura:"20/8/2023",
-      fechaCierre:"21/8/2023",
-      fechaResolucion:"28/8/2023",
+      fechaApertura:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023"),
+      fechaResolucion:new Date("28/8/2023"),
       periodoEjecucion:"5 meses",
-      fechaJustificacion:"4/9/2023",
+      fechaJustificacion:new Date("28/8/2023"),
       auditoria:false,
       presupuesto:40000,
       otraInformacion:"un proyecto para desarrollar programadores",
-      documentacion: new AdjuntarDto(),
+      memoriaTecnica: 'PDF',
+      modeloPresupuesto: 'PDF',
+      formularioSolicitud: 'PDF',
+      otraDocumentacion: 'PDF',
     };
 
     expect(await service.update(updateConvocatoriaDto));
@@ -178,15 +177,18 @@ describe('ConvocatoriaRegistroService', () => {
       tematica:"Programacion",
       trabajoLineas:"esto es un trabajo muy adaptable a cambios",
       dirigidoEntidades:"Publicas",
-      fechaApertura:"20/8/2023",
-      fechaCierre:"21/8/2023",
-      fechaResolucion:"28/8/2023",
+      fechaApertura:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023"),
+      fechaResolucion:new Date("28/8/2023"),
       periodoEjecucion:"5 meses",
-      fechaJustificacion:"4/9/2023",
+      fechaJustificacion:new Date("28/8/2023"),
       auditoria:false,
       presupuesto:40000,
       otraInformacion:"un proyecto para desarrollar programadores",
-      documentacion: new AdjuntarDto(),
+      memoriaTecnica: 'PDF',
+      modeloPresupuesto: 'PDF',
+      formularioSolicitud: 'PDF',
+      otraDocumentacion: 'PDF',
     };
     expect(await service.create(newConvocatoria))
   });

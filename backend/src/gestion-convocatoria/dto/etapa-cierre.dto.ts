@@ -1,19 +1,19 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
+import { IsDate, IsNumber, IsString } from "class-validator";
 
 
 export class EtapaCierreDto{
 @ApiProperty({example:"2/11/2023"})
-@IsString()
-fechaAprobacionOficial:string;
+@IsDate()
+fechaAprobacionOficial:Date;
 
 @ApiProperty({example:"aprobada"})
 @IsString()
 estadoResolucion:string;
 
 @ApiProperty({example:"23/11/2023"})
-@IsString()
-fechaRecepcionPagoFinal:string;
+@IsDate()
+fechaRecepcionPagoFinal:Date;
 
 @ApiProperty({example:"18000"})
 @IsNumber()

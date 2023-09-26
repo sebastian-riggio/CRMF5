@@ -29,6 +29,10 @@ proyecto:Types.ObjectId
 @Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
 fechaApertura:Types.ObjectId
 
+@ApiProperty({example:"fechaCierre"})
+@Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
+fechaCierre:Types.ObjectId
+
 @ApiProperty({example:"R-0001-20230912"})
 @Prop()
 codigoInterno:string;

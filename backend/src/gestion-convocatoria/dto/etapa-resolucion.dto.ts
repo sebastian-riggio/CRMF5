@@ -1,27 +1,27 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { IsDate, IsString } from "class-validator";
 
 
 export class EtapaResolucionDto {
 @ApiProperty({example:"20/9/2023"})
-@IsString()
-fechaResolucion:string;
+@IsDate()
+fechaResolucion:Date;
 
 @ApiProperty({example:"24/9/2023"})
-@IsString()
-fechaLimiteEntrega:string
+@IsDate()
+fechaLimiteEntrega:Date;
 
 @ApiProperty({example:"28/9/2023"})
-@IsString()
-fechaRealEntrega:string;
+@IsDate()
+fechaRealEntrega:Date;
 
 @ApiProperty({example:"30/9/2023"})
-@IsString()
-fechaLimiteResponder:string;
+@IsDate()
+fechaLimiteResponder:Date;
 
 @ApiProperty({example:"31/9/2023"})
-@IsString()
-fechaRealRespuesta:string;
+@IsDate()
+fechaRealRespuesta:Date;
 
 @ApiProperty({example:"Notas del proceso"})
 @IsString()
