@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -141,23 +141,21 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -212,90 +210,128 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean,IsNumber, IsString } from "class-validator";
-import { AdjuntarDto } from "./adjuntarDto";
-&nbsp;
-&nbsp;
+import { Type } from "class-transformer";
+import { IsBoolean,IsDate,IsNumber, IsString } from "class-validator";
 &nbsp;
 &nbsp;
 export class CreateConvocatoriaRegistroDto {
 &nbsp;
 @ApiProperty({example:"Factoria F5"})
 @IsString()
-"entidad-convocante":string;
+entidadConvocante:string;
 &nbsp;
 @ApiProperty({example:"Recursos Humanos"})
 @IsString()
-"departamento-convocante":string;
+departamentoConvocante:string;
 &nbsp;
 @ApiProperty({example:"Formacìon P8"})
 @IsString()
-"titulo":string;
+titulo:string;
 &nbsp;
 @ApiProperty({example:"http//:factoriaf5.com"})
 @IsString()
-"publicacion-oficial":string;
+publicacionOficial:string;
 &nbsp;
 @ApiProperty({example:"http//:factoria-convocatoria.com"})
 @IsString()
-"convocatoria-enlace":string;
+convocatoriaEnlace:string;
 &nbsp;
 @ApiProperty({example:"Programacíon"})
 @IsString()
-"tematica":string;
+tematica:string;
 &nbsp;
 @ApiProperty({example:"Palabras claves o texto???"})
 @IsString()
-"trabajo-lineas":string;
+trabajoLineas:string;
 &nbsp;
 @ApiProperty({example:["Sin animo de lucro","Financieras","Impacto Social"]})
 @IsString()
-"dirigido-entidades":string;
+dirigidoEntidades:string;
 &nbsp;
 @ApiProperty({example:"20/10/2023"})
-@IsString()
-"fecha-apertura":string;
+@IsDate()
+fechaApertura:Date;
 &nbsp;
 @ApiProperty({example:"20/10/2023"})
-@IsString()
-"fecha-cierre":string;
+@IsDate()
+fechaCierre:Date;
 &nbsp;
 @ApiProperty({example:"20/10/2023"})
-@IsString()
-"fecha-resolucion":string;
+@IsDate()
+fechaResolucion:Date;
 &nbsp;
 @ApiProperty({example:"5 meses"})
 @IsString()
-"periodo-ejecucion":string;
+periodoEjecucion:string;
 &nbsp;
 @ApiProperty({example:"20/10/2023"})
-@IsString()
-"fecha-justificacion":string;
+@IsDate()
+fechaJustificacion:Date;
 &nbsp;
 @ApiProperty({example:["si","no"]})
 @IsBoolean()
-"auditoria":boolean;
+auditoria:boolean;
 &nbsp;
 @ApiProperty({example:"40000 euros"})
 @IsNumber()
-"presupuesto":number;
+presupuesto:number;
 &nbsp;
 &nbsp;
 @ApiProperty({example:"palabras claves etc.."})
 @IsString()
-"otra-informacion":string;
+otraInformacion:string;
 &nbsp;
 @ApiProperty({example:"PDF"})
 @IsString()
-"documentacion":AdjuntarDto;
+memoriaTecnica:string;
+&nbsp;
+ @ApiProperty({example:"PDF"})
+@IsString()
+modeloPresupuesto:string;
+&nbsp;
+&nbsp;
+@ApiProperty({example:"PDF"})
+@IsString()
+formularioSolicitud:string;
+&nbsp;
+&nbsp;
+@ApiProperty({example:"PDF"})
+@IsString()
+otraDocumentacion:string; 
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -304,15 +340,7 @@ export class CreateConvocatoriaRegistroDto {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2023-09-19T10:54:01.898Z
-=======
-<<<<<<< HEAD
-                at 2023-09-19T20:15:38.603Z
-=======
-                at 2023-09-19T20:46:40.360Z
->>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
->>>>>>> feature/Bd-Ariel
+                at 2023-09-26T06:59:07.474Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

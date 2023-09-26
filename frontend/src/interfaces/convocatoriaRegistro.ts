@@ -12,7 +12,7 @@ fechaCierre:Date;
 fechaResolucion: Date;
 periodoEjecucion: string;
 fechaJustificacion: Date;
-auditoria: string;
+auditoria: boolean;
 presupuesto: number;
 otraInformacion: string;
 memoriaTecnica: string;

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>0/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,105 +113,117 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsString } from "class-validator";
-import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";
-import { EtapaSolicitudDto } from "./etapa-solicitud.dto";
-import { EtapaOtorgamientoDto } from "./etapa-otorgamiento.dto";
-import { EtapaResolucionDto } from "./etapa-resolucion.dto";
-import { EtapaJustificacionDto } from "./etapa-justificacion.dto";
-import { EtapaCierreDto } from "./etapa-cierre.dto";
-import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { ApiProperty } from "@nestjs/swagger";</span>
+<span class="cstat-no" title="statement not covered" >import { IsArray, IsString } from "class-validator";</span>
+<span class="cstat-no" title="statement not covered" >import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";</span>
+<span class="cstat-no" title="statement not covered" >import { EtapaSolicitudDto } from "./etapa-solicitud.dto";</span>
+<span class="cstat-no" title="statement not covered" >import { EtapaOtorgamientoDto } from "./etapa-otorgamiento.dto";</span>
+<span class="cstat-no" title="statement not covered" >import { EtapaResolucionDto } from "./etapa-resolucion.dto";</span>
+<span class="cstat-no" title="statement not covered" >import { EtapaJustificacionDto } from "./etapa-justificacion.dto";</span>
+<span class="cstat-no" title="statement not covered" >import { EtapaCierreDto } from "./etapa-cierre.dto";</span>
+<span class="cstat-no" title="statement not covered" >import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";</span>
 &nbsp;
-export class CreateGestionConvocatoriaDto {
+<span class="cstat-no" title="statement not covered" >export class C</span>reateGestionConvocatoriaDto {
 @ApiProperty({example:"financiacion patra cursos educativos online"})
 @IsString()
-"convocatoria":string;
+<span class="cstat-no" title="statement not covered" >convocatoria:string;</span>
 &nbsp;
 &nbsp;
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @IsString()
-"financiador":ConvocatoriaRegistro
+<span class="cstat-no" title="statement not covered" >financiador:ConvocatoriaRegistro</span>
 &nbsp;
 &nbsp;
 @ApiProperty({ example: "Proyecto Factoria" })
 @IsString()
-"proyecto": ProyectosRegistro;
+<span class="cstat-no" title="statement not covered" >proyecto: ProyectosRegistro;</span>
+&nbsp;
+@ApiProperty({example:"20/4/2023"})
+@IsString()
+<span class="cstat-no" title="statement not covered" >fechaApertura:ConvocatoriaRegistro</span>
 &nbsp;
 @ApiProperty({example:"R-0001-20230912"})
 @IsString()
-"codigo-interno":string;
+<span class="cstat-no" title="statement not covered" >codigoInterno:string;</span>
 &nbsp;
 @ApiProperty({ example: "Etapa Solicitud" })
 @IsArray()
-"etapa-solicitud": EtapaSolicitudDto;
+<span class="cstat-no" title="statement not covered" >etapaSolicitud: EtapaSolicitudDto;</span>
 &nbsp;
 @ApiProperty({ example: "Etapa Resolucion" })
 @IsArray()
-"etapa-resolucion": EtapaResolucionDto;
+<span class="cstat-no" title="statement not covered" >etapaResolucion: EtapaResolucionDto;</span>
 &nbsp;
 @ApiProperty({ example: "Etapa Otorgamiento" })
 @IsArray()
-"etapa-otorgamiento": EtapaOtorgamientoDto;
+<span class="cstat-no" title="statement not covered" >etapaOtorgamiento: EtapaOtorgamientoDto;</span>
 &nbsp;
 @ApiProperty({example:"Etapa Justificaciòn"})
 @IsArray()
-"etapa-justificacion":EtapaJustificacionDto;
+<span class="cstat-no" title="statement not covered" >etapaJustificacion:EtapaJustificacionDto;</span>
 &nbsp;
 &nbsp;
 @ApiProperty({example:"Etapa Cierre"})
 @IsArray()
-"etapa-cierre":EtapaCierreDto;  
+<span class="cstat-no" title="statement not covered" >etapaCierre:EtapaCierreDto;  </span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -220,15 +232,7 @@ export class CreateGestionConvocatoriaDto {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2023-09-19T10:54:01.898Z
-=======
-<<<<<<< HEAD
-                at 2023-09-19T20:15:38.603Z
-=======
-                at 2023-09-19T20:46:40.360Z
->>>>>>> 70140e7e6a6b51dd578f48ab3b088d0c9ca9e30d
->>>>>>> feature/Bd-Ariel
+                at 2023-09-26T06:59:07.474Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

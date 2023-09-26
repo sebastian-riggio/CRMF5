@@ -18,19 +18,17 @@ convocatoriaEnlace:"http//:canva-convocatoria.com",
 tematica:"Programacion",
 trabajoLineas:"esto es un trabajo muy adaptable a cambios",
 dirigidoEntidades:"Publicas",
-fechaApertura:"20/8/2023",
-fechaCierre:"21/8/2023",
-fechaResolucion:"28/8/2023",
+fechaApertura:new Date("28/8/2023"),
+fechaCierre:new Date("28/8/2023"),
+fechaResolucion:new Date("28/8/2023"),
 periodoEjecucion:"5 meses",
-fechaJustificacion:"4/9/2023",
+fechaJustificacion:new Date("28/8/2023"),
 presupuesto:40000,
 otraInformacion:"un proyecto para desarrollar programadores",
-documentacion:{
 memoriaTecnica:"PDF",
-presupuesto:"PDF",
+modeloPresupuesto:"PDF",
 formularioSolicitud: "PDF",
 otraDocumentacion:"PDF"
-}
 }
 describe('ConvocatoriaRegistroController', () => {
   let controller: ConvocatoriaRegistroController;
@@ -121,19 +119,18 @@ convocatoriaEnlace:"http//:canva-convocatoria.com",
 tematica:"Programacion",
 trabajoLineas:"esto es un trabajo muy adaptable a cambios",
 dirigidoEntidades:"Publicas",
-fechaApertura:'2023-09-26T22:00:00.000+00:00',
-fechaCierre:"21/8/2023",
-fechaResolucion:"28/8/2023",
+fechaApertura:new Date("28/8/2023"),
+fechaCierre:new Date("28/8/2023"),
+fechaResolucion:new Date("28/8/2023"),
 periodoEjecucion:"5 meses",
-fechaJustificacion:"4/9/2023",
+fechaJustificacion:new Date("28/8/2023"),
+auditoria:false,
 presupuesto:40000,
 otraInformacion:"un proyecto para desarrollar programadores",
-documentacion:{
 memoriaTecnica:"PDF",
-presupuesto:"PDF",
+modeloPresupuesto:"PDF",
 formularioSolicitud: "PDF",
 otraDocumentacion:"PDF"
-}
   
   };
 
@@ -162,15 +159,18 @@ it('create:Se ha registrado con exito la convocatoria',async () => {
   tematica:"Programacion",
   trabajoLineas:"esto es un trabajo muy adaptable a cambios",
   dirigidoEntidades:"Publicas",
-  fechaApertura:"20/8/2023",
-  fechaCierre:"21/8/2023",
-  fechaResolucion: "2023-09-26T22:00:00.000+00:00",
+  fechaApertura:new Date("28/8/2023"),
+  fechaCierre:new Date("28/8/2023"),
+  fechaResolucion: new Date("28/8/2023"),
   periodoEjecucion:"5 meses",
-  fechaJustificacion:"4/9/2023",
+  fechaJustificacion:new Date("28/8/2023"),
   auditoria:false,
   presupuesto:40000,
   otraInformacion:"un proyecto para desarrollar programadores",
-  documentacion: new AdjuntarDto(),
+  memoriaTecnica:"PDF",
+  modeloPresupuesto:"PDF",
+  formularioSolicitud: "PDF",
+  otraDocumentacion:"PDF"
   };
   expect(await controller.create(newConvocatoria)).toMatchObject({
     message: 'Se ha registrado correctamente la convocatoria',
