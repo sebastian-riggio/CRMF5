@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString } from 'class-validator';
+import { IsDate, IsNumber, IsString } from 'class-validator';
 
 export class CreateProyectosRegistroDto {
   @ApiProperty({ example: 'P8 Mixta' })
@@ -27,11 +27,11 @@ export class CreateProyectosRegistroDto {
   factoriaPresupuesto: number;
 
   @ApiProperty({example:"20/3/2023"})
-  @IsString()
-  fechaInicio:string;
+  @IsDate()
+  fechaInicio:Date;
   
   @ApiProperty({example:"20/3/2023"})
-  @IsString()
-  fechaCierre:string;
+  @IsDate()
+  fechaCierre:Date;
 
 }

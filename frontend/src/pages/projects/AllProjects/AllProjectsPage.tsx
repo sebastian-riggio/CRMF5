@@ -4,15 +4,14 @@ import { z } from 'zod'
 import { DataTable } from './data-table'
 import proyectPost from '../../../interfaces/proyectPost'
 import { getProjects } from '../../../services/proyectos'
+import { formatDate } from '../../../lib/utils'
 import GoBack from '../../../components/GoBack'
 import { Link } from 'react-router-dom'
 
 type projectsTable = z.infer<typeof proyectPost>
 
 type projectColumns = Pick<projectsTable, 'proyectoNombre' | 'fechaInicio' | 'centroGestor'| 'responsable'|'fechaCierre' >
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString()
-}
+
 const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'proyectoNombre',

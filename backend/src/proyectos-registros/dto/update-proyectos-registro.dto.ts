@@ -1,6 +1,6 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateProyectosRegistroDto} from './create-proyectos-registro.dto';
-import { IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsDate, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ObjectId } from 'mongoose';
 
 export class UpdateProyectosRegistroDto extends PartialType(CreateProyectosRegistroDto) {
@@ -34,11 +34,11 @@ proyectoNombre: string;
    factoriaPresupuesto:number;
 
    @ApiProperty({example:"20/3/2023"})
-   @IsString()
-   fechaInicio:string;
+   @IsDate()
+   fechaInicio:Date;
    
    @ApiProperty({example:"20/3/2023"})
-   @IsString()
-   fechaCierre:string;
+   @IsDate()
+   fechaCierre:Date;
 
 }

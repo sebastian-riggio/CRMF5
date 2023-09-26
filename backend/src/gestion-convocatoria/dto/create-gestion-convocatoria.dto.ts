@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsString } from "class-validator";
+import { IsArray, IsDate, IsString } from "class-validator";
 import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";
 import { EtapaSolicitudDto } from "./etapa-solicitud.dto";
 import { EtapaOtorgamientoDto } from "./etapa-otorgamiento.dto";
@@ -24,8 +24,12 @@ financiador:ConvocatoriaRegistro
 proyecto: ProyectosRegistro;
 
 @ApiProperty({example:"20/4/2023"})
-@IsString()
+@IsDate()
 fechaApertura:ConvocatoriaRegistro
+
+@ApiProperty({example:"20/4/2023"})
+@IsDate()
+fechaCierre:ConvocatoriaRegistro
 
 @ApiProperty({example:"R-0001-20230912"})
 @IsString()

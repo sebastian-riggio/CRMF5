@@ -14,7 +14,9 @@ const proyecto = {
   responsable: "Jesus Rivera",
   proyectoDuracion:"6 meses",
   proyectoPresupuesto:23000,
-  factoriaPresupuesto:15000
+  factoriaPresupuesto:15000,
+  fechaInicio:new Date("28/8/2023"),
+  fechaCierre:new Date("28/8/2023")
 }
 
 describe('ProyectosRegistrosService', () => {
@@ -141,7 +143,9 @@ describe('ProyectosRegistrosService', () => {
       responsable: "Jesus Rivera",
       proyectoDuracion:"6 meses",
       proyectoPresupuesto:23000,
-      factoriaPresupuesto:15000
+      factoriaPresupuesto:15000,
+      fechaInicio:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023")
       
     };
 
@@ -167,7 +171,9 @@ describe('ProyectosRegistrosService', () => {
       responsable: "Jesus Rivera",
       proyectoDuracion:"6 meses",
       proyectoPresupuesto:23000,
-      factoriaPresupuesto:15000
+      factoriaPresupuesto:15000,
+      fechaInicio:new Date("28/8/2023"),
+      fechaCierre:new Date("28/8/2023")
     };
     expect(await service.create(newProject))
   })

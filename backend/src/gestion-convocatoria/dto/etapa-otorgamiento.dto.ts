@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEnum, IsNumber, IsString } from "class-validator";
+import { IsBoolean, IsDate, IsEnum, IsNumber, IsString } from "class-validator";
 
 enum EstadoSolicitud {
     aprobada = "aprobada",
@@ -7,26 +7,26 @@ enum EstadoSolicitud {
 }
 
 export class EtapaOtorgamientoDto {
- @ApiProperty({example:"4/9/2023"})
-@IsString()
-fechaResolucionFinal:string;
+@ApiProperty({example:"4/9/2023"})
+@IsDate()
+fechaResolucionFinal:Date;
 
 @ApiProperty({example:"aprobada/denegada"})
 @IsEnum(EstadoSolicitud)
-@IsString()
-estadoSolicitud:string; 
+@IsBoolean()
+estadoSolicitud:boolean; 
 
 @ApiProperty({example:"20000"})
 @IsNumber()
 montoConcedido:number;
 
- @ApiProperty({example:"21/9/2023"})
-@IsString()
-fechaPrimerDesembolso:string;
+@ApiProperty({example:"21/9/2023"})
+@IsDate()
+fechaPrimerDesembolso:Date;
 
 @ApiProperty({example:"23/9/23"})
 @IsString()
-fechaRecepcionDesembolso:string; 
+fechaRecepcionDesembolso:Date;
 
 @ApiProperty({example:"10000"})
 @IsNumber()
@@ -36,24 +36,24 @@ montoPrimerDesembolso:number;
 @IsNumber()
 porcientoPrimerDesembolso:number;
 
- @ApiProperty({example:"26/9/2023"})
-@IsString()
-fechaInicioGastos:string;
+@ApiProperty({example:"26/9/2023"})
+@IsDate()
+fechaInicioGastos:Date;
 
 @ApiProperty({example:"28/9/2023"})
-@IsString()
-fechaFinalizacionGastos:string;
+@IsDate()
+fechaFinalizacionGastos:Date;
 
 @ApiProperty({example:"1/10/2023"})
-@IsString()
-fechaPrimerSeguimiento:string;
+@IsDate()
+fechaPrimerSeguimiento:Date;
 
 @ApiProperty({example:"3/10/2023"})
-@IsString()
-fechaLimiteInformeFinalTecnico:string;
+@IsDate()
+fechaLimiteInformeFinalTecnico:Date;
 
 @ApiProperty({example:"6/10/2023"})
-@IsString()
+@IsDate()
 fechaLimiteInformeFinalEconomico:string;
 
 @ApiProperty({example:"(mensual, trimestral, semestral, anual, solo informe final)"})

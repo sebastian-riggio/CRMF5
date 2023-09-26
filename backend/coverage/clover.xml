@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695711547679" clover="3.2.0">
-  <project timestamp="1695711547679" name="All files">
-    <metrics statements="661" coveredstatements="334" conditionals="31" coveredconditionals="11" methods="85" coveredmethods="24" elements="777" coveredelements="369" complexity="0" loc="661" ncloc="661" packages="22" files="46" classes="46"/>
+<coverage generated="1695717761924" clover="3.2.0">
+  <project timestamp="1695717761924" name="All files">
+    <metrics statements="661" coveredstatements="415" conditionals="31" coveredconditionals="11" methods="85" coveredmethods="41" elements="777" coveredelements="467" complexity="0" loc="661" ncloc="661" packages="22" files="46" classes="46"/>
     <package name="src">
       <metrics statements="34" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
       <file name="app.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\app.controller.ts">
@@ -98,9 +98,9 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="public.decorator.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\decorators\public.decorator.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="5" count="10" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="15" type="stmt"/>
       </file>
       <file name="roles.decorator.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\auth\decorators\roles.decorator.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -216,7 +216,7 @@
       </file>
     </package>
     <package name="src.convocatoria-registro">
-      <metrics statements="60" coveredstatements="25" conditionals="2" coveredconditionals="0" methods="13" coveredmethods="6"/>
+      <metrics statements="60" coveredstatements="38" conditionals="2" coveredconditionals="0" methods="13" coveredmethods="11"/>
       <file name="convocatoria-registro.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.controller.ts">
         <metrics statements="29" coveredstatements="20" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
@@ -259,26 +259,26 @@
         <line num="22" count="0" type="stmt"/>
       </file>
       <file name="convocatoria-registro.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\convocatoria-registro.service.ts">
-        <metrics statements="25" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <metrics statements="25" coveredstatements="18" conditionals="1" coveredconditionals="0" methods="6" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
         <line num="72" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
@@ -348,31 +348,31 @@
       <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="convocatoria-registro.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\convocatoria-registro\schema\convocatoria-registro.schema.ts">
         <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="77" count="2" type="stmt"/>
-        <line num="81" count="2" type="stmt"/>
-        <line num="85" count="2" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
-        <line num="92" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="92" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.gestion-convocatoria">
@@ -595,27 +595,27 @@
       </file>
     </package>
     <package name="src.proyectos-registros">
-      <metrics statements="54" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="13" coveredmethods="0"/>
+      <metrics statements="54" coveredstatements="39" conditionals="1" coveredconditionals="0" methods="13" coveredmethods="11"/>
       <file name="proyectos-registros.controller.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.controller.ts">
-        <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
       </file>
       <file name="proyectos-registros.module.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.module.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -627,30 +627,30 @@
         <line num="20" count="0" type="stmt"/>
       </file>
       <file name="proyectos-registros.service.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\proyectos-registros.service.ts">
-        <metrics statements="30" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
+        <metrics statements="30" coveredstatements="21" conditionals="1" coveredconditionals="0" methods="7" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
@@ -661,55 +661,55 @@
       </file>
     </package>
     <package name="src.proyectos-registros.dto">
-      <metrics statements="24" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="create-proyectos-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\dto\create-proyectos-registro.dto.ts">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
       <file name="update-proyectos-registro.dto.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\dto\update-proyectos-registro.dto.ts">
-        <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.proyectos-registros.schema">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="proyectos-registro.schema.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\proyectos-registros\schema\proyectos-registro.schema.ts">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.schemas">
@@ -844,15 +844,15 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="15" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="15" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="autoGenerateCode.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\utils\autoGenerateCode.ts">
-        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
       </file>
       <file name="calculoPorcentaje.ts" path="C:\Users\ariel\OneDrive\Escritorio\Workspace\CRMF5\backend\src\utils\calculoPorcentaje.ts">
         <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>

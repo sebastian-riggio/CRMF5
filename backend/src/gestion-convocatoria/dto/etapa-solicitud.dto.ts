@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
+import { IsDate, IsNumber, IsString } from "class-validator";
 
 export class EtapaSolicitudDto {
 
@@ -9,8 +9,8 @@ export class EtapaSolicitudDto {
 responsable:string
 
 @ApiProperty({example:"20/9/2023"})
-@IsString()
-fechaPropuesta:string;
+@IsDate()
+fechaPropuesta:Date;
 
 @ApiProperty({example:"12345"})
 @IsNumber()
