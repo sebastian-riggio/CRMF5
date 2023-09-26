@@ -22,24 +22,16 @@ type Status = {
 
 const statuses: Status[] = [
   {
-    value: 'solicitud inicial',
-    label: 'Solicitud inicial'
+    value: 'denegado',
+    label: 'Denegado'
   },
   {
-    value: 'aprobada',
-    label: 'Aprobada'
+    value: 'cancelado',
+    label: 'Cancelado'
   },
   {
-    value: 'denegada',
-    label: 'Denegada'
-  },
-  {
-    value: 'cancelada',
-    label: 'Cancelada'
-  },
-  {
-    value: 'otorgada',
-    label: 'Otorgada'
+    value: 'otorgado',
+    label: 'Otorgado'
   }
 ]
 

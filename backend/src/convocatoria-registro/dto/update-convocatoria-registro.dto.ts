@@ -1,64 +1,79 @@
 import { PartialType } from '@nestjs/swagger';
 import { CreateConvocatoriaRegistroDto } from './create-convocatoria-registro.dto';
-import { IsBoolean, IsMongoId, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsDate,
+  IsMongoId,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+} from 'class-validator';
 import { ObjectId } from 'mongoose';
-import { AdjuntarDto } from './adjuntarDto';
 
-export class UpdateConvocatoriaRegistroDto extends PartialType(CreateConvocatoriaRegistroDto) {
-    
-@IsNotEmpty()
-@IsMongoId()
-_id:ObjectId;
+export class UpdateConvocatoriaRegistroDto extends PartialType(
+  CreateConvocatoriaRegistroDto,
+) {
+  @IsNotEmpty()
+  @IsMongoId()
+  _id: ObjectId;
 
-@IsString()
-entidadConvocante:string;
+  @IsString()
+  entidadConvocante: string;
 
-@IsString()
-departamentoConvocante:string;
+  @IsString()
+  departamentoConvocante: string;
 
-@IsString()
-titulo:string;
+  @IsString()
+  titulo: string;
 
-@IsString()
-publicacionOficial:string;
+  @IsString()
+  publicacionOficial: string;
 
-@IsString()
-convocatoriaEnlace:string;
+  @IsString()
+  convocatoriaEnlace: string;
 
-@IsString()
-tematica:string;
+  @IsString()
+  tematica: string;
 
-@IsString()
-trabajoLineas:string;
+  @IsString()
+  trabajoLineas: string;
 
-@IsString()
-dirigidoEntidades:string;
+  @IsString()
+  dirigidoEntidades: string;
 
+  @IsString()
+  fechaApertura: Date;
 
-@IsString()
-fechaApertura:string;
+  @IsDate()
+  fechaCierre: Date;
 
-@IsString()
-fechaCierre:string;
+  @IsDate()
+  fechaResolucion: Date;
 
-@IsString()
-fechaResolucion:string;
+  @IsString()
+  periodoEjecucion: string;
 
-@IsString()
-periodoEjecucion:string;
+  @IsDate()
+  fechaJustificacion:Date;
 
-@IsString()
-fechaJustificacion:string;
+  @IsBoolean()
+  auditoria: boolean;
 
-@IsBoolean()
-auditoria:boolean;
+  @IsNumber()
+  presupuesto: number;
 
-@IsNumber()
-presupuesto:number;
+  @IsString()
+  otraInformacion: string;
 
-@IsString()
-otraInformacion:string;
+  @IsString()
+  memoriaTecnica: string;
 
-@IsString()
-documentacion:AdjuntarDto;
+  @IsString()
+  modeloPresupuesto: string;
+
+  @IsString()
+  formularioSolicitud: string;
+
+  @IsString()
+  otraDocumentacion: string;
 }

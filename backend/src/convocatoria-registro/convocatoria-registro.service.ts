@@ -17,6 +17,7 @@ private readonly  ConvocatoriaModel : Model <ConvocatoriaRegistro>,
 ){}
  async create(createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
  const newConvocatoria = await this.ConvocatoriaModel.create(createConvocatoriaRegistroDto)
+ 
 return {
   message: 'Se ha registrado correctamente la convocatoria',
   status:200,
@@ -86,14 +87,6 @@ async remove(id:ObjectId) {
     
     }catch(error){
       throw error 
-    }
-  }
-
-  async postPDF(){
-    try{
-
-    }catch(error){
-      
     }
   }
 }

@@ -1,4 +1,4 @@
-// src/seed.ts
+/* // src/seed.ts
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module'; // Update the import path accordingly
@@ -56,3 +56,4 @@ async function seedDatabase() {
 }
 
 seedDatabase();
+ */

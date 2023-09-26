@@ -14,11 +14,16 @@ import { FormItem, FormLabel } from './form'
 import es from 'date-fns/locale/es'
 
 interface DateProps {
-    title: string;
+  title: string;
+  onChange: (date: Date | undefined) => void;
 }
 
-function DatePicker ({ title }: DateProps) {
-  const [date, setDate] = React.useState<Date>()
+function DatePicker ({ title, onChange }: DateProps) {
+  const [date, setDate] = React.useState<Date | undefined>()
+
+  React.useEffect(() => {
+    onChange(date)
+  }, [date, onChange])
 
   return (
     <div className='flex flex-wrap mx-6'>
@@ -42,7 +47,7 @@ function DatePicker ({ title }: DateProps) {
               <Calendar
                 mode='single'
                 selected={date}
-                onSelect={setDate}
+                onSelect={(newDate) => setDate(newDate)}
                 initialFocus
               />
             </PopoverContent>

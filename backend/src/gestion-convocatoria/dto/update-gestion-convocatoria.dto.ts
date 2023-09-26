@@ -14,21 +14,21 @@ export class UpdateGestionConvocatoriaDto extends PartialType(
 
   @ApiProperty({ example: "Etapa Solicitud" })
   @IsArray()
-  "etapa-solicitud": EtapaSolicitudDto;
+  etapaSolicitud: EtapaSolicitudDto;
 
   @ApiProperty({ example: "Etapa Resolucion" })
   @IsArray()
-  "etapa-resolucion": EtapaResolucionDto;
+  etapaResolucion: EtapaResolucionDto;
 
   @ApiProperty({ example: "Etapa Otorgamiento" })
   @IsArray()
-  "etapa-otorgamiento": EtapaOtorgamientoDto;
+  etapaOtorgamiento: EtapaOtorgamientoDto;
 
   @ApiProperty({ example: "Etapa Justificaciòn" })
   @IsArray()
-  "etapa-justificacion": EtapaJustificacionDto;
+  etapaJustificacion: EtapaJustificacionDto;
 
   @ApiProperty({ example: "Etapa Cierre" })
   @IsArray()
-  "etapa-cierre": EtapaCierreDto;
+  etapaCierre: EtapaCierreDto;
 }

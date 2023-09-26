@@ -4,7 +4,6 @@ import { ConvocatoriaRegistroService } from './convocatoria-registro.service';
 import mongoose, { ObjectId, Schema, Types } from 'mongoose';
 import { HttpStatus } from '@nestjs/common';
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
-import { AdjuntarDto } from './dto/adjuntarDto';
 import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registro.dto';
 
 
@@ -19,19 +18,17 @@ convocatoriaEnlace:"http//:canva-convocatoria.com",
 tematica:"Programacion",
 trabajoLineas:"esto es un trabajo muy adaptable a cambios",
 dirigidoEntidades:"Publicas",
-fechaApertura:"20/8/2023",
-fechaCierre:"21/8/2023",
-fechaResolucion:"28/8/2023",
+fechaApertura:new Date("28/8/2023"),
+fechaCierre:new Date("28/8/2023"),
+fechaResolucion:new Date("28/8/2023"),
 periodoEjecucion:"5 meses",
-fechaJustificacion:"4/9/2023",
+fechaJustificacion:new Date("28/8/2023"),
 presupuesto:40000,
 otraInformacion:"un proyecto para desarrollar programadores",
-documentacion:{
 memoriaTecnica:"PDF",
-presupuesto:"PDF",
+modeloPresupuesto:"PDF",
 formularioSolicitud: "PDF",
 otraDocumentacion:"PDF"
-}
 }
 describe('ConvocatoriaRegistroController', () => {
   let controller: ConvocatoriaRegistroController;
@@ -113,24 +110,28 @@ it('findOne:Se ha recibido la convocatoria correctamente',async () => {
 it('update: Actualizar un registro de convocatoria', async () => {
   const id = new mongoose.Schema.Types.ObjectId('65044504c7d7b5d92dce9b4e');
   const updateConvocatoriaDto: UpdateConvocatoriaRegistroDto = {
-    _id: id,
-    entidadConvocante:"Ayuntamiento Valencia",
-    departamentoConvocante:"Gerencia",
-    titulo:"Educacion para todos",
-    publicacionOficial:"http//:convocatoria.com",
-    convocatoriaEnlace:"http//:canva-convocatoria.com",
-    tematica:"Programacion",
-    trabajoLineas:"esto es un trabajo muy adaptable a cambios",
-    dirigidoEntidades:"Publicas",
-    fechaApertura:"20/8/2023",
-    fechaCierre:"21/8/2023",
-    fechaResolucion:"28/8/2023",
-    periodoEjecucion:"5 meses",
-    fechaJustificacion:"4/9/2023",
-    auditoria:false,
-    presupuesto:40000,
-    otraInformacion:"un proyecto para desarrollar programadores",
-    documentacion: new AdjuntarDto(),
+ _id: id,
+entidadConvocante:"Ayuntamiento Valencia",
+departamentoConvocante:"Gerencia",
+titulo:"Educacion para todos",
+publicacionOficial:"http//:convocatoria.com",
+convocatoriaEnlace:"http//:canva-convocatoria.com",
+tematica:"Programacion",
+trabajoLineas:"esto es un trabajo muy adaptable a cambios",
+dirigidoEntidades:"Publicas",
+fechaApertura:new Date("28/8/2023"),
+fechaCierre:new Date("28/8/2023"),
+fechaResolucion:new Date("28/8/2023"),
+periodoEjecucion:"5 meses",
+fechaJustificacion:new Date("28/8/2023"),
+auditoria:false,
+presupuesto:40000,
+otraInformacion:"un proyecto para desarrollar programadores",
+memoriaTecnica:"PDF",
+modeloPresupuesto:"PDF",
+formularioSolicitud: "PDF",
+otraDocumentacion:"PDF"
+  
   };
 
   expect(await controller.update(updateConvocatoriaDto)).toMatchObject({
@@ -158,15 +159,18 @@ it('create:Se ha registrado con exito la convocatoria',async () => {
   tematica:"Programacion",
   trabajoLineas:"esto es un trabajo muy adaptable a cambios",
   dirigidoEntidades:"Publicas",
-  fechaApertura:"20/8/2023",
-  fechaCierre:"21/8/2023",
-  fechaResolucion:"28/8/2023",
+  fechaApertura:new Date("28/8/2023"),
+  fechaCierre:new Date("28/8/2023"),
+  fechaResolucion: new Date("28/8/2023"),
   periodoEjecucion:"5 meses",
-  fechaJustificacion:"4/9/2023",
+  fechaJustificacion:new Date("28/8/2023"),
   auditoria:false,
   presupuesto:40000,
   otraInformacion:"un proyecto para desarrollar programadores",
-  documentacion: new AdjuntarDto(),
+  memoriaTecnica:"PDF",
+  modeloPresupuesto:"PDF",
+  formularioSolicitud: "PDF",
+  otraDocumentacion:"PDF"
   };
   expect(await controller.create(newConvocatoria)).toMatchObject({
     message: 'Se ha registrado correctamente la convocatoria',

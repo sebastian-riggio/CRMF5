@@ -46,10 +46,10 @@ export function DataTable<TData, TValue> ({
     <div>
       <div className='flex items-center py-4'>
         <Input
-          placeholder='Filter emails...'
-          value={(table.getColumn('centro-gestor')?.getFilterValue() as string || table.getColumn('proyecto-nombre')?.getFilterValue() as string) ?? ''}
+          placeholder='Filtrar Centro-Gestor...'
+          value={(table.getColumn('centroGestor')?.getFilterValue() as string || table.getColumn('proyectoNombre')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
-            table.getColumn('centro-gestor')?.setFilterValue(event.target.value) && table.getColumn('proyecto-nombre')?.setFilterValue(event.target.value)}
+            table.getColumn('centroGestor')?.setFilterValue(event.target.value) && table.getColumn('proyectoNombre')?.setFilterValue(event.target.value)}
           className='max-w-sm'
         />
       </div>
@@ -106,7 +106,7 @@ export function DataTable<TData, TValue> ({
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          Previous
+          Anterior
         </Button>
         <Button
           variant='outline'
@@ -114,7 +114,7 @@ export function DataTable<TData, TValue> ({
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next
+          Siguiente
         </Button>
       </div>
     </div>

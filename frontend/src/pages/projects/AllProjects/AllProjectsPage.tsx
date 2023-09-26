@@ -1,29 +1,36 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
-import accountFormSchema from '../../../components/accountFormSchema'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
-import { access } from 'fs'
 import { DataTable } from './data-table'
+import proyectPost from '../../../interfaces/proyectPost'
+import { getProjects } from '../../../services/proyectos'
+import GoBack from '../../../components/GoBack'
+import { Link } from 'react-router-dom'
 
-const baseUrl = 'http://localhost:3000/api/v1/projects'
+type projectsTable = z.infer<typeof proyectPost>
 
-type projectsTable = z.infer<typeof accountFormSchema>
-
-type projectColumns = Pick<projectsTable, 'titulo' | 'fecha' | 'dpto'| 'responsable' >
-
+type projectColumns = Pick<projectsTable, 'proyectoNombre' | 'fechaInicio' | 'centroGestor'| 'responsable'|'fechaCierre' >
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString()
+}
 const columns: ColumnDef<projectColumns>[] = [
   {
-    accessorKey: 'proyecto-nombre',
+    accessorKey: 'proyectoNombre',
     header: 'Titulo'
   },
   {
-    accessorKey: 'proyecto-duracion',
-    header: 'Fecha'
+    accessorKey: 'fechaInicio',
+    header: 'Fecha-Inicio',
+    cell: ({ row }) => formatDate(row.getValue('fechaInicio'))
   },
   {
-    accessorKey: 'centro-gestor',
-    header: 'Gestor'
+    accessorKey: 'fechaCierre',
+    header: 'Fecha-Cierre',
+    cell: ({ row }) => formatDate(row.getValue('fechaCierre')) // toma la fecha de inicio de la fila actual (row.getValue('fechaInicio')) y luego llama a la función formatDate para formatear esa fecha antes de renderizarla en la celda.
+  },
+  {
+    accessorKey: 'centroGestor',
+    header: 'Centro Gestor'
   },
   {
     accessorKey: 'responsable',
@@ -45,17 +52,24 @@ function AllProjectsPage () {
   const [data, setData] = useState()
 
   useEffect(() => {
-    axios.get(baseUrl).then((response) => {
+    getProjects().then((response) => {
       setData(response)
     })
   }, [])
   if (!data) return null
-  console.log(data.data.proyectos)
+  console.log(data)
   return (
-    <div className='container mx-auto'>
-      <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
-      <DataTable columns={columns} data={data.data.proyectos} />
-    </div>
+    <>
+      <div>
+        <Link to='http://localhost:5173/home'>
+          <GoBack />
+        </Link>
+      </div>
+      <div className='container mx-auto mt-5'>
+        <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
+        <DataTable columns={columns} data={data.data.proyectos} />
+      </div>
+    </>
   )
 }
 

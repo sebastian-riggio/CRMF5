@@ -28,9 +28,13 @@ const frameworks = [
   }
 ]
 
-export function SearchProjects () {
+interface SearchProjectsProps {
+  onSelectProject: (projectValue: string) => void;
+}
+
+export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState('')
+  const [selectedValue, setSelectedValue] = React.useState('')
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -41,9 +45,7 @@ export function SearchProjects () {
           aria-expanded={open}
           className='w-[200px] justify-between'
         >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : 'Proyectos...'}
+          {selectedValue ? frameworks.find((framework) => framework.value === selectedValue)?.label : 'Proyectos...'}
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
@@ -55,15 +57,16 @@ export function SearchProjects () {
             {frameworks.map((framework) => (
               <CommandItem
                 key={framework.value}
-                onSelect={(currentValue) => {
-                  setValue(currentValue === value ? '' : currentValue)
+                onSelect={() => {
+                  setSelectedValue(framework.value)
+                  onSelectProject(framework.value)
                   setOpen(false)
                 }}
               >
                 <Check
                   className={cn(
                     'mr-2 h-4 w-4',
-                    value === framework.value ? 'opacity-100' : 'opacity-0'
+                    selectedValue === framework.value ? 'opacity-100' : 'opacity-0'
                   )}
                 />
                 {framework.label}

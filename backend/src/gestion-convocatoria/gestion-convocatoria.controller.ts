@@ -35,4 +35,5 @@ export class GestionConvocatoriaController {
   remove(@Body('id') id:ObjectId) {
     return this.gestionConvocatoriaService.remove(id);
   }
+
 }
