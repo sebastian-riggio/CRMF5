@@ -4,6 +4,8 @@ import accountFormSchema from '../../../components/accountFormSchema'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
 import { DataTableCalls } from './date-table-calls'
+import GoBack from '../../../components/GoBack'
+import { Link } from 'react-router-dom'
 
 const baseUrl = 'http://localhost:3000/api/v1/gestion'
 
@@ -50,10 +52,17 @@ function AllCallsPage () {
   console.log(data.data.gestiones)
 
   return (
-    <div className='container mx-auto'>
-      <h1 className='text-4xl font-semibold'>Convocatorias</h1>
-      <DataTableCalls columns={columns} data={data.data.gestiones} />
-    </div>
+    <>
+      <div>
+        <Link to='http://localhost:5173/home'>
+          <GoBack />
+        </Link>
+      </div>
+      <div className='container mx-auto'>
+        <h1 className='text-4xl font-semibold'>Convocatorias</h1>
+        <DataTableCalls columns={columns} data={data.data.gestiones} />
+      </div>
+    </>
   )
 }
 
