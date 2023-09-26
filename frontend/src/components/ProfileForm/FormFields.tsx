@@ -14,6 +14,8 @@ import { CardFooter } from '../ui/card'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from '../ui/use-toast'
 import { Calendar } from '../ui/calendar'
+import { AxiosResponse } from 'axios'
+import { createUser } from '@/services/user'
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'p&c' },
@@ -32,16 +34,34 @@ export function FormFields () {
     }
   })
 
-  function onSubmit (data: z.infer<typeof ProfileFormSchema>) {
+ async function onSubmit(data: z.infer<typeof ProfileFormSchema>) {
     console.log(data)
-    toast({
-      title: 'Crea un nuevo usurario para Factoria F5:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      )
-    })
+    try {
+      const output = {
+        ...data,
+        password: 'secret'
+      }
+      // const response: AxiosResponse = await createUser(output)
+      toast({
+        title: 'Crea un nuevo usurario para Factoria F5:',
+        description: (
+          <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
+            <code className='text-white'>{JSON.stringify(output, null, 2)}</code>
+          </pre>
+        )
+      })
+
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: (
+          <div>
+            <p>{error}</p>
+          </div>
+        )
+      })
+
+    }
   }
   return (
     <Form {...form}>

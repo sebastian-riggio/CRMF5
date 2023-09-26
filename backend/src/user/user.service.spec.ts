@@ -2,17 +2,19 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Role } from '../auth/enums/role.enum';
 
 const users = [
   {
     id: 'string',
     name: 'John Doe',
-    user_name: 'johndoe123',
     password: 'secretpassword',
     email: 'johndoe@example.com',
-    wallet_balance: 1000,
-    id_published_content: [1, 2, 3],
-    id_bought_content: [4, 5, 6],
+    area: 'Learning',
+    departamento: 'Social',
+    inicioActividad: new Date(),
+    telefono: '31234234234',
+    roles: [Role.User]
     // created_at: new Date('2023-06-15'),
     // created_update: new Date('2023-06-16'),
   },
@@ -66,17 +68,15 @@ describe('UserService', () => {
   });
 
   it('should create a new user', async () => {
-    const newUser = {
-      id: 'string',
+    const newUser: CreateUserDto = {
       name: 'Jane mick swagger',
-      user_name: 'johndoe123',
       password: 'secretpassword',
       email: 'johndoe@example.com',
-      wallet_balance: 1000,
-      id_published_content: [1, 2, 3],
-      id_bought_content: [4, 5, 6],
-      created_at: new Date(),
-      created_update: new Date(),
+      area: 'Learning',
+      departamento: 'Social',
+      inicioActividad: new Date(),
+      telefono: '31234234234',
+      roles: [Role.User]
     };
     expect(await service.create(newUser)).toMatchObject({
       id: expect.any(String),
@@ -84,34 +84,33 @@ describe('UserService', () => {
   });
   it('should update a user ', async () => {
     const userId = 'string';
-    const updateUser = { name: 'Updated name' };
-    expect(await service.update(userId, updateUser)).toEqual({
-      id: userId,
-      name: 'Updated Name',
-      user_name: 'johndoe123',
+    const updateUser: Partial<UpdateUserDto> = { name: 'Updated name' };
+    const token = 'secretToken'
+    expect(await service.update(userId, updateUser, token)).toEqual({
+      id: expect.any(String),
+      name: 'Updated name',
       password: 'secretpassword',
       email: 'johndoe@example.com',
-      wallet_balance: 1000,
-      id_published_content: [1, 2, 3],
-      id_bought_content: [4, 5, 6],
-      created_at: new Date(),
-      created_update: new Date(),
+      roles: [Role.User],
+      area: 'Learning',
+      departamento: 'Social',
+      inicioActividad: expect.any(Date),
+      telefono: '31234234234',
     });
   });
   it('should delete a user', async () => {
     const userId = 'ObjectId';
     const deletedUser = await service.delete(userId);
     expect(deletedUser).toMatchObject({
-      id: 'string',
-      name: 'John Doe',
-      user_name: 'johndoe123',
+      id: expect.any(String),
+    name: 'John Doe',
       password: 'secretpassword',
       email: 'johndoe@example.com',
-      wallet_balance: 1000,
-      id_published_content: [1, 2, 3],
-      id_bought_content: [4, 5, 6],
-      created_at: new Date('2023-06-15'),
-      created_update: new Date('2023-06-16'),
+      roles: [Role.User],
+      area: 'Learning',
+      departamento: 'Social',
+      inicioActividad: expect.any(Date),
+      telefono: '31234234234',
     });
   });
 });

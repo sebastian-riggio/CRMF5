@@ -15,7 +15,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem
-} from '../components/ui/command'
+} from './ui/command'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'

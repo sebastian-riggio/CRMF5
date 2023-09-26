@@ -1,4 +1,4 @@
-import ProyectForm from '../../components/ProyectForm'
+import ProyectForm from '../../components/ProjectForm'
 
 function NewProjectPage () {
   return (

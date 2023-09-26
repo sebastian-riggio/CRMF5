@@ -11,26 +11,56 @@ import {
 import { ApiProperty, ApiQuery } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { Role } from '../../auth/enums/role.enum';
+import { faker } from '@faker-js/faker';
 
 export class CreateUserDto {
 
-  @ApiProperty()
+  @ApiProperty({
+    example: faker.person.fullName()
+  })
   @IsNotEmpty()
   @IsString()
   name: string;
 
-  @ApiProperty()
+  // @ApiProperty()
+  // @IsString()
+  // @IsNotEmpty()
+  // user_name: string;
+  @ApiProperty({
+    example: faker.company.buzzPhrase()
+  })
   @IsString()
   @IsNotEmpty()
-  user_name: string;
+  area: string;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
   password: string;
+  
+  @ApiProperty({
+    example: faker.commerce.department()
+  })
+  @IsString()
+  @IsNotEmpty()
+  departamento: string;
 
   @ApiProperty({
-    example:  'email@email.com'
+    example: faker.date.past()
+  })
+  @IsDate()
+  @IsNotEmpty()
+  inicioActividad: Date;
+  
+  @ApiProperty({
+    example: faker.phone.number()
+  })
+  @IsString()
+  @IsNotEmpty()
+  telefono: string;
+
+  @ApiProperty({
+    example: faker.internet.email()
   })
   @IsEmail()
   @IsNotEmpty()

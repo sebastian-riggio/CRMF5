@@ -32,7 +32,8 @@ import { RolesGuard } from '../auth/guards/role.guard';
 @ApiTags('user')
 @ApiBearerAuth() // Add this line to enable bearer token authentication for protected routes
 // @UseGuards(JwtAuthGuard)
-@UseGuards(AuthGuard('jwt'), RolesGuard)
+// @UseGuards(AuthGuard('jwt'), RolesGuard)
+@UseGuards(RolesGuard)
 // @Roles(Role.User) // Add this line to restrict access to admin users only
 @Controller('user')
 export class UserController {
@@ -67,7 +68,8 @@ export class UserController {
   @Patch(':id')
   @ApiResponse({ status: 200, description: 'User updated' })
   @ApiResponse({ status: 404, description: 'User not found' })
-  @Public()
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Public()
   update(
     @Req() req,
     @Param('id') id: string,

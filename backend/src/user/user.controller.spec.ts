@@ -9,9 +9,12 @@ const users = [
   {
     id: '21',
     name: 'John Doe',
-    user_name: 'johndoe123',
     password: 'secretpassword',
     email: 'johndoe@example.com',
+    departamento: 'promo',
+    area: 'social',
+    inicioActividad: new Date(),
+    telefono: '2323 23 23232'
   },
 ];
 
@@ -77,12 +80,16 @@ describe('UserController', () => {
     const newUser = {
       id: '222',
       name: 'Jane mick swagger',
-      user_name: 'johndoe123',
+      // user_name: 'johndoe123',
       password: 'secretpassword',
       email: 'johndoe@example.com',
-      wallet_balance: 1000,
-      id_published_content: [1, 2, 3],
-      id_bought_content: [4, 5, 6],
+      // wallet_balance: 1000,
+      // id_published_content: [1, 2, 3],
+      // id_bought_content: [4, 5, 6],
+      departamento: 'promo',
+      area: 'social',
+      inicioActividad: new Date(),
+      telefono: '2323 23 23232'
     };
     expect(await controller.create(newUser)).toMatchObject({
       id: expect.any(String),
@@ -91,7 +98,7 @@ describe('UserController', () => {
 
   it('should update a user', async () => {
     const userId = '222';
-    const updateUser: UpdateUserDto = { user_name: 'Updated user name', token: 'dzcxasd' };
+    const updateUser: UpdateUserDto = { name: 'Updated user name' };
 
     const mockReq = {
       user: {
@@ -102,8 +109,7 @@ describe('UserController', () => {
 
     expect(await controller.update(mockReq ,userId, updateUser)).toEqual({
       id: userId,
-      user_name: 'Updated user name',
-      token: 'dzcxasd'
+      name: 'Updated user name',
     });
   });
   it('should delete a user', async () => {

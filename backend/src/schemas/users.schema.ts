@@ -5,12 +5,12 @@ import { Role } from '../auth/enums/role.enum';
 
 export type UserDocument = HydratedDocument<User>;
 
-@Schema()
+@Schema({timestamps: true })
 export class User extends Document {
   @Prop({ required: true, unique: true })
   'name': string;
-  @Prop()
-  'user_name': string;
+  // @Prop()
+  // 'user_name': string;
   @Prop({ required: true, select: false })
   'password': string;
   @Prop({ required: true, unique: true })
@@ -25,16 +25,6 @@ export class User extends Document {
   'inicioActividad': Date;
   @Prop()
   'telefono': string;
-/*   @Prop()
-  'wallet_balance': number; 
-  @Prop({ required: false })
-  'id_published_content'?: string[];
-  @Prop()
-  'id_bought_content'?: string[]; */
-  @Prop()
-  'created_at:'?: Date;
-  @Prop()
-  'created_update'?: Date;
   @Prop({ default: Role.User })
   'roles'?: Role[];
   async comparePassword(password: string): Promise<boolean> {
