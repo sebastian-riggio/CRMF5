@@ -1,77 +1,57 @@
-import * as z from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 
-import accountFormSchema from './accountFormSchema'
+import accountFormSchema from './accountFormSchema';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from '../components/ui/accordion'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from './ui/card'
-import { toast } from '../components/ui/use-toast'
-import { Separator } from './ui/separator'
-import { Form } from './ui/form'
-import GeneralProject from './ui/project/GeneralProject'
-import CallAndProject from './ui/project/CallAndProject'
+  AccordionTrigger,
+} from '../components/ui/accordion';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { toast } from '../components/ui/use-toast';
+import { Separator } from './ui/separator';
+import { Form } from './ui/form';
+import GeneralProject from './ui/project/GeneralProject';
+import CallAndProject from './ui/project/CallAndProject';
+import proyectPost from '../interfaces/proyectPost';
+import { useEffect, useState } from 'react';
+import { getProjectDetail } from '../services/proyectos';
+import { Projects } from '../interfaces/projects';
+import { useParams } from 'react-router-dom';
+import axios, { AxiosResponse } from 'axios';
 
-type AccountFormValues = z.infer<typeof accountFormSchema>;
-
-function Project () {
-  const form = useForm<AccountFormValues>({
-    resolver: zodResolver(accountFormSchema)
-  })
-
-  function onSubmit (data: AccountFormValues) {
-    toast({
-      title: 'Visualización de un proyecto',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      )
-    })
-  }
+function Project() {
+  const [project, setProject] = useState<Projects>();
+  const { id } = useParams();
+  useEffect(() => {
+    getProjectDetail(id).then((reponse) => {
+      setProject(reponse.data.proyecto);
+      console.log(reponse);
+    });
+  }, []);
 
   return (
     <>
-      <CardContent className='flex flex-wrap '>
-        <Card className='m-2 container mx-auto'>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
-              <CardHeader>
-                <CardTitle className='container mx-auto'> Título de prueba
-                  {/* Aca hay que traer el titulo del proyecto */}
-                </CardTitle>
-              </CardHeader>
-              <Separator />
-              <div>
-                {/* Datos general de un proyecto */}
-                <GeneralProject />
-              </div>
-            </form>
-          </Form>
-        </Card>
-      </CardContent>
-      <Card className='m-2 w-full px-2 mt-8 '>
-        <Accordion className='m-2 w-full' type='single' collapsible>
-          <AccordionItem value='item-1'>
-            <AccordionTrigger className='px-3'>CONVOCATORIAS APLICADAS </AccordionTrigger>
-            <AccordionContent>
-              {/* Convocatorias que están asociadas a un proyecto */}
-              <CallAndProject />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </Card>
+      <div className='container mx-auto mt-5'>
+        <h1 className=' text-primary text-4xl font-semibold mb-5'>{project?.proyectoNombre}</h1>
+        <h1 className='font-black'>Centro Gestor:</h1>
+        <h2>{project?.centroGestor}</h2>
+        <h1 className='font-black'>Responsable:</h1>
+        <h2>{project?.responsable}</h2>
+        <h1 className='font-black'>Duracion de proyecto:</h1>
+        <h2>{`${project?.proyectoDuracion} meses`}</h2>
+        <h1 className='font-black'>Fecha de inicio:</h1>
+        <h2>{project?.fechaInicio}</h2>
+        <h1 className='font-black'>Fecha de cierre:</h1>
+        <h2>{project?.fechaCierre}</h2>
+        <h1 className='font-black'>Presupuesto global:</h1>
+        <h2>{`${project?.proyectoPresupuesto} € `}</h2>
+
+      </div>
     </>
-  )
+  );
 }
 
-export default Project
+export default Project;

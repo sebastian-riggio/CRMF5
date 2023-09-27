@@ -8,3 +8,7 @@ export const createProject = (data:Projects) => {
 export const getProjects = () => {
   return axiosPrivate.get('projects')
 }
+
+export const getProjectDetail = (id) => {
+  return axiosPrivate.get(`/projects/${id}`)
+}
