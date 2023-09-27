@@ -137,7 +137,7 @@ function NegotationStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='recibooficial'
+              name='resolucion'
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>

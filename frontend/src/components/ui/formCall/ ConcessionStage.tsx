@@ -60,7 +60,7 @@ function ConcessionStage () {
                     <FormLabel className='mb-2'>Estado</FormLabel>
                     <FormControl>
                       <ProjectStatus
-                        {...field}
+                        {...form.control.estado}
                       />
                     </FormControl>
                     <FormMessage />
