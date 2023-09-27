@@ -7,6 +7,9 @@ const proyectPost = z.object({
   proyectoNombre: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
+
+  proyectoCodigo: z.string(),
+
   centroGestor: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
