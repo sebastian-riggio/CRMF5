@@ -22,6 +22,7 @@ import {
 import { Input } from './ui/input'
 import {
   Popover,
+  PopoverContent,
   PopoverTrigger
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
@@ -31,15 +32,55 @@ import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import { useEffect } from 'react'
 import DatePicker from './ui/DatePicker'
+import { Calendar } from './ui/calendar'
+import { cn } from '@/lib/utils'
+import { CalendarIcon } from '@radix-ui/react-icons'
+import { format } from 'date-fns'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
+const schema = z.object({
+  titulo: z.string().min(3).max(50).optional(),
+  tematica: z.string().min(3).max(50).optional(),
+  entidadConvocante: z.string().min(3).max(50).optional(),
+  departamentoConvocante: z.string().min(3).max(50).optional(),
+  publicacionOficial: z.string().url().optional(),
+  convocatoriaEnlace: z.string().url().optional(),
+  trabajoLineas: z.string().min(10).optional(),
+  dirigidoEntidades: z.string().min(3).max(50),
+  fechaApertura: z.date(),
+  fechaCierre: z.date(),
+  fechaResolucion: z.date(),
+  periodoEjecucion: z.coerce.number().min(1).optional(),
+  auditoria: z.boolean().optional(),
+  presupuesto: z.coerce.number().min(0).optional(),
+  otraInformacion: z.string().optional(),
+  memoriaTecnica: z.object({
+    fileMemory: z.instanceof(File).optional(),
+    fileBudget: z.string().optional(),
+    fileApplicationForm: z.string().optional(),
+    fileOtherDocs: z.string().optional(),
+  }).optional(),
+});
+const initialFormData = {
+  titulo: '',
+  tematica: '',
+  // ... other fields ...
+  fechaApertura: new Date(), // Set the default date to the current date
+  fechaCierre: new Date(), // Set the default date to the current date
+  fechaResolucion: new Date(), // Set the default date to the current date
+  // ... other fields ...
+};
+type SchemaForm = z.infer<typeof schema>
+
 function MainNewCall () {
-  const form = useForm<AccountFormValues>({
-    resolver: zodResolver(gestionRegistroPost)
+  const form = useForm<SchemaForm>({
+    resolver: zodResolver(schema),
+    defaultValues: initialFormData
   })
 
-  async function onSubmit (data: AccountFormValues) {
+  async function onSubmit (e, data: SchemaForm) {
+    e.preventDefault()
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
@@ -201,13 +242,37 @@ function MainNewCall () {
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <DatePicker
-                                title=''
-                                {...field}
-                              />
+                              <Button
+                                variant='outline'
+                                className={cn(
+                                  ' pl-3 text-left font-normal',
+                                  !field.value && 'text-muted-foreground'
+                                )}
+                              >
+                                {field.value
+                                  ? (
+                                    format(field.value, 'PPP')
+                                  )
+                                  : (
+                                    <span>Elige la fecha </span>
+                                  )}
+                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                              </Button>
                             </FormControl>
                           </PopoverTrigger>
+                          <PopoverContent className='w-auto p-0' align='start'>
+                            <Calendar
+                              mode='single'
+                              selected={field.value}
+                              onSelect={field.onChange}
+                              disabled={(date) =>
+                                date > new Date() || date < new Date('1900-01-01')}
+                              initialFocus
+                              className='bg-gray-100'
+                            />
+                          </PopoverContent>
                         </Popover>
+
                         <FormMessage />
                       </div>
                     </FormItem>
@@ -223,12 +288,35 @@ function MainNewCall () {
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <DatePicker
-                                title=''
-                                {...field}
-                              />
+                              <Button
+                                variant='outline'
+                                className={cn(
+                                  ' pl-3 text-left font-normal',
+                                  !field.value && 'text-muted-foreground'
+                                )}
+                              >
+                                {field.value
+                                  ? (
+                                    format(field.value, 'PPP')
+                                  )
+                                  : (
+                                    <span>Elige la fecha </span>
+                                  )}
+                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                              </Button>
                             </FormControl>
                           </PopoverTrigger>
+                          <PopoverContent className='w-auto p-0' align='start'>
+                            <Calendar
+                              mode='single'
+                              selected={field.value}
+                              onSelect={field.onChange}
+                              disabled={(date) =>
+                                date > new Date() || date < new Date('1900-01-01')}
+                              initialFocus
+                              className='bg-gray-100'
+                            />
+                          </PopoverContent>
                         </Popover>
                         <FormMessage />
                       </div>
@@ -246,13 +334,37 @@ function MainNewCall () {
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <DatePicker
-                                title=''
-                                {...field}
-                              />
+                              <Button
+                                variant='outline'
+                                className={cn(
+                                  ' pl-3 text-left font-normal',
+                                  !field.value && 'text-muted-foreground'
+                                )}
+                              >
+                                {field.value
+                                  ? (
+                                    format(field.value, 'PPP')
+                                  )
+                                  : (
+                                    <span>Elige la fecha </span>
+                                  )}
+                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                              </Button>
                             </FormControl>
                           </PopoverTrigger>
+                          <PopoverContent className='w-auto p-0' align='start'>
+                            <Calendar
+                              mode='single'
+                              selected={field.value}
+                              onSelect={field.onChange}
+                              disabled={(date) =>
+                                date > new Date() || date < new Date('1900-01-01')}
+                              initialFocus
+                              className='bg-gray-100'
+                            />
+                          </PopoverContent>
                         </Popover>
+
                         <FormMessage />
                       </div>
                     </FormItem>
