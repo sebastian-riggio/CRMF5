@@ -12,7 +12,7 @@ function HomePage () {
       </div>
       <div className=''>
         <Tabs defaultValue='overview' className='space-y-4 my-4'>
-          <ResumeBoard />
+           <ResumeBoard />
           <CalendarBoard />
         </Tabs>
       </div>
