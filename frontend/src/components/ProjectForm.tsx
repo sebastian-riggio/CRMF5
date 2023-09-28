@@ -2,13 +2,11 @@ import { useEffect } from 'react'
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
+  CardFooter
 } from './ui/card'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 
-import { cn, formatDate } from '../lib/utils'
+import { cn } from '../lib/utils'
 import {
   Command,
   CommandEmpty,

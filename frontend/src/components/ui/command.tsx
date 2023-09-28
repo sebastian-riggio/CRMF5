@@ -9,6 +9,7 @@ import { Dialog, DialogContent } from '../ui/dialog'
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive>
+// eslint-disable-next-line react/prop-types
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}

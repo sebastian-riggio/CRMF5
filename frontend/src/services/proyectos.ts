@@ -9,6 +9,6 @@ export const getProjects = () => {
   return axiosPrivate.get('projects')
 }
 
-export const getProjectDetail = (id) => {
+export const getProjectDetail = (id:string) => {
   return axiosPrivate.get(`/projects/${id}`)
 }

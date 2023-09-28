@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
