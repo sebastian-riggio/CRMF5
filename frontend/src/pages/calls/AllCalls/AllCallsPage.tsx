@@ -15,7 +15,15 @@ type gestionColumns = Pick<gestionTable, 'convocatoria' | 'financiador' | 'proye
 const columns: ColumnDef<gestionColumns>[] = [
   {
     accessorKey: 'convocatoria',
-    header: 'Titulo'
+    header: 'Titulo',
+    cell: ({ row }) => {
+      const idRow = row.original
+      return (
+        <Link className='text-blue-500 underline' to={`/gestion/${idRow._id as string}`}>
+          {row.getValue('convocatoria')}
+        </Link>
+      )
+    }
   },
   {
     accessorKey: 'financiador',
@@ -52,7 +60,7 @@ function AllCallsPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/home'>
+        <Link to='http://localhost:5173/call/:id'>
           <GoBack />
         </Link>
       </div>
