@@ -40,6 +40,7 @@ function MainNewCall () {
   })
 
   async function onSubmit (data: AccountFormValues) {
+    console.log(data)
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
@@ -55,14 +56,11 @@ function MainNewCall () {
       )
     })
   }
-  useEffect(() => {}, [])
+
   return (
     <div className='container mx-auto'>
       <Card>
-        <CardHeader>
-          <CardTitle>Nueva convocatoria
-          </CardTitle>
-        </CardHeader>
+        <h1 className='text-4xl font-semibold mb-5'>Nueva Convocatoria</h1>
         <Separator />
         <div>
           <Form {...form}>
