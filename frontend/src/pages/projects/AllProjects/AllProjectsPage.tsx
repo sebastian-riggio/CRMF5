@@ -18,9 +18,9 @@ type projectColumns = Pick<
   | 'responsable'
   | 'fechaCierre'
 >;
-/* 
 
- */ const columns: ColumnDef<projectColumns>[] = [
+
+  const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'proyectoNombre',
     header: 'Titulo',
