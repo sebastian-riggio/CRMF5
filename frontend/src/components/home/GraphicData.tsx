@@ -32,7 +32,7 @@ const data = [
   }
 ]
 
-export default class Example extends PureComponent {
+export default class GraphicData extends PureComponent {
   render () {
     return (
       <div style={{ width: '100%', height: 350 }}>

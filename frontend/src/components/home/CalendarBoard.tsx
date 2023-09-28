@@ -7,23 +7,19 @@ import {
 } from 'lucide-react'
 import { DiaryBox } from './DiaryBox'
 
-/* interface ImportantEvent {
-    _id: number;
-    description: string;
-    date: string;
-} */
-
 function CalendarBoard () {
   const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
+        {/* traer fechas de vencimiento/cierre de convocatorias para marcar en el calendario */}
         <Calendar
           mode='single'
           selected={date}
           onSelect={setDate}
           className='rounded-md border'
         />
+        {/* listar las mismas fechas de vencimiento/cierre que se han marcado en el calendario */}
         <ScrollArea className='h-[310px] w-[280px] md:w-[450px] rounded-md border p-4'>
           <div className='p-4'>
             <Siren className='mb-4 text-sm font-medium leading-none'> </Siren>
