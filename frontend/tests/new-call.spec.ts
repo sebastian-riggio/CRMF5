@@ -46,7 +46,7 @@ test.describe('Form register new user', () => {
     const departamentInput = page.getByPlaceholder(/Departamento o centro gestor/i)
     await expect(departamentInput).toBeVisible()
   })
-
+ 
   test('Link to official publication input', async ({ page }) => {
     const linkLabel = page.getByText('Enlace a publicación oficial')
     await expect(linkLabel).toBeVisible()

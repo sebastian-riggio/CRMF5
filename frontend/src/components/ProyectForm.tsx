@@ -103,7 +103,7 @@ function ProyectForm () {
                       <div className='flex flex-col space-y-2 mt-5'>
                         <FormLabel className='text-sm text-gray-600'>Nombre del Proyecto</FormLabel>
                         <FormControl>
-                          <Input placeholder='Nombre del proyecto' {...field} />
+                          <Input placeholder='Nombre del proyecto' {...field} data-testid='project-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -188,7 +188,7 @@ function ProyectForm () {
                         <FormControl>
                           <Input
                             placeholder='Persona responsable Factoria F5'
-                            {...field}
+                            {...field} data-testid='responsable-input'
                           />
                         </FormControl>
                         <FormMessage />
@@ -205,7 +205,7 @@ function ProyectForm () {
                       <div className='flex flex-col space-y-2 mt-5'>
                         <FormLabel className='text-sm text-gray-600'>Meses duración</FormLabel>
                         <FormControl>
-                          <Input type='number' placeholder='Meses Duración' {...field} />
+                          <Input type='number' placeholder='Meses Duración' {...field} data-testid='month-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -224,7 +224,7 @@ function ProyectForm () {
                           <Input
                             type='number'
                             placeholder='€'
-                            {...field}
+                            {...field} data-testid='project-budget-input'
                           />
                         </FormControl>
                         <FormMessage />
@@ -243,7 +243,7 @@ function ProyectForm () {
                         <FormControl>
                           <Input
                             placeholder='€'
-                            {...field}
+                            {...field} data-testid='factoria-budget-input'
                           />
                         </FormControl>
                         <FormMessage />
@@ -264,7 +264,7 @@ function ProyectForm () {
                             <FormControl>
                               <DatePicker
                                 title=''
-                                {...field}
+                                {...field} data-testid='date-input'
                               />
                             </FormControl>
                           </PopoverTrigger>
@@ -286,7 +286,7 @@ function ProyectForm () {
                             <FormControl>
                               <DatePicker
                                 title=''
-                                {...field}
+                                {...field} data-testid='finish-input' 
                               />
                             </FormControl>
                           </PopoverTrigger>
