@@ -175,4 +175,17 @@ test.describe('Form register new user', () => {
     const documentInput = page.locator('[data-testid="file-other-docs"]')
     await expect(documentInput).toBeVisible()
   })
+  test('Create button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Crear/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/allcalls')
+  })
+
+  test('Cancel button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Cancelar/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/allcalls')
+  })
 })
