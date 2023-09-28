@@ -31,11 +31,12 @@ import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import { useEffect } from 'react'
-import DatePicker from './ui/DatePicker'
 import { Calendar } from './ui/calendar'
 import { cn } from '@/lib/utils'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import { format } from 'date-fns'
+import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
+import { ProfileFormSchema } from './ProfileForm/ProfileForm'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
@@ -52,7 +53,7 @@ const schema = z.object({
   fechaCierre: z.date(),
   fechaResolucion: z.date(),
   periodoEjecucion: z.coerce.number().min(1).optional(),
-  auditoria: z.boolean().optional(),
+  auditoria: z.string().optional(),
   presupuesto: z.coerce.number().min(0).optional(),
   otraInformacion: z.string().optional(),
   memoriaTecnica: z.object({
@@ -79,8 +80,7 @@ function MainNewCall () {
     defaultValues: initialFormData
   })
 
-  async function onSubmit (e, data: SchemaForm) {
-    e.preventDefault()
+  async function onSubmit (data: SchemaForm) {
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
@@ -251,11 +251,11 @@ function MainNewCall () {
                               >
                                 {field.value
                                   ? (
-                                    format(field.value, 'PPP')
-                                  )
+                                      format(field.value, 'PPP')
+                                    )
                                   : (
                                     <span>Elige la fecha </span>
-                                  )}
+                                    )}
                                 <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                               </Button>
                             </FormControl>
@@ -297,11 +297,11 @@ function MainNewCall () {
                               >
                                 {field.value
                                   ? (
-                                    format(field.value, 'PPP')
-                                  )
+                                      format(field.value, 'PPP')
+                                    )
                                   : (
                                     <span>Elige la fecha </span>
-                                  )}
+                                    )}
                                 <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                               </Button>
                             </FormControl>
@@ -343,11 +343,11 @@ function MainNewCall () {
                               >
                                 {field.value
                                   ? (
-                                    format(field.value, 'PPP')
-                                  )
+                                      format(field.value, 'PPP')
+                                    )
                                   : (
                                     <span>Elige la fecha </span>
-                                  )}
+                                    )}
                                 <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                               </Button>
                             </FormControl>
@@ -398,7 +398,7 @@ function MainNewCall () {
                         </div>
                         <div>
                           <FormControl>
-                            <Switch {...field} />
+                            <Switch id='sdssd' {...field} />
                           </FormControl>
                         </div>
                         <FormMessage />
@@ -439,13 +439,12 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='memoriaTecnica'
-                  shouldUnregister
                   render={({ field }) => (
                     <div className='my-2 flex flex-wrap -mx-4'>
                       <FormItem className='w-1/2 px-4 mb-4'>
-                        <FormLabel className='mb-2'>Memoria técnica</FormLabel>
+                        <FormLabel id='memoriaTecnica' className='mb-2'>Memoria técnica</FormLabel>
                         <FormControl>
-                          <Input type='file' {...field} data-testid='file-memory' />
+                          <Input id='memoriaTecnica' type='file' {...field} data-testid='file-memory' />
                         </FormControl>
                       </FormItem>
                       <FormItem className='w-1/2 px-4 mb-4'>

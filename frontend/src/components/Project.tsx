@@ -3,36 +3,9 @@ import { getProjectDetail } from '../services/proyectos'
 import { Projects } from '../interfaces/projects'
 import { useParams } from 'react-router-dom'
 
-<<<<<<< HEAD
-import accountFormSchema from './accountFormSchema';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '../components/ui/accordion';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { toast } from '../components/ui/use-toast';
-import { Separator } from './ui/separator';
-import { Form } from './ui/form';
-import GeneralProject from './ui/project/GeneralProject';
-import CallAndProject from './ui/project/CallAndProject';
-import proyectPost from '../interfaces/proyectPost';
-import { useEffect, useState } from 'react';
-import { getProjectDetail } from '../services/proyectos';
-import { Projects } from '../interfaces/projects';
-import { useParams } from 'react-router-dom';
-import axios, { AxiosResponse } from 'axios';
-import { formatDate } from '../lib/utils';
-
-function Project() {
-  const [project, setProject] = useState<Projects>();
-  const { id } = useParams();
-=======
 function Project () {
   const [project, setProject] = useState<Projects>()
   const { id } = useParams()
->>>>>>> d27e06726be73a7a914d94cadf3c2ad5306bc92b
   useEffect(() => {
     getProjectDetail(id).then((reponse) => {
       setProject(reponse.data.proyecto)
