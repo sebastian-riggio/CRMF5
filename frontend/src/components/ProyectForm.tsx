@@ -286,7 +286,7 @@ function ProyectForm () {
                             <FormControl>
                               <DatePicker
                                 title=''
-                                {...field} data-testid='finish-input' 
+                                {...field} data-testid='finish-input'
                               />
                             </FormControl>
                           </PopoverTrigger>

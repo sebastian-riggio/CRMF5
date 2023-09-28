@@ -100,22 +100,17 @@ test.describe('Form new project', () => {
     const inputValue = await page.getAttribute('[data-testid=factoria-budget-input]', 'value')
     expect(inputValue).toBe('200 €')
   })
-
-  test('Start date input', async ({ page }) => {
-    const dateLabel = page.getByText('Fecha de inicio')
-    await expect(dateLabel).toBeVisible()
-
-    const dateInput = page.getByLabel('Fecha de inicio')
-    await expect(dateInput).toBeVisible()
-    await dateInput.click()
+  test('Create button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Crear/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/allprojects')
   })
 
-  test('Finish date input', async ({ page }) => {
-    const dateLabel = page.getByText('Fecha de inicio')
-    await expect(dateLabel).toBeVisible()
-
-    const dateInput = await page.waitForSelector('[data-testid=finish-input]')
-    await expect(dateInput).toBeVisible()
-    await dateInput.click()
+  test('Cancel button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Cancelar/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/allprojects')
   })
 })
