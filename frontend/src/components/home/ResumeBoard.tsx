@@ -117,7 +117,7 @@ function ResumeBoard () {
         <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-7'>
           <Card className='col-span-4'>
             <CardHeader>
-              <CardTitle>Aqui va un gráfico</CardTitle>
+              <CardTitle>Gestión de convocatorias</CardTitle>
             </CardHeader>
             <CardContent className='pl-2'>
               <GraphicData />
