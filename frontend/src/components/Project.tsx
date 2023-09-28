@@ -1,7 +1,9 @@
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react'
+import { getProjectDetail } from '../services/proyectos'
+import { Projects } from '../interfaces/projects'
+import { useParams } from 'react-router-dom'
 
+<<<<<<< HEAD
 import accountFormSchema from './accountFormSchema';
 import {
   Accordion,
@@ -26,12 +28,17 @@ import { formatDate } from '../lib/utils';
 function Project() {
   const [project, setProject] = useState<Projects>();
   const { id } = useParams();
+=======
+function Project () {
+  const [project, setProject] = useState<Projects>()
+  const { id } = useParams()
+>>>>>>> d27e06726be73a7a914d94cadf3c2ad5306bc92b
   useEffect(() => {
     getProjectDetail(id).then((reponse) => {
-      setProject(reponse.data.proyecto);
-      console.log(reponse);
-    });
-  }, []);
+      setProject(reponse.data.proyecto)
+      console.log(reponse)
+    })
+  }, [])
 
 
   return (
@@ -54,10 +61,10 @@ function Project() {
         <h2>{`${project?.proyectoPresupuesto} € `}</h2>
         <h1 className='font-black'>Presupuesto Factoria:</h1>
         <h2>{`${project?.factoriaPresupuesto} € `}</h2>
-{/* //llamar proyecto codigo */}
+
       </div>
     </>
-  );
+  )
 }
 
-export default Project;
+export default Project
