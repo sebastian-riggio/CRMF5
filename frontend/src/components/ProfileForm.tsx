@@ -28,17 +28,29 @@ import {
   PopoverTrigger
 } from '../components/ui/popover'
 import { toast } from '../components/ui/use-toast'
-import AccountFormSchema from './accountFormSchema'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Separator } from '@radix-ui/react-separator'
 
 const departamento = [
-  { label: 'Factoría F5 - People and culture', value: 'p&c' },
-  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
-  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
-  { label: 'Factoría F5 -  Dirección general', value: 'gen' },
-  { label: 'Otro', value: 'otro' }
+  { label: 'Factoría F5-People and culture', value: 'Factoría F5-People and culture' },
+  { label: 'Factoría F5-Admin,contabilidad y finanzas', value: 'Factoría F5-Admin,contabilidad y finanza' },
+  { label: 'Factoría F5-Oficina soporte proyectos y calidad', value: 'Factoría F5-Oficina soporte proyectos y calida' },
+  { label: 'Factoría F5-Dirección general', value: 'Factoría F5-Dirección general' },
+  { label: 'Factoria F5 - Madrid', value: 'Factoria F5 - Madrid' },
+  { label: 'Factoria F5 - Asturias', value: 'Factoria F5 - Asturias' },
+  { label: 'Factoria F5 - Barcelona', value: 'Factoria F5 - Barcelona' },
+  { label: 'Otro', value: 'Otro' }
 ] as const
+
+const AccountFormSchema = {
+  nombre: z
+    .string({
+      required_error: 'Debes completar con el nombre'
+    }),
+  departamento: z.string({
+    required_error: 'Elije un centro gestor de factoria F5'
+  })
+}
 
 type AccountFormValues = z.infer<typeof AccountFormSchema>
 
@@ -48,7 +60,7 @@ const defaultValues: Partial<AccountFormValues> = {
   // dob: new Date("2023-01-23"),
 }
 
-export function AccountForm () {
+export function ProfileForm () {
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(AccountFormSchema),
     defaultValues
@@ -86,7 +98,7 @@ export function AccountForm () {
                     <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
                       <FormLabel>Nombre y Apellido</FormLabel>
                       <FormControl>
-                        <Input placeholder='Nombre y Apellido' {...field} />
+                        <Input placeholder='Nombre y Apellido' {...field} data-testid='nombre-input' />
                       </FormControl>
                       <FormMessage />
                     </div>
@@ -163,7 +175,7 @@ export function AccountForm () {
                     <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
                       <FormLabel>Área de trabajo en Factoria F5</FormLabel>
                       <FormControl>
-                        <Input placeholder='área de trabajo' {...field} />
+                        <Input placeholder='área de trabajo' {...field} data-testid='work-area-input' />
                       </FormControl>
                       <FormMessage />
                     </div>
@@ -224,7 +236,7 @@ export function AccountForm () {
                     <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
                       <FormLabel>Correo electrónico</FormLabel>
                       <FormControl>
-                        <Input placeholder='correo electrónico' {...field} />
+                        <Input placeholder='correo electrónico' {...field} data-testid='email-input' />
                       </FormControl>
                       <FormMessage />
                     </div>
@@ -240,7 +252,7 @@ export function AccountForm () {
                     <div className='my-2 flex justifiy flex-wrap md:flex-nowrap'>
                       <FormLabel>Teléfono de contacto</FormLabel>
                       <FormControl>
-                        <Input placeholder='telefono' {...field} />
+                        <Input placeholder='telefono' {...field} data-testid='phone-input' />
                       </FormControl>
                       <FormMessage />
                     </div>
@@ -257,4 +269,5 @@ export function AccountForm () {
       </div>
     </Card>
   )
+
 }
