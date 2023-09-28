@@ -87,10 +87,10 @@ test.describe('Form new project', () => {
   })
 
   test('Factoria budget input', async ({ page }) => {
-    const budgetFactLabel = page.getByText('Presupuesto Factoria F5')
+    const budgetFactLabel = page.getByText('Presupuesto de Factoria F5')
     await expect(budgetFactLabel).toBeVisible()
 
-    const budgetFactInput = page.getByLabel('Presupuesto Factoria F5')
+    const budgetFactInput = page.getByLabel('Presupuesto de Factoria F5')
     await expect(budgetFactInput).toBeVisible()
   })
 
@@ -98,14 +98,14 @@ test.describe('Form new project', () => {
     await page.type('[data-testid=factoria-budget-input]', '200 €')
 
     const inputValue = await page.getAttribute('[data-testid=factoria-budget-input]', 'value')
-    await expect(inputValue).toBe('200 €')
+    expect(inputValue).toBe('200 €')
   })
 
   test('Start date input', async ({ page }) => {
     const dateLabel = page.getByText('Fecha de inicio')
     await expect(dateLabel).toBeVisible()
 
-    const dateInput = await page.waitForSelector('[data-testid=date-input]')
+    const dateInput = page.getByLabel('Fecha de inicio')
     await expect(dateInput).toBeVisible()
     await dateInput.click()
   })
