@@ -15,6 +15,8 @@ import {
   PopoverContent,
   PopoverTrigger
 } from '../popover'
+/* import { getProjects } from '@/services/proyectos'
+import { useEffect, useState } from 'react' */
 
 // get all projects
 const frameworks = [
@@ -35,6 +37,13 @@ interface SearchProjectsProps {
 export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
   const [open, setOpen] = React.useState(false)
   const [selectedValue, setSelectedValue] = React.useState('')
+/*   const [data, setData] = useState()
+  useEffect(() => {
+    getProjects().then((response) => {
+      setData(response.data.proyectos)
+      console.log(data)
+    })
+  }, []) */
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

@@ -22,7 +22,7 @@ const CrmRouter = (
     <Route path='/project/:id' element={<ProjectViewPage />} />
     <Route path='/allcalls' element={<AllCallsPage />} />
     <Route path='/newcall' element={<NewCallPage />} />
-    <Route path='/gestion/:id' element={<CallPage />} />
+    <Route path='/announcement/:id' element={<CallPage />} />
     <Route path='/newfinancier' element={<NewFinancierPage />} />
     <Route path='/allfinanciers' element={<AllFinanciersPage />} />
     <Route path='/financier' element={<FinancierPage />} />

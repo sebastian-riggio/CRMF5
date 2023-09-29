@@ -2,6 +2,8 @@ import { z } from 'zod'
 
 const gestionRegistroPost = z.object({
 
+  _id: z.string(),
+
   entidadConvocante: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
