@@ -28,14 +28,7 @@ import { Separator } from './ui/separator'
 import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
-import { useEffect } from 'react'
-import { Calendar } from './ui/calendar'
-import { cn } from '@/lib/utils'
-import { CalendarIcon } from '@radix-ui/react-icons'
-import { format } from 'date-fns'
-import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
-import { ProfileFormSchema } from './ProfileForm/ProfileForm'
-import { Label } from '@radix-ui/react-label'
+import DatePicker from './ui/DatePicker'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
@@ -134,7 +127,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Temática</FormLabel>
                         <FormControl>
-                          <Input placeholder='Temática' {...field} />
+                          <Input placeholder='Temática' {...field} data-testid='titulo-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -149,7 +142,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Entidad convocante</FormLabel>
                         <FormControl>
-                          <Input placeholder='Entidad convocante' {...field} />
+                          <Input placeholder='Entidad convocante' {...field} data-testid='entidad-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -164,7 +157,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Departamento o centro gestor</FormLabel>
                         <FormControl>
-                          <Input placeholder='Departamento o centro gestor' {...field} />
+                          <Input placeholder='Departamento o centro gestor' {...field} data-testid='dpto-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -179,7 +172,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Enlace a publicación oficial</FormLabel>
                         <FormControl>
-                          <Input placeholder='https://' {...field} />
+                          <Input placeholder='https://' {...field} data-testid='link-oficial-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -194,7 +187,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Enlace a bases de convocatoria</FormLabel>
                         <FormControl>
-                          <Input placeholder='https://' {...field} />
+                          <Input placeholder='https://' {...field} data-testid='link-bases-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -209,7 +202,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Líneas específicas de trabajo</FormLabel>
                         <FormControl>
-                          <Textarea placeholder='Escriba aquí...' {...field} />
+                          <Textarea placeholder='Escriba aquí...' {...field} data-testid='entidad-especifica-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -224,7 +217,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Entidades a la que se dirige</FormLabel>
                         <FormControl>
-                          <Input placeholder='Entidades a las que se dirige' {...field} />
+                          <Input placeholder='Entidades a las que se dirige' {...field} data-testid='lineas-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -378,7 +371,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
                         <FormControl>
-                          <Input type='number' placeholder='Período máximo de ejecución' {...field} />
+                          <Input type='number' placeholder='Período máximo de ejecución' {...field} data-testid='maximo-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -413,7 +406,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Presupuesto máximo solicitable</FormLabel>
                         <FormControl>
-                          <Input placeholder='€' {...field} />
+                          <Input placeholder='€' {...field} data-testid='presu-input' />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -428,7 +421,7 @@ function MainNewCall () {
                       <div className='my-2'>
                         <FormLabel className='mb-2'>Información de interés</FormLabel>
                         <FormControl>
-                          <Textarea placeholder='Escriba aquí...' {...field} />
+                          <Textarea placeholder='Escriba aquí...' {...field} data-testid='informacion-input' />
                         </FormControl>
                         <FormMessage />
                       </div>

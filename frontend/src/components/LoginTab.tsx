@@ -70,7 +70,7 @@ export function LoginTab () {
             <CardContent className='flex flex-col items-center space-y-2'>
               <div className='space-y-1 w-[250px]'>
                 <Label htmlFor='email'>Email</Label>
-                <Input type='email' id='email' placeholder='example@mail.com' className='h-8' />
+                <Input type='email' id='email' placeholder='example@mail.com' data-testid='correo-input' className='h-8' />
               </div>
               <div className='space-y-1 w-[250px]'>
                 <Label htmlFor='password'>Contraseña</Label>
@@ -97,7 +97,7 @@ export function LoginTab () {
             <CardContent className='flex flex-col items-center space-y-2 mt-2'>
               <div className='space-y-1 w-[250px]'>
                 <Label htmlFor='email'>Email</Label>
-                <Input id='email' type='email' placeholder='example@mail.com' className='h-8' />
+                <Input id='email' type='email' placeholder='example@mail.com' data-testid='correo-recuperacion-input' className='h-8' />
               </div>
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
