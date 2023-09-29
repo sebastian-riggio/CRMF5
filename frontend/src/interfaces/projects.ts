@@ -1,7 +1,6 @@
 export interface Projects {
-_id:string;
 proyectoNombre: string;
-proyectoCodigo: string;
+proyectoCodigo?: string;
 centroGestor: string;
 responsable: string;
 proyectoDuracion: string;

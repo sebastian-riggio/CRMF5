@@ -30,14 +30,11 @@ import {
 } from './ui/form'
 import { Input } from './ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
-// import { toast } from './ui/use-toast'
+import { toast } from './ui/use-toast'
 import { Separator } from './ui/separator'
 import { useForm } from 'react-hook-form'
 import { AxiosResponse } from 'axios'
 import { createProject } from '../services/proyectos'
-import { toast } from './ui/use-toast'
-import { ToastAction } from '@radix-ui/react-toast'
-import AccountFormSchema from './accountFormSchema'
 import proyectPost from '../interfaces/proyectPost'
 import DatePicker from './ui/DatePicker'
 
@@ -106,7 +103,7 @@ function ProyectForm () {
                       <div className='flex flex-col space-y-2 mt-5'>
                         <FormLabel className='text-sm text-gray-600'>Nombre del Proyecto</FormLabel>
                         <FormControl>
-                          <Input placeholder='Nombre del proyecto' {...field} data-testid='project-input' />
+                          <Input placeholder='Nombre del proyecto' {...field} />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -191,7 +188,7 @@ function ProyectForm () {
                         <FormControl>
                           <Input
                             placeholder='Persona responsable Factoria F5'
-                            {...field} data-testid='responsable-input'
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -208,7 +205,7 @@ function ProyectForm () {
                       <div className='flex flex-col space-y-2 mt-5'>
                         <FormLabel className='text-sm text-gray-600'>Meses duración</FormLabel>
                         <FormControl>
-                          <Input type='number' placeholder='Meses Duración' {...field} data-testid='month-input' />
+                          <Input type='number' placeholder='Meses Duración' {...field} />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -227,7 +224,7 @@ function ProyectForm () {
                           <Input
                             type='number'
                             placeholder='€'
-                            {...field} data-testid='project-budget-input'
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -246,7 +243,7 @@ function ProyectForm () {
                         <FormControl>
                           <Input
                             placeholder='€'
-                            {...field} data-testid='factoria-budget-input'
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -267,7 +264,7 @@ function ProyectForm () {
                             <FormControl>
                               <DatePicker
                                 title=''
-                                {...field} data-testid='date-input'
+                                {...field}
                               />
                             </FormControl>
                           </PopoverTrigger>
@@ -289,7 +286,7 @@ function ProyectForm () {
                             <FormControl>
                               <DatePicker
                                 title=''
-                                {...field} data-testid='finish-input'
+                                {...field}
                               />
                             </FormControl>
                           </PopoverTrigger>

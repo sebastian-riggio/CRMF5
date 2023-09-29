@@ -3,13 +3,10 @@
 import { z } from 'zod'
 
 const proyectPost = z.object({
-  _id: z.string(),
+  _id: z.string().optional(),
   proyectoNombre: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-
-  proyectoCodigo: z.string(),
-
   centroGestor: z.string().min(2, {
     message: 'Debe completar este campo'
   }),

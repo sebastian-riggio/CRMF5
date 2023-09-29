@@ -1,8 +1,3 @@
-import * as z from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-
-import accountFormSchema from './accountFormSchema'
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +10,6 @@ import {
   CardHeader,
   CardTitle
 } from './ui/card'
-/* import { Form } from './ui/form' */
 import ApplicationStage from './ui/formCall/ApplicationStage'
 import NegotationStage from './ui/formCall/NegotiationStage'
 import ConcessionStage from './ui/formCall/ ConcessionStage'

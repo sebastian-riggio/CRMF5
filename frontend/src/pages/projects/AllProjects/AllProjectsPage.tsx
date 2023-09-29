@@ -19,6 +19,7 @@ type projectColumns = Pick<
   | 'responsable'
   | 'fechaCierre'
   |'_id'
+
 >;
 
 const columns: ColumnDef<projectColumns>[] = [
