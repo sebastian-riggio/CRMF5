@@ -69,8 +69,8 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        FF4700: {
-          DEFAULT: '#FF4700',
+        FF4600: {
+          DEFAULT: '#FF4600',
           dark: '#D63800'
         }
       },

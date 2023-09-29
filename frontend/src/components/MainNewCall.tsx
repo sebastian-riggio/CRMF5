@@ -5,9 +5,7 @@ import { Textarea } from './ui/textarea'
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
+  CardFooter
 } from './ui/card'
 import { Switch } from './ui/switch'
 import { Button } from '../components/ui/button'
@@ -29,7 +27,6 @@ import { Separator } from './ui/separator'
 import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
-import { useEffect } from 'react'
 import DatePicker from './ui/DatePicker'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
@@ -40,6 +37,7 @@ function MainNewCall () {
   })
 
   async function onSubmit (data: AccountFormValues) {
+    console.log(data)
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
@@ -55,14 +53,11 @@ function MainNewCall () {
       )
     })
   }
-  useEffect(() => {}, [])
+
   return (
     <div className='container mx-auto'>
       <Card>
-        <CardHeader>
-          <CardTitle>Nueva convocatoria
-          </CardTitle>
-        </CardHeader>
+        <h1 className='text-4xl font-semibold mb-5'>Nueva Convocatoria</h1>
         <Separator />
         <div>
           <Form {...form}>

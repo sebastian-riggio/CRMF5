@@ -34,7 +34,7 @@ function Navbar () {
         <Link className='flex items-center' to='http://localhost:5173/home'>
           <img
             src='src/assets/LogoFactoria.png'
-            className='max-w-[100px] h-auto mb-7 ml-0 mt-4 md:max-w-[120px]'
+            className='max-w-[80px] h-auto mb-4 ml-0 mt-4 md:max-w-[90px]'
             alt='isologo-f5'
           />
         </Link>

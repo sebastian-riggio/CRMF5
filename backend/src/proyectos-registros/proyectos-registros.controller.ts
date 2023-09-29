@@ -10,7 +10,7 @@ export class ProyectosRegistrosController {
   constructor(private proyectosRegistrosService: ProyectosRegistrosService) {}
 
   @Public()
-  @Post('register')
+  @Post()
   create(@Body() createProyectosRegistroDto: CreateProyectosRegistroDto) {
     console.log(createProyectosRegistroDto)
     return this.proyectosRegistrosService.create(createProyectosRegistroDto);
@@ -29,12 +29,12 @@ export class ProyectosRegistrosController {
   }
 
   @Public()
-  @Patch('update')
+  @Patch()
   update(@Body() updateProyectosRegistroDto: UpdateProyectosRegistroDto) {
     return this.proyectosRegistrosService.update(updateProyectosRegistroDto);
   }
   @Public()
-  @Delete('delete')
+  @Delete()
   remove(@Body('id') id:ObjectId) {
     return this.proyectosRegistrosService.remove(id);
   }
