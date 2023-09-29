@@ -11,7 +11,7 @@ export class GestionConvocatoriaController {
   constructor(private readonly gestionConvocatoriaService: GestionConvocatoriaService) {}
 
   @Public()
-  @Post('new')
+  @Post()
   create(@Body() createGestionConvocatoriaDto: CreateGestionConvocatoriaDto) {
     return this.gestionConvocatoriaService.create(createGestionConvocatoriaDto);
   }
@@ -26,12 +26,12 @@ export class GestionConvocatoriaController {
     return this.gestionConvocatoriaService.findOne(id);
   }
 @Public()
-  @Patch('update')
+  @Patch()
   update(@Body() updateGestionConvocatoriaDto: UpdateGestionConvocatoriaDto) {
     return this.gestionConvocatoriaService.update(updateGestionConvocatoriaDto);
   }
 @Public()
-  @Delete('delete')
+  @Delete()
   remove(@Body('id') id:ObjectId) {
     return this.gestionConvocatoriaService.remove(id);
   }

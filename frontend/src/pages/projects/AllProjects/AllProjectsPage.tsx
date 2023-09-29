@@ -7,6 +7,7 @@ import { getProjects } from '../../../services/proyectos'
 import { formatDate } from '../../../lib/utils'
 import GoBack from '../../../components/GoBack'
 import { Link } from 'react-router-dom'
+import { Projects } from '@/interfaces/projects'
 
 type projectsTable = z.infer<typeof proyectPost>;
 
@@ -17,6 +18,7 @@ type projectColumns = Pick<
   | 'centroGestor'
   | 'responsable'
   | 'fechaCierre'
+  |'_id'
 >;
 
 const columns: ColumnDef<projectColumns>[] = [
@@ -58,20 +60,28 @@ const columns: ColumnDef<projectColumns>[] = [
       }).format(amount) */
 
       return (
-        <div className='text-right text-red-500 font-medium'>{amount}</div>
+        <div className='text-right text-red-500 font-medium'>{String(amount)}</div>
       )
     }
   }
 ]
+interface ApiResponse {
+  proyectos:Projects[];
+  message: string;
+  status: number;
+}
 
 function AllProjectsPage () {
-  const [data, setData] = useState()
+  const [data, setData] = useState <ApiResponse | null>(null)
 
   useEffect(() => {
-    getProjects().then((response) => {
-      setData(response)
-      console.log(data)
-    })
+    getProjects()
+      .then((response) => {
+        setData(response.data)
+      })
+      .catch((error) => {
+        console.error('Error obteniendo los datos:', error)
+      })
   }, [])
   if (!data) return null
   console.log(data)
@@ -86,7 +96,7 @@ function AllProjectsPage () {
       <Link to='http://localhost:5173/project/:id' />
       <div className='container mx-auto mt-5'>
         <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
-        <DataTable columns={columns} data={data.data.proyectos} />
+        <DataTable columns={columns} data={data.proyectos} />
       </div>
     </>
   )

@@ -11,7 +11,7 @@ export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}
 
  @Public()
-  @Post('register')
+  @Post()
   create(@Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   }
@@ -27,13 +27,13 @@ export class ConvocatoriaRegistroController {
     return this.convocatoriaRegistroService.findOne(id);
   }
  @Public()
-  @Patch('update')
+  @Patch()
   update(@Body() updateConvocatoriaRegistroDto: UpdateConvocatoriaRegistroDto) {
     return this.convocatoriaRegistroService.update(updateConvocatoriaRegistroDto);
   }
   
  @Public()
-  @Delete('delete')
+  @Delete()
   remove(@Body('id') id:ObjectId) {
     return this.convocatoriaRegistroService.remove(id);
   }
