@@ -6,13 +6,21 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Register user page', () => {
   test('Display form title', async ({ page }) => {
+<<<<<<< HEAD
     const titleForm = page.getByRole('heading', { name: 'Nuevo Usuario'})
+=======
+    const titleForm = page.getByRole('heading', { name: /nuevo usuario/i })
+>>>>>>> 582e8f5f14d3b5426e6573a1aeb456f3871fb63c
 
     await expect(titleForm).toBeVisible()
   })
 
   test('Display sub title', async ({ page }) => {
+<<<<<<< HEAD
     const subtitle = page.getByText( 'Completar los datos del nuevo usuario del Factoria F5')
+=======
+    const subtitle = page.getByText(/Completar los datos del nuevo usuario del Factoria F5/i)
+>>>>>>> 582e8f5f14d3b5426e6573a1aeb456f3871fb63c
 
     await expect(subtitle).toBeVisible()
   })
@@ -25,6 +33,32 @@ test.describe('Form register new user', () => {
 
     const nameInput = page.getByPlaceholder('Nombre y Apellido')
     await expect(nameInput).toBeVisible()
+  })
+
+<<<<<<< HEAD
+  test('Department or management center input', async ({ page }) => {
+    const departamentLabel = page.getByText('Departamento o centro gestor')
+    await expect(departamentLabel).toBeVisible()
+
+    const departamentInput = page.getByLabel(/Departamento o centro gestor/i)
+    await expect(departamentInput).toBeVisible()
+    await departamentInput.click()
+  })
+
+  test('Work area input', async ({ page }) => {
+    const workLabel = page.getByText('Área de trabajo en Factoria F5')
+    await expect(workLabel).toBeVisible()
+
+    const workInput = page.getByPlaceholder(/Área de trabajo/i)
+    await expect(workInput).toBeVisible()
+  })
+
+=======
+  test('Name and lastname that can be written', async ({ page }) => {
+    await page.type('[data-testid=nombre-input]', 'John Doe')
+
+    const inputValue = await page.getAttribute('[data-testid=nombre-input]', 'value')
+    await expect(inputValue).toBe('John Doe')
   })
 
   test('Department or management center input', async ({ page }) => {
@@ -44,6 +78,14 @@ test.describe('Form register new user', () => {
     await expect(workInput).toBeVisible()
   })
 
+  test('Work area that can be written', async ({ page }) => {
+    await page.type('[data-testid=work-area-input]', 'Recursos humanos')
+
+    const inputValue = await page.getAttribute('[data-testid=work-area-input]', 'value')
+    await expect(inputValue).toBe('Recursos humanos')
+  })
+
+>>>>>>> 582e8f5f14d3b5426e6573a1aeb456f3871fb63c
   test('Date input', async ({ page }) => {
     const dateLabel = page.getByText('Fecha inicio de actividad')
     await expect(dateLabel).toBeVisible()
@@ -60,6 +102,16 @@ test.describe('Form register new user', () => {
     const emailInput = page.getByPlaceholder(/Correo electrónico/i)
     await expect(emailInput).toBeVisible()
   })
+<<<<<<< HEAD
+=======
+
+  test('Email that can be written', async ({ page }) => {
+    await page.type('[data-testid=email-input]', 'johndoe@example.com')
+
+    const inputValue = await page.getAttribute('[data-testid=email-input]', 'value')
+    await expect(inputValue).toBe('johndoe@example.com')
+  })
+>>>>>>> 582e8f5f14d3b5426e6573a1aeb456f3871fb63c
 
   test('Phone input', async ({ page }) => {
     const phoneLabel = page.getByText('Teléfono de contacto')
@@ -68,4 +120,28 @@ test.describe('Form register new user', () => {
     const phoneInput = page.getByPlaceholder(/telefono/i)
     await expect(phoneInput).toBeVisible()
   })
+<<<<<<< HEAD
+=======
+
+  test('Phone that can be written', async ({ page }) => {
+    await page.type('[data-testid=phone-input]', '123456789')
+
+    const inputValue = await page.getAttribute('[data-testid=phone-input]', 'value')
+    await expect(inputValue).toBe('123456789')
+  })
+
+  test('Create button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Crear/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/home')
+  })
+
+  test('Cancel button', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /Cancelar/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    // await expect(page).toHaveURL('http://localhost:5173/home')
+  })
+>>>>>>> 582e8f5f14d3b5426e6573a1aeb456f3871fb63c
 })

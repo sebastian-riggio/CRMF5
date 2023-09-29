@@ -21,7 +21,7 @@ export const ProfileFormSchema = z.object({
   fecha: z.date()
 })
 
-export function AccountForm () {
+export function ProfileForm () {
 
   return (
     <div className='container mx-auto my-9 border-1 border-solid border-input rounded-xl py-8'>

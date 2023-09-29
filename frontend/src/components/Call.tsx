@@ -22,15 +22,28 @@ import NegotationStage from './ui/formCall/NegotiationStage'
 import ConcessionStage from './ui/formCall/ ConcessionStage'
 import JustificationStage from './ui/formCall/JustificationStage'
 import ClosingStage from './ui/formCall/ClosingStage'
+import { useEffect, useState } from 'react'
+import GestionConvocatoria from '@/interfaces/gestionInterface'
+import { getAllGestion, getOneGestion } from '@/services/gestion'
+import { useParams } from 'react-router-dom'
 
 function Call () {
+  const [gestion, setGestion] = useState<GestionConvocatoria>()
+ const { id } = useParams()
+
+  useEffect(() => {
+    getOneGestion(id).then((response) => {
+      setGestion(response.data.gestion)
+      console.log(gestion)
+    })
+  }, [])
+
   return (
     <div className='container mx-auto'>
       <Card className='mt-5 pb-5'>
         <CardHeader>
           <CardTitle>
-            Título de prueba
-            {/* Aca hay que traer el titulo de la convocatoria */}
+            <h1> {gestion?.convocatoria}</h1>
           </CardTitle>
         </CardHeader>
 

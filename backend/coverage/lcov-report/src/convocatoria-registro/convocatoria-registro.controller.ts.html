@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.96% </span>
+                <span class="strong">67.74% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/31</span>
+                <span class='fraction'>21/31</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.96% </span>
+                <span class="strong">65.51% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/29</span>
+                <span class='fraction'>19/29</span>
             </div>
         
             
@@ -128,15 +128,15 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -186,9 +186,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,8 +204,6 @@ import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registr
 import { ObjectId } from 'mongoose';
 import { Public } from '../auth/decorators/public.decorator';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ConvocatoriaRegistro } from './schema/convocatoria-registro.schema';
-&nbsp;
 &nbsp;
 @Controller('announcement')
 export class ConvocatoriaRegistroController {
@@ -239,25 +241,29 @@ export class ConvocatoriaRegistroController {
 @UseInterceptors(FileInterceptor('file'))
 @Post('upload')
 <span class="fstat-no" title="function not covered" >async </span>uploadFileAndPassValidation(
-  @UploadedFile()file: Express.Multer.File,
-  
-)  {
-<span class="cstat-no" title="statement not covered" > <span class="missing-if-branch" title="if path not taken" >I</span>if(!file){</span>
-<span class="cstat-no" title="statement not covered" >  return{error:'No se subio ningun archivo'}</span>
- } 
-<span class="cstat-no" title="statement not covered" > try{</span>
-  const newConvocatoria = <span class="cstat-no" title="statement not covered" >new ConvocatoriaRegistro()</span>
-<span class="cstat-no" title="statement not covered" >  newConvocatoria.memoriaTecnica ;</span>
-<span class="cstat-no" title="statement not covered" >   file.buffer.toString('base64') </span>
-<span class="cstat-no" title="statement not covered" >  await newConvocatoria.save()</span>
-<span class="cstat-no" title="statement not covered" >  return {message:'Convocatoria subida'}</span>
- }catch(error){
-<span class="cstat-no" title="statement not covered" >  return{error:'Error al guardar archivos'}</span>
- }
+  @Body() body: CreateConvocatoriaRegistroDto,
+@UploadedFile() file,
+) {
+<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if(!file){</span>
+<span class="cstat-no" title="statement not covered" >    return { error: 'No se ha proporcionado un archivo PDF' };</span>
+  }
+  const fileBuffer = <span class="cstat-no" title="statement not covered" >file.buffer</span>
+  const fileName = <span class="cstat-no" title="statement not covered" >file.originalname;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const fs = <span class="cstat-no" title="statement not covered" >require('fs');</span>
+    const filePath = <span class="cstat-no" title="statement not covered" >`./uploads/${fileName}`</span>
+<span class="cstat-no" title="statement not covered" >    fs.writeFileSync(filePath,fileBuffer)</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      message:'Archivo cargado y guardado correctamente',
+      filePath,
+      body,
+    };
+  }catch(error){
+<span class="cstat-no" title="statement not covered" >    return { error: 'Error al guardar el archivo PDF' };</span>
+  }
 }
- 
-  
 }
+&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -265,7 +271,7 @@ export class ConvocatoriaRegistroController {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-26T08:42:41.838Z
+                at 2023-09-29T07:21:57.095Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

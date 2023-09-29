@@ -9,6 +9,7 @@ import { ProyectosRegistrosModule } from "./proyectos-registros/proyectos-regist
 import { GestionConvocatoriaModule } from "./gestion-convocatoria/gestion-convocatoria.module";
 import { MongooseModule } from "@nestjs/mongoose";
 import { json } from "express";
+import { MulterModule } from "@nestjs/platform-express";
 
 @Module({
   imports: [
@@ -26,7 +27,9 @@ import { json } from "express";
       inject: [ConfigService],
     }),
     
-
+    MulterModule.register({
+    dest:'./uploads'
+    }),
     UserModule,
     AuthModule, 
     ConvocatoriaRegistroModule,

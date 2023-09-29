@@ -17,7 +17,7 @@ export function SideBar () {
         <div className='px-0 py-2'>
           <div className='space-y-1'>
             <Command>
-              <p className='text-sm text-muted-foreground mb-2 ml-3'>Hola Admin!</p>
+              <p className='text-sm text-muted-foreground mb-2 ml-3'>Hola!</p>
               <CommandGroup>
                 <CommandItem>
                   <LayoutDashboard className='md:mr-2 h-4 w-4 mx-auto md:mx-0' />

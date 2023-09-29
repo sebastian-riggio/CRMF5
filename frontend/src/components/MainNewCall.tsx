@@ -37,6 +37,7 @@ import { CalendarIcon } from '@radix-ui/react-icons'
 import { format } from 'date-fns'
 import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
 import { ProfileFormSchema } from './ProfileForm/ProfileForm'
+import { Label } from '@radix-ui/react-label'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
@@ -56,12 +57,13 @@ const schema = z.object({
   auditoria: z.string().optional(),
   presupuesto: z.coerce.number().min(0).optional(),
   otraInformacion: z.string().optional(),
-  memoriaTecnica: z.object({
-    fileMemory: z.instanceof(File).optional(),
-    fileBudget: z.string().optional(),
-    fileApplicationForm: z.string().optional(),
-    fileOtherDocs: z.string().optional(),
-  }).optional(),
+  memoriaTecnica: z.instanceof(File).optional(),
+  // memoriaTecnica: z.object({
+  //   fileMemory: z.instanceof(File).optional(),
+  //   fileBudget: z.string().optional(),
+  //   fileApplicationForm: z.string().optional(),
+  //   fileOtherDocs: z.string().optional(),
+  // }).optional(),
 });
 const initialFormData = {
   titulo: '',
@@ -81,29 +83,28 @@ function MainNewCall () {
   })
 
   async function onSubmit (data: SchemaForm) {
+    // data = {...data ,picture: form.getValues('picture')}
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
+      console.log(form.getValues('memoriaTecnica'))
     } catch (error) {
-      console.log(error)
+      console.log(error, 'Error')
     }
     toast({
       title: 'Convocatoria registrada con exito:',
       description: (
         <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
+          <code className='text-white'>{JSON.stringify(data, null, 1)}</code>
         </pre>
       )
     })
   }
-  useEffect(() => {}, [])
+
   return (
     <div className='container mx-auto'>
       <Card>
-        <CardHeader>
-          <CardTitle>Nueva convocatoria
-          </CardTitle>
-        </CardHeader>
+        <h1 className='text-4xl font-semibold mb-5'>Nueva Convocatoria</h1>
         <Separator />
         <div>
           <Form {...form}>
@@ -439,6 +440,29 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='memoriaTecnica'
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0]);
+                            }}
+                            type='file'
+                            id='picture'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                {/* <FormField
+                  control={form.control}
+                  name='memoriaTecnica'
                   render={({ field }) => (
                     <div className='my-2 flex flex-wrap -mx-4'>
                       <FormItem className='w-1/2 px-4 mb-4'>
@@ -467,7 +491,7 @@ function MainNewCall () {
                       </FormItem>
                     </div>
                   )}
-                />
+                /> */}
               </CardContent>
               <CardFooter className='flex justify-center space-x-6'>
                 <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>
