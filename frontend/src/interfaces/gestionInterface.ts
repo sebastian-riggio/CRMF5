@@ -52,7 +52,7 @@ interface EtapaSolicitud {
   }
 
   interface GestionConvocatoria {
-    _id:string;
+    _id?:string ;
     convocatoria: string;
     financiador: string;
     proyecto: string;

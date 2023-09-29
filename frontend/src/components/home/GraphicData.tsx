@@ -1,57 +1,22 @@
-import React, { PureComponent } from 'react'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { PureComponent } from 'react'
+import { ResponsiveContainer, PieChart, Pie } from 'recharts'
 
 const data = [
-  {
-    name: '',
-    uv: 200 // traer total de convoctorias
-  },
-  {
-    name: 'Sin asignar',
-    uv: 120 // traer convoctorias sin proyecto asignado
-  },
-  {
-    name: 'Solicitud',
-    uv: 10 // traer convoctorias en etapa de solicitud
-  },
-  {
-    name: 'Negociación',
-    uv: 50 // traer convoctorias en etapa de negociagión
-  },
-  {
-    name: 'Otorgamiento',
-    uv: 10 // traer convoctorias en etapa de otorgamiento
-  },
-  {
-    name: 'Justificación',
-    uv: 5 // traer convoctorias en etapa de justificación
-  },
-  {
-    name: 'Cierre',
-    uv: 5 // traer convoctorias en etapa de cierre
-  }
+  { name: 'Solicitud', value: 40 }, // traer la cantidad de convocatorias en etapa de solicitud
+  { name: 'Negociación', value: 10 }, // traer la cantidad de convocatorias en etapa de negociación
+  { name: 'Otorgamiento', value: 8 }, // traer la cantiddad de convocatorias en etapa de otorgamiento
+  { name: 'Justificación', value: 2 }, // traer la cantidad de convocatorias en etapa de justificacion
+  { name: 'Cierre', value: 20 } // traer la cantidad de convocatorias en etapa de cierre
 ]
 
-export default class GraphicData extends PureComponent {
+export default class Example extends PureComponent {
   render () {
     return (
-      <div style={{ width: '100%', height: 350 }}>
+      <div style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer>
-          <AreaChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0
-            }}
-          >
-            <CartesianGrid strokeDasharray='3 3' />
-            <XAxis fontSize={11} dataKey='name' className='tracking-tighter' />
-            <YAxis />
-            <Tooltip />
-            <Area type='monotone' dataKey='uv' stroke='#FF4600' fill='#FF4600' />
-          </AreaChart>
+          <PieChart>
+            <Pie dataKey='value' data={data} fill='#FF4600' label />
+          </PieChart>
         </ResponsiveContainer>
       </div>
     )

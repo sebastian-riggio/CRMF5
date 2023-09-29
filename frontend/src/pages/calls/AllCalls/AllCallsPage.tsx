@@ -2,32 +2,33 @@ import { useEffect, useState } from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
 import { DataTableCalls } from './date-table-calls'
-import gestionConvocatoria from '../../../interfaces/gestionConvocatoria'
 import { formatDate } from '../../../lib/utils'
-import { getAllGestion } from '../../../services/gestion'
 import GoBack from '../../../components/GoBack'
 import { Link } from 'react-router-dom'
+import { getAllConvocatoria } from '@/services/registroConvocatoria'
+import gestionRegistroPost from '@/interfaces/gestionRegistroPost'
+import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
 
-type gestionTable = z.infer<typeof gestionConvocatoria>
+type gestionTable = z.infer<typeof gestionRegistroPost>
 
-type gestionColumns = Pick<gestionTable, 'convocatoria' | 'financiador' | 'proyecto' | 'fechaApertura'|'fechaCierre'>
+type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'>
 
 const columns: ColumnDef<gestionColumns>[] = [
   {
-    accessorKey: 'convocatoria',
+    accessorKey: 'titulo',
     header: 'Titulo',
     cell: ({ row }) => {
       const idRow = row.original
       return (
-        <Link className='text-blue-500 underline' to={`/gestion/${idRow._id as string}`}>
-          {row.getValue('convocatoria')}
+        <Link className='text-blue-500 underline' to={`/announcement/${idRow._id as string}`}>
+          {row.getValue('titulo')}
         </Link>
       )
     }
   },
   {
-    accessorKey: 'financiador',
-    header: 'Entidad'
+    accessorKey: 'entidadConvocante',
+    header: 'financiador'
   },
   {
     accessorKey: 'fechaApertura',
@@ -38,35 +39,44 @@ const columns: ColumnDef<gestionColumns>[] = [
     accessorKey: 'fechaCierre',
     header: 'Fecha Cierre',
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
-  },
-  {
+  }
+  /* {
     accessorKey: 'proyecto',
     header: 'Proyecto'
-  }
+  } */
 ]
+interface ApiResponse {
+  convocatoria: ConvocatoriaRegistro[];
+  message: string;
+  status: number;
+}
 
 function AllCallsPage () {
-  const [data, setData] = useState()
+  const [data, setData] = useState<ApiResponse | null>(null)
   console.log(data)
 
   useEffect(() => {
-    getAllGestion().then((response) => {
-      setData(response)
-    })
+    getAllConvocatoria()
+      .then((response) => {
+        setData(response.data)
+      })
+      .catch((error) => {
+        console.error('Error obteniendo los datos:', error)
+      })
   }, [])
   if (!data) return null
-  console.log(data.data.gestiones)
+  console.log(data)
 
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/call/:id'>
+        <Link to='http://localhost:5173/announcement/:id'>
           <GoBack />
         </Link>
       </div>
       <div className='container mx-auto'>
         <h1 className='text-4xl font-semibold'>Convocatorias</h1>
-        <DataTableCalls columns={columns} data={data.data.gestiones} />
+        <DataTableCalls columns={columns} data={data.convocatoria} />
       </div>
     </>
   )

@@ -20,12 +20,12 @@ export function SheetMenu () {
           Menu
         </Button>
       </SheetTrigger>
-      <SheetContent className='w-[250px] sm:w-[540px]'>
+      <SheetContent className='text-sm w-[250px] sm:w-[540px]'>
         <div className='text-left mt-10 mb-9'>
           <SearchInput />
         </div>
         <div className='text-left mb-6'>
-          <SheetTitle className='block'>PROYECTOS</SheetTitle>
+          <SheetTitle className='text-sm block'>PROYECTOS</SheetTitle>
           <Separator className='mb-4' />
           <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allprojects'>
             Proyectos
@@ -35,7 +35,7 @@ export function SheetMenu () {
           </Link>
         </div>
         <div className='text-left mt-10 mb-6'>
-          <SheetTitle className='block'>CONVOCATORIAS</SheetTitle>
+          <SheetTitle className='text-sm block'>CONVOCATORIAS</SheetTitle>
           <Separator className='mb-4' />
           <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allcalls'>
             Convocatorias
@@ -45,7 +45,7 @@ export function SheetMenu () {
           </Link>
         </div>
         <div className='text-left mt-10 mb-6'>
-          <SheetTitle className='block'>FINANCISTAS</SheetTitle>
+          <SheetTitle className='text-sm block'>FINANCISTAS</SheetTitle>
           <Separator className='mb-4' />
           <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allfinancers'>
             Financistas

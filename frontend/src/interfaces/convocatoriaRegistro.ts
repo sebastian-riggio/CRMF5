@@ -1,4 +1,5 @@
 export interface ConvocatoriaRegistro {
+_id:string
 entidadConvocante: string;
 departamentoConvocante: string;
 titulo: string;

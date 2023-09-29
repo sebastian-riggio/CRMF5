@@ -5,9 +5,7 @@ import { Textarea } from './ui/textarea'
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
+  CardFooter
 } from './ui/card'
 import { Switch } from './ui/switch'
 import { Button } from '../components/ui/button'

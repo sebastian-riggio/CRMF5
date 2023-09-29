@@ -47,9 +47,9 @@ export function DataTableCalls<TData, TValue> ({
       <div className='flex items-center py-4' />
       <Input
         placeholder='buscar convocatoria...'
-        value={(table.getColumn('convocatoria')?.getFilterValue() as string)}
+        value={(table.getColumn('titulo')?.getFilterValue() as string)}
         onChange={(event) =>
-          table.getColumn('convocatoria')?.setFilterValue(event.target.value)}
+          table.getColumn('titulo')?.setFilterValue(event.target.value)}
         className='max-w-sm'
       />
       <div className='rounded-md border'>

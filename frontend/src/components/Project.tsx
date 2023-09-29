@@ -8,11 +8,13 @@ function Project () {
   const [project, setProject] = useState<Projects>()
   const { id } = useParams()
   useEffect(() => {
-    getProjectDetail(id).then((reponse) => {
-      setProject(reponse.data.proyecto)
-      console.log(reponse)
-    })
-  }, [])
+    if (id) {
+      getProjectDetail(id).then((reponse) => {
+        setProject(reponse.data.proyecto)
+        console.log(reponse)
+      })
+    }
+  }, [id])
 
   return (
     <>
@@ -29,9 +31,9 @@ function Project () {
         <h1 className='font-black'>Duracion de proyecto:</h1>
         <h2>{`${project?.proyectoDuracion} meses`}</h2>
         <h1 className='font-black'>Fecha de inicio:</h1>
-        <h2>{formatDate(project?.fechaInicio)}</h2>
+        <h2>{project?.fechaInicio ? formatDate(project.fechaInicio) : 'N/A'}</h2>
         <h1 className='font-black'>Fecha de cierre:</h1>
-        <h2>{formatDate(project?.fechaCierre)}</h2>
+        <h2>{project?.fechaCierre ? formatDate(project.fechaCierre) : 'N/A'}</h2>
         <h1 className='font-black'>Presupuesto global:</h1>
         <h2>{`${project?.proyectoPresupuesto} € `}</h2>
         <h1 className='font-black'>Presupuesto Factoria:</h1>
