@@ -20,7 +20,7 @@ test.describe('New project page', () => {
   // })
 })
 
-test.describe('Form new project', () => {
+test.describe('Name input test', () => {
   test('Name input', async ({ page }) => {
     const nameLabel = page.getByLabel('Nombre del Proyecto')
     await expect(nameLabel).toBeVisible()
@@ -35,12 +35,16 @@ test.describe('Form new project', () => {
     const inputValue = await page.getAttribute('[data-testid=project-input]', 'value')
     await expect(inputValue).toBe('Bootcamp P7 - Mixta')
   })
+})
 
+test.describe('Department or management center input test', () => {
   test('Department or management center input', async ({ page }) => {
     const departamentLabel = page.getByText('Centro gestor')
     await expect(departamentLabel).toBeVisible()
   })
+})
 
+test.describe('Responsible input test', () => {
   test('Responsible input', async ({ page }) => {
     const responsibleLabel = page.getByText('Responsable de F5')
     await expect(responsibleLabel).toBeVisible()
@@ -48,14 +52,15 @@ test.describe('Form new project', () => {
     const responsibleInput = page.getByPlaceholder(/persona responsable Factoria F5/i)
     await expect(responsibleInput).toBeVisible()
   })
-
   test('Responsible that can be written', async ({ page }) => {
     await page.type('[data-testid=responsable-input]', 'Raúl García')
 
     const inputValue = await page.getAttribute('[data-testid=responsable-input]', 'value')
     await expect(inputValue).toBe('Raúl García')
   })
+})
 
+test.describe('Months of duration input test', () => {
   test('Months of duration input', async ({ page }) => {
     const monthsLabel = page.getByText('Meses Duración')
     await expect(monthsLabel).toBeVisible()
@@ -70,7 +75,9 @@ test.describe('Form new project', () => {
     const inputValue = await page.getAttribute('[data-testid=month-input]', 'value')
     expect(inputValue).toBe('')
   })
+})
 
+test.describe('Project budget input test', () => {
   test('Project budget input', async ({ page }) => {
     const budgetLabel = page.getByText('Presupuesto del proyecto')
     await expect(budgetLabel).toBeVisible()
@@ -85,7 +92,9 @@ test.describe('Form new project', () => {
     const inputValue = await page.getAttribute('[data-testid=project-budget-input]', 'value')
     await expect(inputValue).toBe('')
   })
+})
 
+test.describe('Factoria budget input test', () => {
   test('Factoria budget input', async ({ page }) => {
     const budgetFactLabel = page.getByText('Presupuesto de Factoria F5')
     await expect(budgetFactLabel).toBeVisible()
@@ -100,6 +109,9 @@ test.describe('Form new project', () => {
     const inputValue = await page.getAttribute('[data-testid=factoria-budget-input]', 'value')
     expect(inputValue).toBe('200 €')
   })
+})
+
+test.describe('Buttons test', () => {
   test('Create button', async ({ page }) => {
     const button = await page.getByRole('button', { name: /Crear/i })
     await expect(button).toBeVisible()

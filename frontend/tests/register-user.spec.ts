@@ -18,7 +18,7 @@ test.describe('Register user page', () => {
   })
 })
 
-test.describe('Form register new user', () => {
+test.describe('Name input test', () => {
   test('Name and lastname input', async ({ page }) => {
     const nameLabel = page.getByLabel('Nombre y Apellido')
     await expect(nameLabel).toBeVisible()
@@ -33,7 +33,9 @@ test.describe('Form register new user', () => {
     const inputValue = await page.getAttribute('[data-testid=nombre-input]', 'value')
     await expect(inputValue).toBe('John Doe')
   })
+})
 
+test.describe('Department or management center input test', () => {
   test('Department or management center input', async ({ page }) => {
     const departamentLabel = page.getByText('Departamento o centro gestor')
     await expect(departamentLabel).toBeVisible()
@@ -42,7 +44,9 @@ test.describe('Form register new user', () => {
     await expect(departamentInput).toBeVisible()
     await departamentInput.click()
   })
+})
 
+test.describe('Work area input test', () => {
   test('Work area input', async ({ page }) => {
     const workLabel = page.getByText('Área de trabajo en Factoria F5')
     await expect(workLabel).toBeVisible()
@@ -55,9 +59,11 @@ test.describe('Form register new user', () => {
     await page.type('[data-testid=work-area-input]', 'Recursos humanos')
 
     const inputValue = await page.getAttribute('[data-testid=work-area-input]', 'value')
-    await expect(inputValue).toBe('Recursos humanos')
+    expect(inputValue).toBe('Recursos humanos')
   })
+})
 
+test.describe('Date input test', () => {
   test('Date input', async ({ page }) => {
     const dateLabel = page.getByText('Fecha inicio de actividad')
     await expect(dateLabel).toBeVisible()
@@ -66,7 +72,9 @@ test.describe('Form register new user', () => {
     await expect(dateInput).toBeVisible()
     await dateInput.click()
   })
+})
 
+test.describe('Email input test', () => {
   test('Email input', async ({ page }) => {
     const emailLabel = page.getByText('Correo electrónico')
     await expect(emailLabel).toBeVisible()
@@ -79,9 +87,11 @@ test.describe('Form register new user', () => {
     await page.type('[data-testid=email-input]', 'johndoe@example.com')
 
     const inputValue = await page.getAttribute('[data-testid=email-input]', 'value')
-    await expect(inputValue).toBe('johndoe@example.com')
+    expect(inputValue).toBe('johndoe@example.com')
   })
+})
 
+test.describe('Phone input test', () => {
   test('Phone input', async ({ page }) => {
     const phoneLabel = page.getByText('Teléfono de contacto')
     await expect(phoneLabel).toBeVisible()
@@ -94,9 +104,11 @@ test.describe('Form register new user', () => {
     await page.type('[data-testid=phone-input]', '123456789')
 
     const inputValue = await page.getAttribute('[data-testid=phone-input]', 'value')
-    await expect(inputValue).toBe('123456789')
+    expect(inputValue).toBe('123456789')
   })
+})
 
+test.describe('Buttons test', () => {
   test('Create button', async ({ page }) => {
     const button = await page.getByRole('button', { name: /Crear/i })
     await expect(button).toBeVisible()
