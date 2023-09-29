@@ -29,6 +29,10 @@ import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import DatePicker from './ui/DatePicker'
+import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
+import { CalendarIcon } from '@radix-ui/react-icons'
+import { Calendar } from './ui/calendar'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
