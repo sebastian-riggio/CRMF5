@@ -89,15 +89,13 @@ test.describe('Form Login "Contraseña" ', () => {
       expect(inputValue).toBe('johndoe@example.com')
     })
   })
+})
 
-  })
-
-  test.describe('button test ', () => {
-    test('Display button "recuperar contrseña" ', async ({ page }) => {
-      const button = await page.getByRole('button', { name: /recuperar contraseña/i })
-      await expect(button).toBeVisible()
-      await button.click()
-      await page.goto('http: localhost:5173/notfound')
-    })
+test.describe('button test ', () => {
+  test('Display button "recuperar contrseña" ', async ({ page }) => {
+    const button = await page.getByRole('button', { name: /recuperar contraseña/i })
+    await expect(button).toBeVisible()
+    await button.click()
+    await page.goto('http: localhost:5173/notfound')
   })
 })
