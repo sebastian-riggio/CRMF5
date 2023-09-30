@@ -79,10 +79,12 @@ function MainNewCall () {
 
   async function onSubmit (data: SchemaForm) {
     // data = {...data ,picture: form.getValues('picture')}
+    const formData = new FormData()
     try {
-      const response: AxiosResponse = await createdRegistroGestion(data)
-      console.log(response)
-      console.log(form.getValues('memoriaTecnica'))
+      formData.append('memoriaTecnica', form.getValues('memoriaTecnica'))
+      const response: AxiosResponse = await createdRegistroGestion(formData)
+      console.log(data, form.getValues('memoriaTecnica'))
+      console.log(form.getValues('memoriaTecnica'), 'dddddddd')
     } catch (error) {
       console.log(error, 'Error')
     }
@@ -90,7 +92,7 @@ function MainNewCall () {
       title: 'Convocatoria registrada con exito:',
       description: (
         <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 1)}</code>
+          <code className='text-white'>{JSON.stringify(data.memoriaTecnica, null, 2)}</code>
         </pre>
       )
     })
