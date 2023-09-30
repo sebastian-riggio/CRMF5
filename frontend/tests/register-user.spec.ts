@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Register user page', () => {
   test('Display form title', async ({ page }) => {
-    const titleForm = page.getByRole('heading', { name: 'Nuevo Usuario'})
+    const titleForm = page.getByRole('heading', { name: 'Nuevo Usuario' })
 
     await expect(titleForm).toBeVisible()
   })
