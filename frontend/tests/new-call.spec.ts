@@ -15,102 +15,62 @@ test.describe('New call page', () => {
 })
 
 test.describe('Name input test', () => {
-  test('Name input', async ({ page }) => {
-    const nameLabel = page.getByLabel('Título de convocatoria')
-    await expect(nameLabel).toBeVisible()
-
-    const nameInput = page.getByPlaceholder(/título de convocatoria/i)
-    await expect(nameInput).toBeVisible()
-  })
-
-  test('Name and lastname that can be written', async ({ page }) => {
-    await page.type('[data-testid=titulo-input]', 'P8 Bootcamp Mixto')
-
-    const inputValue = await page.getAttribute('[data-testid=titulo-input]', 'value')
-    expect(inputValue).toBe('P8 Bootcamp Mixto')
+  test('Name call input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Título de convocatoria')
+    const callInput = page.getByPlaceholder(/título de convocatoria/i)
+    await expect(callInput).toBeVisible()
+    await inputValue.fill('P8 Bootcamp Mixto')
+    await expect(inputValue).toHaveValue('P8 Bootcamp Mixto')
   })
 })
 
-test.describe('theme input test', () => {
-  test('Theme input', async ({ page }) => {
-    const themeLabel = page.getByLabel('Temática')
-    await expect(themeLabel).toBeVisible()
-
+test.describe('Theme input test', () => {
+  test('Theme input and that can be written', async ({ page }) => {
+    const themeValue = page.getByLabel('Temática')
     const themeInput = page.getByPlaceholder(/Temática/i)
     await expect(themeInput).toBeVisible()
-  })
-
-  test('Theme that can be written', async ({ page }) => {
-    await page.type('[data-testid=theme-input]', 'Educación online')
-
-    const inputValue = await page.getAttribute('[data-testid=theme-input]', 'value')
-    expect(inputValue).toBe('Educación online')
+    await themeValue.fill('Educación online')
+    await expect(themeValue).toHaveValue('Educación online')
   })
 })
 
 test.describe('Calling input test', () => {
-  test('Calling entity input', async ({ page }) => {
-    const entityLabel = page.getByLabel('Entidad convocante')
-    await expect(entityLabel).toBeVisible()
-
-    const entityInput = page.getByPlaceholder(/Entidad convocante/i)
-    await expect(entityInput).toBeVisible()
-  })
-
-  test('Calling that can be written', async ({ page }) => {
-    await page.type('[data-testid=entidad-input]', 'Ayuntamiento Barcelona')
-
-    const inputValue = await page.getAttribute('[data-testid=entidad-input]', 'value')
-    expect(inputValue).toBe('Ayuntamiento Barcelona')
+  test('Calling entity input and that can be written', async ({ page }) => {
+    const callingValue = page.getByLabel('Entidad convocante')
+    const callingInput = page.getByPlaceholder(/Entidad convocante/i)
+    await expect(callingInput).toBeVisible()
+    await callingValue.fill('Ayuntamiento Barcelona')
+    await expect(callingValue).toHaveValue('Ayuntamiento Barcelona')
   })
 })
 
 test.describe('Departament input test', () => {
-  test('Department or management center input', async ({ page }) => {
-    const departamentLabel = page.getByText('Departamento o centro gestor')
-    await expect(departamentLabel).toBeVisible()
-
-    const departamentInput = page.getByPlaceholder(/Departamento o centro gestor/i)
-    await expect(departamentInput).toBeVisible()
-  })
-
-  test('Department or management center that can be written', async ({ page }) => {
-    await page.type('[data-testid=dpto-input]', 'F5- Barcelona')
-
-    const inputValue = await page.getAttribute('[data-testid=dpto-input]', 'value')
-    expect(inputValue).toBe('F5- Barcelona')
+  test('Departament input and that can be written', async ({ page }) => {
+    const callingValue = page.getByLabel('Departamento o centro gestor')
+    const callingInput = page.getByPlaceholder(/Departamento o centro gestor/i)
+    await expect(callingInput).toBeVisible()
+    await callingValue.fill('F5- Barcelona')
+    await expect(callingValue).toHaveValue('F5- Barcelona')
   })
 })
 
 test.describe('link to official publication input test', () => {
-  test('Link to official publication input', async ({ page }) => {
-    const linkLabel = page.getByText('Enlace a publicación oficial')
-    await expect(linkLabel).toBeVisible()
-
+  test('Link to official publication input and that can be written', async ({ page }) => {
+    const linkValue = page.getByLabel('Enlace a publicación oficial')
     const linkInput = page.getByLabel('Enlace a publicación oficial')
     await expect(linkInput).toBeVisible()
-  })
-
-  test('Link to official publication that can be written', async ({ page }) => {
-    await page.type('[data-testid=link-oficial-input]', 'http://localhost5000')
-
-    const inputValue = await page.getAttribute('[data-testid=link-oficial-input]', 'value')
-    expect(inputValue).toBe('http://localhost5000')
+    await linkValue.fill('http://localhost5000')
+    await expect(linkValue).toHaveValue('http://localhost5000')
   })
 })
-test.describe('Link to call bases input test', () => {
-  test('Link to call bases input', async ({ page }) => {
-    const linkLabel = page.getByText('Enlace a bases de convocatoria')
-    await expect(linkLabel).toBeVisible()
 
+test.describe('Link to call bases input test', () => {
+  test('Link to call bases input and that can be written', async ({ page }) => {
+    const linkValue = page.getByLabel('Enlace a bases de convocatoria')
     const linkInput = page.getByLabel('Enlace a bases de convocatoria')
     await expect(linkInput).toBeVisible()
-  })
-  test('Link to call bases that can be written', async ({ page }) => {
-    await page.type('[data-testid=link-bases-input]', 'http://localhost5000')
-
-    const inputValue = await page.getAttribute('[data-testid=link-bases-input]', 'value')
-    expect(inputValue).toBe('http://localhost5000')
+    await linkValue.fill('http://localhost5000')
+    await expect(linkValue).toHaveValue('http://localhost5000')
   })
 })
 
@@ -141,10 +101,9 @@ test.describe('Entities addressed input test', () => {
   })
 
   test('Entities addressed that can be written', async ({ page }) => {
-    await page.type('[data-testid=entidad-especifica-input]', 'Entidades publicas')
-
-    const inputValue = await page.getAttribute('[data-testid=entidad-especifica-input]', 'value')
-    expect(inputValue).toBe('Entidades publicas')
+    const inputValue = page.getByTestId('entidad-especifica')
+    await inputValue.fill('Entidades publicas')
+    expect(inputValue).toHaveValue('Entidades publicas')
   })
 })
 
@@ -177,19 +136,12 @@ test.describe('Date input test', () => {
   })
 })
 test.describe('Maximun execution period input test', () => {
-  test('Maximum execution period input', async ({ page }) => {
-    const periodLabel = page.getByText('Período máximo de ejecución')
-    await expect(periodLabel).toBeVisible()
-
-    const periodInput = page.getByPlaceholder(/Período máximo de ejecución/i)
-    await expect(periodInput).toBeVisible()
-  })
-
-  test('Maximum execution period that can be written', async ({ page }) => {
-    await page.type('[data-testid=maximo-input]', '3 meses')
-
-    const inputValue = await page.getAttribute('[data-testid=maximo-input]', 'value')
-    expect(inputValue).toBe('3 meses')
+  test('Maximum execution period input and that can be written', async ({ page }) => {
+    const executionValue = page.getByLabel('Período máximo de ejecución')
+    const executionInput = page.getByPlaceholder(/Período máximo de ejecución/i)
+    await expect(executionInput).toBeVisible()
+    await executionValue.fill('3')
+    await expect(executionValue).toHaveValue('3')
   })
 })
 
@@ -201,36 +153,22 @@ test.describe('Mandatory external audit  input test', () => {
 })
 
 test.describe('Maximum requestable budget input test', () => {
-  test('Maximum requestable budget input', async ({ page }) => {
-    const budgetLabel = page.getByText('Presupuesto máximo solicitable')
-    await expect(budgetLabel).toBeVisible()
-
+  test('Maximum execution period input and that can be written', async ({ page }) => {
+    const budgetValue = page.getByLabel('Presupuesto máximo solicitable')
     const budgetInput = page.getByPlaceholder(/€/i)
     await expect(budgetInput).toBeVisible()
-  })
-
-  test('Maximum requestable budget that can be written', async ({ page }) => {
-    await page.type('[data-testid=presu-input]', '30€')
-
-    const inputValue = await page.getAttribute('[presu-input]', 'value')
-    expect(inputValue).toBe('30€')
+    await budgetValue.fill('30€')
+    await expect(budgetValue).toHaveValue('30€')
   })
 })
 
 test.describe('Information of interest input test', () => {
-  test('Information of interest input', async ({ page }) => {
-    const infoLabel = page.getByText('Información de interés')
-    await expect(infoLabel).toBeVisible()
-
+  test('Information of interest input and that can be written', async ({ page }) => {
+    const infoValue = page.getByLabel('Información de interés')
     const infoInput = page.getByLabel('Información de interés')
     await expect(infoInput).toBeVisible()
-  })
-
-  test('Information of interest that can be written', async ({ page }) => {
-    await page.type('[data-testid=informacion-input]', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ')
-
-    const inputValue = await page.getAttribute('[data-testid=informacion-input]', 'value')
-    expect(inputValue).toBe('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ')
+    await infoValue.fill('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+    await expect(infoValue).toHaveValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
   })
 })
 

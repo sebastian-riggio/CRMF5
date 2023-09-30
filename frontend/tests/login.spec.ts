@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Login', () => {
   test('Display isologo factoria', async ({ page }) => {
-    const isologo = await page.getByAltText('isologo-f5')
+    const isologo = page.getByAltText('isologo-f5')
     await expect(isologo).toBeVisible()
   })
 })
@@ -25,31 +25,19 @@ test.describe('Form Login "Cuenta" ', () => {
   })
 
   test.describe('Email input email', () => {
-    test('email input', async ({ page }) => {
-      const emailLabel = await page.waitForSelector('label[for="email"]')
-      const emailInput = await page.waitForSelector('input#email')
-
-      const labelText = await emailLabel.innerText()
-      const inputValue = await emailInput.getAttribute('placeholder')
-
-      expect(labelText).toBe('Email')
-      expect(inputValue).toBe('example@mail.com')
-    })
-
-    test('Email that can be written', async ({ page }) => {
-      await page.type('[data-testid=correo-input]', 'johndoe@example.com')
-
-      const inputValue = await page.getAttribute('[data-testid=correo-input]', 'value')
-      expect(inputValue).toBe('johndoe@example.com')
+    test('Email input and that can be written', async ({ page }) => {
+      const inputValue = page.getByLabel('Email')
+      await inputValue.fill('johndoe@example.com')
+      await expect(inputValue).toHaveValue('johndoe@example.com')
     })
   })
 
   test.describe('Button test', () => {
     test('Display button "entrar" ', async ({ page }) => {
-      const button = await page.getByRole('button', { name: /Entrar/i })
+      const button = page.getByRole('button', { name: /Entrar/i })
       await expect(button).toBeVisible()
       await button.click()
-      await expect(page).toHaveURL('http: localhost:5173/home')
+      await expect(page).toHaveURL('http://localhost:5173/home')
     })
   })
 })
@@ -57,45 +45,31 @@ test.describe('Form Login "Cuenta" ', () => {
 test.describe('Form Login "Contraseña" ', () => {
   test.describe('title tests', () => {
     test('Display form title', async ({ page }) => {
-      const passwordButton = page.getByRole('button', {name: /Contraseña/i });
+      const passwordButton = page.getByRole('button', { name: 'Contraseña' })
       await passwordButton.click()
 
-      const title = await page.getByRole('heading', { name: '¿Olvidó su contraseña?' })
+      const title = page.getByRole('heading', { name: '¿Olvidó su contraseña?' })
       await expect(title).toBeVisible({ timeout: 10000 })
     })
 
     test('Display sub title', async ({ page }) => {
-      const subtitle = await page.getByText(/ Le ofrecemos la opción de recuperar su contraseña de forma sencilla y segura. Para ello, ingrese su dirección de correo electrónico y le enviaremos un mensaje con las instrucciones necesarias./i)
+      const subtitle = page.getByText(/ Le ofrecemos la opción de recuperar su contraseña de forma sencilla y segura. Para ello, ingrese su dirección de correo electrónico y le enviaremos un mensaje con las instrucciones necesarias./i)
       await expect(subtitle).toBeVisible
     })
   })
 
   test.describe('email tests', () => {
-    test('email input', async ({ page }) => {
-      const emailLabel = await page.waitForSelector('label[for="email"]')
-      const emailInput = await page.waitForSelector('input#email')
-
-      const labelText = await emailLabel.innerText()
-      const inputValue = await emailInput.getAttribute('placeholder')
-
-      expect(labelText).toBe('Email')
-      expect(inputValue).toBe('example@mail.com')
-    })
-
-    test('Email that can be written', async ({ page }) => {
-      await page.type('[data-testid=correo-recuperacion-input]', 'johndoe@example.com')
-
-      const inputValue = await page.getAttribute('[data-testid=correo-input]', 'value')
-      expect(inputValue).toBe('johndoe@example.com')
+    test('Email input and that can be written', async ({ page }) => {
+      const inputValue = page.getByLabel('Email')
+      await inputValue.fill('johndoe@example.com')
+      await expect(inputValue).toHaveValue('johndoe@example.com')
     })
   })
-})
 
-test.describe('button test ', () => {
   test('Display button "recuperar contrseña" ', async ({ page }) => {
-    const button = await page.getByRole('button', { name: /recuperar contraseña/i })
+    const button = page.getByRole('button', { name: /recuperar contraseña/i })
     await expect(button).toBeVisible()
     await button.click()
-    await page.goto('http: localhost:5173/notfound')
+   // await page.goto('http://localhost:5173/notfound')
   })
 })

@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Project code test', () => {
   test('Project code title', async ({ page }) => {
-    const nameLabel = page.getByLabel('Codigo de proyecto:')
+    const nameLabel = page.getByText('Codigo de proyecto:')
     await expect(nameLabel).toBeVisible()
   })
 
@@ -83,10 +83,10 @@ test.describe('Factoria Budget test', () => {
 })
 
 test.describe('Button test', () => {
-  test('Display button "recuperar contrseña" ', async ({ page }) => {
-    const button = page.locator('[data-testid=go-back-input]')
+  test('Display button "volver atras" ', async ({ page }) => {
+    const button = page.getByTestId('go-back-input')
     await expect(button).toBeVisible()
     await button.click()
-    await page.goto('http: localhost:5173/allprojects')
+    await page.goto('http://localhost:5173/allprojects')
   })
 })
