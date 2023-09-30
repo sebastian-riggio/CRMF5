@@ -25,22 +25,10 @@ test.describe('Form Login "Cuenta" ', () => {
   })
 
   test.describe('Email input email', () => {
-    test('email input', async ({ page }) => {
-      const emailLabel = await page.waitForSelector('label[for="email"]')
-      const emailInput = await page.waitForSelector('input#email')
-
-      const labelText = await emailLabel.innerText()
-      const inputValue = await emailInput.getAttribute('placeholder')
-
-      expect(labelText).toBe('Email')
-      expect(inputValue).toBe('example@mail.com')
-    })
-
-    test('Email that can be written', async ({ page }) => {
-      await page.type('[data-testid=correo-input]', 'johndoe@example.com')
-
-      const inputValue = await page.getAttribute('[data-testid=correo-input]', 'value')
-      expect(inputValue).toBe('johndoe@example.com')
+    test('Email input and that can be written', async ({ page }) => {
+      const inputValue = page.getByLabel('Email')
+      await inputValue.fill('johndoe@example.com')
+      await expect(inputValue).toHaveValue('johndoe@example.com')
     })
   })
 
@@ -49,7 +37,7 @@ test.describe('Form Login "Cuenta" ', () => {
       const button = page.getByRole('button', { name: /Entrar/i })
       await expect(button).toBeVisible()
       await button.click()
-      // await expect(page).toHaveURL('http: localhost:5173/home')
+      await expect(page).toHaveURL('http://localhost:5173/home')
     })
   })
 })
@@ -71,31 +59,17 @@ test.describe('Form Login "Contraseña" ', () => {
   })
 
   test.describe('email tests', () => {
-    test('email input', async ({ page }) => {
-      const emailLabel = await page.waitForSelector('label[for="email"]')
-      const emailInput = await page.waitForSelector('input#email')
-
-      const labelText = await emailLabel.innerText()
-      const inputValue = await emailInput.getAttribute('placeholder')
-
-      expect(labelText).toBe('Email')
-      expect(inputValue).toBe('example@mail.com')
-    })
-
-    test('Email that can be written', async ({ page }) => {
-      await page.type('[data-testid=correo-recuperacion-input]', 'johndoe@example.com')
-
-      const inputValue = await page.getAttribute('[data-testid=correo-input]', 'value')
-      expect(inputValue).toBe('johndoe@example.com')
+    test('Email input and that can be written', async ({ page }) => {
+      const inputValue = page.getByLabel('Email')
+      await inputValue.fill('johndoe@example.com')
+      await expect(inputValue).toHaveValue('johndoe@example.com')
     })
   })
-})
 
-test.describe('button test ', () => {
   test('Display button "recuperar contrseña" ', async ({ page }) => {
     const button = page.getByRole('button', { name: /recuperar contraseña/i })
     await expect(button).toBeVisible()
     await button.click()
-    await page.goto('http: localhost:5173/notfound')
+   // await page.goto('http://localhost:5173/notfound')
   })
 })

@@ -31,6 +31,13 @@ test.describe('All projects page', () => {
       const prevBtn = page.locator('[data-testid=next-page-button]')
       await expect(prevBtn).toBeVisible()
     })
+
+    test('Go back button ', async ({ page }) => {
+      const button = page.locator('[data-testid=go-back-input]')
+      await expect(button).toBeVisible()
+      await button.click()
+      await page.goto('http://localhost:5173/home')
+    })
   })
 
   test.describe('Search test', () => {

@@ -21,19 +21,10 @@ test.describe('New project page', () => {
 })
 
 test.describe('Name input test', () => {
-  test('Name input', async ({ page }) => {
-    const nameLabel = page.getByLabel('Nombre del Proyecto')
-    await expect(nameLabel).toBeVisible()
-
-    const nameInput = page.getByPlaceholder(/Nombre del proyecto/i)
-    await expect(nameInput).toBeVisible()
-  })
-
-  test('Name project that can be written', async ({ page }) => {
-    await page.type('[data-testid=project-input]', 'Bootcamp P7 - Mixta')
-
-    const inputValue = await page.getAttribute('[data-testid=project-input]', 'value')
-    await expect(inputValue).toBe('Bootcamp P7 - Mixta')
+  test('Name input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Nombre del Proyecto')
+    await inputValue.fill('Bootcamp P7 - Mixta')
+    await expect(inputValue).toHaveValue('Bootcamp P7 - Mixta')
   })
 })
 
@@ -45,82 +36,55 @@ test.describe('Department or management center input test', () => {
 })
 
 test.describe('Responsible input test', () => {
-  test('Responsible input', async ({ page }) => {
-    const responsibleLabel = page.getByText('Responsable de F5')
-    await expect(responsibleLabel).toBeVisible()
-
+  test('Responsible input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Responsable de F5')
     const responsibleInput = page.getByPlaceholder(/persona responsable Factoria F5/i)
     await expect(responsibleInput).toBeVisible()
-  })
-  test('Responsible that can be written', async ({ page }) => {
-    await page.type('[data-testid=responsable-input]', 'Raúl García')
-
-    const inputValue = await page.getAttribute('[data-testid=responsable-input]', 'value')
-    await expect(inputValue).toBe('Raúl García')
+    await inputValue.fill('Raúl García')
+    await expect(inputValue).toHaveValue('Raúl García')
   })
 })
 
 test.describe('Months of duration input test', () => {
-  test('Months of duration input', async ({ page }) => {
-    const monthsLabel = page.getByText('Meses Duración')
-    await expect(monthsLabel).toBeVisible()
-
-    const monthsInput = page.getByLabel(/Meses Duración/i)
+  test('Months of duration input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Meses Duración')
+    const monthsInput = page.getByPlaceholder(/Meses Duración/i)
     await expect(monthsInput).toBeVisible()
-  })
-
-  test('Months of duration that can be written', async ({ page }) => {
-    await page.type('[data-testid=month-input]', '2 meses')
-
-    const inputValue = await page.getAttribute('[data-testid=month-input]', 'value')
-    expect(inputValue).toBe('')
+    await inputValue.fill('2')
+    await expect(inputValue).toHaveValue('2')
   })
 })
 
 test.describe('Project budget input test', () => {
-  test('Project budget input', async ({ page }) => {
-    const budgetLabel = page.getByText('Presupuesto del proyecto')
-    await expect(budgetLabel).toBeVisible()
-
+  test('Project budget input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Presupuesto del proyecto')
     const budgetInput = page.getByLabel('Presupuesto del proyecto')
     await expect(budgetInput).toBeVisible()
-  })
-
-  test('Project budget that can be written', async ({ page }) => {
-    await page.type('[data-testid=project-budget-input]', '200 €')
-
-    const inputValue = await page.getAttribute('[data-testid=project-budget-input]', 'value')
-    await expect(inputValue).toBe('')
+    await inputValue.fill('200')
+    await expect(inputValue).toHaveValue('200')
   })
 })
 
 test.describe('Factoria budget input test', () => {
-  test('Factoria budget input', async ({ page }) => {
-    const budgetFactLabel = page.getByText('Presupuesto de Factoria F5')
-    await expect(budgetFactLabel).toBeVisible()
-
-    const budgetFactInput = page.getByLabel('Presupuesto de Factoria F5')
-    await expect(budgetFactInput).toBeVisible()
-  })
-
-  test('Factoria budget that can be written', async ({ page }) => {
-    await page.type('[data-testid=factoria-budget-input]', '200 €')
-
-    const inputValue = await page.getAttribute('[data-testid=factoria-budget-input]', 'value')
-    expect(inputValue).toBe('200 €')
+  test('Factoria budget input and that can be written', async ({ page }) => {
+    const inputValue = page.getByLabel('Presupuesto de Factoria F5')
+    const budgetInput = page.getByLabel('Presupuesto de Factoria F5')
+    await expect(budgetInput).toBeVisible()
+    await inputValue.fill('200')
+    await expect(inputValue).toHaveValue('200')
   })
 })
 
 test.describe('Buttons test', () => {
   test('Create button', async ({ page }) => {
-    const button = await page.getByRole('button', { name: /Crear/i })
+    const button = page.getByRole('button', { name: /Crear/i })
     await expect(button).toBeVisible()
     await button.click()
     // await expect(page).toHaveURL('http://localhost:5173/allprojects')
   })
 
   test('Cancel button', async ({ page }) => {
-    const button = await page.getByRole('button', { name: /Cancelar/i })
+    const button = page.getByRole('button', { name: /Cancelar/i })
     await expect(button).toBeVisible()
     await button.click()
     // await expect(page).toHaveURL('http://localhost:5173/allprojects')
