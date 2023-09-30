@@ -12,7 +12,7 @@ test.describe('Register user page', () => {
   })
 
   test('Display sub title', async ({ page }) => {
-    const subtitle = page.getByText( 'Completar los datos del nuevo usuario del Factoria F5')
+    const subtitle = page.getByText('Completar los datos del nuevo usuario del Factoria F5')
 
     await expect(subtitle).toBeVisible()
   })

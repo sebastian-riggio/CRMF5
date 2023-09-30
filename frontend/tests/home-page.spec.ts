@@ -9,7 +9,7 @@ test.describe('Menubar', () => {
     const isologo = await page.getByAltText('isologo-f5')
     await expect(isologo).toBeVisible()
     await isologo.click()
-  await expect(page).toHaveURL('http://localhost:5173/home')
+    await expect(page).toHaveURL('http://localhost:5173/home')
   })
 
   // test('Display "proyectos"', async ({ page }) => {
