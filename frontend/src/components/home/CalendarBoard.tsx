@@ -13,7 +13,7 @@ function CalendarBoard () {
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
-        {/* traer fechas de vencimiento/cierre de convocatorias para marcar en el calendario */}
+        {/* traer todas las fechas de inicio de convocatorias */}
         <div>
           <Calendar
             mode='single'
@@ -22,7 +22,7 @@ function CalendarBoard () {
             className='rounded-md border'
           />
         </div>
-        {/* listar todas las fechas de venciamiento anteriormente marcadas en calendario */}
+        {/* listar todas las fechas de inicio de convocatorias (desde la mas próxima a la mas lejana) */}
         <ScrollArea className='h-[310px] w-[280px] md:w-[800px] md:h-[309px] rounded-md border p-4'>
           <div className='p-4'>
             <Siren className='mb-4 text-sm font-medium leading-none'> </Siren>
