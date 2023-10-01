@@ -3,51 +3,114 @@ import { Calendar } from '../ui/calendar'
 import { ScrollArea } from '../ui/scroll-area'
 import { Separator } from '../ui/separator'
 import {
-  Siren
+  Siren,
+  FileStack
 } from 'lucide-react'
-import { DiaryBox } from './DiaryBox'
+/* import { DiaryBox } from './DiaryBox' */
 
 function CalendarBoard () {
   const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
-        {/* traer fechas de vencimiento/cierre de convocatorias para marcar en el calendario */}
-        <Calendar
-          mode='single'
-          selected={date}
-          onSelect={setDate}
-          className='rounded-md border'
-        />
-        {/* listar las mismas fechas de vencimiento/cierre que se han marcado en el calendario */}
-        <ScrollArea className='h-[310px] w-[280px] md:w-[450px] rounded-md border p-4'>
+        {/* traer todas las fechas de inicio de convocatorias */}
+        <div>
+          <Calendar
+            mode='single'
+            selected={date}
+            onSelect={setDate}
+            className='rounded-md border'
+          />
+        </div>
+        {/* listar todas las fechas de inicio de convocatorias (desde la mas próxima a la mas lejana) */}
+        <ScrollArea className='h-[310px] w-[280px] md:w-[800px] md:h-[309px] rounded-md border p-4'>
           <div className='p-4'>
             <Siren className='mb-4 text-sm font-medium leading-none'> </Siren>
-            <ul>
+            <ul> {/* esto esta a modo de ejemplo de la info que debe aparecer */}
               <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
               </li>
               <Separator className='my-2' />
               <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
               </li>
               <Separator className='my-2' />
               <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
               </li>
               <Separator className='my-2' />
               <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
               </li>
               <Separator className='my-2' />
               <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
               </li>
               <Separator className='my-2' />
             </ul>
           </div>
         </ScrollArea>
-        <DiaryBox />
+        {/* definir bien - Hector tenía una buena idea- */}
+        <ScrollArea className='h-[310px] w-[280px] md:w-[1100px] md:h-[255px] rounded-md border p-4'>
+          <div className='p-4 '>
+            <FileStack className='mb-4 text-sm font-medium leading-none' />
+            <ul> {/* esto esta a modo de ejemplo de la info que debe aparecer */}
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+              <li className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
+              </li>
+              <Separator className='my-2' />
+            </ul>
+          </div>
+        </ScrollArea>
+        {/* <DiaryBox /> */}
 
       </div>
     </>
