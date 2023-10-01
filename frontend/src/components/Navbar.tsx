@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Separator } from './ui/separator'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { SheetMenu } from './ui/navbar/SheetMenu'
 import { SheetUserNav } from './ui/navbar/SheetUserNav'
 import { SelectTheme } from './ui/navbar/SelectTheme'
@@ -31,7 +31,7 @@ function Navbar () {
     <>
       <div className='flex items-center h-full  container mx-auto'>
 
-        <Link className='flex items-center' to='http://localhost:5173/home'>
+        <Link className='flex items-center' to='/'>
           <img
             src='src/assets/LogoFactoria.png'
             className='max-w-[80px] h-auto mb-4 ml-0 mt-4 md:max-w-[90px]'
@@ -53,7 +53,7 @@ function Navbar () {
         </div>
       </div>
       <Separator className='container mx-auto' />
-
+      <Outlet />
     </>
   )
 }
