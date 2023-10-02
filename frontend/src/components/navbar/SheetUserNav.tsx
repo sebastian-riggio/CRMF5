@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Avatar, AvatarFallback, AvatarImage } from '../avatar'
-import { Button } from '../button'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { Button } from '../ui/button'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTrigger
-} from '../sheet'
-import { Separator } from '../separator'
+} from '../ui/sheet'
+import { Separator } from '../ui/separator'
 import { LogOut } from 'lucide-react'
 
 export function SheetUserNav () {

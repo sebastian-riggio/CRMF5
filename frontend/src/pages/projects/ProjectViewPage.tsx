@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Project from '../../components/Project'
+import Project from '../../components/project/Project'
 import GoBack from '../../components/GoBack'
 
 export default function ProjectViewPage () {
