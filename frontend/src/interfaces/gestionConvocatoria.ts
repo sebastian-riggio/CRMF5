@@ -82,6 +82,7 @@ const gestionConvocatoria = z.object({
   etapaResolucion: z.array(etapaResolucion),
   etapaOtorgamiento: z.array(etapaOtorgamiento),
   etapaJustificacion: z.array(etapaJustificacion),
-  etapaCierre: z.array(etapaCierre)
+  etapaCierre: z.array(etapaCierre),
+  estado: z.string()
 })
 export default gestionConvocatoria
