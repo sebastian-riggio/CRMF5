@@ -1,9 +1,27 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
+import React, { useEffect, useState } from 'react'
 import GraphicData from './GraphicData'
 import { RecentCloseProjects } from './RecentCloseProjects'
+import { getProjects } from '../../services/proyectos'
 
-function ResumeBoard () {
+const ResumeBoard: React.FC = () => {
+  const [totalProyectos, setTotalProyectos] = useState<number>(0)
+
+  useEffect(() => {
+    const fetchTotalProyectos = async () => {
+      try {
+        const response = await getProjects()
+        const total = response.data.proyectos.length // Usa la propiedad 'proyectos' para obtener el número total
+        setTotalProyectos(total)
+      } catch (error) {
+        console.error('Error al obtener el total de proyectos:', error)
+      }
+    }
+
+    fetchTotalProyectos()
+  }, [])
+
   return (
     <>
       <TabsContent value='overview' className='space-y-4'>
@@ -31,9 +49,9 @@ function ResumeBoard () {
               </svg>
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>500</div>
+              <div className='text-2xl font-bold'>{totalProyectos}</div>
               <p className='text-xs text-muted-foreground'>
-                +20% que el último año
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
