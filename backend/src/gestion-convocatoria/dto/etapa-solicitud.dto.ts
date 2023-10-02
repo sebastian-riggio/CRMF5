@@ -24,4 +24,5 @@ numeroExpediente:string;
 @IsString()
 reciboOficial:string;
 
+
 }

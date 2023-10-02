@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsDate, IsString } from "class-validator";
+import { IsArray, IsDate, IsEnum, IsString } from "class-validator";
 import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";
 import { EtapaSolicitudDto } from "./etapa-solicitud.dto";
 import { EtapaOtorgamientoDto } from "./etapa-otorgamiento.dto";
@@ -7,6 +7,14 @@ import { EtapaResolucionDto } from "./etapa-resolucion.dto";
 import { EtapaJustificacionDto } from "./etapa-justificacion.dto";
 import { EtapaCierreDto } from "./etapa-cierre.dto";
 import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";
+
+export enum Estados {
+    Solicitud = 'solicitud',
+    Negociacion = 'negociacion',
+    Otorgamiento = 'otorgamiento',
+    Justificacion = 'justificacion',
+    Cierre = 'cierre',
+}
 
 export class CreateGestionConvocatoriaDto {
 @ApiProperty({example:"financiacion patra cursos educativos online"})
@@ -46,5 +54,9 @@ etapaJustificacion:EtapaJustificacionDto;
 
 @ApiProperty({example:"Etapa Cierre"})
 @IsArray()
-etapaCierre:EtapaCierreDto;  
+etapaCierre:EtapaCierreDto; 
+
+@ApiProperty({example:'solicitud'})
+@IsEnum(Estados)
+estado:Estados
 }
