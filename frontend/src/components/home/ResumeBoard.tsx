@@ -1,9 +1,50 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
+import React, { useEffect, useState } from 'react'
 import GraphicData from './GraphicData'
 import { RecentCloseProjects } from './RecentCloseProjects'
+import { getProjects } from '../../services/proyectos'
+import { getAllConvocatoria } from '../../services/registroConvocatoria'
+import {
+  Library,
+  Users,
+  CreditCard,
+  Activity
+} from 'lucide-react'
 
-function ResumeBoard () {
+const ResumeBoard: React.FC = () => {
+  const [totalProyectos, setTotalProyectos] = useState<number>(0)
+  const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
+
+  useEffect(() => {
+    const fetchTotalProyectos = async () => {
+      try {
+        const response = await getProjects()
+        const total = response.data.proyectos.length
+        setTotalProyectos(total)
+      } catch (error) {
+        console.error('Error al obtener el total de proyectos:', error)
+      }
+    }
+    const fetchTotalConvocatorias = async () => {
+      try {
+        const response = await getAllConvocatoria()
+        if (Array.isArray(response.data.convocatoria)) {
+          const total = response.data.convocatoria.length
+          setTotalConvocatorias(total)
+          console.log('Total de convocatorias:', total)
+        } else {
+          console.error('Los datos de convocatorias no son un array válido:', response.data.convocatoria)
+        }
+      } catch (error) {
+        console.error('Error al obtener el total de convocatorias:', error)
+      }
+    }
+
+    fetchTotalProyectos()
+    fetchTotalConvocatorias()
+  }, [])
+
   return (
     <>
       <TabsContent value='overview' className='space-y-4'>
@@ -13,27 +54,12 @@ function ResumeBoard () {
               <CardTitle className='text-sm font-medium'>
                 Total de proyectos
               </CardTitle>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24' height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='h-5 w-5 text-muted-foreground'
-              >
-                <path d='m16 6 4 14' />
-                <path d='M12 6v14' />
-                <path d='M8 8v12' />
-                <path d='M4 4v16' />
-              </svg>
+              <Library className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>500</div>
+              <div className='text-2xl font-bold'>{totalProyectos}</div>
               <p className='text-xs text-muted-foreground'>
-                +20% que el último año
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
@@ -42,44 +68,19 @@ function ResumeBoard () {
               <CardTitle className='text-sm font-medium'>
                 Convocatorias
               </CardTitle>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                className='h-4 w-4 text-muted-foreground'
-              >
-                <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
-                <circle cx='9' cy='7' r='4' />
-                <path d='M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' />
-              </svg>
+              <Users className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>450</div>
+              <div className='text-2xl font-bold'>{totalConvocatorias}</div>
               <p className='text-xs text-muted-foreground'>
-                +10% que el último año
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
               <CardTitle className='text-sm font-medium'>Total de proyectos financiados</CardTitle>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                className='h-4 w-4 text-muted-foreground'
-              >
-                <rect width='20' height='14' x='2' y='5' rx='2' />
-                <path d='M2 10h20' />
-              </svg>
+              <CreditCard className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
               <div className='text-2xl font-bold'>424</div>
@@ -93,18 +94,7 @@ function ResumeBoard () {
               <CardTitle className='text-sm font-medium'>
                 Proyectos en trámite
               </CardTitle>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                className='h-4 w-4 text-muted-foreground'
-              >
-                <path d='M22 12h-4l-3 9L9 3l-3 9H2' />
-              </svg>
+              <Activity className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
               <div className='text-2xl font-bold'>50</div>

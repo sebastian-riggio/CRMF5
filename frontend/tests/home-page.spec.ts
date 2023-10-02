@@ -5,11 +5,11 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Menubar', () => {
-  test('Display Navbar factoria', async ({ page }) => {
+  test('Display isologo factoria', async ({ page }) => {
     const isologo = await page.getByAltText('isologo-f5')
     await expect(isologo).toBeVisible()
     await isologo.click()
-    await expect(page).toHaveURL('http://localhost:5173')
+    await expect(page).toHaveURL('http://localhost:5173/')
   })
 
   // test('Display "proyectos"', async ({ page }) => {
@@ -21,7 +21,4 @@ test.describe('Menubar', () => {
   //   // Verifica que la URL haya cambiado al hacer clic en "PROYECTOS"
   //   await expect(page).toHaveURL('http://localhost:5173/allprojects');
   // });
-
-
 })
-

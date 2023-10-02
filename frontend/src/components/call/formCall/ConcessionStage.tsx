@@ -8,7 +8,7 @@ import { CardContent } from '../../ui/card'
 import DatePicker from '../../ui/DatePicker'
 import { Input } from '../../ui/input'
 import { Separator } from '@radix-ui/react-separator'
-import { Button } from 'react-day-picker'
+import { Button } from '@/components/ui/button'
 
 
 const concessionSchema = z.object({
