@@ -1,15 +1,6 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Button } from '../ui/button'
-
-import { toast } from '../ui/use-toast'
-import AccountFormSchema from '../accountFormSchema';
-import { CardFooter } from '../ui/card'
 import { Separator } from '@radix-ui/react-separator'
 import { FormFields } from './FormFields'
-
-type AccountFormValues = z.infer<typeof AccountFormSchema>
 
 export const ProfileFormSchema = z.object({
   nombre: z.string().min(3, { message: 'Faltan caracteres' }),
@@ -22,7 +13,6 @@ export const ProfileFormSchema = z.object({
 })
 
 export function ProfileForm () {
-
   return (
     <div className='container mx-auto my-9 border-1 border-solid border-input rounded-xl py-8'>
       <div className='flex flex-col space-y-1.5'>

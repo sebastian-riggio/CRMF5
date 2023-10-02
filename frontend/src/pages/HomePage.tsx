@@ -6,9 +6,9 @@ import { Tabs } from '../components/ui/tabs'
 
 function HomePage () {
   return (
-    <Card className='container mx-auto mt-5 flex px-4'>
-      <div className='w-1/5 pr-5'>
-        <SideBar />
+    <Card className='container mx-auto mt-5 flex px-0'>
+      <div className='w-1/5'>
+        <SideBar onSidebarItemClick={handleSidebarItemClick} />
       </div>
       <div className=''>
         <Tabs defaultValue='overview' className='space-y-4 my-4'>

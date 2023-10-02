@@ -4,8 +4,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '../select'
+  SelectValue} from '../ui/select'
 
 export function SelectTheme () {
   return (

@@ -1,14 +1,14 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Textarea } from './ui/textarea'
+import { Textarea } from '../ui/textarea'
 import {
   Card,
   CardContent,
   CardFooter
-} from './ui/card'
-import { Switch } from './ui/switch'
-import { Button } from '../components/ui/button'
+} from '../ui/card'
+import { Switch } from '../ui/switch'
+import { Button } from '../ui/button'
 import {
   Form,
   FormControl,
@@ -16,18 +16,21 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../components/ui/form'
-import { Input } from './ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 import {
   Popover,
   PopoverTrigger
-} from './ui/popover'
-import { toast } from '../components/ui/use-toast'
-import { Separator } from './ui/separator'
-import gestionRegistroPost from '../interfaces/gestionRegistroPost'
+} from '../ui/popover'
+import { toast } from '../ui/use-toast'
+import { Separator } from '../ui/separator'
+import gestionRegistroPost from '../../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
-import { createdRegistroGestion } from '../services/registroConvocatoria'
-import DatePicker from './ui/DatePicker'
+import { createdRegistroGestion } from '../../services/registroConvocatoria'
+import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
+import { CalendarIcon } from '@radix-ui/react-icons'
+import { Calendar } from '../ui/calendar'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
@@ -36,11 +39,14 @@ function MainNewCall () {
     resolver: zodResolver(gestionRegistroPost)
   })
 
-  async function onSubmit (data: AccountFormValues) {
-    console.log(data)
+  async function onSubmit (data: SchemaForm) {
+    // data = {...data ,picture: form.getValues('picture')}
+    const formData = new FormData()
     try {
-      const response: AxiosResponse = await createdRegistroGestion(data)
-      console.log(response)
+      formData.append('memoriaTecnica', form.getValues('memoriaTecnica'))
+      const response: AxiosResponse = await createdRegistroGestion(formData)
+      console.log(data, form.getValues('memoriaTecnica'))
+      console.log(form.getValues('memoriaTecnica'), 'dddddddd')
     } catch (error) {
       console.log(error)
     }

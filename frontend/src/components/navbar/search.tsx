@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Input } from '../input'
 import { Search } from 'lucide-react'
+import { Input } from '../ui/input'
 
 export function SearchInput () {
   const [searchText, setSearchText] = useState<string>('')

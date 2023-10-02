@@ -1,9 +1,9 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Textarea } from '../textarea'
-import { CardContent } from '../card'
-import { Separator } from '../separator'
+import { Textarea } from '../../ui/textarea'
+import { CardContent } from '../../ui/card'
+import { Separator } from '../../ui/separator'
 import {
   Form,
   FormControl,
@@ -11,13 +11,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../form'
-import { toast } from '../use-toast'
-import { Input } from '../input'
-import DatePicker from '../DatePicker'
-import { Popover, PopoverTrigger } from '../popover'
-import { Switch } from '../switch'
-import { Button } from '../button'
+} from '../../ui/form'
+import { toast } from '../../ui/use-toast'
+import { Input } from '../../ui/input'
+import DatePicker from '../../ui/DatePicker'
+import { Popover, PopoverTrigger } from '../../ui/popover'
+import { Switch } from '../../ui/switch'
+import { Button } from '../../ui/button'
 
 const generaldataSchema = z.object({
   tematica: z.string(),
