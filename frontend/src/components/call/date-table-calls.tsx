@@ -104,6 +104,7 @@ export function DataTableCalls<TData, TValue> ({
           size='sm'
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
+          data-testid='anterior-boton'
         >
           Anterior
         </Button>
