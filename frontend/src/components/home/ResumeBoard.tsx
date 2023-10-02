@@ -8,7 +8,7 @@ import {
   Library,
   Users,
   CreditCard,
-  HeartPulse
+  Activity
 } from 'lucide-react'
 
 const ResumeBoard: React.FC = () => {
@@ -77,7 +77,7 @@ const ResumeBoard: React.FC = () => {
               <CardTitle className='text-sm font-medium'>
                 Proyectos en trámite
               </CardTitle>
-              <HeartPulse className='text-muted-foreground h-6 w-6' />
+              <Activity className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
               <div className='text-2xl font-bold'>50</div>
