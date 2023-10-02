@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Separator } from './ui/separator'
 import { Link, Outlet } from 'react-router-dom'
-import { SheetMenu } from './ui/navbar/SheetMenu'
-import { SheetUserNav } from './ui/navbar/SheetUserNav'
-import { SelectTheme } from './ui/navbar/SelectTheme'
+import { SheetUserNav } from './navbar/SheetUserNav'
+import { SelectTheme } from './navbar/SelectTheme'
+import { SheetMenu } from './navbar/SheetMenu'
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

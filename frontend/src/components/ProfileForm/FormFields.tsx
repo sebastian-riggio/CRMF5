@@ -9,22 +9,22 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '
 import { Input } from '../ui/input'
 import { ProfileFormSchema } from './ProfileForm'
 import { z } from 'zod'
-import { CardFooter } from '../ui/card'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from '../ui/use-toast'
 import { Calendar } from '../ui/calendar'
-import { AxiosResponse } from 'axios'
-import { createUser } from '@/services/user'
 import { useForm } from 'react-hook-form'
 
 const departamento = [
-  { label: 'Factoría F5 - People and culture', value: 'p&c' },
-  { label: 'Factoría F5 - Admin, contabilidad y finanzas', value: 'con' },
-  { label: 'Factoría F5- Oficina soporte proyectos y calidad', value: 'cal' },
-  { label: 'Factoría F5 -  Dirección general', value: 'gen' },
-  { label: 'Otro', value: 'otro' }
+  { label: 'Factoría F5 - People and culture', value: 'Factoría F5 - People and culture' },
+  { label: 'Factoría F5 - Admin,contabilidad y finanzas', value: 'Factoría F5 - Admin,contabilidad y finanza' },
+  { label: 'Factoría F5 - Oficina soporte proyectos y calidad', value: 'Factoría F5 - Oficina soporte proyectos y calida' },
+  { label: 'Factoría F5 - Comunicación', value: 'Factoría F5 - Comunicación' },
+  { label: 'Factoría F5 - Dirección general', value: 'Factoría F5-Dirección general' },
+  { label: 'Factoria F5 - Madrid', value: 'Factoria F5 - Madrid' },
+  { label: 'Factoria F5 - Asturias', value: 'Factoria F5 - Asturias' },
+  { label: 'Factoria F5 - Barcelona', value: 'Factoria F5 - Barcelona' },
+  { label: 'Otro', value: 'Otro' }
 ] as const
-
 
 export function FormFields () {
   const form = useForm<z.infer<typeof ProfileFormSchema>>({
@@ -34,7 +34,7 @@ export function FormFields () {
     }
   })
 
- async function onSubmit(data: z.infer<typeof ProfileFormSchema>) {
+  async function onSubmit (data: z.infer<typeof ProfileFormSchema>) {
     console.log(data)
     try {
       const output = {
@@ -50,7 +50,6 @@ export function FormFields () {
           </pre>
         )
       })
-
     } catch (error) {
       toast({
         title: 'Error',
@@ -60,7 +59,6 @@ export function FormFields () {
           </div>
         )
       })
-
     }
   }
   return (
@@ -179,11 +177,11 @@ export function FormFields () {
                         >
                           {field.value
                             ? (
-                              format(field.value, 'PPP')
-                            )
+                                format(field.value, 'PPP')
+                              )
                             : (
                               <span>Elige la fecha </span>
-                            )}
+                              )}
                           <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                         </Button>
                       </FormControl>
@@ -196,7 +194,7 @@ export function FormFields () {
                         disabled={(date) =>
                           date > new Date() || date < new Date('1900-01-01')}
                         initialFocus
-                    className='bg-gray-100'
+                        className='bg-gray-100'
                       />
                     </PopoverContent>
                   </Popover>

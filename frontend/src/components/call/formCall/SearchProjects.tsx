@@ -2,19 +2,19 @@ import * as React from 'react'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
 import { cn } from '../../../lib/utils'
-import { Button } from '../button'
+import { Button } from '../../ui/button'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem
-} from '../command'
+} from '../../ui//command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from '../popover'
+} from '../../ui/popover'
 /* import { getProjects } from '@/services/proyectos'
 import { useEffect, useState } from 'react' */
 

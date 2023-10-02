@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getProjectDetail } from '../services/proyectos'
-import { Projects } from '../interfaces/projects'
+import { getProjectDetail } from '../../services/proyectos'
+import { Projects } from '../../interfaces/projects'
 import { useParams } from 'react-router-dom'
 import { formatDate } from '@/lib/utils'
 

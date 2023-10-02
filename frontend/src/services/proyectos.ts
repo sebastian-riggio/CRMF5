@@ -12,4 +12,3 @@ export const getProjects = () => {
 export const getProjectDetail = (id:string) => {
   return axiosPrivate.get(`/projects/${id}`)
 }
- 
