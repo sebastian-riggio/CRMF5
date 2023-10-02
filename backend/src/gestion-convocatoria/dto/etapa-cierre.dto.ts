@@ -28,7 +28,4 @@ ultimoPagoPorcentaje:number;
 documentoCierre:string;
 
 
-
-
-
 }

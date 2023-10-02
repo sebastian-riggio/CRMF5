@@ -10,6 +10,9 @@ import { GestionConvocatoriaModule } from "./gestion-convocatoria/gestion-convoc
 import { MongooseModule } from "@nestjs/mongoose";
 import { json } from "express";
 import { MulterModule } from "@nestjs/platform-express";
+import { diskStorage } from "multer";
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { join } from "path";
 
 @Module({
   imports: [
@@ -26,9 +29,19 @@ import { MulterModule } from "@nestjs/platform-express";
       }),
       inject: [ConfigService],
     }),
-    
+     
     MulterModule.register({
-    dest:'./uploads'
+      storage: diskStorage({
+
+        destination: `./uploads`, // Carpeta donde se almacenarán los archivos
+        filename: (req, file, cb) => {
+          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+          cb(null, file.fieldname + '-' + uniqueSuffix);
+        },
+      }),
+    }), 
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
     }),
     UserModule,
     AuthModule, 

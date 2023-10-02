@@ -11,7 +11,6 @@ export class UpdateGestionConvocatoriaDto extends PartialType(
   CreateGestionConvocatoriaDto
 ) {
 
-
   @ApiProperty({ example: "Etapa Solicitud" })
   @IsArray()
   etapaSolicitud: EtapaSolicitudDto;

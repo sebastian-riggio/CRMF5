@@ -1,5 +1,4 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Type } from "class-transformer";
 import { IsBoolean,IsDate,IsNumber, IsString } from "class-validator";
 
 
@@ -72,7 +71,7 @@ otraInformacion:string;
 
 @ApiProperty({example:"PDF"})
 @IsString()
-memoriaTecnica:string;
+memoriaTecnica: string;
 
  @ApiProperty({example:"PDF"})
 @IsString()

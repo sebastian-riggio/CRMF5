@@ -20,17 +20,13 @@ import {
 import { Input } from './ui/input'
 import {
   Popover,
-  PopoverContent,
   PopoverTrigger
 } from './ui/popover'
 import { toast } from '../components/ui/use-toast'
 import { Separator } from './ui/separator'
-import gestionRegistroPost from '../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../services/registroConvocatoria'
 import DatePicker from './ui/DatePicker'
-
-type AccountFormValues = z.infer<typeof gestionRegistroPost>
 
 const schema = z.object({
   titulo: z.string().min(3).max(50).optional(),
@@ -49,32 +45,23 @@ const schema = z.object({
   presupuesto: z.coerce.number().min(0).optional(),
   otraInformacion: z.string().optional(),
   memoriaTecnica: z.instanceof(File).optional(),
+  modeloPresupuesto: z.instanceof(File).optional()
   // memoriaTecnica: z.object({
   //   fileMemory: z.instanceof(File).optional(),
   //   fileBudget: z.string().optional(),
   //   fileApplicationForm: z.string().optional(),
   //   fileOtherDocs: z.string().optional(),
   // }).optional(),
-});
-const initialFormData = {
-  titulo: '',
-  tematica: '',
-  // ... other fields ...
-  fechaApertura: new Date(), // Set the default date to the current date
-  fechaCierre: new Date(), // Set the default date to the current date
-  fechaResolucion: new Date(), // Set the default date to the current date
-  // ... other fields ...
-};
+})
+
 type SchemaForm = z.infer<typeof schema>
 
 function MainNewCall () {
   const form = useForm<SchemaForm>({
-    resolver: zodResolver(schema),
-    defaultValues: initialFormData
+    resolver: zodResolver(schema)
   })
 
   async function onSubmit (data: SchemaForm) {
-    // data = {...data ,picture: form.getValues('picture')}
     try {
       const response: AxiosResponse = await createdRegistroGestion(data)
       console.log(response)
@@ -228,43 +215,19 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaApertura'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha de apertura</FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de inicio </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <Button
-                                variant='outline'
-                                className={cn(
-                                  ' pl-3 text-left font-normal',
-                                  !field.value && 'text-muted-foreground'
-                                )}
-                              >
-                                {field.value
-                                  ? (
-                                      format(field.value, 'PPP')
-                                    )
-                                  : (
-                                    <span>Elige la fecha </span>
-                                    )}
-                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                              </Button>
+                              <DatePicker
+                                title=''
+                                {...field}
+                              />
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className='w-auto p-0' align='start'>
-                            <Calendar
-                              mode='single'
-                              selected={field.value}
-                              onSelect={field.onChange}
-                              disabled={(date) =>
-                                date > new Date() || date < new Date('1900-01-01')}
-                              initialFocus
-                              className='bg-gray-100'
-                            />
-                          </PopoverContent>
                         </Popover>
-
                         <FormMessage />
                       </div>
                     </FormItem>
@@ -274,41 +237,18 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaCierre'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha de cierre</FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de Cierre </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <Button
-                                variant='outline'
-                                className={cn(
-                                  ' pl-3 text-left font-normal',
-                                  !field.value && 'text-muted-foreground'
-                                )}
-                              >
-                                {field.value
-                                  ? (
-                                      format(field.value, 'PPP')
-                                    )
-                                  : (
-                                    <span>Elige la fecha </span>
-                                    )}
-                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                              </Button>
+                              <DatePicker
+                                title=''
+                                {...field}
+                              />
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className='w-auto p-0' align='start'>
-                            <Calendar
-                              mode='single'
-                              selected={field.value}
-                              onSelect={field.onChange}
-                              disabled={(date) =>
-                                date > new Date() || date < new Date('1900-01-01')}
-                              initialFocus
-                              className='bg-gray-100'
-                            />
-                          </PopoverContent>
                         </Popover>
                         <FormMessage />
                       </div>
@@ -320,43 +260,19 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaResolucion'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha límite de resolución </FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de resolucíon </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <Button
-                                variant='outline'
-                                className={cn(
-                                  ' pl-3 text-left font-normal',
-                                  !field.value && 'text-muted-foreground'
-                                )}
-                              >
-                                {field.value
-                                  ? (
-                                      format(field.value, 'PPP')
-                                    )
-                                  : (
-                                    <span>Elige la fecha </span>
-                                    )}
-                                <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
-                              </Button>
+                              <DatePicker
+                                title=''
+                                {...field}
+                              />
                             </FormControl>
                           </PopoverTrigger>
-                          <PopoverContent className='w-auto p-0' align='start'>
-                            <Calendar
-                              mode='single'
-                              selected={field.value}
-                              onSelect={field.onChange}
-                              disabled={(date) =>
-                                date > new Date() || date < new Date('1900-01-01')}
-                              initialFocus
-                              className='bg-gray-100'
-                            />
-                          </PopoverContent>
                         </Popover>
-
                         <FormMessage />
                       </div>
                     </FormItem>
@@ -434,16 +350,39 @@ function MainNewCall () {
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                       <div className='my-2'>
-                        <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
+                        <FormLabel className='mb-2'>Memoria Tecnica</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             value={value?.fileName}
                             onChange={(event) => {
-                              onChange(event.target.files[0]);
+                              onChange(event.target.files[0])
                             }}
                             type='file'
-                            id='picture'
+                            id='memoriaTecnica'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='modeloPresupuesto'
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Modelo Presupuesto</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0])
+                            }}
+                            type='file'
+                            id='modeloPresupuesto'
                           />
                         </FormControl>
                         <FormMessage />

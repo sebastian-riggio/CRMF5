@@ -6,8 +6,9 @@ export type ConvocatoriaDocument = HydratedDocument<ConvocatoriaRegistro>;
 
 @Schema()
 export class ConvocatoriaRegistro extends Document {
+
   @ApiProperty({ example: 'Ayuntamiento Barcelona' })
-  @Prop({ required: true })
+ // @Prop({ required: true })
   entidadConvocante: string;
 
   @ApiProperty({ example: 'Recursos Humanos' })
