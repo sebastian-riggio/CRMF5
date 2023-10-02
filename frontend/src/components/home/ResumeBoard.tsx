@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import GraphicData from './GraphicData'
 import { RecentCloseProjects } from './RecentCloseProjects'
 import { getProjects } from '../../services/proyectos'
+import { getAllConvocatoria } from '../../services/registroConvocatoria'
 import {
   Library,
   Users,
@@ -13,19 +14,35 @@ import {
 
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
+  const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
 
   useEffect(() => {
     const fetchTotalProyectos = async () => {
       try {
         const response = await getProjects()
-        const total = response.data.proyectos.length // Usa la propiedad 'proyectos' para obtener el número total
+        const total = response.data.proyectos.length
         setTotalProyectos(total)
       } catch (error) {
         console.error('Error al obtener el total de proyectos:', error)
       }
     }
+    const fetchTotalConvocatorias = async () => {
+      try {
+        const response = await getAllConvocatoria()
+        if (Array.isArray(response.data.convocatoria)) {
+          const total = response.data.convocatoria.length
+          setTotalConvocatorias(total)
+          console.log('Total de convocatorias:', total)
+        } else {
+          console.error('Los datos de convocatorias no son un array válido:', response.data.convocatoria)
+        }
+      } catch (error) {
+        console.error('Error al obtener el total de convocatorias:', error)
+      }
+    }
 
     fetchTotalProyectos()
+    fetchTotalConvocatorias()
   }, [])
 
   return (
@@ -54,9 +71,9 @@ const ResumeBoard: React.FC = () => {
               <Users className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>450</div>
+              <div className='text-2xl font-bold'>{totalConvocatorias}</div>
               <p className='text-xs text-muted-foreground'>
-                +10% que el último año
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
