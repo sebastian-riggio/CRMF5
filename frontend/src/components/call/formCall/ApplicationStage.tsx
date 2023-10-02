@@ -1,44 +1,43 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../input'
-import DatePicker from '../DatePicker'
-import { Button } from '../button'
-import { Separator } from '../separator'
-import { toast } from '../use-toast'
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '../form'
-import { CardContent } from '../card'
+import { SearchProjects } from './SearchProjects'
+import { useState } from 'react'
+import { toast } from '../../ui/use-toast'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../ui/form'
+import { CardContent } from '../../ui/card'
+import { Input } from '../../ui/input'
+import { Separator } from '../../ui/separator'
+import DatePicker from '../../ui/DatePicker'
+import { Button } from '../../ui/button'
 
-const closingSchema = z.object({
-  aprobacionoficial: z.date().optional(),
-  estadoderesolucion: z.string().optional(),
-  pagofinal: z.date().optional(),
-  totalrecibido: z.string().optional(),
-  porcentajerecibido: z.string().optional(),
-  cierre: z.string().optional()
+const applicationStage = z.object({
+  proyecto: z.string().optional(),
+  tecnico: z.string(),
+  propuesta: z.date().optional(),
+  numerotramite: z.string().optional(),
+  numeroexpediente: z.string().optional(),
+  codigosistema: z.string().optional(),
+  recibooficial: z.string().optional()
 })
 
-type ClosingValues = z.infer<typeof closingSchema>;
+type AccountFormValues = z.infer<typeof applicationStage>;
 
-function ClosingStage () {
-  const form = useForm<ClosingValues>({
-    resolver: zodResolver(closingSchema)
+function ApplicationStage () {
+  const form = useForm<AccountFormValues>({
+    resolver: zodResolver(applicationStage)
   })
+  const [selectedProject, setSelectedProject] = useState<string>('')
 
-  function onSubmit (data: ClosingValues) {
+  function onSubmit (data: AccountFormValues) {
+    data.proyecto = selectedProject
     console.log(data)
     toast({
       title: '¡Genial!',
       description: 'Acaba de actualizar su formulario.'
     })
   }
+
   return (
     <div className='flex flex-wrap'>
       <Form {...form}>
@@ -46,16 +45,13 @@ function ClosingStage () {
           <CardContent>
             <FormField
               control={form.control}
-              name='aprobacionoficial'
-              render={({ field }) => (
+              name='proyecto'
+              render={({}) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de aprobación oficial de informe de justificación</FormLabel>
+                    <FormLabel className='mb-2'>Proyecto Factoria F5</FormLabel>
                     <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
+                      <SearchProjects onSelectProject={setSelectedProject} />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -64,14 +60,15 @@ function ClosingStage () {
             />
             <FormField
               control={form.control}
-              name='estadoderesolucion'
+              name='tecnico'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Estado de resolución</FormLabel>
+                    <FormLabel className='mb-2'>Técnico responsable</FormLabel>
                     <FormControl>
                       <Input
                         type='text'
+                        placeholder='Técnico'
                         {...field}
                       />
                     </FormControl>
@@ -83,11 +80,11 @@ function ClosingStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='pagofinal'
+              name='propuesta'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de recepción pago final</FormLabel>
+                    <FormLabel className='mb-2'>Fecha en la que se ha entregado la propuesta</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -99,19 +96,16 @@ function ClosingStage () {
                 </FormItem>
               )}
             />
+            <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='totalrecibido'
+              name='numerotramite'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Monto total concedido</FormLabel>
+                    <FormLabel className='mb-2'>Número de trámite</FormLabel>
                     <FormControl>
-                      <Input
-                        type='number'
-                        placeholder='€'
-                        {...field}
-                      />
+                      <Input placeholder='Número de trámite' {...field} />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -120,17 +114,28 @@ function ClosingStage () {
             />
             <FormField
               control={form.control}
-              name='porcentajerecibido'
+              name='numeroexpediente'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Porcentaje de último pago</FormLabel>
+                    <FormLabel className='mb-2'>Número de expediente</FormLabel>
                     <FormControl>
-                      <Input
-                        type='number'
-                        placeholder='%'
-                        {...field}
-                      />
+                      <Input placeholder='Número de expediente' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='codigosistema'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Código de subvención</FormLabel>
+                    <FormControl>
+                      <Input placeholder='código generado por el sistema' {...field} />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -140,11 +145,11 @@ function ClosingStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='cierre'
+              name='recibooficial'
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Documento de cierre</FormLabel>
+                  <FormLabel className='mb-2'>Recibo oficial</FormLabel>
                   <FormControl>
                     <Input type='file' {...field} data-testid='file-memory' />
                   </FormControl>
@@ -152,12 +157,15 @@ function ClosingStage () {
               )}
             />
             <Separator className='my-5' />
-            <Button
-              className='w-20 rounded ml-2 '
-              variant='outline'
-            >
-              Actualizar
-            </Button>
+            <div>
+              <Button
+                className='w-20 rounded ml-2 '
+                variant='outline'
+                type='submit'
+              >
+                Actualizar
+              </Button>
+            </div>
           </CardContent>
         </form>
       </Form>
@@ -165,4 +173,4 @@ function ClosingStage () {
   )
 }
 
-export default ClosingStage
+export default ApplicationStage

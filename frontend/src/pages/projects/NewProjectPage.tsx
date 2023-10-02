@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import GoBack from '../../components/GoBack'
-import ProyectForm from '../../components/ProyectForm'
+import ProyectForm from '../../components/project/ProyectForm'
 
 function NewProjectPage () {
   return (

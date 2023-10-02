@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Button } from '../button'
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger
-} from '../sheet'
+} from '../ui/sheet'
 import SearchInput from './search'
-import { Separator } from '../separator'
+import { Separator } from '../ui/separator'
+import { Button } from '../ui/button'
 
 export function SheetMenu () {
   return (

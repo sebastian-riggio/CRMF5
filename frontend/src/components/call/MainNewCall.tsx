@@ -1,14 +1,14 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Textarea } from './ui/textarea'
+import { Textarea } from '../ui/textarea'
 import {
   Card,
   CardContent,
   CardFooter
-} from './ui/card'
-import { Switch } from './ui/switch'
-import { Button } from '../components/ui/button'
+} from '../ui/card'
+import { Switch } from '../ui/switch'
+import { Button } from '../ui/button'
 import {
   Form,
   FormControl,
@@ -16,23 +16,22 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../components/ui/form'
-import { Input } from './ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from './ui/popover'
-import { toast } from '../components/ui/use-toast'
-import { Separator } from './ui/separator'
-import gestionRegistroPost from '../interfaces/gestionRegistroPost'
+} from '../ui/popover'
+import { toast } from '../ui/use-toast'
+import { Separator } from '../ui/separator'
+import gestionRegistroPost from '../../interfaces/gestionRegistroPost'
 import { AxiosResponse } from 'axios'
-import { createdRegistroGestion } from '../services/registroConvocatoria'
-import DatePicker from './ui/DatePicker'
+import { createdRegistroGestion } from '../../services/registroConvocatoria'
 import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 import { CalendarIcon } from '@radix-ui/react-icons'
-import { Calendar } from './ui/calendar'
+import { Calendar } from '../ui/calendar'
 
 type AccountFormValues = z.infer<typeof gestionRegistroPost>
 

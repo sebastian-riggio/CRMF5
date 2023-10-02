@@ -1,12 +1,11 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../input'
-import DatePicker from '../DatePicker'
-import { Button } from '../button'
-import { Separator } from '../separator'
-import { SearchProjects } from './SearchProjects'
-import { toast } from '../use-toast'
+import { Input } from '../../ui/input'
+import DatePicker from '../../ui/DatePicker'
+import { Button } from '../../ui/button'
+import { Separator } from '../../ui/separator'
+import { toast } from '../../ui/use-toast'
 import {
   Form,
   FormControl,
@@ -14,84 +13,45 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../form'
-import { CardContent } from '../card'
-import { useState } from 'react'
+} from '../../ui/form'
+import { CardContent } from '../../ui/card'
 
-const applicationStage = z.object({
-  proyecto: z.string().optional(),
-  tecnico: z.string(),
-  propuesta: z.date().optional(),
-  numerotramite: z.string().optional(),
-  numeroexpediente: z.string().optional(),
-  codigosistema: z.string().optional(),
-  recibooficial: z.string().optional()
+const negotationSchema = z.object({
+  resolucionprovisional: z.date().optional(),
+  limitedeentrega: z.date().optional(),
+  realdeentrega: z.date().optional(),
+  limiterespuesta: z.date().optional(),
+  realrespuesta: z.date().optional(),
+  resolucion: z.string().optional()
 })
 
-type AccountFormValues = z.infer<typeof applicationStage>;
+type NegotationValues = z.infer<typeof negotationSchema>;
 
-function ApplicationStage () {
-  const form = useForm<AccountFormValues>({
-    resolver: zodResolver(applicationStage)
+function NegotationStage () {
+  const form = useForm<NegotationValues>({
+    resolver: zodResolver(negotationSchema)
   })
-  const [selectedProject, setSelectedProject] = useState<string>('')
 
-  function onSubmit (data: AccountFormValues) {
-    data.proyecto = selectedProject
+  function onSubmit (data: NegotationValues) {
     console.log(data)
     toast({
       title: '¡Genial!',
       description: 'Acaba de actualizar su formulario.'
     })
   }
-
   return (
+
     <div className='flex flex-wrap'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent>
             <FormField
               control={form.control}
-              name='proyecto'
-              render={({}) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Proyecto Factoria F5</FormLabel>
-                    <FormControl>
-                      <SearchProjects onSelectProject={setSelectedProject} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='tecnico'
+              name='resolucionprovisional'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Técnico responsable</FormLabel>
-                    <FormControl>
-                      <Input
-                        type='text'
-                        placeholder='Técnico'
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <Separator className='my-5' />
-            <FormField
-              control={form.control}
-              name='propuesta'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha en la que se ha entregado la propuesta</FormLabel>
+                    <FormLabel className='mb-2'>Fecha de resolución provisional</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -103,60 +63,85 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name='limitedeentrega'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha límite de entrega de reformulación</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='realdeentrega'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha real de entrega de reformlación</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='limiterespuesta'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha límite para responder requerimientos</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            /> <FormField
+              control={form.control}
+              name='realrespuesta'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha real para responder requerimientos</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+               />
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='numerotramite'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Número de trámite</FormLabel>
-                    <FormControl>
-                      <Input placeholder='Número de trámite' {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='numeroexpediente'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Número de expediente</FormLabel>
-                    <FormControl>
-                      <Input placeholder='Número de expediente' {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='codigosistema'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Código de subvención</FormLabel>
-                    <FormControl>
-                      <Input placeholder='código generado por el sistema' {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <Separator className='my-5' />
-            <FormField
-              control={form.control}
-              name='recibooficial'
+              name='resolucion'
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Recibo oficial</FormLabel>
+                  <FormLabel className='mb-2'>Resolución provisional</FormLabel>
                   <FormControl>
                     <Input type='file' {...field} data-testid='file-memory' />
                   </FormControl>
@@ -164,14 +149,16 @@ function ApplicationStage () {
               )}
             />
             <Separator className='my-5' />
-            <div>
-              <Button
-                className='w-20 rounded ml-2 '
-                variant='outline'
-                type='submit'
-              >
-                Actualizar
-              </Button>
+            <div className=' w-full md:w-full mt-5 flex justify-center'>
+              <div>
+                <Button
+                  className='w-20 rounded ml-2 '
+                  variant='outline'
+                  type='submit'
+                >
+                  Actualizar
+                </Button>
+              </div>
             </div>
           </CardContent>
         </form>
@@ -180,4 +167,4 @@ function ApplicationStage () {
   )
 }
 
-export default ApplicationStage
+export default NegotationStage

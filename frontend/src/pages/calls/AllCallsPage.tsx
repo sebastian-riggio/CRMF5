@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
-import { DataTableCalls } from './date-table-calls'
-import { formatDate } from '../../../lib/utils'
-import GoBack from '../../../components/GoBack'
+import { DataTableCalls } from '../../components/call/date-table-calls'
+import { formatDate } from '../../lib/utils'
+import GoBack from '../../components/GoBack'
 import { Link } from 'react-router-dom'
 import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import gestionRegistroPost from '@/interfaces/gestionRegistroPost'
@@ -70,7 +70,7 @@ function AllCallsPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/announcement/:id'>
+        <Link to='http://localhost:5173/'>
           <GoBack />
         </Link>
       </div>

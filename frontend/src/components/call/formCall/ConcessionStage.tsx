@@ -1,21 +1,14 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../input'
-import DatePicker from '../DatePicker'
-import { Separator } from '../separator'
 import { ProjectStatus } from './ProjectStatus'
-import { toast } from '../use-toast'
-import { Button } from '../button'
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '../form'
-import { CardContent } from '../card'
+import { toast } from '../../ui/use-toast'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../ui/form'
+import { CardContent } from '../../ui/card'
+import DatePicker from '../../ui/DatePicker'
+import { Input } from '../../ui/input'
+import { Separator } from '@radix-ui/react-separator'
+import { Button } from 'react-day-picker'
 
 const concessionSchema = z.object({
   estado: z.string().optional(),

@@ -1,11 +1,10 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../input'
-import DatePicker from '../DatePicker'
-import { Button } from '../button'
-import { Separator } from '../separator'
-import { toast } from '../use-toast'
+import DatePicker from '../../ui/DatePicker'
+import { Button } from '../../ui/button'
+import { Separator } from '../../ui/separator'
+import { toast } from '../../ui/use-toast'
 import {
   Form,
   FormControl,
@@ -13,26 +12,26 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../form'
-import { CardContent } from '../card'
+} from '../../ui/form'
+import { CardContent } from '../../ui/card'
+import { Textarea } from '../../ui/textarea'
 
-const negotationSchema = z.object({
-  resolucionprovisional: z.date().optional(),
-  limitedeentrega: z.date().optional(),
-  realdeentrega: z.date().optional(),
-  limiterespuesta: z.date().optional(),
-  realrespuesta: z.date().optional(),
-  resolucion: z.string().optional()
+const justificationSchema = z.object({
+  informejustificativo: z.date().optional(),
+  limiterespuestarequerimiento1: z.date().optional(),
+  respuestarequerimiento1: z.date().optional(),
+  limiterespuestarequerimiento2: z.date().optional(),
+  respuestarequerimiento2: z.date().optional(),
+  seguimiento: z.string().optional()
 })
+type JustificationValues = z.infer<typeof justificationSchema>;
 
-type NegotationValues = z.infer<typeof negotationSchema>;
-
-function NegotationStage () {
-  const form = useForm<NegotationValues>({
-    resolver: zodResolver(negotationSchema)
+function JustificationStage () {
+  const form = useForm<JustificationValues>({
+    resolver: zodResolver(justificationSchema)
   })
 
-  function onSubmit (data: NegotationValues) {
+  function onSubmit (data: JustificationValues) {
     console.log(data)
     toast({
       title: '¡Genial!',
@@ -40,18 +39,17 @@ function NegotationStage () {
     })
   }
   return (
-
     <div className='flex flex-wrap'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent>
             <FormField
               control={form.control}
-              name='resolucionprovisional'
+              name='informejustificativo'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de resolución provisional</FormLabel>
+                    <FormLabel className='mb-2'>Fecha de entrega de informe justificativo</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -60,105 +58,111 @@ function NegotationStage () {
                     </FormControl>
                     <FormMessage />
                   </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='limitedeentrega'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite de entrega de reformulación</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='realdeentrega'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha real de entrega de reformlación</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='limiterespuesta'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para responder requerimientos</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            /> <FormField
-              control={form.control}
-              name='realrespuesta'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha real para responder requerimientos</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-               />
-            <Separator className='my-5' />
-            <FormField
-              control={form.control}
-              name='resolucion'
-              shouldUnregister
-              render={({ field }) => (
-                <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Resolución provisional</FormLabel>
-                  <FormControl>
-                    <Input type='file' {...field} data-testid='file-memory' />
-                  </FormControl>
                 </FormItem>
               )}
             />
             <Separator className='my-5' />
+            <FormField
+              control={form.control}
+              name='limiterespuestarequerimiento1'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha límite para responder requerimiento 1</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='respuestarequerimiento1'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha en que se respondió requerimiento 1</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <Separator className='my-5' />
+            <FormField
+              control={form.control}
+              name='limiterespuestarequerimiento2'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha límite para responder requerimiento 2</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='respuestarequerimiento2'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha en que se respondió requerimiento 2</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <Separator className='my-5' />
+            <FormField
+              control={form.control}
+              name='seguimiento'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Nota de seguimiento</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='Escriba aquí...'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <Separator className='my-5' />
+
             <div className=' w-full md:w-full mt-5 flex justify-center'>
-              <div>
-                <Button
-                  className='w-20 rounded ml-2 '
-                  variant='outline'
-                  type='submit'
-                >
-                  Actualizar
-                </Button>
-              </div>
+              <Button
+                className='w-20 rounded ml-2 '
+                variant='outline'
+              >
+                Actualizar
+              </Button>
             </div>
           </CardContent>
         </form>
@@ -167,4 +171,4 @@ function NegotationStage () {
   )
 }
 
-export default NegotationStage
+export default JustificationStage
