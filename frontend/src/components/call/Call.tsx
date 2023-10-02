@@ -87,16 +87,16 @@ function Call () {
 
             <Accordion className='m-2 w-full' type='single' collapsible>
               <AccordionItem value='item-2'>
-                <AccordionTrigger className='px-3'>ETAPA DE SOLICITUD</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-solicitud'>ETAPA DE SOLICITUD</AccordionTrigger>
                 <AccordionContent>
                   <ApplicationStage />
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
 
-            <Accordion className='m-2 w-full' type='single' collapsible>
+            <Accordion className='m-2 w-full ' type='single' collapsible>
               <AccordionItem value='item-3'>
-                <AccordionTrigger className='px-3'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-negociacion'>ETAPA DE NEGOCIACIÓN</AccordionTrigger>
                 <AccordionContent>
                   <NegotationStage />
                 </AccordionContent>
@@ -105,7 +105,7 @@ function Call () {
 
             <Accordion className='m-2 w-full' type='single' collapsible>
               <AccordionItem value='item-4'>
-                <AccordionTrigger className='px-3'>ETAPA DE OTORGAMIENTO</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-otorgamiento'>ETAPA DE OTORGAMIENTO</AccordionTrigger>
                 <AccordionContent>
                   <ConcessionStage />
                 </AccordionContent>
@@ -114,7 +114,7 @@ function Call () {
 
             <Accordion className='m-2 w-full' type='single' collapsible>
               <AccordionItem value='item-4'>
-                <AccordionTrigger className='px-3'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-justificacion'>ETAPA DE JUSTIFICACIÓN</AccordionTrigger>
                 <AccordionContent>
                   <JustificationStage />
                 </AccordionContent>
@@ -123,7 +123,7 @@ function Call () {
 
             <Accordion className='m-2 w-full' type='single' collapsible>
               <AccordionItem value='item-4'>
-                <AccordionTrigger className='px-3'>ETAPA DE CIERRE</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-cierre'>ETAPA DE CIERRE</AccordionTrigger>
                 <AccordionContent>
                   <ClosingStage />
                 </AccordionContent>

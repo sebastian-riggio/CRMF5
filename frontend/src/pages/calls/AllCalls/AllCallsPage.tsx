@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
-import { DataTableCalls } from '../../components/call/date-table-calls'
-import { formatDate } from '../../lib/utils'
-import GoBack from '../../components/GoBack'
+import { DataTableCalls } from './date-table-calls'
+import { formatDate } from '../../../lib/utils'
+import GoBack from '../../../components/GoBack'
 import { Link } from 'react-router-dom'
 import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import gestionRegistroPost from '@/interfaces/gestionRegistroPost'
@@ -39,11 +39,8 @@ const columns: ColumnDef<gestionColumns>[] = [
     accessorKey: 'fechaCierre',
     header: 'Fecha Cierre',
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
-  },
-  {
-    accessorKey: 'entidadConvocante',
-    header: 'financiador'
-  },
+  }
+  
   /* {
     accessorKey: 'proyecto',
     header: 'Proyecto'
@@ -74,7 +71,7 @@ function AllCallsPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/'>
+        <Link to='http://localhost:5173/announcement/:id'>
           <GoBack />
         </Link>
       </div>
