@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 import GraphicData from './GraphicData'
 import { RecentCloseProjects } from './RecentCloseProjects'
 import { getProjects } from '../../services/proyectos'
+import {
+  Library
+} from 'lucide-react'
 
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
@@ -31,22 +34,7 @@ const ResumeBoard: React.FC = () => {
               <CardTitle className='text-sm font-medium'>
                 Total de proyectos
               </CardTitle>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24' height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='h-5 w-5 text-muted-foreground'
-              >
-                <path d='m16 6 4 14' />
-                <path d='M12 6v14' />
-                <path d='M8 8v12' />
-                <path d='M4 4v16' />
-              </svg>
+              <Library className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
               <div className='text-2xl font-bold'>{totalProyectos}</div>
