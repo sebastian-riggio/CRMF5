@@ -16,6 +16,22 @@
        font-display: swap;
        font-style: normal;
 }
+.bg-solicitud {
+  background-color: var(--solicitud);
+}
+.bg-negociacion {
+  background-color: var(--negociacion);
+}
+.bg-otorgamiento {
+  background-color: var(--otorgamiento);
+}
+.bg-justificacion {
+  background-color: var(--justificacion);
+}
+.bg-cierre {
+  background-color: var(--cierre);
+}
+
 
 @layer base {
   :root {
@@ -26,6 +42,17 @@
     --card-foreground: 222.2 84% 4.9%;
  
     --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --solicitud: hsl(7, 100%, 91%);
+    --negociacion: hsl(25, 60%, 98%);
+    --otorgamiento: hsl(54, 75%, 83%);
+    --justificacion: hsl(101, 80%, 84%);
+    --cierre: hsl(227, 84%, 75%);
+
+    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 84% 4.9%;
     --popover-foreground: 222.2 84% 4.9%;
  
     --primary: 17, 100%, 50%;

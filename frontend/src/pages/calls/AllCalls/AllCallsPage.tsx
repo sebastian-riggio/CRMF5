@@ -11,7 +11,7 @@ import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
 
 type gestionTable = z.infer<typeof gestionRegistroPost>
 
-type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'>
+type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'|'etapa'>
 
 const columns: ColumnDef<gestionColumns>[] = [
   {
@@ -39,7 +39,11 @@ const columns: ColumnDef<gestionColumns>[] = [
     accessorKey: 'fechaCierre',
     header: 'Fecha Cierre',
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
-  }
+  },
+  {
+    accessorKey: 'entidadConvocante',
+    header: 'financiador'
+  },
   /* {
     accessorKey: 'proyecto',
     header: 'Proyecto'
