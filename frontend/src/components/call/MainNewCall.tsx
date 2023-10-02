@@ -21,16 +21,12 @@ import { Input } from '../ui/input'
 import {
   Popover,
   PopoverTrigger
-} from './ui/popover'
-import { toast } from '../components/ui/use-toast'
-import { Separator } from './ui/separator'
+} from '../ui/popover'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../../services/registroConvocatoria'
-import { cn } from '@/lib/utils'
-import { format } from 'date-fns'
-import { CalendarIcon } from '@radix-ui/react-icons'
-import { Calendar } from '../ui/calendar'
 import DatePicker from '../ui/DatePicker'
+import { toast } from '../ui/use-toast'
+import { Separator } from '../ui/separator'
 
 const schema = z.object({
   titulo: z.string().min(3).max(50).optional(),
@@ -67,10 +63,8 @@ function MainNewCall () {
 
   async function onSubmit (data: SchemaForm) {
     try {
-      formData.append('memoriaTecnica', form.getValues('memoriaTecnica'))
-      const response: AxiosResponse = await createdRegistroGestion(formData)
-      console.log(data, form.getValues('memoriaTecnica'))
-      console.log(form.getValues('memoriaTecnica'), 'dddddddd')
+      const response: AxiosResponse = await createdRegistroGestion(data)
+      console.log(response)
     } catch (error) {
       console.log(error)
     }
