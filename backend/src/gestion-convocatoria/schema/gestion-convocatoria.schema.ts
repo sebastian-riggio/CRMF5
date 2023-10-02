@@ -15,7 +15,7 @@ export class GestionConvocatoria extends Document {
 
 @ApiProperty({example:"financiacion para cursos educativos online"})
 @Prop()
-convocatoria:string;
+convocatoria:Types.ObjectId;
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
@@ -24,14 +24,6 @@ financiador:Types.ObjectId
 @ApiProperty({example:"Proyectos de Factoria"})
 @Prop({type:Types.ObjectId,ref:'ProyectosRegistro'})
 proyecto:Types.ObjectId
-
-@ApiProperty({example:"Fechaapertura"})
-@Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
-fechaApertura:Types.ObjectId
-
-@ApiProperty({example:"fechaCierre"})
-@Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
-fechaCierre:Types.ObjectId
 
 @ApiProperty({example:"R-0001-20230912"})
 @Prop()

@@ -21,27 +21,51 @@ import { Input } from '../ui/input'
 import {
   Popover,
   PopoverTrigger
-} from '../ui/popover'
-import { toast } from '../ui/use-toast'
-import { Separator } from '../ui/separator'
-import gestionRegistroPost from '../../interfaces/gestionRegistroPost'
+} from './ui/popover'
+import { toast } from '../components/ui/use-toast'
+import { Separator } from './ui/separator'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../../services/registroConvocatoria'
 import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 import { CalendarIcon } from '@radix-ui/react-icons'
 import { Calendar } from '../ui/calendar'
+import DatePicker from '../ui/DatePicker'
 
-type AccountFormValues = z.infer<typeof gestionRegistroPost>
+const schema = z.object({
+  titulo: z.string().min(3).max(50).optional(),
+  tematica: z.string().min(3).max(50).optional(),
+  entidadConvocante: z.string().min(3).max(50).optional(),
+  departamentoConvocante: z.string().min(3).max(50).optional(),
+  publicacionOficial: z.string().url().optional(),
+  convocatoriaEnlace: z.string().url().optional(),
+  trabajoLineas: z.string().min(10).optional(),
+  dirigidoEntidades: z.string().min(3).max(50),
+  fechaApertura: z.date(),
+  fechaCierre: z.date(),
+  fechaResolucion: z.date(),
+  periodoEjecucion: z.coerce.number().min(1).optional(),
+  auditoria: z.string().optional(),
+  presupuesto: z.coerce.number().min(0).optional(),
+  otraInformacion: z.string().optional(),
+  memoriaTecnica: z.instanceof(File).optional(),
+  modeloPresupuesto: z.instanceof(File).optional()
+  // memoriaTecnica: z.object({
+  //   fileMemory: z.instanceof(File).optional(),
+  //   fileBudget: z.string().optional(),
+  //   fileApplicationForm: z.string().optional(),
+  //   fileOtherDocs: z.string().optional(),
+  // }).optional(),
+})
+
+type SchemaForm = z.infer<typeof schema>
 
 function MainNewCall () {
-  const form = useForm<AccountFormValues>({
-    resolver: zodResolver(gestionRegistroPost)
+  const form = useForm<SchemaForm>({
+    resolver: zodResolver(schema)
   })
 
   async function onSubmit (data: SchemaForm) {
-    // data = {...data ,picture: form.getValues('picture')}
-    const formData = new FormData()
     try {
       formData.append('memoriaTecnica', form.getValues('memoriaTecnica'))
       const response: AxiosResponse = await createdRegistroGestion(formData)
@@ -196,9 +220,9 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaApertura'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha de apertura</FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de inicio </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
@@ -218,9 +242,9 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaCierre'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha de cierre</FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de Cierre </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
@@ -241,9 +265,9 @@ function MainNewCall () {
                   control={form.control}
                   name='fechaResolucion'
                   render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2 md:mb-0'>Fecha límite de resolución </FormLabel>
+                    <FormItem>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Fecha de resolucíon </FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
@@ -328,7 +352,52 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='memoriaTecnica'
-                  shouldUnregister
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Memoria Tecnica</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0])
+                            }}
+                            type='file'
+                            id='memoriaTecnica'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='modeloPresupuesto'
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Modelo Presupuesto</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0])
+                            }}
+                            type='file'
+                            id='modeloPresupuesto'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+                {/*         <FormField
+                  control={form.control}
+                  name='memoriaTecnica'
                   render={({ field }) => (
                     <div className='my-2 flex flex-wrap -mx-4'>
                       <FormItem className='w-1/2 px-4 mb-4'>
@@ -357,7 +426,7 @@ function MainNewCall () {
                       </FormItem>
                     </div>
                   )}
-                />
+                /> */}
               </CardContent>
               <CardFooter className='flex justify-center space-x-6'>
                 <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>

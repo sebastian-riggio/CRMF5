@@ -1,0 +1,71 @@
+@Public()
+  @Post()
+  @UseInterceptors(FileInterceptor('memoriaTecnica'))
+  async createWithPDF(
+    @Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto,
+    @UploadedFile() memoriaTecnica:  Express.Multer.File,
+  ) {
+    try {
+      if (!memoriaTecnica) {
+        throw new Error('No se proporcionó un archivo PDF');
+      }
+  
+      const fileBuffer = memoriaTecnica.buffer
+      const fileName = memoriaTecnica.originalname
+      //y aqui lo guardo correctamente en mi carpeta
+      const filePath = `./uploads/${fileName}`
+      fs.writeFileSync(filePath,fileBuffer)
+      createConvocatoriaRegistroDto.memoriaTecnica = `http://localhost:3000/${fileName}`
+  //Aqui si me hace la referencia en la base de datos
+      const result = await this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
+  
+      return result;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error en el manejo del archivo PDF');
+    }
+  }
+///Posible solucion de stackOvefloor a este error https://es.stackoverflow.com/questions/524134/typeerror-err-invalid-arg-type-the-data-argument-must-be-of-type-string-or
+  fs.writeFileSync(configPath, parseInt(nextBlock, 10).toString())
+
+
+//Posible manera de cargar mas de un archivo 
+  @UseInterceptors(
+    FileFieldsInterceptor([
+      { name: 'memoriaTecnica', maxCount: 1 },
+      { name: 'modeloPresupuesto', maxCount: 1 },
+      { name: 'formularioSolicitud', maxCount: 1 },
+      { name: 'otraDocumentacion', maxCount: 1 },
+    ])
+  )
+  async createWithPDF(
+    @Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto,
+    @UploadedFiles() files: Record<string, Express.Multer.File>,
+  ) {
+    try {
+      const filesToSave = [
+        { file: files.memoriaTecnica, fieldName: 'memoriaTecnica' },
+        { file: files.modeloPresupuesto, fieldName: 'modeloPresupuesto' },
+        { file: files.formularioSolicitud, fieldName: 'formularioSolicitud' },
+        { file: files.otraDocumentacion, fieldName: 'otraDocumentacion' },
+      ];
+  
+      for (const fileData of filesToSave) {
+        if (fileData.file) {
+          const fileBuffer = fileData.file.buffer;
+          const fileName = fileData.file.originalname;
+          const filePath = `./uploads/${fileName}`;
+          fs.writeFileSync(filePath,fileBuffer);
+          createConvocatoriaRegistroDto[fileData.fieldName] = `http://localhost:3000/${fileName}`;
+        }else{
+          createConvocatoriaRegistroDto[fileData.fieldName] = ''
+        }
+      }
+  
+      const result = await this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
+  
+      return result;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error en el manejo de los archivos');
+    }

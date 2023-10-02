@@ -11,7 +11,7 @@ import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convoca
 export class CreateGestionConvocatoriaDto {
 @ApiProperty({example:"financiacion patra cursos educativos online"})
 @IsString()
-convocatoria:string;
+convocatoria:ConvocatoriaRegistro
 
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
@@ -22,14 +22,6 @@ financiador:ConvocatoriaRegistro
 @ApiProperty({ example: "Proyecto Factoria" })
 @IsString()
 proyecto: ProyectosRegistro;
-
-@ApiProperty({example:"20/4/2023"})
-@IsDate()
-fechaApertura:ConvocatoriaRegistro
-
-@ApiProperty({example:"20/4/2023"})
-@IsDate()
-fechaCierre:ConvocatoriaRegistro
 
 @ApiProperty({example:"R-0001-20230912"})
 @IsString()
