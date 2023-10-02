@@ -1,5 +1,5 @@
-import React from 'react'
-import { PieChart, Pie, /* Legend, */ Tooltip, ResponsiveContainer } from 'recharts'
+/* import React from 'react'
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts'
 
 type DataCategoryChart = {
   name: string;
@@ -16,7 +16,7 @@ const data: DataCategoryChart[] = [
   { name: 'Cierre', value: 10, fill: '#FF9600', legendColor: '#FF9600' }
 ]
 
-/* const CustomLegend: React.FC = () => {
+const CustomLegend: React.FC = () => {
   return (
     <div className='flex items-center justify-center space-x-5'>
       {data.map((entry, index) => (
@@ -29,7 +29,7 @@ const data: DataCategoryChart[] = [
       ))}
     </div>
   )
-} */
+}
 
 const Example: React.FC = () => {
   return (
@@ -45,16 +45,16 @@ const Example: React.FC = () => {
             stroke='#ffffff'
           />
           <Tooltip />
-          {/* <Legend iconSize={12} content={<CustomLegend />} /> */}
+          <Legend iconSize={12} content={<CustomLegend />} />
         </PieChart>
       </ResponsiveContainer>
     </div>
   )
 }
 
-export default Example
+export default Example */
 
-/* import React, { PureComponent, ReactNode } from 'react'
+import React, { PureComponent, ReactNode } from 'react'
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts'
 
 interface DataItem {
@@ -177,4 +177,3 @@ export default class Example extends PureComponent<ExampleState> {
     )
   }
 }
- */
