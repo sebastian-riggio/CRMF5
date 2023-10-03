@@ -6,6 +6,7 @@ import { EtapaResolucionDto } from "../dto/etapa-resolucion.dto";
 import { EtapaOtorgamientoDto } from "../dto/etapa-otorgamiento.dto";
 import { EtapaJustificacionDto } from "../dto/etapa-justificacion.dto";
 import { EtapaCierreDto } from "../dto/etapa-cierre.dto";
+import { Estados } from "../dto/create-gestion-convocatoria.dto";
 
 
 export type GestionDocument = HydratedDocument<GestionConvocatoria>;
@@ -48,6 +49,10 @@ etapaJustificacion:EtapaJustificacionDto;
 @ApiProperty({example:"Etapa Cierre"})
 @Prop({type:EtapaCierreDto})
 etapaCierre:EtapaCierreDto;  
+
+@ApiProperty({example:'solicitud'})
+@Prop({enum: Estados})
+estado: string;
 
 }
 

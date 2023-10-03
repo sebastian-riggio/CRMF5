@@ -8,12 +8,18 @@ import { Link } from 'react-router-dom'
 import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import gestionRegistroPost from '@/interfaces/gestionRegistroPost'
 import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
+import gestionConvocatoria from '../../interfaces/gestionConvocatoria'
+import { getAllGestion } from '../../services/gestion'
 
 type gestionTable = z.infer<typeof gestionRegistroPost>
 
-type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'|'etapa'>
+type estadoTable = z.infer<typeof gestionConvocatoria>
 
-const columns: ColumnDef<gestionColumns>[] = [
+type estadoColumns = Pick<estadoTable, 'estado'>
+
+type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'>
+
+const columns: ColumnDef<gestionColumns, estadoColumns>[] = [
   {
     accessorKey: 'titulo',
     header: 'Titulo',
@@ -41,14 +47,17 @@ const columns: ColumnDef<gestionColumns>[] = [
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
   },
   {
-    accessorKey: 'entidadConvocante',
-    header: 'financiador'
+    accessorKey: 'fechaCierre',
+    header: 'Fecha Cierre',
+    cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
   },
-  /* {
-    accessorKey: 'proyecto',
-    header: 'Proyecto'
-  } */
+  {
+    accessorKey: 'estado',
+    header: 'Estados',
+    cell: ({ row }) => row.getValue('estado')
+  }
 ]
+
 interface ApiResponse {
   convocatoria: ConvocatoriaRegistro[];
   message: string;
@@ -59,6 +68,22 @@ function AllCallsPage () {
   const [data, setData] = useState<ApiResponse | null>(null)
   console.log(data)
 
+/*   function Estados () {
+    const [estado, setEstado] =  useState()
+
+    useEffect(() => {
+      getAllGestion()
+        .then((response) => {
+          setEstado(response.data)
+        })
+        .catch((error) => {
+          console.error('Error obteniendo los datos:', error)
+        })
+    }, [])
+    if (!estado) return null
+    console.log(estado)
+  }
+ */
   useEffect(() => {
     getAllConvocatoria()
       .then((response) => {
@@ -82,6 +107,7 @@ function AllCallsPage () {
         <h1 className='text-4xl font-semibold'>Convocatorias</h1>
         <DataTableCalls columns={columns} data={data.convocatoria} />
       </div>
+      <p>{}</p>
     </>
   )
 }

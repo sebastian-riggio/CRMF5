@@ -30,4 +30,5 @@ export class UpdateGestionConvocatoriaDto extends PartialType(
   @ApiProperty({ example: "Etapa Cierre" })
   @IsArray()
   etapaCierre: EtapaCierreDto;
+
 }

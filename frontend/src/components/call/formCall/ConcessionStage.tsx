@@ -10,20 +10,22 @@ import { Input } from '../../ui/input'
 import { Separator } from '@radix-ui/react-separator'
 import { Button } from '@/components/ui/button'
 
+
 const concessionSchema = z.object({
-  estado: z.string().optional(),
-  resolucionfinal: z.date().optional(),
-  montofinalconcedido: z.string(),
-  primerdesembolso: z.date().optional(),
-  montoprimerdesembolso: z.string().optional(),
-  porecntajeprimerdesembolso: z.string().optional(),
-  iniciodegastoaprobado: z.date().optional(),
-  finalizaciondegastoaprobado: z.date().optional(),
-  primerinformedeseguimiento: z.date().optional(),
-  informefinaltecnico: z.date().optional(),
-  informeeconómico: z.date().optional(),
-  periodicidadinformeseguimiento: z.string().optional(),
-  resolucionotorgamiento: z.string().optional()
+  estadoSolicitud: z.boolean().optional(),
+  fechaResolucionFinal: z.date().optional(),
+  montoConcedido: z.string(),
+  fechaRecepcionDesembolso: z.date(),
+  fechaPrimerDesembolso: z.date().optional(),
+  montoPrimerDesembolso: z.string().optional(),
+  porcientoPrimerDesembolso: z.string().optional(),
+  fechaInicioGastos: z.date().optional(),
+  fechaFinalizacionGastos: z.date().optional(),
+  fechaPrimerSeguimiento: z.date().optional(),
+  fechaLimiteInformeFinalTecnico: z.date().optional(),
+  fechaLimiteInformeFinalEconomico: z.date().optional(),
+  seguimientoInformes: z.string().optional(),
+  adjuntarResolucionOtorgamiento: z.string().optional()
 })
 
 type ConscessionValues = z.infer<typeof concessionSchema>;
@@ -46,7 +48,7 @@ function ConcessionStage () {
           <CardContent>
             <FormField
               control={form.control}
-              name='estado'
+              name='estadoSolicitud'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -63,7 +65,7 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='resolucionfinal'
+              name='fechaResolucionFinal'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -81,7 +83,7 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='montofinalconcedido'
+              name='montoConcedido'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -101,7 +103,7 @@ function ConcessionStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='primerdesembolso'
+              name='fechaPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -119,11 +121,11 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='montoprimerdesembolso'
+              name='fechaRecepcionDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Monto de primer desembolso</FormLabel>
+                    <FormLabel className='mb-2'>Fecha recepción de primer desembolso</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -138,11 +140,11 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='porecntajeprimerdesembolso'
+              name='montoPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Porcentaje de primer desembolso</FormLabel>
+                    <FormLabel className='mb-2'>Monto del primer desembolso</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -158,11 +160,11 @@ function ConcessionStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='iniciodegastoaprobado'
+              name='porcientoPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha aprobada de inicio de gasto</FormLabel>
+                    <FormLabel className='mb-2'>Porcentaje primer desembolso</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -176,11 +178,11 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='finalizaciondegastoaprobado'
+              name='fechaInicioGastos'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha aprobada de finalización de gasto</FormLabel>
+                    <FormLabel className='mb-2'>Fecha inicio de gastos</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -195,11 +197,11 @@ function ConcessionStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='primerinformedeseguimiento'
+              name='fechaFinalizacionGastos'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de primer informe de seguimiento</FormLabel>
+                    <FormLabel className='mb-2'>Fecha de finalización de gastos</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -213,7 +215,25 @@ function ConcessionStage () {
             />
             <FormField
               control={form.control}
-              name='informefinaltecnico'
+              name='fechaPrimerSeguimiento'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha primer seguimiento</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='fechaLimiteInformeFinalTecnico'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -229,33 +249,15 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name='informeeconómico'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para entrega de informe final económico</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
 
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='periodicidadinformeseguimiento'
+              name='fechaLimiteInformeFinalEconomico'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Periocidad de informes de seguimiento</FormLabel>
+                    <FormLabel className='mb-2'>Fecha límite para entrega de informe final económico</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -271,11 +273,11 @@ function ConcessionStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='resolucionotorgamiento'
+              name='seguimientoInformes'
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Resolución de otorgamiento</FormLabel>
+                  <FormLabel className='mb-2'>Seguimiento de informes</FormLabel>
                   <FormControl>
                     <Input type='file' {...field} data-testid='file-memory' />
                   </FormControl>
