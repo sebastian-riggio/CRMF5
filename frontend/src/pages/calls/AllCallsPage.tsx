@@ -68,7 +68,7 @@ function AllCallsPage () {
   const [data, setData] = useState<ApiResponse | null>(null)
   console.log(data)
 
-  function Estados () {
+/*   function Estados () {
     const [estado, setEstado] =  useState()
 
     useEffect(() => {
@@ -83,7 +83,7 @@ function AllCallsPage () {
     if (!estado) return null
     console.log(estado)
   }
-
+ */
   useEffect(() => {
     getAllConvocatoria()
       .then((response) => {
