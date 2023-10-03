@@ -60,6 +60,7 @@ import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts'
 interface DataItem {
   name: string;
   value: number;
+  fill?: string;
 }
 
 interface RenderActiveShapeProps {
@@ -76,16 +77,15 @@ interface RenderActiveShapeProps {
   value?: number;
 }
 
-type PieActiveShape = React.FC<RenderActiveShapeProps>
 const data: DataItem[] = [
-  { name: 'Solicitud', value: 10 },
-  { name: 'Negociación', value: 30 },
-  { name: 'Otorgamiento', value: 20 },
-  { name: 'Justificación', value: 2 },
-  { name: 'Cierre', value: 200 }
+  { name: 'Solicitud', value: 10, fill:'#e92d2d' },
+  { name: 'Negociación', value: 30, fill: '#ff8d6f' },
+  { name: 'Otorgamiento', value: 20, fill: '#f86d59' },
+  { name: 'Justificación', value: 2, fill: '#f14d43' },
+  { name: 'Cierre', value: 200, fill: '#e20d17' }
 ]
 
-const CustomActiveShape: React.FC<RenderActiveShapeProps> = ({
+const CustomActiveShape = ({
   cx = 0,
   cy = 0,
   midAngle = 0,
@@ -97,7 +97,7 @@ const CustomActiveShape: React.FC<RenderActiveShapeProps> = ({
   payload,
   percent = 0,
   value = 0
-}) => {
+}: any) => {
   const RADIAN = Math.PI / 180
   const sin = Math.sin(-RADIAN * midAngle)
   const cos = Math.cos(-RADIAN * midAngle)
@@ -163,13 +163,13 @@ export default class GraphicData extends PureComponent<GraphicDataState> {
         <PieChart width={500} height={500}>
           <Pie
             activeIndex={this.state.activeIndex}
-            activeShape={CustomActiveShape as PieActiveShape}
+            activeShape={CustomActiveShape}
             data={data}
             cx='50%'
             cy='50%'
             innerRadius={60}
             outerRadius={80}
-            fill='#FF4600'
+            fill={'#FF4600' ?? data.fill}
             dataKey='value'
             onMouseEnter={this.handlePieEnter}
           />
