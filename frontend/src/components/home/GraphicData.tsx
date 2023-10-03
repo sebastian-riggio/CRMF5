@@ -1,91 +1,24 @@
-/* import React from 'react'
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts'
-
-type DataCategoryChart = {
-  name: string;
-  value: number;
-  fill: string;
-  legendColor: string;
-};
-
-const data: DataCategoryChart[] = [
-  { name: 'Solicitud', value: 60, fill: '#FF2300', legendColor: '#FF2300' },
-  { name: 'Negociación', value: 10, fill: '#3A5FD8', legendColor: '#3A5FD8' },
-  { name: 'Otorgamiento', value: 10, fill: '#E5C40E', legendColor: '#E5C40E' },
-  { name: 'Justificación', value: 10, fill: '#0D7D4A', legendColor: '#0D7D4A' },
-  { name: 'Cierre', value: 10, fill: '#FF9600', legendColor: '#FF9600' }
-]
-
-const CustomLegend: React.FC = () => {
-  return (
-    <div className='flex items-center justify-center space-x-5'>
-      {data.map((entry, index) => (
-        <div key={`legend-item-${index}`} className='flex items-center  space-x-2'>
-          <div style={{ backgroundColor: entry.legendColor, width: '12px', height: '12px' }} />
-          <span className='text-xs' style={{ color: entry.legendColor }}>
-            {entry.name}
-          </span>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const Example: React.FC = () => {
-  return (
-    <div className='w-full h-[300px] text-sm'>
-      <ResponsiveContainer>
-        <PieChart className='w-full h-full'>
-          <Pie
-            data={data}
-            dataKey='value'
-            label
-            labelLine={false}
-            fill='#FF4600'
-            stroke='#ffffff'
-          />
-          <Tooltip />
-          <Legend iconSize={12} content={<CustomLegend />} />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
-  )
-}
-
-export default Example */
-
-import React, { PureComponent, ReactNode } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { PureComponent, ReactNode } from 'react'
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts'
 
 interface DataItem {
   name: string;
   value: number;
-}
-
-interface RenderActiveShapeProps {
-  cx?: number;
-  cy?: number;
-  midAngle?: number;
-  innerRadius?: number;
-  outerRadius?: number;
-  startAngle?: number;
-  endAngle?: number;
   fill?: string;
-  payload?: DataItem | null;
-  percent?: number;
-  value?: number;
 }
 
-type PieActiveShape = React.FC<RenderActiveShapeProps>
+// TODO Colores
 const data: DataItem[] = [
-  { name: 'Solicitud', value: 10 },
-  { name: 'Negociación', value: 30 },
-  { name: 'Otorgamiento', value: 20 },
-  { name: 'Justificación', value: 2 },
-  { name: 'Cierre', value: 200 }
+  { name: 'Solicitud', value: 10, fill: '#e92d2d' },
+  { name: 'Negociación', value: 30, fill: '#ff8d6f' },
+  { name: 'Otorgamiento', value: 20, fill: '#f86d59' },
+  { name: 'Justificación', value: 2, fill: '#f14d43' },
+  { name: 'Cierre', value: 200, fill: '#e20d17' }
 ]
 
-const CustomActiveShape: React.FC<RenderActiveShapeProps> = ({
+// eslint-disable-next-line react-refresh/only-export-components
+const CustomActiveShape = ({
   cx = 0,
   cy = 0,
   midAngle = 0,
@@ -97,7 +30,7 @@ const CustomActiveShape: React.FC<RenderActiveShapeProps> = ({
   payload,
   percent = 0,
   value = 0
-}) => {
+}: any) => {
   const RADIAN = Math.PI / 180
   const sin = Math.sin(-RADIAN * midAngle)
   const cos = Math.cos(-RADIAN * midAngle)
@@ -163,13 +96,13 @@ export default class GraphicData extends PureComponent<GraphicDataState> {
         <PieChart width={500} height={500}>
           <Pie
             activeIndex={this.state.activeIndex}
-            activeShape={CustomActiveShape as PieActiveShape}
+            activeShape={CustomActiveShape}
             data={data}
             cx='50%'
             cy='50%'
             innerRadius={60}
             outerRadius={80}
-            fill='#FF4600'
+            fill={'#FF4600' ?? data.fill}
             dataKey='value'
             onMouseEnter={this.handlePieEnter}
           />
