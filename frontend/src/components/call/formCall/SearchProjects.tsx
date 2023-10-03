@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Check, ChevronsUpDown } from 'lucide-react'
-
 import { cn } from '../../../lib/utils'
 import { Button } from '../../ui/button'
 import {
@@ -15,20 +14,8 @@ import {
   PopoverContent,
   PopoverTrigger
 } from '../../ui/popover'
-/* import { getProjects } from '@/services/proyectos'
-import { useEffect, useState } from 'react' */
-
-// get all projects
-const frameworks = [
-  {
-    value: 'next.js',
-    label: 'Next.js'
-  },
-  {
-    value: 'sveltekit',
-    label: 'SvelteKit'
-  }
-]
+import { getProjects } from '@/services/proyectos'
+import { useEffect, useState } from 'react'
 
 interface SearchProjectsProps {
   onSelectProject: (projectValue: string) => void;
@@ -37,13 +24,17 @@ interface SearchProjectsProps {
 export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
   const [open, setOpen] = React.useState(false)
   const [selectedValue, setSelectedValue] = React.useState('')
-/*   const [data, setData] = useState()
+  const [data, setData] = useState<string[]>([])
+
   useEffect(() => {
     getProjects().then((response) => {
-      setData(response.data.proyectos)
-      console.log(data)
+      if (Array.isArray(response.data.proyectos)) {
+        setData(response.data.proyectos.map((proyecto) => proyecto.proyectoNombre))
+      } else {
+        console.error('Los datos de proyectos no son una matriz:', response.data)
+      }
     })
-  }, []) */
+  }, [])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -54,7 +45,7 @@ export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
           aria-expanded={open}
           className='w-[200px] justify-between'
         >
-          {selectedValue ? frameworks.find((framework) => framework.value === selectedValue)?.label : 'Proyectos...'}
+          {selectedValue || 'proyecto'}
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
         </Button>
       </PopoverTrigger>
@@ -63,22 +54,22 @@ export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
           <CommandInput placeholder='Search framework...' />
           <CommandEmpty>Proyecto no encontrado.</CommandEmpty>
           <CommandGroup>
-            {frameworks.map((framework) => (
+            {data.map((proyecto) => (
               <CommandItem
-                key={framework.value}
+                key={proyecto}
                 onSelect={() => {
-                  setSelectedValue(framework.value)
-                  onSelectProject(framework.value)
+                  setSelectedValue(proyecto)
+                  onSelectProject(proyecto)
                   setOpen(false)
                 }}
               >
                 <Check
                   className={cn(
                     'mr-2 h-4 w-4',
-                    selectedValue === framework.value ? 'opacity-100' : 'opacity-0'
+                    selectedValue === proyecto ? 'opacity-100' : 'opacity-0'
                   )}
                 />
-                {framework.label}
+                {proyecto}
               </CommandItem>
             ))}
           </CommandGroup>
