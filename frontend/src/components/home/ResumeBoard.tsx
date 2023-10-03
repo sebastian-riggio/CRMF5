@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { RecentCloseProjects } from './RecentCloseProjects'
 import { getProjects } from '../../services/proyectos'
 import { getAllConvocatoria } from '../../services/registroConvocatoria'
+import { getConvocatoriasEnCierre } from '../../services/gestion'
 import {
   Library,
   Users,
@@ -15,6 +16,8 @@ import GraphicData from './GraphicData'
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
+  const [totalConvocatoriasCierre, setTotalConvocatoriasCierre] = useState<number>(0)
+
   const [activeIndex/* , setActiveIndex */] = useState<number>(0)
   // ... aca hay que poner la lógica para actualizar activeIndex según la interacción del usuario
 
@@ -34,7 +37,6 @@ const ResumeBoard: React.FC = () => {
         if (Array.isArray(response.data.convocatoria)) {
           const total = response.data.convocatoria.length
           setTotalConvocatorias(total)
-          console.log('Total de convocatorias:', total)
         } else {
           console.error('Los datos de convocatorias no son un array válido:', response.data.convocatoria)
         }
@@ -42,9 +44,19 @@ const ResumeBoard: React.FC = () => {
         console.error('Error al obtener el total de convocatorias:', error)
       }
     }
-
+    const fetchTotalConvocatoriasCierre = async () => {
+      try {
+        const response = await getConvocatoriasEnCierre()
+        const convocatoriasCierre = response.data.data ?? []
+        setTotalConvocatoriasCierre(convocatoriasCierre.length)
+        console.log('Total de convocatorias cerradas:', convocatoriasCierre)
+      } catch (error) {
+        console.error('Error al obtener las convocatorias en etapa de cierre:', error)
+      }
+    }
     fetchTotalProyectos()
     fetchTotalConvocatorias()
+    fetchTotalConvocatoriasCierre()
   }, [])
 
   return (
@@ -85,9 +97,9 @@ const ResumeBoard: React.FC = () => {
               <CreditCard className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>424</div>
+              <div className='text-2xl font-bold'>{totalConvocatoriasCierre}</div>
               <p className='text-xs text-muted-foreground'>
-                +5% que el último mes
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
