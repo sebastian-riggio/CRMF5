@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
 import React, { useEffect, useState } from 'react'
-import GraphicData from './GraphicData'
 import { RecentCloseProjects } from './RecentCloseProjects'
 import { getProjects } from '../../services/proyectos'
 import { getAllConvocatoria } from '../../services/registroConvocatoria'
@@ -11,10 +10,13 @@ import {
   CreditCard,
   Activity
 } from 'lucide-react'
+import GraphicData from './GraphicData'
 
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
+  const [activeIndex/* , setActiveIndex */] = useState<number>(0)
+  // ... aca hay que poner la lógica para actualizar activeIndex según la interacción del usuario
 
   useEffect(() => {
     const fetchTotalProyectos = async () => {
@@ -110,7 +112,7 @@ const ResumeBoard: React.FC = () => {
               <CardTitle>Gestión de convocatorias</CardTitle>
             </CardHeader>
             <CardContent className='pl-2'>
-              <GraphicData />
+              <GraphicData activeIndex={activeIndex} />
             </CardContent>
           </Card>
           <Card className='col-span-3'>

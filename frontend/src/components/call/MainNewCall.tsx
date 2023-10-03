@@ -45,13 +45,9 @@ const schema = z.object({
   presupuesto: z.coerce.number().min(0).optional(),
   otraInformacion: z.string().optional(),
   memoriaTecnica: z.instanceof(File).optional(),
-  modeloPresupuesto: z.instanceof(File).optional()
-  // memoriaTecnica: z.object({
-  //   fileMemory: z.instanceof(File).optional(),
-  //   fileBudget: z.string().optional(),
-  //   fileApplicationForm: z.string().optional(),
-  //   fileOtherDocs: z.string().optional(),
-  // }).optional(),
+  modeloPresupuesto: z.instanceof(File).optional(),
+  formularioSolicitud: z.instanceof(File).optional(),
+  otraDocumentacion: z.instanceof(File).optional()
 })
 
 type SchemaForm = z.infer<typeof schema>
@@ -389,38 +385,52 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
-                {/*         <FormField
+                <FormField
                   control={form.control}
-                  name='memoriaTecnica'
-                  render={({ field }) => (
-                    <div className='my-2 flex flex-wrap -mx-4'>
-                      <FormItem className='w-1/2 px-4 mb-4'>
-                        <FormLabel className='mb-2'>Memoria técnica</FormLabel>
+                  name='formularioSolicitud'
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Formulario Solicitud</FormLabel>
                         <FormControl>
-                          <Input type='file' {...field} data-testid='file-memory' />
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0])
+                            }}
+                            type='file'
+                            id='formularioSolicitud'
+                          />
                         </FormControl>
-                      </FormItem>
-                      <FormItem className='w-1/2 px-4 mb-4'>
-                        <FormLabel className='mb-2'>Modelo Presupuesto</FormLabel>
-                        <FormControl>
-                          <Input type='file' {...field} data-testid='file-budget' />
-                        </FormControl>
-                      </FormItem>
-                      <FormItem className='w-1/2 px-4 mb-4'>
-                        <FormLabel className='mb-2'>Formulario solicitud</FormLabel>
-                        <FormControl>
-                          <Input type='file' {...field} data-testid='file-application-form' />
-                        </FormControl>
-                      </FormItem>
-                      <FormItem className='w-1/2 px-4 mb-4'>
-                        <FormLabel className='mb-2'>Otra documentación</FormLabel>
-                        <FormControl>
-                          <Input type='file' {...field} data-testid='file-other-docs' />
-                        </FormControl>
-                      </FormItem>
-                    </div>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
                   )}
-                /> */}
+                />
+                <FormField
+                  control={form.control}
+                  name='otraDocumentacion'
+                  render={({ field: { value, onChange, ...field } }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='my-2'>
+                        <FormLabel className='mb-2'>Otra Documentación</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            value={value?.fileName}
+                            onChange={(event) => {
+                              onChange(event.target.files[0])
+                            }}
+                            type='file'
+                            id='otraDocumentacion'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
               </CardContent>
               <CardFooter className='flex justify-center space-x-6'>
                 <Button type='submit' className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'>

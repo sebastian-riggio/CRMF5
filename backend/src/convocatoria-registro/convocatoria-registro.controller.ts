@@ -14,30 +14,60 @@ export class ConvocatoriaRegistroController {
 
   @Public()
   @Post()
-  @UseInterceptors(FileInterceptor('memoriaTecnica'))
+  @UseInterceptors(
+    FileFieldsInterceptor([
+      { name: 'memoriaTecnica', maxCount: 1 },
+      { name: 'modeloPresupuesto', maxCount: 1 },
+      { name: 'formularioSolicitud', maxCount: 1 },
+      { name: 'otraDocumentacion', maxCount: 1 },
+    ])
+  )
   async createWithPDF(
     @Body() createConvocatoriaRegistroDto: CreateConvocatoriaRegistroDto,
-    @UploadedFile() memoriaTecnica:  Express.Multer.File,
+    @UploadedFiles() files:{memoriaTecnica?:Express.Multer.File[],modeloPresupuesto?:Express.Multer.File[],formularioSolicitud?:Express.Multer.File[],otraDocumentacion?:Express.Multer.File[]}
   ) {
-    try {
-      if (!memoriaTecnica) {
+    console.log(files)
+  try {
+      if (!files) {
         throw new Error('No se proporcionó un archivo PDF');
       }
-  
-      const fileBuffer = memoriaTecnica.buffer
-      const fileName = memoriaTecnica.originalname
-      //y aqui lo guardo correctamente en mi carpeta
-      const filePath = `./uploads/${fileName}`
-      fs.writeFileSync(filePath,fileBuffer)
-      createConvocatoriaRegistroDto.memoriaTecnica = `http://localhost:3000/${fileName}`
-  //Aqui si me hace la referencia en la base de datos
+     if (files.memoriaTecnica && files.memoriaTecnica) {
+        const memoriaTecnicaBuffer = files.memoriaTecnica[0].buffer;
+        const memoriaTecnicaFileName = files.memoriaTecnica[0].originalname
+        const memoriaTecnicaFilePath = `./uploads/${memoriaTecnicaFileName}`;
+        fs.writeFileSync(memoriaTecnicaFilePath, memoriaTecnicaBuffer);
+        createConvocatoriaRegistroDto.memoriaTecnica = `http://localhost:3000/${memoriaTecnicaFileName}`;
+      }
+      if(files.modeloPresupuesto && files.modeloPresupuesto){
+        const modeloBuffer = files.modeloPresupuesto[0].buffer
+        const modeloFileName = files.modeloPresupuesto[0].originalname
+        const modeloFilePath = `./uploads/${modeloFileName}`
+        fs.writeFileSync(modeloFilePath, modeloBuffer)
+        createConvocatoriaRegistroDto.modeloPresupuesto =  `http://localhost:3000/${modeloFileName}`;
+      }
+    if(files.formularioSolicitud && files.formularioSolicitud){
+      const formBuffer = files.formularioSolicitud[0].buffer
+      const formFileName = files.formularioSolicitud[0].originalname
+      const formFilePath =  `./uploads/${formFileName}`
+      fs.writeFileSync(formFilePath, formBuffer)
+      createConvocatoriaRegistroDto.formularioSolicitud = `http://localhost:3000/${formFileName}`;
+    }
+
+if(files.otraDocumentacion && files.otraDocumentacion){
+  const docuBuffer = files.otraDocumentacion[0].buffer
+  const docuFileName = files.otraDocumentacion[0].originalname
+  const docuPath =  `./uploads/${docuFileName}`
+  fs.writeFileSync(docuPath, docuBuffer)
+  createConvocatoriaRegistroDto.otraDocumentacion = `http://localhost:3000/${docuFileName}`;
+}
+      
       const result = await this.convocatoriaRegistroService.create(createConvocatoriaRegistroDto);
   
-      return result;
+      return result; 
     } catch (error) {
-      console.error(error);
-      throw new Error('Error en el manejo del archivo PDF');
-    }
+      console.error('Error en el manejo del archivo PDF:', error);
+      throw new Error('Error en el manejo del archivo PDF: ' + error.message);
+    }  
   }
 
   @Public()
@@ -61,32 +91,5 @@ export class ConvocatoriaRegistroController {
   remove(@Body('id') id:ObjectId) {
     return this.convocatoriaRegistroService.remove(id);
   }
-
-/*  @Public()
-@UseInterceptors(FileInterceptor('file'))
-@Post('upload')
-async uploadFileAndPassValidation(
-  @Body() body: CreateConvocatoriaRegistroDto,
-@UploadedFile() file,
-) {
-  if(!file){
-    return { error: 'No se ha proporcionado un archivo PDF' };
-  }
-  const fileBuffer = file.buffer
-  const fileName = file.originalname;
-  try {
-    const fs = require('fs');
-    const filePath = `./uploads/${fileName}`
-    fs.writeFileSync(filePath,fileBuffer)
-    
-    return {
-      message:'Archivo cargado y guardado correctamente',
-      filePath,
-      body,
-    };
-  }catch(error){
-    return { error: 'Error al guardar el archivo PDF' };
-  }
-}  */
 }
 
