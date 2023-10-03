@@ -10,11 +10,11 @@ interface DataItem {
 
 // TODO Colores
 const data: DataItem[] = [
-  { name: 'Solicitud', value: 10, fill: '#e92d2d' },
-  { name: 'Negociación', value: 30, fill: '#ff8d6f' },
-  { name: 'Otorgamiento', value: 20, fill: '#f86d59' },
-  { name: 'Justificación', value: 2, fill: '#f14d43' },
-  { name: 'Cierre', value: 200, fill: '#e20d17' }
+  { name: 'Solicitud', value: 10, fill: '#ffd6d1' },
+  { name: 'Negociación', value: 30, fill: '#fdf9f7' },
+  { name: 'Otorgamiento', value: 20, fill: '#f4eeb3' },
+  { name: 'Justificación', value: 2, fill: '#caf7b6' },
+  { name: 'Cierre', value: 200, fill: '#8aa1f5' }
 ]
 
 // eslint-disable-next-line react-refresh/only-export-components
