@@ -76,6 +76,7 @@ interface RenderActiveShapeProps {
   value?: number;
 }
 
+type PieActiveShape = React.FC<RenderActiveShapeProps>
 const data: DataItem[] = [
   { name: 'Solicitud', value: 10 },
   { name: 'Negociación', value: 30 },
@@ -141,12 +142,12 @@ const CustomActiveShape: React.FC<RenderActiveShapeProps> = ({
   )
 }
 
-interface ExampleState {
+interface GraphicDataState {
   activeIndex: number;
 }
 
-export default class Example extends PureComponent<ExampleState> {
-  state: ExampleState = {
+export default class GraphicData extends PureComponent<GraphicDataState> {
+  state: GraphicDataState = {
     activeIndex: 0
   }
 
@@ -162,7 +163,7 @@ export default class Example extends PureComponent<ExampleState> {
         <PieChart width={500} height={500}>
           <Pie
             activeIndex={this.state.activeIndex}
-            activeShape={CustomActiveShape}
+            activeShape={CustomActiveShape as PieActiveShape}
             data={data}
             cx='50%'
             cy='50%'
