@@ -9,11 +9,11 @@ import { EtapaCierreDto } from "./etapa-cierre.dto";
 import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";
 
 export enum Estados {
-    Solicitud = 'solicitud',
-    Negociacion = 'negociacion',
-    Otorgamiento = 'otorgamiento',
-    Justificacion = 'justificacion',
-    Cierre = 'cierre',
+    SOLICITUD = 'solicitud',
+   NEGOCIACION = 'negociacion',
+    OTORGAMIENTO = 'otorgamiento',
+    JUSTIFICACION = 'justificacion',
+    CIERRE = 'cierre',
 }
 
 export class CreateGestionConvocatoriaDto {
