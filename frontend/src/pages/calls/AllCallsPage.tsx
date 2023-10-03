@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ColumnDef, GroupColumnDef } from '@tanstack/react-table'
+import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
 import { DataTableCalls } from '../../components/call/date-table-calls'
 import { formatDate } from '../../lib/utils'
@@ -17,7 +17,7 @@ type estadoTable = z.infer<typeof gestionConvocatoria>
 
 type estadoColumns = Pick<estadoTable, 'estado'>
 
-type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'|'etapa'>
+type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadConvocante'|'titulo'|'_id'>
 
 const columns: ColumnDef<gestionColumns, estadoColumns>[] = [
   {
