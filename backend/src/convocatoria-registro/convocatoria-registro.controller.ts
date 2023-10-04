@@ -5,9 +5,10 @@ import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registr
 import { ObjectId } from 'mongoose';
 import { Public } from '../auth/decorators/public.decorator';
 import { FileFieldsInterceptor, FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
 const fs = require('fs');
-
+@ApiTags('convocatoria-registro')
 @Controller('announcement')
 export class ConvocatoriaRegistroController {
   constructor(private readonly convocatoriaRegistroService: ConvocatoriaRegistroService) {}

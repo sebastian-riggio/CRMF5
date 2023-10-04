@@ -9,7 +9,6 @@ import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import gestionRegistroPost from '@/interfaces/gestionRegistroPost'
 import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
 import gestionConvocatoria from '../../interfaces/gestionConvocatoria'
-import { getAllGestion } from '../../services/gestion'
 
 type gestionTable = z.infer<typeof gestionRegistroPost>
 
@@ -68,22 +67,6 @@ function AllCallsPage () {
   const [data, setData] = useState<ApiResponse | null>(null)
   console.log(data)
 
-/*   function Estados () {
-    const [estado, setEstado] =  useState()
-
-    useEffect(() => {
-      getAllGestion()
-        .then((response) => {
-          setEstado(response.data)
-        })
-        .catch((error) => {
-          console.error('Error obteniendo los datos:', error)
-        })
-    }, [])
-    if (!estado) return null
-    console.log(estado)
-  }
- */
   useEffect(() => {
     getAllConvocatoria()
       .then((response) => {

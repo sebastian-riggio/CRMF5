@@ -4,7 +4,9 @@ import { CreateProyectosRegistroDto } from './dto/create-proyectos-registro.dto'
 import { UpdateProyectosRegistroDto } from './dto/update-proyectos-registro.dto';
 import { Public } from '../auth/decorators/public.decorator';
 import { ObjectId } from 'mongoose';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('proyectos-registro')
 @Controller('projects')
 export class ProyectosRegistrosController {
   constructor(private proyectosRegistrosService: ProyectosRegistrosService) {}

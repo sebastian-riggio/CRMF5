@@ -1,12 +1,4 @@
-interface EtapaSolicitud {
-    responsable: string;
-    fechaPropuesta: Date;
-    numeroTramite: string;
-    numeroExpediente: string;
-    reciboOficial?: string | null;
-  }
-
-  interface EtapaResolucion {
+interface EtapaResolucion {
     fechaResolucion: Date;
     fechaLimiteEntrega: Date;
     fechaRealEntrega: Date;
@@ -56,10 +48,12 @@ interface EtapaSolicitud {
     convocatoria: string;
     financiador: string;
     proyecto: string;
-    fechaApertura: Date;
-    fechaCierre: Date;
-    codigoInterno: string;
-    etapaSolicitud: EtapaSolicitud[];
+    responsable: string;
+    fechaPropuesta: Date;
+    numeroTramite: string;
+    numeroExpediente: string;
+    reciboOficial?: string | null;
+    codigoInterno?: string;
     etapaResolucion: EtapaResolucion[];
     etapaOtorgamiento: EtapaOtorgamiento[];
     etapaJustificacion: EtapaJustificacion[];

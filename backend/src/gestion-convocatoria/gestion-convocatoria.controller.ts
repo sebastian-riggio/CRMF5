@@ -4,7 +4,10 @@ import { CreateGestionConvocatoriaDto } from './dto/create-gestion-convocatoria.
 import { UpdateGestionConvocatoriaDto } from './dto/update-gestion-convocatoria.dto';
 import { Public } from '../auth/decorators/public.decorator';
 import { ObjectId } from 'mongoose';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('gestion-convocatorias')
 @Controller('gestion')
 export class GestionConvocatoriaController {
  
@@ -34,6 +37,26 @@ export class GestionConvocatoriaController {
   @Delete()
   remove(@Body('id') id:ObjectId) {
     return this.gestionConvocatoriaService.remove(id);
+  }
+  @Public()
+  @Get("project/:proyectoNombre")
+  async findConvocatoriasByProyecto(@Param("proyectoNombre") proyectoNombre: string) {
+    try {
+      const convocatoriasAsociadas = await this.gestionConvocatoriaService.findConvocatoriasByProyecto(
+        proyectoNombre
+      );
+      return {
+        message: "Este proyecto esta ascociado a estas convocatorias",
+        status: 200,
+        convocatorias: convocatoriasAsociadas,
+      };
+    } catch (error) {
+      return {
+        message: "Actualmente este proyecto no esta inscrito a ninguna convocatoria",
+        status: 404,
+        error: error.message,
+      };
+    }
   }
 
 }
