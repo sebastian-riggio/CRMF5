@@ -15,6 +15,7 @@ import {
   FormMessage
 } from '../../ui/form'
 import { CardContent } from '../../ui/card'
+import { StatusClose } from './StatusClose'
 
 const closingSchema = z.object({
   aprobacionoficial: z.date().optional(),
@@ -70,10 +71,7 @@ function ClosingStage () {
                   <div className='my-2'>
                     <FormLabel className='mb-2'>Estado de resolución</FormLabel>
                     <FormControl>
-                      <Input
-                        type='text'
-                        {...field}
-                      />
+                      <StatusClose />
                     </FormControl>
                     <FormMessage />
                   </div>
