@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import CalendarBoard from '../components/home/CalendarBoard'
 import ResumeBoard from '../components/home/ResumeBoard'
 import { SideBar } from '../components/home/SideBar'
 import { Card } from '../components/ui/card'
 import { Tabs } from '../components/ui/tabs'
+import { CalendarBoard } from '@/components/home/CalendarBoard'
 
 function HomePage () {
   const [selectedComponent, setSelectedComponent] = useState('resume')

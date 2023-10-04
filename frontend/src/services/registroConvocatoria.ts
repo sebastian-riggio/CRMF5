@@ -12,12 +12,3 @@ export const getAllConvocatoria = () => {
 export const getOneConvocatoria = (id:string) => {
   return axiosPrivate.get(`/announcement/${id}`)
 }
-
-export const getCalendarioConvocatoria = () => {
-  return axiosPrivate.get('/announcement', {
-    params: {
-      titulo: 'titulo',
-      fechaCierre: 'fechaCierre'
-    }
-  })
-}
