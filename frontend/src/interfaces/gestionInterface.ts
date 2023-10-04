@@ -47,17 +47,17 @@ interface EtapaResolucion {
     _id?:string ;
     convocatoria: string;
     financiador: string;
-    proyecto: string;
+    proyecto?: string;
     responsable: string;
-    fechaPropuesta: Date;
-    numeroTramite: string;
-    numeroExpediente: string;
-    reciboOficial?: string | null;
+    fechaPropuesta?: Date;
+    numeroTramite?: string;
+    numeroExpediente?: string;
+/*     reciboOficial?: string | null;
     codigoInterno?: string;
     etapaResolucion: EtapaResolucion[];
     etapaOtorgamiento: EtapaOtorgamiento[];
     etapaJustificacion: EtapaJustificacion[];
-    etapaCierre: EtapaCierre[];
+    etapaCierre: EtapaCierre[]; */
   }
 
 export default GestionConvocatoria

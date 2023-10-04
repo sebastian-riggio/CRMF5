@@ -34,7 +34,7 @@ responsable:string
 @Prop()
 fechaPropuesta:Date;
 @Prop()
-numeroTramite:number;
+numeroTramite:string;
 @Prop()
 numeroExpediente:string;
 @Prop()

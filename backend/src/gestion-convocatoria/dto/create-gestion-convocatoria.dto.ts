@@ -44,8 +44,8 @@ responsable:string
 fechaPropuesta:Date;
 
 @ApiProperty({example:"12345"})
-@IsNumber()
-numeroTramite:number;
+@IsString()
+numeroTramite:string;
 
 @ApiProperty({example:"f459239"})
 @IsString()

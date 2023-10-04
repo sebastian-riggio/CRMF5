@@ -12,8 +12,7 @@ import DatePicker from '../../ui/DatePicker'
 import { Button } from '../../ui/button'
 import { AxiosResponse } from 'axios'
 import { postGestion } from '@/services/gestion'
-import gestionConvocatoria from '@/interfaces/gestionConvocatoria'
-/* 
+
 const applicationStage = z.object({
   proyecto: z.string().optional(),
   responsable: z.string(),
@@ -23,13 +22,13 @@ const applicationStage = z.object({
   numeroTramite: z.string().optional(),
   numeroExpediente: z.string().optional(),
   reciboOficial: z.string().optional()
-}) */
+})
 
-type AccountFormValues = z.infer<typeof gestionConvocatoria>;
+type AccountFormValues = z.infer<typeof applicationStage>;
 
 function ApplicationStage () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(gestionConvocatoria)
+    resolver: zodResolver(applicationStage)
   })
   const [selectedProject, setSelectedProject] = useState<string>()
 
@@ -161,21 +160,21 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-         {/*    <FormField
+            <FormField
               control={form.control}
-              name='codigoInterno'
+              name='numeroExpediente'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
                     <FormLabel className='mb-2'>Código de subvención</FormLabel>
                     <FormControl>
-                      <Input placeholder='código generado por el sistema' {...field} />
+                      <Input placeholder='Numero de expediente' {...field} />
                     </FormControl>
                     <FormMessage />
                   </div>
                 </FormItem>
               )}
-            /> */}
+            /> 
           {/*   <Separator className='my-5' />
             <FormField
               control={form.control}
