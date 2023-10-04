@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty } from "@nestjs/swagger";
 import { HydratedDocument, Types,Document } from "mongoose";
-import { EtapaSolicitudDto } from "../dto/etapa-solicitud.dto";
 import { EtapaResolucionDto } from "../dto/etapa-resolucion.dto";
 import { EtapaOtorgamientoDto } from "../dto/etapa-otorgamiento.dto";
 import { EtapaJustificacionDto } from "../dto/etapa-justificacion.dto";
@@ -21,18 +20,25 @@ convocatoria:Types.ObjectId;
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
 financiador:Types.ObjectId
-
+ 
 @ApiProperty({example:"Proyectos de Factoria"})
 @Prop({type:Types.ObjectId,ref:'ProyectosRegistro'})
-proyecto:Types.ObjectId
+proyecto:Types.ObjectId 
 
 @ApiProperty({example:"R-0001-20230912"})
 @Prop()
 codigoInterno:string;
 
-@ApiProperty({example:"Etapa Solicitud"})
-@Prop({type:EtapaSolicitudDto})
-etapaSolicitud:EtapaSolicitudDto;
+@Prop()
+responsable:string
+@Prop()
+fechaPropuesta:Date;
+@Prop()
+numeroTramite:number;
+@Prop()
+numeroExpediente:string;
+@Prop()
+reciboOficial:string;
 
  @ApiProperty({example:"Etapa Resolucion"})
 @Prop({type:EtapaResolucionDto})

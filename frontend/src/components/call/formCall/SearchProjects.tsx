@@ -16,26 +16,25 @@ import {
 } from '../../ui/popover'
 import { getProjects } from '@/services/proyectos'
 import { useEffect, useState } from 'react'
+import { Projects } from '@/interfaces/projects'
 
 interface SearchProjectsProps {
-  onSelectProject: (projectValue: string) => void;
+  onSelectProject: (proyectoNombre: string) => void;
 }
 
 export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
   const [open, setOpen] = React.useState(false)
-  const [selectedValue, setSelectedValue] = React.useState('')
-  const [data, setData] = useState<string[]>([])
-
+  const [selectedValue, setSelectedValue] = React.useState<string>('')
+  const [data, setData] = useState<Projects[]>([])
   useEffect(() => {
     getProjects().then((response) => {
       if (Array.isArray(response.data.proyectos)) {
-        setData(response.data.proyectos.map((proyecto) => proyecto.proyectoNombre))
+        setData(response.data.proyectos)
       } else {
         console.error('Los datos de proyectos no son una matriz:', response.data)
       }
     })
   }, [])
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -44,6 +43,7 @@ export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
           role='combobox'
           aria-expanded={open}
           className='w-[200px] justify-between'
+          onClick={() => setOpen(!open)}
         >
           {selectedValue || 'proyecto'}
           <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
@@ -56,20 +56,20 @@ export function SearchProjects ({ onSelectProject }: SearchProjectsProps) {
           <CommandGroup>
             {data.map((proyecto) => (
               <CommandItem
-                key={proyecto}
+                key={proyecto._id}
                 onSelect={() => {
-                  setSelectedValue(proyecto)
-                  onSelectProject(proyecto)
+                  setSelectedValue(proyecto.proyectoNombre)
+                  onSelectProject(proyecto.proyectoNombre)
                   setOpen(false)
                 }}
               >
                 <Check
                   className={cn(
                     'mr-2 h-4 w-4',
-                    selectedValue === proyecto ? 'opacity-100' : 'opacity-0'
+                    selectedValue === proyecto.proyectoNombre ? 'opacity-100' : 'opacity-0'
                   )}
                 />
-                {proyecto}
+                {proyecto.proyectoNombre}
               </CommandItem>
             ))}
           </CommandGroup>

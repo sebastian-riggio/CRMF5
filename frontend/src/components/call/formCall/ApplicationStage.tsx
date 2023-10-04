@@ -10,31 +10,45 @@ import { Input } from '../../ui/input'
 import { Separator } from '../../ui/separator'
 import DatePicker from '../../ui/DatePicker'
 import { Button } from '../../ui/button'
-
+import { AxiosResponse } from 'axios'
+import { postGestion } from '@/services/gestion'
+import gestionConvocatoria from '@/interfaces/gestionConvocatoria'
+/* 
 const applicationStage = z.object({
   proyecto: z.string().optional(),
-  tecnico: z.string(),
-  propuesta: z.date().optional(),
-  numerotramite: z.string().optional(),
-  numeroexpediente: z.string().optional(),
-  codigosistema: z.string().optional(),
-  recibooficial: z.string().optional()
-})
+  responsable: z.string(),
+  convocatoria: z.string(),
+  financiador: z.string(),
+  fechaPropuesta: z.date().optional(),
+  numeroTramite: z.string().optional(),
+  numeroExpediente: z.string().optional(),
+  reciboOficial: z.string().optional()
+}) */
 
-type AccountFormValues = z.infer<typeof applicationStage>;
+type AccountFormValues = z.infer<typeof gestionConvocatoria>;
 
 function ApplicationStage () {
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(applicationStage)
+    resolver: zodResolver(gestionConvocatoria)
   })
-  const [selectedProject, setSelectedProject] = useState<string>('')
+  const [selectedProject, setSelectedProject] = useState<string>()
 
-  function onSubmit (data: AccountFormValues) {
-    data.proyecto = selectedProject
-    console.log(data)
+  async function onSubmit (data: AccountFormValues) {
+    try {
+      if (!selectedProject) {
+        console.error('No project selected.')
+      }
+      console.log('Selected Project:', selectedProject)
+      data.proyecto = selectedProject || ''
+      console.log('Data:', data)
+      const response: AxiosResponse = await postGestion(data)
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
     toast({
       title: '¡Genial!',
-      description: 'Acaba de actualizar su formulario.'
+      description: 'Acaba de realizar una gestion de convocatoria.'
     })
   }
 
@@ -46,7 +60,7 @@ function ApplicationStage () {
             <FormField
               control={form.control}
               name='proyecto'
-              render={({}) => (
+              render={() => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
                     <FormLabel className='mb-2'>Proyecto Factoria F5</FormLabel>
@@ -60,7 +74,7 @@ function ApplicationStage () {
             />
             <FormField
               control={form.control}
-              name='tecnico'
+              name='responsable'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -77,14 +91,48 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='propuesta'
+              name='convocatoria'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha en la que se ha entregado la propuesta</FormLabel>
+                    <FormLabel className='mb-2'>Convocatoria</FormLabel>
+                    <FormControl>
+                      <Input
+                        type='text'
+                        placeholder='convocatoria'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='financiador'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Financiador</FormLabel>
+                    <FormControl>
+                      <Input placeholder='financiador' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <Separator className='my-5' />
+            <FormField
+              control={form.control}
+              name='fechaPropuesta'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Fecha Propuesta</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -97,9 +145,10 @@ function ApplicationStage () {
               )}
             />
             <Separator className='my-5' />
+
             <FormField
               control={form.control}
-              name='numerotramite'
+              name='numeroTramite'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -112,24 +161,9 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-            <FormField
+         {/*    <FormField
               control={form.control}
-              name='numeroexpediente'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Número de expediente</FormLabel>
-                    <FormControl>
-                      <Input placeholder='Número de expediente' {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='codigosistema'
+              name='codigoInterno'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='my-2'>
@@ -141,11 +175,11 @@ function ApplicationStage () {
                   </div>
                 </FormItem>
               )}
-            />
-            <Separator className='my-5' />
+            /> */}
+          {/*   <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='recibooficial'
+              name='reciboOficial'
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
@@ -155,7 +189,7 @@ function ApplicationStage () {
                   </FormControl>
                 </FormItem>
               )}
-            />
+            /> */}
             <Separator className='my-5' />
             <div>
               <Button
@@ -163,7 +197,7 @@ function ApplicationStage () {
                 variant='outline'
                 type='submit'
               >
-                Actualizar
+                Crear
               </Button>
             </div>
           </CardContent>

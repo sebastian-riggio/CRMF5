@@ -52,12 +52,6 @@ const departamento = [
 
 type AccountFormValues = z.infer<typeof proyectPost>;
 
-// This can come from your database or API.
-const defaultValues: Partial<AccountFormValues> = {
-  // name: "Your name",
-  // dob: new Date("2023-01-23"),
-}
-
 function ProyectForm () {
   useEffect(() => {
     toast({
@@ -66,8 +60,7 @@ function ProyectForm () {
     })
   }, [])
   const form = useForm<AccountFormValues>({
-    resolver: zodResolver(proyectPost),
-    defaultValues
+    resolver: zodResolver(proyectPost)
   })
 
   async function onSubmit (data: AccountFormValues) {
@@ -223,7 +216,6 @@ function ProyectForm () {
                         <FormLabel className='text-sm text-gray-600'>Presupuesto del proyecto</FormLabel>
                         <FormControl>
                           <Input
-                            type='number'
                             placeholder='€'
                             {...field} data-testid='project-budget-input'
                           />
