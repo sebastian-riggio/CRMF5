@@ -4,13 +4,11 @@ import { ScrollArea } from '../ui/scroll-area'
 import { Separator } from '../ui/separator'
 import { Siren, FileStack } from 'lucide-react'
 import { getAllConvocatoria} from '@/services/registroConvocatoria'
-import React from 'react'
-/* import { DiaryBox } from './DiaryBox' */
+import { formatDate } from '@/lib/utils'
 
 export function CalendarBoard () {
   const [convocatoria, setConvocatoria] = useState()
   const [date, setDate] = useState<Date | null | undefined>(null)
-  const [todaConvocatoria, setTodaConvocatoria] = useState()
 
   useEffect(() => {
     getAllConvocatoria()
@@ -23,27 +21,6 @@ export function CalendarBoard () {
       })
   }, [])
 
-  useEffect(() => {
-    getAllConvocatoria()
-      .then((response) => {
-        setTodaConvocatoria(response.data)
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }, [])
-
-  const handleDateSelect = (newDate: Date) => {
-    // Aquí deberías buscar la convocatoria correspondiente a la fecha seleccionada
-    const convocatoriaSeleccionada = convocatoria.find(
-      (convo) => new Date(convo.fechaCierre).toDateString() === newDate.toDateString()
-    )
-
-    // Luego, establecer esa convocatoria en el estado para que se muestre en FileStack
-    setTodaConvocatoria(convocatoriaSeleccionada)
-  };
-
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
@@ -51,7 +28,7 @@ export function CalendarBoard () {
           <Calendar
             mode='single'
             selected={date || undefined}
-            onSelect={handleDateSelect}
+            onSelect={(newDate) => setDate(newDate)}
             className='rounded-md border'
           />
         </div>
@@ -66,7 +43,7 @@ export function CalendarBoard () {
                 <>
                   <li key={convo.id} className='text-sm'>
                     <h2> {convo.titulo}</h2>
-                    <p> {convo.fechaApertura?.toString()}</p>
+                    <p>{convo?.fechaApertura ? formatDate(convo.fechaApertura) : 'N/A'}</p>
                   </li><Separator className='my-2' />
                 </>
               ))}
@@ -83,8 +60,8 @@ export function CalendarBoard () {
                 <>
                   <li key={convo.id} className='text-sm'>
                     <h2>{convo.titulo}</h2>
-                    <p>Fecha de Apertura: {convo.fechaApertura?.toString()}</p>
-                    <p>Fecha de Cierre: {convo.fechaCierre?.toString()}</p>
+                    <p>Fecha de Apertura: {convo?.fechaApertura ? formatDate(convo.fechaApertura) : 'N/A'}</p>
+                    <p>Fecha de Cierre: {convo?.fechaCierre ? formatDate(convo.fechaCierre) : 'N/A'}</p>
                     <p>Presupuesto: {convo.presupuesto}</p>
 
                   </li><Separator className='my-2' />
