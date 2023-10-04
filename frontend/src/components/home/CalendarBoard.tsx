@@ -1,120 +1,76 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Calendar } from '../ui/calendar'
 import { ScrollArea } from '../ui/scroll-area'
 import { Separator } from '../ui/separator'
-import {
-  Siren,
-  FileStack
-} from 'lucide-react'
-/* import { DiaryBox } from './DiaryBox' */
+import { Siren, FileStack } from 'lucide-react'
+import { getAllConvocatoria} from '@/services/registroConvocatoria'
+import { formatDate } from '@/lib/utils'
 
-function CalendarBoard () {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+export function CalendarBoard () {
+  const [convocatoria, setConvocatoria] = useState()
+  const [date, setDate] = useState<Date | null | undefined>(null)
+
+  useEffect(() => {
+    getAllConvocatoria()
+      .then((response) => {
+        setConvocatoria(response.data.convocatoria)
+        console.log(response.data.convocatoria)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
+
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
-        {/* traer todas las fechas de inicio de convocatorias */}
         <div>
           <Calendar
             mode='single'
-            selected={date}
-            onSelect={setDate}
+            selected={date || undefined}
+            onSelect={(newDate) => setDate(newDate)}
             className='rounded-md border'
           />
         </div>
-        {/* listar todas las fechas de inicio de convocatorias (desde la mas próxima a la mas lejana) */}
         <ScrollArea className='h-[310px] w-[280px] md:w-[800px] md:h-[309px] rounded-md border p-4'>
           <div className='p-4'>
-            <Siren className='mb-4 text-sm font-medium leading-none'> </Siren>
-            <ul> {/* esto esta a modo de ejemplo de la info que debe aparecer */}
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
+            <Siren className='mb-4 text-sm font-medium leading-none' />
+            <h1>PRÓXIMAS APERTURAS DE CONVOCATORIAS</h1>
+            <Separator className='my-2' />
+            <ul>
+              {convocatoria?.map(convo => (
+                // eslint-disable-next-line react/jsx-key
+                <>
+                  <li key={convo.id} className='text-sm'>
+                    <h2> {convo.titulo}</h2>
+                    <p>{convo?.fechaApertura ? formatDate(convo.fechaApertura) : 'N/A'}</p>
+                  </li><Separator className='my-2' />
+                </>
+              ))}
             </ul>
           </div>
         </ScrollArea>
-        {/* definir bien - Hector tenía una buena idea- */}
+
         <ScrollArea className='h-[310px] w-[280px] md:w-[1100px] md:h-[255px] rounded-md border p-4'>
           <div className='p-4 '>
             <FileStack className='mb-4 text-sm font-medium leading-none' />
-            <ul> {/* esto esta a modo de ejemplo de la info que debe aparecer */}
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula ante a ex vulputate, id facilisis ipsum ultrices
-              </li>
-              <Separator className='my-2' />
+            <ul>
+              {convocatoria?.map(convo => (
+                // eslint-disable-next-line react/jsx-key
+                <>
+                  <li key={convo.id} className='text-sm'>
+                    <h2>{convo.titulo}</h2>
+                    <p>Fecha de Apertura: {convo?.fechaApertura ? formatDate(convo.fechaApertura) : 'N/A'}</p>
+                    <p>Fecha de Cierre: {convo?.fechaCierre ? formatDate(convo.fechaCierre) : 'N/A'}</p>
+                    <p>Presupuesto: {convo.presupuesto}</p>
+
+                  </li><Separator className='my-2' />
+                </>
+              ))}
             </ul>
           </div>
         </ScrollArea>
-        {/* <DiaryBox /> */}
-
       </div>
     </>
   )
 }
-
-export default CalendarBoard
