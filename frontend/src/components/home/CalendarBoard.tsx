@@ -3,7 +3,7 @@ import { Calendar } from '../ui/calendar'
 import { ScrollArea } from '../ui/scroll-area'
 import { Separator } from '../ui/separator'
 import { Siren, FileStack } from 'lucide-react'
-import { getAllConvocatoria} from '@/services/registroConvocatoria'
+import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import { formatDate } from '@/lib/utils'
 
 export function CalendarBoard () {

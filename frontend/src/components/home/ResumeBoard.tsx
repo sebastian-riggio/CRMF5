@@ -12,12 +12,15 @@ import {
   Activity
 } from 'lucide-react'
 import GraphicData from './GraphicData'
+interface Convocatoria {
+  etapaCierre: { estadoResolucion: string }
+}
 
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
   const [convocatoriasCerradas, setConvocatoriasCerradas] = useState<number>(0)
-
+  const [convocatoriasNoCerradas, setConvocatoriasNoCerradas] = useState<number>(0)
   const [activeIndex/* , setActiveIndex */] = useState<number>(0)
   // ... aca hay que poner la lógica para actualizar activeIndex según la interacción del usuario
 
@@ -46,18 +49,18 @@ const ResumeBoard: React.FC = () => {
     }
     const fetchTotalConvocatoriasCierre = async () => {
       try {
-        const convocatoriasResponse = await getConvocatoriasEnCierre()
-        const convocatorias = convocatoriasResponse.gestiones
-        console.log('Convocatorias obtenidas:', convocatorias)
+        const convocatoriasCierreResponse = await getConvocatoriasEnCierre()
 
-        // Filtrar convocatorias donde etapaCierre.estadoResolucion es 'Cerrado'
-        const convocatoriasCerradas = convocatorias.filter((convocatoria: any) =>
-          convocatoria.etapaCierre && convocatoria.etapaCierre.estadoResolucion === 'Cerrado'
+        const convocatoriasCierre: Convocatoria[] = convocatoriasCierreResponse.gestiones.filter(
+          (convocatoria: Convocatoria) =>
+            convocatoria.etapaCierre && convocatoria.etapaCierre.estadoResolucion === 'Cerrado'
         )
-        console.log('Convocatorias cerradas:', convocatoriasCerradas)
 
         // Establecer el estado con la cantidad de convocatorias cerradas
-        setConvocatoriasCerradas(convocatoriasCerradas.length)
+        setConvocatoriasCerradas(convocatoriasCierre.length)
+
+        // Establecer el estado con la cantidad de convocatorias no cerradas
+        setConvocatoriasNoCerradas(convocatoriasCierreResponse.gestiones.length - convocatoriasCierre.length)
       } catch (error) {
         console.error('Error al obtener convocatorias:', error)
       }
@@ -74,7 +77,7 @@ const ResumeBoard: React.FC = () => {
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
               <CardTitle className='text-sm font-medium'>
-                Total de proyectos
+                Proyectos
               </CardTitle>
               <Library className='text-muted-foreground h-5 w-5' />
             </CardHeader>
@@ -101,7 +104,7 @@ const ResumeBoard: React.FC = () => {
           </Card>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-              <CardTitle className='text-sm font-medium'>Total de convocatorias cerradas</CardTitle>
+              <CardTitle className='text-sm font-medium'>Gestiones cerradas</CardTitle>
               <CreditCard className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
@@ -114,14 +117,14 @@ const ResumeBoard: React.FC = () => {
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
               <CardTitle className='text-sm font-medium'>
-                Proyectos en trámite
+                Convocatorias en trámite
               </CardTitle>
               <Activity className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>50</div>
+              <div className='text-2xl font-bold'>{convocatoriasNoCerradas}</div>
               <p className='text-xs text-muted-foreground'>
-                +lorem ipzum
+                en nuestra base de datos
               </p>
             </CardContent>
           </Card>
