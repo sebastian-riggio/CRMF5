@@ -16,7 +16,7 @@ import GraphicData from './GraphicData'
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
-  const [totalConvocatoriasCierre, setTotalConvocatoriasCierre] = useState<number>(0)
+  const [convocatoriasCerradas, setConvocatoriasCerradas] = useState<number>(0)
 
   const [activeIndex/* , setActiveIndex */] = useState<number>(0)
   // ... aca hay que poner la lógica para actualizar activeIndex según la interacción del usuario
@@ -46,12 +46,20 @@ const ResumeBoard: React.FC = () => {
     }
     const fetchTotalConvocatoriasCierre = async () => {
       try {
-        const response = await getConvocatoriasEnCierre()
-        const convocatoriasCierre = response.data.data ?? []
-        setTotalConvocatoriasCierre(convocatoriasCierre.length)
-        console.log('Total de convocatorias cerradas:', convocatoriasCierre)
+        const convocatoriasResponse = await getConvocatoriasEnCierre()
+        const convocatorias = convocatoriasResponse.gestiones
+        console.log('Convocatorias obtenidas:', convocatorias)
+
+        // Filtrar convocatorias donde etapaCierre.estadoResolucion es 'Cerrado'
+        const convocatoriasCerradas = convocatorias.filter((convocatoria: any) =>
+          convocatoria.etapaCierre && convocatoria.etapaCierre.estadoResolucion === 'Cerrado'
+        )
+        console.log('Convocatorias cerradas:', convocatoriasCerradas)
+
+        // Establecer el estado con la cantidad de convocatorias cerradas
+        setConvocatoriasCerradas(convocatoriasCerradas.length)
       } catch (error) {
-        console.error('Error al obtener las convocatorias en etapa de cierre:', error)
+        console.error('Error al obtener convocatorias:', error)
       }
     }
     fetchTotalProyectos()
@@ -93,11 +101,11 @@ const ResumeBoard: React.FC = () => {
           </Card>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-              <CardTitle className='text-sm font-medium'>Total de proyectos financiados</CardTitle>
+              <CardTitle className='text-sm font-medium'>Total de convocatorias cerradas</CardTitle>
               <CreditCard className='text-muted-foreground h-5 w-5' />
             </CardHeader>
             <CardContent>
-              <div className='text-2xl font-bold'>{totalConvocatoriasCierre}</div>
+              <div className='text-2xl font-bold'>{convocatoriasCerradas}</div>
               <p className='text-xs text-muted-foreground'>
                 en nuestra base de datos
               </p>
