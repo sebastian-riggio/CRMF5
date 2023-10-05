@@ -15,5 +15,9 @@ export const getOneGestion = (id:string) => {
 }
 
 export const postGestion = (data:GestionConvocatoria) => {
-  return axiosPrivate.post('/gestion', data)
+  return axiosPrivate.post('/gestion', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
 }

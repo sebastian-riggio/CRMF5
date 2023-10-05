@@ -21,7 +21,7 @@ const applicationStage = z.object({
   fechaPropuesta: z.date().optional(),
   numeroTramite: z.string().optional(),
   numeroExpediente: z.string().optional(),
-  reciboOficial: z.string().optional()
+  reciboOficial: z.instanceof(File).optional()
 })
 
 type AccountFormValues = z.infer<typeof applicationStage>;
@@ -174,21 +174,31 @@ function ApplicationStage () {
                   </div>
                 </FormItem>
               )}
-            /> 
-          {/*   <Separator className='my-5' />
+            />
+            <Separator className='my-5' />
             <FormField
               control={form.control}
               name='reciboOficial'
-              shouldUnregister
-              render={({ field }) => (
-                <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Recibo oficial</FormLabel>
-                  <FormControl>
-                    <Input type='file' {...field} data-testid='file-memory' />
-                  </FormControl>
+              render={({ field: { value, onChange, ...field } }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='my-2'>
+                    <FormLabel className='mb-2'>Recibo Oficial</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        value={value?.fileName}
+                        onChange={(event) => {
+                          onChange(event.target.files[0])
+                        }}
+                        type='file'
+                        id='reciboOficial'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
                 </FormItem>
               )}
-            /> */}
+            />
             <Separator className='my-5' />
             <div>
               <Button
