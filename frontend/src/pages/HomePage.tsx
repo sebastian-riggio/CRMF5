@@ -14,17 +14,20 @@ function HomePage () {
   }
 
   return (
-    <Card className='container mx-auto mt-5 flex px-0'>
-      <div className='w-1/5'>
-        <SideBar onSidebarItemClick={handleSidebarItemClick} />
-      </div>
-      <div className=''>
-        <Tabs defaultValue='overview' className='space-y-4 my-4'>
-          {selectedComponent === 'resume' && <ResumeBoard />}
-          {selectedComponent === 'calendar' && <CalendarBoard />}
-        </Tabs>
-      </div>
-    </Card>
+    <div className='container mx-auto'>
+      <Card className='mt-5 flex px-0 border-none shadow-none pl-5 pr-5 md:border-1 md:shadow-lg'>
+        <div className='w-1/5'>
+          <SideBar onSidebarItemClick={handleSidebarItemClick} />
+        </div>
+        <div className=''>
+          <Tabs defaultValue='overview' className='space-y-4 my-4'>
+            {selectedComponent === 'resume' && <ResumeBoard />}
+            {selectedComponent === 'calendar' && <CalendarBoard />}
+          </Tabs>
+        </div>
+      </Card>
+    </div>
+
   )
 }
 

@@ -52,7 +52,9 @@ function Navbar () {
           </button>
         </div>
       </div>
-      <Separator className='container mx-auto' />
+      <div className='container mx-auto'>
+        <Separator />
+      </div>
       <Outlet />
     </>
   )
