@@ -3,12 +3,9 @@ import { getProjectDetail } from '../../services/proyectos'
 import { Projects } from '../../interfaces/projects'
 import { useParams } from 'react-router-dom'
 import { formatDate } from '@/lib/utils'
-import { CardContent } from '../ui/card'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
 
 function Project () {
   const [project, setProject] = useState<Projects>()
-  
   const { id } = useParams()
   useEffect(() => {
     if (id) {
@@ -18,7 +15,6 @@ function Project () {
       })
     }
   }, [id])
-
 
   return (
     <>
