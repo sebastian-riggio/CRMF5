@@ -4,7 +4,7 @@ import { CreateConvocatoriaRegistroDto } from './dto/create-convocatoria-registr
 import { UpdateConvocatoriaRegistroDto } from './dto/update-convocatoria-registro.dto';
 import { ObjectId } from 'mongoose';
 import { Public } from '../auth/decorators/public.decorator';
-import { FileFieldsInterceptor, FileInterceptor } from '@nestjs/platform-express';
+import { FileFieldsInterceptor} from '@nestjs/platform-express';
 import { ApiTags } from '@nestjs/swagger';
 
 const fs = require('fs');
@@ -30,7 +30,7 @@ export class ConvocatoriaRegistroController {
     console.log(files)
   try {
       if (!files) {
-        throw new Error('No se proporcionó un archivo PDF');
+        throw new Error('No se proporcionó un archivo en formato correcto');
       }
      if (files.memoriaTecnica && files.memoriaTecnica) {
         const memoriaTecnicaBuffer = files.memoriaTecnica[0].buffer;
