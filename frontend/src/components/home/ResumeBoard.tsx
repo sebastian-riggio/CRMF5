@@ -140,10 +140,10 @@ const ResumeBoard: React.FC = () => {
           </Card>
           <Card className='col-span-3'>
             <CardHeader>
-              <CardTitle>Últimos proyectos 100% financiados</CardTitle>
-              <CardDescription>
-                Factoria F5 cerró 5 proyectos este mes
-              </CardDescription>
+              <CardTitle>Últimas convocatorias finalizadas</CardTitle>
+              {/* <CardDescription>
+                Factoria F5 cerró 5 convocatorias este mes
+              </CardDescription> */}
             </CardHeader>
             <CardContent>
               <RecentCloseProjects />

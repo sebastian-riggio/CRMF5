@@ -8,20 +8,20 @@ export function RecentCloseProjects () {
           {CheckIcon}
         </div>
         <div className='ml-4 space-y-1'>
-          <p className='text-sm font-medium leading-none'>P8 Mixta Fullstack</p>
-          <p className='text-sm font-medium text-muted-foreground'>Madrid</p>
+          <p className='text-sm font-medium leading-none'>Convocatoria</p>
+          <p className='text-sm font-medium text-muted-foreground'>Financiador</p>
         </div>
-        <div className='ml-auto font-medium'>+€1,999.00</div>
+        <div className='ml-auto font-medium'>Presupuesto aportado</div>
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
           {CheckIcon}
         </div>
         <div className='ml-4 space-y-1'>
-          <p className='text-sm font-medium leading-none'>P72 Mixta Full-Stack</p>
-          <p className='text-sm font-medium text-muted-foreground'>Asturias</p>
+          <p className='text-sm font-medium leading-none'>Convocatoria</p>
+          <p className='text-sm font-medium text-muted-foreground'>Financiador</p>
         </div>
-        <div className='ml-auto font-medium'>+€39.00</div>
+        <div className='ml-auto font-medium'>Presupuesto aportado</div>
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
