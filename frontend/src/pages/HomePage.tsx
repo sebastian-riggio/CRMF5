@@ -19,7 +19,7 @@ function HomePage () {
         <div className='w-1/5'>
           <SideBar onSidebarItemClick={handleSidebarItemClick} />
         </div>
-        <div className=''>
+        <div className='flex-1'>
           <Tabs defaultValue='overview' className='space-y-4 my-4'>
             {selectedComponent === 'resume' && <ResumeBoard />}
             {selectedComponent === 'calendar' && <CalendarBoard />}
