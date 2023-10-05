@@ -21,11 +21,11 @@ type gestionColumns = Pick<gestionTable, 'fechaApertura'|'fechaCierre'|'entidadC
 const columns: ColumnDef<gestionColumns, estadoColumns>[] = [
   {
     accessorKey: 'titulo',
-    header: 'Titulo',
+    header: () => <div className=' font-bold '>Título</div>,
     cell: ({ row }) => {
       const idRow = row.original
       return (
-        <Link className='text-blue-500 underline' to={`/announcement/${idRow._id as string}`}>
+        <Link className='hover:text-orange-600 hover:underline ' to={`/announcement/${idRow._id as string}`}>
           {row.getValue('titulo')}
         </Link>
       )
@@ -33,26 +33,21 @@ const columns: ColumnDef<gestionColumns, estadoColumns>[] = [
   },
   {
     accessorKey: 'entidadConvocante',
-    header: 'financiador'
+    header: () => <div className=' font-bold '>Financiador</div>
   },
   {
     accessorKey: 'fechaApertura',
-    header: 'Fecha inicio',
+    header: () => <div className=' font-bold '>Fecha Inicio</div>,
     cell: ({ row }) => formatDate(row.getValue('fechaApertura'))
   },
   {
     accessorKey: 'fechaCierre',
-    header: 'Fecha Cierre',
-    cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
-  },
-  {
-    accessorKey: 'fechaCierre',
-    header: 'Fecha Cierre',
+    header: () => <div className=' font-bold '>Fecha Cierre</div>,
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
   },
   {
     accessorKey: 'estado',
-    header: 'Estados',
+    header: () => <div className=' font-bold '>Estado</div>,
     cell: ({ row }) => row.getValue('estado')
   }
 ]
