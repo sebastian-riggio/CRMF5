@@ -46,7 +46,7 @@ function Call () {
           <CardContent className='p-0 flex flex-wrap '>
             <Accordion className='m-2 w-full  mt-8' type='single' collapsible>
               <AccordionItem value='item-1'>
-                <AccordionTrigger className='px-3'>DATOS GENERALES</AccordionTrigger>
+                <AccordionTrigger className='px-3 bg-slate-400'>DATOS GENERALES</AccordionTrigger>
                 <AccordionContent>
                   <div>
                     <h1 className='font-black'>Titulo:</h1>

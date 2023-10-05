@@ -44,11 +44,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --solicitud: hsl(7, 100%, 91%);
-    --negociacion: hsl(20, 60%, 98%);
-    --otorgamiento: hsl(54, 75%, 83%);
-    --justificacion: hsl(102, 80%, 84%);
-    --cierre: hsl(227, 84%, 75%);
+    --solicitud: #39b6fe;
+    --negociacion: #a234f6;
+    --otorgamiento: #f45d0b;
+    --justificacion: #ff47da;
+    --cierre: #64e647;
 
     --popover-foreground: 222.2 84% 4.9%;
     --popover-foreground: 222.2 84% 4.9%;
