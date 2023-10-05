@@ -24,11 +24,11 @@ type projectColumns = Pick<
 const columns: ColumnDef<projectColumns>[] = [
   {
     accessorKey: 'proyectoNombre',
-    header: () => <div className=' font-bold text-lg'>Título</div>,
+    header: () => <div className=' font-bold'>Título</div>,
     cell: ({ row }) => {
       const idRow = row.original
       return (
-        <Link className='text-[#ff4600] font-bold' to={`/project/${idRow._id as string}`}>
+        <Link className='hover:text-orange-600 hover:underline ' to={`/project/${idRow._id as string}`}>
           {row.getValue('proyectoNombre')}
         </Link>
       )
@@ -36,22 +36,22 @@ const columns: ColumnDef<projectColumns>[] = [
   },
   {
     accessorKey: 'fechaInicio',
-    header: () => <div className=' font-bold text-lg'>Fecha Inicio</div>,
+    header: () => <div className=' font-bold '>Fecha Inicio</div>,
     cell: ({ row }) => formatDate(row.getValue('fechaInicio'))
   },
   {
     accessorKey: 'fechaCierre',
-    header: () => <div className=' font-bold text-lg'>Fecha Cierre</div>,
+    header: () => <div className=' font-bold '>Fecha Cierre</div>,
     cell: ({ row }) => formatDate(row.getValue('fechaCierre')) // toma la fecha de inicio de la fila actual (row.getValue('fechaInicio')) y luego llama a la función formatDate para formatear esa fecha antes de renderizarla en la celda.
   },
   {
     accessorKey: 'centroGestor',
-    header: () => <div className=' font-bold text-lg'>Centro Gestor</div>
+    header: () => <div className=' font-bold'>Centro Gestor</div>
   },
   {
     accessorKey: 'responsable',
     // header: 'Responsable',
-    header: () => <div className='font-bold text-lg text-right'>Responsable</div>,
+    header: () => <div className='font-bold  text-right'>Responsable</div>,
     cell: ({ row }) => {
       const amount = row.getValue('responsable')
       /*       const formatted = new Intl.NumberFormat('en-US', {
