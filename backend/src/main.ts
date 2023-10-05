@@ -14,7 +14,7 @@ async function bootstrap() {
   app.setGlobalPrefix("/api/v1");
   const config = new DocumentBuilder()
 
-    .setTitle("CRM example")
+    .setTitle("CRM F5")
     .setDescription("CRM API description")
     .setVersion("1.0")
     .addTag("crm")
