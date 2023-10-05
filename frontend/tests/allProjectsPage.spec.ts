@@ -44,7 +44,7 @@ test.describe('All projects page', () => {
 
 test.describe('Search test', () => {
   test('Search input', async ({ page }) => {
-    const inputSearch = page.getByRole('textbox', { name: /Filtrar Centro-Gestor.../i })
+    const inputSearch = page.getByRole('textbox', { name: /Buscar proyecto.../i })
     await inputSearch.fill('later')
 
     await expect(inputSearch).toHaveValue('later')
