@@ -1,11 +1,12 @@
+import {
+  CheckCheck
+} from 'lucide-react'
 export function RecentCloseProjects () {
-  const CheckIcon = (<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className='lucide lucide-check-check'><path d='M18 6 7 17l-5-5' /><path d='m22 10-7.5 7.5L13 16' /></svg>)
-
   return (
     <div className='space-y-8'>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          {CheckIcon}
+          <CheckCheck />
         </div>
         <div className='ml-4 space-y-1'>
           <p className='text-sm font-medium leading-none'>Convocatoria</p>
@@ -15,7 +16,7 @@ export function RecentCloseProjects () {
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          {CheckIcon}
+          <CheckCheck />
         </div>
         <div className='ml-4 space-y-1'>
           <p className='text-sm font-medium leading-none'>Convocatoria</p>
@@ -25,7 +26,7 @@ export function RecentCloseProjects () {
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          {CheckIcon}
+          <CheckCheck />
         </div>
         <div className='ml-4 space-y-1'>
           <p className='text-sm font-medium leading-none'>P9 Mixta Full-Stack</p>
@@ -37,7 +38,7 @@ export function RecentCloseProjects () {
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          {CheckIcon}
+          <CheckCheck />
         </div>
         <div className='ml-4 space-y-1'>
           <p className='text-sm font-medium leading-none'>Java Bootcamp</p>
@@ -47,7 +48,7 @@ export function RecentCloseProjects () {
       </div>
       <div className='flex items-center'>
         <div className='flex items-center'>
-          {CheckIcon}
+          <CheckCheck />
         </div>
         <div className='ml-4 space-y-1'>
           <p className='text-sm font-medium leading-none'>HTML Bootcamp</p>

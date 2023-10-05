@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
 import React, { useEffect, useState } from 'react'
 import { RecentCloseProjects } from './RecentCloseProjects'
@@ -21,8 +21,7 @@ const ResumeBoard: React.FC = () => {
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
   const [convocatoriasCerradas, setConvocatoriasCerradas] = useState<number>(0)
   const [convocatoriasNoCerradas, setConvocatoriasNoCerradas] = useState<number>(0)
-  const [activeIndex/* , setActiveIndex */] = useState<number>(0)
-  // ... aca hay que poner la lógica para actualizar activeIndex según la interacción del usuario
+  const [activeIndex] = useState<number>(0)
 
   useEffect(() => {
     const fetchTotalProyectos = async () => {
@@ -130,7 +129,7 @@ const ResumeBoard: React.FC = () => {
           </Card>
         </div>
         <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-7'>
-          <Card className='col-span-4'>
+          <Card className='col-span-4 hidden md:block'>
             <CardHeader>
               <CardTitle>Gestión de convocatorias</CardTitle>
             </CardHeader>

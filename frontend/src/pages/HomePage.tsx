@@ -16,7 +16,7 @@ function HomePage () {
   return (
     <div className='container mx-auto'>
       <Card className='mt-5 flex px-0 border-none shadow-none pl-5 pr-5 md:border-1 md:shadow-lg'>
-        <div className='w-1/5'>
+        <div>
           <SideBar onSidebarItemClick={handleSidebarItemClick} />
         </div>
         <div className='flex-1'>
