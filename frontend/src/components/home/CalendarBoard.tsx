@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Calendar } from '../ui/calendar'
 import { ScrollArea } from '../ui/scroll-area'
 import { Separator } from '../ui/separator'
-import { Siren, FileStack } from 'lucide-react'
+import { Siren/* , FileStack */ } from 'lucide-react'
 import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import { formatDate } from '@/lib/utils'
 
@@ -51,7 +51,7 @@ export function CalendarBoard () {
           </div>
         </ScrollArea>
 
-        <ScrollArea className='h-[310px] w-[280px] md:w-[1100px] md:h-[255px] rounded-md border p-4'>
+        {/* <ScrollArea className='h-[310px] w-[280px] md:w-[1100px] md:h-[255px] rounded-md border p-4'>
           <div className='p-4 '>
             <FileStack className='mb-4 text-sm font-medium leading-none' />
             <ul>
@@ -69,7 +69,7 @@ export function CalendarBoard () {
               ))}
             </ul>
           </div>
-        </ScrollArea>
+        </ScrollArea> */}
       </div>
     </>
   )
