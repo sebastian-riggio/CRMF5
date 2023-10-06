@@ -141,6 +141,8 @@ export class GestionConvocatoriaService {
       throw error;
     }
   }
-  
+  async deleteAll(): Promise<void> {
+    await this.GestionModel.deleteMany({}).exec();
+  }
 
 }

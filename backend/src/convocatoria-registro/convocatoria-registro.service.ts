@@ -89,4 +89,8 @@ async remove(id:ObjectId) {
       throw error 
     }
   }
+  
+  async deleteAll(): Promise<void> {
+    await this.ConvocatoriaModel.deleteMany({}).exec();
+  }
 }
