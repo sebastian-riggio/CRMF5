@@ -5,13 +5,13 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '
 import { format } from 'date-fns'
 import { CheckIcon, CalendarIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '../ui/form'
-import { Input } from '../ui/input'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import { ProfileFormSchema } from './ProfileForm'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { toast } from '../ui/use-toast'
-import { Calendar } from '../ui/calendar'
+import { toast } from '@/components/ui/use-toast'
+import { Calendar } from '@/components/ui/calendar'
 import { useForm } from 'react-hook-form'
 
 const departamento = [
@@ -52,12 +52,7 @@ export function FormFields () {
       })
     } catch (error) {
       toast({
-        title: 'Error',
-        description: (
-          <div>
-            <p>{error}</p>
-          </div>
-        )
+        title: 'Error'
       })
     }
   }
@@ -73,7 +68,7 @@ export function FormFields () {
                 <div className='my-2 flex flex-col justifiy flex-wrap md:flex-nowrap'>
                   <FormLabel className='pb-4'>Nombre y Apellido</FormLabel>
                   <FormControl>
-                    <Input placeholder='Nombre y Apellido' {...field} className=''/>
+                    <Input placeholder='Nombre y Apellido' {...field} className='' />
                   </FormControl>
                   <FormMessage />
                 </div>
@@ -128,7 +123,8 @@ export function FormFields () {
                                     departamento.value === field.value
                                       ? 'opacity-100'
                                       : 'opacity-0'
-                                  )} />
+                                  )}
+                                />
                                 {departamento.label}
                               </CommandItem>
                             ))}

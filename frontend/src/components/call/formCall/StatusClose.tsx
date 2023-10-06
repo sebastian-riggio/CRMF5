@@ -1,19 +1,17 @@
 import * as React from 'react'
-
-import { Button } from '../../ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
+
   CommandItem,
   CommandList
-} from '../../ui/command'
+} from '@/components/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger
-} from '../../ui/popover'
+} from '@/components/ui/popover'
 
 type Status = {
     value: string

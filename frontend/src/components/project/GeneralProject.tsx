@@ -1,4 +1,4 @@
-import FormSectionData from '../formCall/FormSectionData'
+import FormSectionData from '@/components/call/formCall/FormSectionData'
 
 function GeneralProject () {
   return (

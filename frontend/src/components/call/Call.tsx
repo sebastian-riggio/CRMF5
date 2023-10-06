@@ -2,9 +2,9 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from '../ui/accordion'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardContent } from '../ui/card'
 import ApplicationStage from '../call/formCall/ApplicationStage'
 import NegotationStage from '../call/formCall/NegotiationStage'
 import ConcessionStage from '../call/formCall/ConcessionStage'

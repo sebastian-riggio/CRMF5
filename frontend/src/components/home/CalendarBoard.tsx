@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Calendar } from '../ui/calendar'
-import { ScrollArea } from '../ui/scroll-area'
-import { Separator } from '../ui/separator'
-import { Siren/* , FileStack */ } from 'lucide-react'
+import { Calendar } from '@/components/ui/calendar'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { Siren, FileStack } from 'lucide-react'
 import { getAllConvocatoria } from '@/services/registroConvocatoria'
 import { formatDate } from '@/lib/utils'
 
