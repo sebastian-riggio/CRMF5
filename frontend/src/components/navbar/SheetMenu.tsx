@@ -31,12 +31,12 @@ export function SheetMenu () {
 
           <Separator className='mb-4' />
           <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allprojects'>
+            <Link className='block mb-4 hover:text-orange-600' to='/allprojects'>
               Proyectos
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/newproject'>
+            <Link className='block mb-4 hover:text-orange-600' to='/newproject'>
               Nuevo proyecto
             </Link>
           </SheetClose>
@@ -45,12 +45,12 @@ export function SheetMenu () {
           <SheetTitle className='text-sm block'>CONVOCATORIAS</SheetTitle>
           <Separator className='mb-4' />
           <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allcalls'>
+            <Link className='block mb-4 hover:text-orange-600' to='/allcalls'>
               Convocatorias
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/newcall'>
+            <Link className='block mb-4 hover:text-orange-600' to='/newcall'>
               Nueva convocatoria
             </Link>
           </SheetClose>

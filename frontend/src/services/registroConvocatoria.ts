@@ -1,7 +1,7 @@
 import { ConvocatoriaRegistro } from '../interfaces/convocatoriaRegistro'
 import { axiosPrivate } from './axiosPrivate'
 
-export const createdRegistroGestion = (data:ConvocatoriaRegistro) => {
+export const createdRegistroGestion = (data:Partial<ConvocatoriaRegistro>) => {
   return axiosPrivate.post('/announcement', data, {
     headers: {
       'Content-Type': 'multipart/form-data'

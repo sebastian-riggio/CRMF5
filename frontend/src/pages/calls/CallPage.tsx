@@ -6,7 +6,7 @@ function CallPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/allcalls'>
+        <Link to='/allcalls'>
           <GoBack />
         </Link>
       </div>

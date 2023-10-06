@@ -48,7 +48,7 @@ fechaCierre:Date;
 @IsDate()
 fechaResolucion:Date;
 
-@ApiProperty({example:"5 meses"})
+@ApiProperty({example:"5"})
 @IsString()
 periodoEjecucion:string;
 

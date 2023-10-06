@@ -77,7 +77,7 @@ function AllCallsPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/'>
+        <Link to='/'>
           <GoBack />
         </Link>
       </div>

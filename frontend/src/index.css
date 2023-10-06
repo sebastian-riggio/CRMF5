@@ -1,4 +1,4 @@
-@import url('../src/assets/Fonts/WEB/css/clash-grotesk.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,18 +7,7 @@
 @fontsource /poppins/600.css;
 @fontsource /poppins/700.css;
 
-@font-face {
-  font-family: 'ClashGrotesk-Variable';
-  src: url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.woff2')
-      format('woff2'),
-    url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.woff')
-      format('woff'),
-    url('../src/assets/Fonts/WEB/fonts/ClashGrotesk-Variable.ttf')
-      format('truetype');
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: normal;
-}
+
 .bg-solicitud {
   background-color: var(--solicitud);
 }

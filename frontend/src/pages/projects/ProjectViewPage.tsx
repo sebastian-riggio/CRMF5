@@ -6,7 +6,7 @@ export default function ProjectViewPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/allprojects'>
+        <Link to='/allprojects'>
           <GoBack />
         </Link>
       </div>

@@ -40,7 +40,7 @@ const schema = z.object({
   fechaApertura: z.date(),
   fechaCierre: z.date(),
   fechaResolucion: z.date(),
-  periodoEjecucion: z.coerce.number().min(1).optional(),
+  periodoEjecucion: z.coerce.number().min(1),
   auditoria: z.string().optional(),
   presupuesto: z.coerce.number().min(0).optional(),
   otraInformacion: z.string().optional(),

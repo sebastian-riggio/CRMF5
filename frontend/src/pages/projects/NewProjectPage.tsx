@@ -6,7 +6,7 @@ function NewProjectPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/allprojects'>
+        <Link to='/allprojects'>
           <GoBack />
         </Link>
       </div>

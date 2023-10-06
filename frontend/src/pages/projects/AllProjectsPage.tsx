@@ -88,12 +88,12 @@ function AllProjectsPage () {
   return (
     <>
       <div>
-        <Link to='http://localhost:5173/'>
+        <Link to='/'>
           <GoBack />
         </Link>
       </div>
 
-      <Link to='http://localhost:5173/project/:id' />
+      <Link to='/:id' />
       <div className='container mx-auto mt-5'>
         <h1 className='text-primary text-4xl font-semibold'>Nuestros proyectos</h1>
         <DataTable columns={columns} data={data.proyectos} />
