@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
 import React, { useEffect, useState } from 'react'
-import { RecentCloseProjects } from './RecentCloseProjects'
+import { RecentCloseCalls } from './RecentCloseCalls'
 import { getProjects } from '../../services/proyectos'
 import { getAllConvocatoria } from '../../services/registroConvocatoria'
 import { getConvocatoriasEnCierre } from '../../services/gestion'
@@ -12,6 +12,7 @@ import {
   Activity
 } from 'lucide-react'
 import GraphicData from './GraphicData'
+import { ScrollArea } from '../ui/scroll-area'
 interface Convocatoria {
   etapaCierre: { estadoResolucion: string }
 }
@@ -54,11 +55,7 @@ const ResumeBoard: React.FC = () => {
           (convocatoria: Convocatoria) =>
             convocatoria.etapaCierre && convocatoria.etapaCierre.estadoResolucion === 'Cerrado'
         )
-
-        // Establecer el estado con la cantidad de convocatorias cerradas
         setConvocatoriasCerradas(convocatoriasCierre.length)
-
-        // Establecer el estado con la cantidad de convocatorias no cerradas
         setConvocatoriasNoCerradas(convocatoriasCierreResponse.gestiones.length - convocatoriasCierre.length)
       } catch (error) {
         console.error('Error al obtener convocatorias:', error)
@@ -139,13 +136,12 @@ const ResumeBoard: React.FC = () => {
           </Card>
           <Card className='col-span-3'>
             <CardHeader>
-              <CardTitle>Últimas convocatorias finalizadas</CardTitle>
-              {/* <CardDescription>
-                Factoria F5 cerró 5 convocatorias este mes
-              </CardDescription> */}
+              <CardTitle>Convocatorias finalizadas</CardTitle>
             </CardHeader>
-            <CardContent>
-              <RecentCloseProjects />
+            <CardContent className='mt-4'>
+              <ScrollArea>
+                <RecentCloseCalls />
+              </ScrollArea>
             </CardContent>
           </Card>
         </div>
