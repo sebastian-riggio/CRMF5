@@ -304,7 +304,7 @@ function MainNewCall () {
                       <div className='flex flex-col space-y-2 mt-5'>
                         <FormLabel className='text-sm text-gray-600'>Período máximo de ejecución</FormLabel>
                         <FormControl>
-                          <Input type='number' placeholder='Período máximo de ejecución' {...field} />
+                          <Input type='number' placeholder='Período máximo de ejecución en meses' {...field} />
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -346,6 +346,7 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='memoriaTecnica'
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                       <div className='flex flex-col space-y-2 mt-5'>
@@ -353,13 +354,24 @@ function MainNewCall () {
                         <FormControl>
                           <Input
                             {...field}
+                            type='file'
+                            id='memoriaTecnica'
+                            onChange={(event) => {
+                              const selectedFile = event.target.files?.[0]
+                              if (selectedFile) {
+                                onChange(selectedFile)
+                              }
+                            }}
+                          />
+                          {/*  <Input
+                            {...field}
                             value={value?.fileName}
                             onChange={(event) => {
                               onChange(event.target.files[0])
                             }}
                             type='file'
                             id='memoriaTecnica'
-                          />
+                          /> */}
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -369,6 +381,7 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='modeloPresupuesto'
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                       <div className='flex flex-col space-y-2 mt-5'>
@@ -376,13 +389,24 @@ function MainNewCall () {
                         <FormControl>
                           <Input
                             {...field}
+                            type='file'
+                            id='modeloPresupuesto'
+                            onChange={(event) => {
+                              const selectedFile = event.target.files?.[0]
+                              if (selectedFile) {
+                                onChange(selectedFile)
+                              }
+                            }}
+                          />
+                          {/*  <Input
+                            {...field}
                             value={value?.fileName}
                             onChange={(event) => {
                               onChange(event.target.files[0])
                             }}
                             type='file'
                             id='modeloPresupuesto'
-                          />
+                          /> */}
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -392,6 +416,7 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='formularioSolicitud'
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                       <div className='flex flex-col space-y-2 mt-5'>
@@ -399,13 +424,24 @@ function MainNewCall () {
                         <FormControl>
                           <Input
                             {...field}
+                            type='file'
+                            id='formularioSolicitud'
+                            onChange={(event) => {
+                              const selectedFile = event.target.files?.[0]
+                              if (selectedFile) {
+                                onChange(selectedFile)
+                              }
+                            }}
+                          />
+                          {/* <Input
+                            {...field}
                             value={value?.fileName}
                             onChange={(event) => {
                               onChange(event.target.files[0])
                             }}
                             type='file'
                             id='formularioSolicitud'
-                          />
+                          /> */}
                         </FormControl>
                         <FormMessage />
                       </div>
@@ -415,6 +451,7 @@ function MainNewCall () {
                 <FormField
                   control={form.control}
                   name='otraDocumentacion'
+                  // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                       <div className='flex flex-col space-y-2 mt-5'>
@@ -422,13 +459,24 @@ function MainNewCall () {
                         <FormControl>
                           <Input
                             {...field}
+                            type='file'
+                            id='otraDocumentacion'
+                            onChange={(event) => {
+                              const selectedFile = event.target.files?.[0]
+                              if (selectedFile) {
+                                onChange(selectedFile)
+                              }
+                            }}
+                          />
+                          {/* <Input
+                            {...field}
                             value={value?.fileName}
                             onChange={(event) => {
                               onChange(event.target.files[0])
                             }}
                             type='file'
                             id='otraDocumentacion'
-                          />
+                          /> */}
                         </FormControl>
                         <FormMessage />
                       </div>
