@@ -136,7 +136,7 @@ const ResumeBoard: React.FC = () => {
           </Card>
           <Card className='col-span-3'>
             <CardHeader>
-              <CardTitle>Últimas convocatorias finalizadas</CardTitle>
+              <CardTitle>Convocatorias finalizadas</CardTitle>
             </CardHeader>
             <CardContent className='mt-4'>
               <ScrollArea>
