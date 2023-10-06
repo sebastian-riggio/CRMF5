@@ -78,7 +78,7 @@ export function LoginTab () {
               </div>
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
-              <Link to='/home'>
+              <Link to='/'>
                 <Button className='h-8 text-white hover:bg-FF4700-dark w-[250px]'>Entrar</Button>
               </Link>
             </CardFooter>
@@ -102,7 +102,7 @@ export function LoginTab () {
             </CardContent>
             <CardFooter className='flex flex-col items-center'>
               <Link to='/notfound'>
-                <Button className='h-8 bg-FF4700 text-white hover:bg-FF4700-dark w-[250px]'>Recuperar contraseña</Button>
+                <Button className='h-8 text-white hover:bg-FF4700-dark w-[250px]'>Recuperar contraseña</Button>
               </Link>
             </CardFooter>
           </Card>

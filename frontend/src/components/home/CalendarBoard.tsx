@@ -1,61 +1,60 @@
-import { useState } from 'react'
-import { Calendar } from '../ui/calendar'
-import { ScrollArea } from '../ui/scroll-area'
-import { Separator } from '../ui/separator'
-import {
-  Siren
-} from 'lucide-react'
-import { DiaryBox } from './DiaryBox'
+import { useEffect, useState } from 'react'
+import { Calendar } from '@/components/ui/calendar'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { Siren } from 'lucide-react'
+import { getAllConvocatoria } from '@/services/registroConvocatoria'
+import { formatDate } from '@/lib/utils'
+interface Convocatoria {
+  id: number;
+  titulo: string;
+  fechaApertura?: string;
+}
+export function CalendarBoard () {
+  const [convocatoria, setConvocatoria] = useState<Convocatoria[] | null>(null)
+  const [date, setDate] = useState<Date | null | undefined>(null)
 
-/* interface ImportantEvent {
-    _id: number;
-    description: string;
-    date: string;
-} */
+  useEffect(() => {
+    getAllConvocatoria()
+      .then((response) => {
+        setConvocatoria(response.data.convocatoria)
+        console.log(response.data.convocatoria)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
 
-function CalendarBoard () {
-  const [date, setDate] = useState<Date | undefined>(new Date())
   return (
     <>
       <div className='flex justify-center flex-wrap gap-5'>
-        <Calendar
-          mode='single'
-          selected={date}
-          onSelect={setDate}
-          className='rounded-md border'
-        />
-        <ScrollArea className='h-[310px] w-[280px] md:w-[450px] rounded-md border p-4'>
+        <div>
+          <Calendar
+            mode='single'
+            selected={date || undefined}
+            onSelect={(newDate) => setDate(newDate)}
+            className='rounded-md border'
+          />
+        </div>
+        <ScrollArea className='h-[310px] w-[280px] md:w-[800px] md:h-[309px] rounded-md border p-4'>
           <div className='p-4'>
-            <Siren className='mb-4 text-sm font-medium leading-none'> </Siren>
+            <Siren className='mb-4 text-sm font-medium leading-none' />
+            <h1>PRÓXIMAS APERTURAS DE CONVOCATORIAS</h1>
+            <Separator className='my-2' />
             <ul>
-              <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
-              </li>
-              <Separator className='my-2' />
-              <li className='text-sm'>
-                traer del backen la lista de fecha simportantes de la mas cercana hacia atrás (esta lista hce scroll)
-              </li>
-              <Separator className='my-2' />
+              {convocatoria?.map(convo => (
+                // eslint-disable-next-line react/jsx-key
+                <>
+                  <li key={convo.id} className='text-sm'>
+                    <h2> {convo.titulo}</h2>
+                    <p>{convo?.fechaApertura ? formatDate(new Date(convo.fechaApertura)) : 'N/A'}</p>
+                  </li><Separator className='my-2' />
+                </>
+              ))}
             </ul>
           </div>
         </ScrollArea>
-        <DiaryBox />
-
       </div>
     </>
   )
 }
-
-export default CalendarBoard

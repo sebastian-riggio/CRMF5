@@ -6,39 +6,40 @@ export type ConvocatoriaDocument = HydratedDocument<ConvocatoriaRegistro>;
 
 @Schema()
 export class ConvocatoriaRegistro extends Document {
+
   @ApiProperty({ example: 'Ayuntamiento Barcelona' })
-  @Prop({ required: true })
-  entidadConvocante: String;
+ @Prop({ required: true })
+  entidadConvocante: string;
 
   @ApiProperty({ example: 'Recursos Humanos' })
   @Prop()
-  departamentoConvocante: String;
+  departamentoConvocante: string;
 
   @ApiProperty({ example: 'Por un mundo mejor' })
   @Prop()
-  titulo: String;
+  titulo: string;
 
   @ApiProperty({ example: 'http//:factoriaf5.com' })
   @Prop()
-  publicacionOficial: String;
+  publicacionOficial: string;
 
   @ApiProperty({ example: 'http//:factoria-convocatoria.com' })
   @Prop()
-  convocatoriaEnlace: String;
+  convocatoriaEnlace: string;
 
   @ApiProperty({ example: 'Programacíon' })
   @Prop()
-  tematica: String;
+  tematica: string;
 
   @ApiProperty({ example: 'Palabras claves o texto???' })
   @Prop()
-  trabajoLineas: String;
+  trabajoLineas: string;
 
   @ApiProperty({
     example: ['Sin animo de lucro', 'Financieras', 'Impacto Social'],
   })
   @Prop()
-  dirigidoEntidades: String;
+  dirigidoEntidades: string;
 
   @ApiProperty({ example: '20/10/2023' })
   @Prop()
@@ -54,7 +55,7 @@ export class ConvocatoriaRegistro extends Document {
 
   @ApiProperty({ example: '5 meses' })
   @Prop()
-  periodoEjecucion: String;
+  periodoEjecucion: string;
 
   @ApiProperty({ example: '8/11/2023' })
   @Prop()
@@ -62,31 +63,31 @@ export class ConvocatoriaRegistro extends Document {
 
   @ApiProperty({ example: ['si', 'no'] })
   @Prop({ default: false })
-  auditoria: Boolean;
+  auditoria: boolean;
 
   @ApiProperty({ example: '40000 euros' })
   @Prop()
-  presupuesto: Number;
+  presupuesto: number;
 
   @ApiProperty({ example: 'palabras claves etc..' })
   @Prop()
-  otraInformacion: String;
+  otraInformacion: string;
 
   @ApiProperty({ example: 'PDF' })
   @Prop()
-  memoriaTecnica: String;
+  memoriaTecnica: string;
 
   @ApiProperty({ example: 'PDF' })
   @Prop()
-  modeloPresupuesto: String;
+  modeloPresupuesto: string;
 
   @ApiProperty({ example: 'PDF' })
   @Prop()
-  formularioSolicitud: String;
+  formularioSolicitud: string;
 
   @ApiProperty({ example: 'PDF' })
   @Prop()
-  otraDocumentacion: String;
+  otraDocumentacion: string;
 }
 
 export const ConvocatoriaRegistroSchema =

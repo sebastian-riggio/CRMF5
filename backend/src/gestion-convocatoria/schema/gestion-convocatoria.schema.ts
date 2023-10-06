@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty } from "@nestjs/swagger";
 import { HydratedDocument, Types,Document } from "mongoose";
-import { EtapaSolicitudDto } from "../dto/etapa-solicitud.dto";
 import { EtapaResolucionDto } from "../dto/etapa-resolucion.dto";
 import { EtapaOtorgamientoDto } from "../dto/etapa-otorgamiento.dto";
 import { EtapaJustificacionDto } from "../dto/etapa-justificacion.dto";
 import { EtapaCierreDto } from "../dto/etapa-cierre.dto";
+import { Estados } from "../dto/create-gestion-convocatoria.dto";
 
 
 export type GestionDocument = HydratedDocument<GestionConvocatoria>;
@@ -15,31 +15,30 @@ export class GestionConvocatoria extends Document {
 
 @ApiProperty({example:"financiacion para cursos educativos online"})
 @Prop()
-convocatoria:string;
+convocatoria:Types.ObjectId;
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
 @Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
 financiador:Types.ObjectId
-
+ 
 @ApiProperty({example:"Proyectos de Factoria"})
 @Prop({type:Types.ObjectId,ref:'ProyectosRegistro'})
-proyecto:Types.ObjectId
-
-@ApiProperty({example:"Fechaapertura"})
-@Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
-fechaApertura:Types.ObjectId
-
-@ApiProperty({example:"fechaCierre"})
-@Prop({type:Types.ObjectId,ref:"ConvocatoriaRegistro"})
-fechaCierre:Types.ObjectId
+proyecto:Types.ObjectId 
 
 @ApiProperty({example:"R-0001-20230912"})
 @Prop()
 codigoInterno:string;
 
-@ApiProperty({example:"Etapa Solicitud"})
-@Prop({type:EtapaSolicitudDto})
-etapaSolicitud:EtapaSolicitudDto;
+@Prop()
+responsable:string
+@Prop()
+fechaPropuesta:Date;
+@Prop()
+numeroTramite:string;
+@Prop()
+numeroExpediente:string;
+@Prop()
+reciboOficial:string;
 
  @ApiProperty({example:"Etapa Resolucion"})
 @Prop({type:EtapaResolucionDto})
@@ -56,6 +55,10 @@ etapaJustificacion:EtapaJustificacionDto;
 @ApiProperty({example:"Etapa Cierre"})
 @Prop({type:EtapaCierreDto})
 etapaCierre:EtapaCierreDto;  
+
+@ApiProperty({example:'solicitud'})
+@Prop({enum: Estados})
+estado: string;
 
 }
 

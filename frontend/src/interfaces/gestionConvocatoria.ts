@@ -1,17 +1,5 @@
 import { z } from 'zod'
 
-const etapaSolicitud = z.object({
-  responsable: z.string().min(2, {
-    message: 'Debe completar este campo'
-  }),
-  fechaPropuesta: z.date(),
-  numeroTramite: z.string(),
-  numeroExpediente: z.string().min(2, {
-    message: 'Debe completar este campo'
-  }),
-  reciboOficial: z.string().optional()
-})
-
 const etapaResolucion = z.object({
   fechaResolucion: z.date(),
   fechaLimiteEntrega: z.date(),
@@ -64,24 +52,22 @@ const etapaCierre = z.object({
 })
 
 const gestionConvocatoria = z.object({
-  convocatoria: z.string().min(2, {
+  convocatoria: z.string(),
+  financiador: z.string(),
+  proyecto: z.string(),
+  responsable: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  financiador: z.string().min(2, {
+  fechaPropuesta: z.date(),
+  numeroTramite: z.string(),
+  numeroExpediente: z.string().min(2, {
     message: 'Debe completar este campo'
   }),
-  proyecto: z.string().min(2, {
-    message: 'Debe completar este campo'
-  }),
-  fechaApertura: z.date(),
-  fechaCierre: z.date(),
-  codigoInterno: z.string().min(2, {
-    message: 'Este campo es autocompletado'
-  }),
-  etapaSolicitud: z.array(etapaSolicitud),
+  reciboOficial: z.string().optional(),
   etapaResolucion: z.array(etapaResolucion),
   etapaOtorgamiento: z.array(etapaOtorgamiento),
   etapaJustificacion: z.array(etapaJustificacion),
-  etapaCierre: z.array(etapaCierre)
+  etapaCierre: z.array(etapaCierre),
+  estado: z.string()
 })
 export default gestionConvocatoria

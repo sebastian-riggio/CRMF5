@@ -2,20 +2,19 @@ import { NestFactory } from "@nestjs/core";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
 
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     allowedHeaders: ["content-type"],
     origin: "https://crmf5.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
+    
   });
-
   app.setGlobalPrefix("/api/v1");
-
   const config = new DocumentBuilder()
 
-    .setTitle("CRM example")
+    .setTitle("CRM F5")
     .setDescription("CRM API description")
     .setVersion("1.0")
     .addTag("crm")

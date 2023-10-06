@@ -1,43 +1,59 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsDate, IsString } from "class-validator";
+import { IsArray, IsDate, IsEnum, IsNumber, IsObject, IsOptional, IsString } from "class-validator";
 import { ProyectosRegistro } from "../../proyectos-registros/schema/proyectos-registro.schema";
-import { EtapaSolicitudDto } from "./etapa-solicitud.dto";
 import { EtapaOtorgamientoDto } from "./etapa-otorgamiento.dto";
 import { EtapaResolucionDto } from "./etapa-resolucion.dto";
 import { EtapaJustificacionDto } from "./etapa-justificacion.dto";
 import { EtapaCierreDto } from "./etapa-cierre.dto";
 import { ConvocatoriaRegistro } from "../../convocatoria-registro/schema/convocatoria-registro.schema";
 
+export enum Estados {
+    SOLICITUD = 'solicitud',
+   NEGOCIACION = 'negociacion',
+    OTORGAMIENTO = 'otorgamiento',
+    JUSTIFICACION = 'justificacion',
+    CIERRE = 'cierre',
+}
+
 export class CreateGestionConvocatoriaDto {
 @ApiProperty({example:"financiacion patra cursos educativos online"})
-@IsString()
-convocatoria:string;
+@IsObject()
+convocatoria:ConvocatoriaRegistro
 
 
 @ApiProperty({example:"Ayuntamiento Barcelona"})
-@IsString()
+@IsObject()
 financiador:ConvocatoriaRegistro
 
 
 @ApiProperty({ example: "Proyecto Factoria" })
-@IsString()
-proyecto: ProyectosRegistro;
-
-@ApiProperty({example:"20/4/2023"})
-@IsDate()
-fechaApertura:ConvocatoriaRegistro
-
-@ApiProperty({example:"20/4/2023"})
-@IsDate()
-fechaCierre:ConvocatoriaRegistro
+@IsObject()
+proyecto: ProyectosRegistro; 
 
 @ApiProperty({example:"R-0001-20230912"})
 @IsString()
 codigoInterno:string;
 
-@ApiProperty({ example: "Etapa Solicitud" })
-@IsArray()
-etapaSolicitud: EtapaSolicitudDto;
+
+@ApiProperty({example:"Jesus Rivera"})
+@IsString()
+responsable:string
+
+@ApiProperty({example:"20/9/2023"})
+@IsDate()
+fechaPropuesta:Date;
+
+@ApiProperty({example:"12345"})
+@IsString()
+numeroTramite:string;
+
+@ApiProperty({example:"f459239"})
+@IsString()
+numeroExpediente:string;
+
+@ApiProperty({example:"PDF"})
+@IsString()
+reciboOficial:string;
 
 @ApiProperty({ example: "Etapa Resolucion" })
 @IsArray()
@@ -54,5 +70,9 @@ etapaJustificacion:EtapaJustificacionDto;
 
 @ApiProperty({example:"Etapa Cierre"})
 @IsArray()
-etapaCierre:EtapaCierreDto;  
+etapaCierre:EtapaCierreDto; 
+
+@ApiProperty({example:'solicitud'})
+@IsEnum(Estados)
+estado:Estados
 }

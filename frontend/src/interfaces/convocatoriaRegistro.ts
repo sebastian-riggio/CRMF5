@@ -1,4 +1,5 @@
 export interface ConvocatoriaRegistro {
+_id:string
 entidadConvocante: string;
 departamentoConvocante: string;
 titulo: string;
@@ -10,12 +11,12 @@ dirigidoEntidades: string;
 fechaApertura: Date;
 fechaCierre:Date;
 fechaResolucion: Date;
-periodoEjecucion: string;
+periodoEjecucion: number;
 fechaJustificacion: Date;
-auditoria: boolean;
 presupuesto: number;
 otraInformacion: string;
-memoriaTecnica: string;
-modeloPresupuesto: string;
-formularioSolicitud: string;
+memoriaTecnica: File;
+modeloPresupuesto: File;
+formularioSolicitud: File;
+otraDocumentacion: File;
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Calendar, MoreHorizontal, Trash, CalendarPlus } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger
-} from '../ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 
 export function DiaryBox () {
   const [open, setOpen] = React.useState(false)
@@ -18,8 +18,8 @@ export function DiaryBox () {
     <div className='flex w-200 flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center'>
       <p className='text-sm font-medium leading-none'>
         <div className='flex items-center gap-3'>
-          <CalendarPlus />
-          <span className='text-muted-foreground'>Create a new project</span>
+          <CalendarPlus className='text-2x1' />
+          <span className='text-muted-foreground'>Agendar</span>
         </div>
 
       </p>

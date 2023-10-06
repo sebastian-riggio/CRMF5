@@ -3,7 +3,7 @@ import { CreateGestionConvocatoriaDto } from "./dto/create-gestion-convocatoria.
 import { UpdateGestionConvocatoriaDto } from "./dto/update-gestion-convocatoria.dto";
 import { InjectModel } from "@nestjs/mongoose";
 import { GestionConvocatoria } from "./schema/gestion-convocatoria.schema";
-import { Model, ObjectId } from "mongoose";
+import { Model, ObjectId, Types } from "mongoose";
 import { ProyectosRegistro } from "../proyectos-registros/schema/proyectos-registro.schema";
 import { autoGenerateCode } from "../utils/autoGenerateCode";
 import { ConvocatoriaRegistro } from "../convocatoria-registro/schema/convocatoria-registro.schema";
@@ -30,35 +30,28 @@ export class GestionConvocatoriaService {
     const codigoConFecha = `${codigoEtapa}${autoGenerateCode()}`;
     const createdGestion = await this.ProyectoModel.findOne({proyectoNombre:createGestionConvocatoriaDto["proyecto"]}).exec()
     if(!createdGestion){
-      throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyectos']}`)
+      throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyecto']}`)
     }
     const createdConvocatoria = await this.ConvocatoriaModel.findOne({entidadConvocante:createGestionConvocatoriaDto["financiador"]})
     if(!createdConvocatoria){
       throw new BadRequestException(`No hay finaciadores disponibles para gestionar:${createGestionConvocatoriaDto["financiador"]}`)
     }
 
-    const createdFechaApertura = await this.ConvocatoriaModel.findOne({fechaApertura:createGestionConvocatoriaDto["fechaApertura"]})
-    if(!createdFechaApertura){
-      throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaApertura"]}`)
-    }
-
-    const createdFechaCierre = await this.ConvocatoriaModel.findOne({fechaCierre:createGestionConvocatoriaDto["fechaCierre"]})
-    if(!createdFechaCierre){
-      throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaCierre"]}`)
+    const createdTitulo = await this.ConvocatoriaModel.findOne({titulo:createGestionConvocatoriaDto["convocatoria"]})
+    if(!createdTitulo){
+      throw new BadRequestException(`No hay titulos disponibles que coincidan:${createGestionConvocatoriaDto["convocatoria"]}`)
     }
 
     const etapa = new this.GestionModel({
       convocatoria:createGestionConvocatoriaDto.convocatoria,
       financiador:createGestionConvocatoriaDto.financiador,//pudo ponerla asi y la creo por el id createdConvocatoria._id,
       proyecto: createGestionConvocatoriaDto.proyecto,
-      fechaApertura:createGestionConvocatoriaDto.fechaApertura,
-      fechaCierre:createGestionConvocatoriaDto.fechaCierre,
       codigoInterno: codigoConFecha,
-      etapaSolicitud: createGestionConvocatoriaDto.etapaSolicitud,
-      etapaResolucion:createGestionConvocatoriaDto.etapaResolucion,
-      etapaOtorgamiento:createGestionConvocatoriaDto.etapaOtorgamiento,
-      etapaJustificacion:createGestionConvocatoriaDto.etapaJustificacion,
-      etapaCierre:createGestionConvocatoriaDto.etapaCierre
+      responsable:createGestionConvocatoriaDto.responsable,
+      fechaPropuesta:createGestionConvocatoriaDto.fechaPropuesta,
+      numeroTramite:createGestionConvocatoriaDto.numeroTramite,
+      numeroExpediente:createGestionConvocatoriaDto.numeroExpediente,
+      reciboOficial:createGestionConvocatoriaDto.reciboOficial
     });
 
     return etapa.save();
@@ -128,6 +121,28 @@ export class GestionConvocatoriaService {
     throw error
   }
    
+  }
+ async findConvocatoriasByProyecto(proyectoNombre: string) {
+    try {
+      const proyecto = await this.GestionModel.findOne({ proyecto: proyectoNombre }).exec();
+      
+      if (!proyecto) {
+        throw new Error(`No se encontró el proyecto con nombre: ${proyectoNombre}`);
+      }
+      const gestionesDeProyecto = await this.GestionModel.find({ proyecto: proyectoNombre }).exec();
+      const convocatoriasAsociadas = gestionesDeProyecto.map((gestion) => {
+        return {
+          convocatoria: gestion.convocatoria, 
+        };
+      });
+
+      return convocatoriasAsociadas;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async deleteAll(): Promise<void> {
+    await this.GestionModel.deleteMany({}).exec();
   }
 
 }
