@@ -14,7 +14,7 @@ export const getOneGestion = (id:string) => {
   return axiosPrivate.get(`gestion/${id}`)
 }
 
-export const postGestion = (data:GestionConvocatoria) => {
+export const postGestion = (data:Partial<GestionConvocatoria>) => {
   return axiosPrivate.post('/gestion', data, {
     headers: {
       'Content-Type': 'multipart/form-data'

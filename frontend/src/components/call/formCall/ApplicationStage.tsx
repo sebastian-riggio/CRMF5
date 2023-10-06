@@ -12,11 +12,12 @@ import DatePicker from '@/components/ui/DatePicker'
 import { Button } from '@/components/ui/button'
 import { AxiosResponse } from 'axios'
 import { postGestion } from '@/services/gestion'
+import { Searchconvocatoria } from './SearchConvocatoria'
 
 const applicationStage = z.object({
   proyecto: z.string().optional(),
   responsable: z.string(),
-  convocatoria: z.string(),
+  convocatoria: z.string().optional(),
   financiador: z.string(),
   fechaPropuesta: z.date().optional(),
   numeroTramite: z.string().optional(),
@@ -31,7 +32,7 @@ function ApplicationStage () {
     resolver: zodResolver(applicationStage)
   })
   const [selectedProject, setSelectedProject] = useState<string>()
-
+  const [selectedConvocatoria, setSelectedConvocatoria] = useState<string>()
   async function onSubmit (data: AccountFormValues) {
     try {
       if (!selectedProject) {
@@ -39,6 +40,7 @@ function ApplicationStage () {
       }
       console.log('Selected Project:', selectedProject)
       data.proyecto = selectedProject || ''
+      data.convocatoria = selectedConvocatoria || ''
       console.log('Data:', data)
       const response: AxiosResponse = await postGestion(data)
       console.log(response)
@@ -99,6 +101,7 @@ function ApplicationStage () {
                     <FormLabel className='text-sm text-gray-600'>Financiador</FormLabel>
                     <FormControl>
                       <Input placeholder='financiador' {...field} />
+                      <Searchconvocatoria onSelectConvocatoria={setSelectedConvocatoria} />
                     </FormControl>
                     <FormMessage />
                   </div>
