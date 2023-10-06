@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 test.describe('All projects page', () => {
   test.describe('Title test', () => {
     test('Displays title', async ({ page }) => {
-      const title = page.getByRole('heading', { name: /nuestros proyectos/i })
+      const title = page.getByRole('heading', { name: /Convocatorias/i })
       await expect(title).toBeVisible()
     })
   })
@@ -44,7 +44,7 @@ test.describe('All projects page', () => {
 
 test.describe('Search test', () => {
   test('Search input', async ({ page }) => {
-    const inputSearch = page.getByRole('textbox', { name: /Buscar proyecto.../i })
+    const inputSearch = page.getByRole('textbox', { name: /Buscar convocatoria.../i })
     await inputSearch.fill('later')
 
     await expect(inputSearch).toHaveValue('later')
