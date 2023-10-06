@@ -15,6 +15,7 @@ import { postGestion } from '@/services/gestion'
 import { Searchconvocatoria } from './SearchConvocatoria'
 
 const applicationStage = z.object({
+  _id: z.string().optional(),
   proyecto: z.string().optional(),
   responsable: z.string(),
   convocatoria: z.string().optional(),
@@ -107,7 +108,6 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-            
             <FormField
               control={form.control}
               name='financiador'
