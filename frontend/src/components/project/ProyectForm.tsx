@@ -3,23 +3,18 @@ import {
   Card,
   CardContent,
   CardFooter
-} from '../ui/card'
+} from '@/components/ui/card'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
-
-import { cn } from '../../lib/utils'
+import { cn } from '@/lib/utils'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem
-} from '../ui/command'
-
+} from '@/components/ui/command'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-
-import { Button } from '../ui/button'
-
 import {
   Form,
   FormControl,
@@ -27,16 +22,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../ui/form'
-import { Input } from '../ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { toast } from '../ui/use-toast'
-import { Separator } from '../ui/separator'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { toast } from '@/components/ui/use-toast'
+import { Separator } from '@/components/ui/separator'
 import { useForm } from 'react-hook-form'
 import { AxiosResponse } from 'axios'
-import { createProject } from '../../services/proyectos'
-import proyectPost from '../../interfaces/proyectPost'
-import DatePicker from '../ui/DatePicker'
+import { createProject } from '@/services/proyectos'
+import proyectPost from '@/interfaces/proyectPost'
+import DatePicker from '@/components/ui/DatePicker'
+import { Button } from '@/components/ui/button'
 
 const departamento = [
   { label: 'Factoría F5 - People and culture', value: 'Factoría F5 - People and culture' },

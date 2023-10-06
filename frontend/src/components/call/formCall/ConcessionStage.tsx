@@ -2,14 +2,13 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ProjectStatus } from './ProjectStatus'
-import { toast } from '../../ui/use-toast'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../ui/form'
-import { CardContent, CardFooter } from '../../ui/card'
-import DatePicker from '../../ui/DatePicker'
-import { Input } from '../../ui/input'
+import { toast } from '@/components/ui/use-toast'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { CardContent, CardFooter } from '@/components/ui/card'
+import DatePicker from '@/components/ui/DatePicker'
+import { Input } from '@/components/ui/input'
 import { Separator } from '@radix-ui/react-separator'
 import { Button } from '@/components/ui/button'
-
 
 const concessionSchema = z.object({
   estadoSolicitud: z.boolean().optional(),
@@ -50,7 +49,7 @@ function ConcessionStage () {
             <FormField
               control={form.control}
               name='estadoSolicitud'
-              render={({ field }) => (
+              render={() => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='flex flex-col space-y-2 mt-5'>
                     <FormLabel className='text-sm text-gray-600'>Estado</FormLabel>
