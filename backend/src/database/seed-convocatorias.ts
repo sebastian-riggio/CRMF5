@@ -17,7 +17,7 @@ async function seedConvocatorias() {
     await convocatoriaService.deleteAll();
 
     // Generate and insert fake data
-    const numProjects = 100; // Change this to the desired number of documents
+    const numProjects = 10; // Change this to the desired number of documents
     const projects = [];
 
     for (let i = 0; i < numProjects; i++) {
@@ -27,7 +27,7 @@ async function seedConvocatorias() {
         .padStart(2, '0')}${currentDate.getDate().toString().padStart(2, '0')}`;
 
         const ConvocatoriaData = {
-          "entidadConvocante": faker.commerce.department(),
+          "entidadConvocante": faker.company.catchPhrase(),
           "titulo": faker.company.buzzPhrase(),
           "departamentoConvocante": faker.commerce.department(),
           "publicacionOficial": faker.internet.url(),

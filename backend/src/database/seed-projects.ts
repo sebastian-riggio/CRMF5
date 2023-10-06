@@ -18,7 +18,7 @@ async function seedProjects() {
     await projectService.deleteAll();
 
     // Generate and insert fake data
-    const numProjects = 50; // Change this to the desired number of documents
+    const numProjects = 5; // Change this to the desired number of documents
     const projects = [];
 
     for (let i = 0; i < numProjects; i++) {
