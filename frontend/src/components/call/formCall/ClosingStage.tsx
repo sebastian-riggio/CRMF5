@@ -66,7 +66,7 @@ function ClosingStage () {
             <FormField
               control={form.control}
               name='estadoderesolucion'
-              render={({ field }) => (
+              render={() => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
                     <FormLabel className='text-sm text-gray-600'>Estado de resolución</FormLabel>
@@ -78,6 +78,21 @@ function ClosingStage () {
                 </FormItem>
               )}
             />
+            {/* <FormField
+              control={form.control}
+              name='estadoderesolucion'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Estado de resolución</FormLabel>
+                    <FormControl>
+                      <StatusClose />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            /> */}
             <Separator className='my-5' />
             <FormField
               control={form.control}

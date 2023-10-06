@@ -179,6 +179,7 @@ function ApplicationStage () {
             <FormField
               control={form.control}
               name='reciboOficial'
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               render={({ field: { value, onChange, ...field } }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='flex flex-col space-y-2 mt-5'>
@@ -186,13 +187,24 @@ function ApplicationStage () {
                     <FormControl>
                       <Input
                         {...field}
+                        type='file'
+                        id='reciboOficial'
+                        onChange={(event) => {
+                          const selectedFile = event.target.files?.[0]
+                          if (selectedFile) {
+                            onChange(selectedFile)
+                          }
+                        }}
+                      />
+                      {/*  <Input
+                        {...field}
                         value={value?.fileName}
                         onChange={(event) => {
                           onChange(event.target.files[0])
                         }}
                         type='file'
                         id='reciboOficial'
-                      />
+                      /> */}
                     </FormControl>
                     <FormMessage />
                   </div>

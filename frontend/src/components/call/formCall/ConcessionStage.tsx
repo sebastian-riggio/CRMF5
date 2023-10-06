@@ -11,7 +11,7 @@ import { Separator } from '@radix-ui/react-separator'
 import { Button } from '@/components/ui/button'
 
 const concessionSchema = z.object({
-  estadoSolicitud: z.boolean().optional(),
+  estadoSolicitud: z.enum(['cancelado', 'denegado', 'otorgado']).optional(),
   fechaResolucionFinal: z.date().optional(),
   montoConcedido: z.string(),
   fechaRecepcionDesembolso: z.date(),
@@ -45,8 +45,22 @@ function ConcessionStage () {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
           <CardContent className='flex flex-wrap'>
-
             <FormField
+              control={form.control}
+              name='estadoSolicitud'
+              render={() => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Estado</FormLabel>
+                    <FormControl>
+                      <ProjectStatus />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            {/* <FormField
               control={form.control}
               name='estadoSolicitud'
               render={() => (
@@ -62,7 +76,7 @@ function ConcessionStage () {
                   </div>
                 </FormItem>
               )}
-            />
+            /> */}
 
             <Separator className='my-5' />
 
@@ -272,6 +286,7 @@ function ConcessionStage () {
                         type='number'
                         placeholder='meses'
                         {...field}
+                        value={field.value instanceof Date ? field.value.toISOString() : field.value}
                       />
                     </FormControl>
                     <FormMessage />
