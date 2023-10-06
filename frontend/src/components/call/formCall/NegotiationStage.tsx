@@ -14,7 +14,7 @@ import {
   FormLabel,
   FormMessage
 } from '../../ui/form'
-import { CardContent } from '../../ui/card'
+import { CardContent, CardFooter } from '../../ui/card'
 
 const negotationSchema = z.object({
   resolucionprovisional: z.date().optional(),
@@ -43,15 +43,16 @@ function NegotationStage () {
 
     <div className='flex flex-wrap'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <CardContent className='flex flex-wrap'>
+
             <FormField
               control={form.control}
               name='resolucionprovisional'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de resolución provisional</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha de resolución provisional</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -63,13 +64,16 @@ function NegotationStage () {
                 </FormItem>
               )}
             />
+
+            <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='limitedeentrega'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite de entrega de reformulación</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite de entrega de reformulación</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -86,8 +90,8 @@ function NegotationStage () {
               name='realdeentrega'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha real de entrega de reformlación</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha real de entrega de reformlación</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -99,13 +103,16 @@ function NegotationStage () {
                 </FormItem>
               )}
             />
+
+            <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='limiterespuesta'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para responder requerimientos</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite para responder requerimientos</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -121,8 +128,8 @@ function NegotationStage () {
               name='realrespuesta'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha real para responder requerimientos</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha real para responder requerimientos</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -134,33 +141,33 @@ function NegotationStage () {
                 </FormItem>
               )}
                />
+
             <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='resolucion'
               shouldUnregister
               render={({ field }) => (
-                <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Resolución provisional</FormLabel>
-                  <FormControl>
-                    <Input type='file' {...field} data-testid='file-memory' />
-                  </FormControl>
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Resolución provisional</FormLabel>
+                    <FormControl>
+                      <Input type='file' {...field} data-testid='file-memory' />
+                    </FormControl>
+                  </div>
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
-            <div className=' w-full md:w-full mt-5 flex justify-center'>
-              <div>
-                <Button
-                  className='w-20 rounded ml-2 '
-                  variant='outline'
-                  type='submit'
-                >
-                  Actualizar
-                </Button>
-              </div>
-            </div>
           </CardContent>
+          <CardFooter className='flex justify-center space-x-6'>
+            <Button
+              className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'
+              type='submit'
+            >
+              Actualizar
+            </Button>
+          </CardFooter>
         </form>
       </Form>
     </div>

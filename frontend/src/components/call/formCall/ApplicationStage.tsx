@@ -5,7 +5,7 @@ import { SearchProjects } from './SearchProjects'
 import { useState } from 'react'
 import { toast } from '../../ui/use-toast'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../ui/form'
-import { CardContent } from '../../ui/card'
+import { CardContent, CardFooter } from '../../ui/card'
 import { Input } from '../../ui/input'
 import { Separator } from '../../ui/separator'
 import DatePicker from '../../ui/DatePicker'
@@ -54,36 +54,17 @@ function ApplicationStage () {
   return (
     <div className='flex flex-wrap'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <CardContent className='flex flex-wrap'>
             <FormField
               control={form.control}
               name='proyecto'
               render={() => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Proyecto Factoria F5</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Proyecto Factoria F5</FormLabel>
                     <FormControl>
                       <SearchProjects onSelectProject={setSelectedProject} />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='responsable'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Técnico responsable</FormLabel>
-                    <FormControl>
-                      <Input
-                        type='text'
-                        placeholder='Técnico'
-                        {...field}
-                      />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -95,8 +76,8 @@ function ApplicationStage () {
               name='convocatoria'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Convocatoria</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Convocatoria</FormLabel>
                     <FormControl>
                       <Input
                         type='text'
@@ -114,8 +95,8 @@ function ApplicationStage () {
               name='financiador'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Financiador</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Financiador</FormLabel>
                     <FormControl>
                       <Input placeholder='financiador' {...field} />
                     </FormControl>
@@ -127,11 +108,30 @@ function ApplicationStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
+              name='responsable'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Técnico responsable</FormLabel>
+                    <FormControl>
+                      <Input
+                        type='text'
+                        placeholder='Técnico'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name='fechaPropuesta'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha Propuesta</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha Propuesta</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -150,8 +150,8 @@ function ApplicationStage () {
               name='numeroTramite'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Número de trámite</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Número de trámite</FormLabel>
                     <FormControl>
                       <Input placeholder='Número de trámite' {...field} />
                     </FormControl>
@@ -165,8 +165,8 @@ function ApplicationStage () {
               name='numeroExpediente'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Código de subvención</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Código de subvención</FormLabel>
                     <FormControl>
                       <Input placeholder='Numero de expediente' {...field} />
                     </FormControl>
@@ -175,14 +175,14 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='reciboOficial'
               render={({ field: { value, onChange, ...field } }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Recibo Oficial</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Recibo Oficial</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
@@ -199,17 +199,15 @@ function ApplicationStage () {
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
-            <div>
-              <Button
-                className='w-20 rounded ml-2 '
-                variant='outline'
-                type='submit'
-              >
-                Crear
-              </Button>
-            </div>
           </CardContent>
+          <CardFooter className='flex justify-center space-x-6'>
+            <Button
+              className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'
+              type='submit'
+            >
+              Crear
+            </Button>
+          </CardFooter>
         </form>
       </Form>
     </div>

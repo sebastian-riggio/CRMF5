@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage
 } from '../../ui/form'
-import { CardContent } from '../../ui/card'
+import { CardContent, CardFooter } from '../../ui/card'
 import { Textarea } from '../../ui/textarea'
 
 const justificationSchema = z.object({
@@ -41,15 +41,15 @@ function JustificationStage () {
   return (
     <div className='flex flex-wrap'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <CardContent className='flex flex-wrap'>
             <FormField
               control={form.control}
               name='informejustificativo'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de entrega de informe justificativo</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha de entrega de informe justificativo</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -67,8 +67,8 @@ function JustificationStage () {
               name='limiterespuestarequerimiento1'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para responder requerimiento 1</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite para responder requerimiento 1</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -85,8 +85,8 @@ function JustificationStage () {
               name='respuestarequerimiento1'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha en que se respondió requerimiento 1</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha en que se respondió requerimiento 1</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -104,8 +104,8 @@ function JustificationStage () {
               name='limiterespuestarequerimiento2'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para responder requerimiento 2</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite para responder requerimiento 2</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -122,8 +122,8 @@ function JustificationStage () {
               name='respuestarequerimiento2'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha en que se respondió requerimiento 2</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha en que se respondió requerimiento 2</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -141,8 +141,8 @@ function JustificationStage () {
               name='seguimiento'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Nota de seguimiento</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Nota de seguimiento</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder='Escriba aquí...'
@@ -154,17 +154,15 @@ function JustificationStage () {
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
-
-            <div className=' w-full md:w-full mt-5 flex justify-center'>
-              <Button
-                className='w-20 rounded ml-2 '
-                variant='outline'
-              >
-                Actualizar
-              </Button>
-            </div>
           </CardContent>
+          <CardFooter className='flex justify-center space-x-6'>
+            <Button
+              className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'
+              type='submit'
+            >
+              Actualizar
+            </Button>
+          </CardFooter>
         </form>
       </Form>
     </div>

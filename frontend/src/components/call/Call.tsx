@@ -3,30 +3,30 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import ApplicationStage from '../call/formCall/ApplicationStage';
-import NegotationStage from '../call/formCall/NegotiationStage';
-import ConcessionStage from '../call/formCall/ConcessionStage';
-import JustificationStage from '../call/formCall/JustificationStage';
-import ClosingStage from '../call/formCall/ClosingStage';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro';
-import { getOneConvocatoria } from '@/services/registroConvocatoria';
-import { formatDate } from '@/lib/utils';
+} from '../ui/accordion'
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import ApplicationStage from '../call/formCall/ApplicationStage'
+import NegotationStage from '../call/formCall/NegotiationStage'
+import ConcessionStage from '../call/formCall/ConcessionStage'
+import JustificationStage from '../call/formCall/JustificationStage'
+import ClosingStage from '../call/formCall/ClosingStage'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
+import { getOneConvocatoria } from '@/services/registroConvocatoria'
+import { formatDate } from '@/lib/utils'
 
 function Call() {
-  const { id } = useParams();
-  const [convocatoria, setConvocatoria] = useState<ConvocatoriaRegistro>();
+  const { id } = useParams()
+  const [convocatoria, setConvocatoria] = useState<ConvocatoriaRegistro>()
   useEffect(() => {
     if (id) {
       getOneConvocatoria(id).then((response) => {
-        setConvocatoria(response.data.convocatoria);
-        console.log(response);
-      });
+        setConvocatoria(response.data.convocatoria)
+        console.log(response)
+      })
     }
-  }, [id]);
+  }, [id])
 
   return (
     <div className='container mx-auto'>
@@ -51,11 +51,11 @@ function Call() {
                     <h1 className='font-black'>Departamento:</h1>
                     <h2>{convocatoria?.departamentoConvocante}</h2>
                     <h1 className='font-black'>Publicacíon-Oficial</h1>
-                    <h2 className='text-blue-500 underline'>
+                    <h2 className='hover:text-orange-600 hover:underline '>
                       {convocatoria?.publicacionOficial}
                     </h2>
                     <h1 className='font-black'>Convocatoria-Enlace</h1>
-                    <h2 className='text-blue-500 underline'>
+                    <h2 className='hover:text-orange-600 hover:underline '>
                       {convocatoria?.convocatoriaEnlace}
                     </h2>
                     <h1 className='font-black'>Temática</h1>
@@ -162,7 +162,7 @@ function Call() {
         </div>
       </Card>
     </div>
-  );
+  )
 }
 
-export default Call;
+export default Call

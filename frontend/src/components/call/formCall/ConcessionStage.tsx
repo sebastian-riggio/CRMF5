@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ProjectStatus } from './ProjectStatus'
 import { toast } from '../../ui/use-toast'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../ui/form'
-import { CardContent } from '../../ui/card'
+import { CardContent, CardFooter } from '../../ui/card'
 import DatePicker from '../../ui/DatePicker'
 import { Input } from '../../ui/input'
 import { Separator } from '@radix-ui/react-separator'
@@ -44,15 +44,16 @@ function ConcessionStage () {
   return (
     <div className='flex flex-wrap'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <CardContent className='flex flex-wrap'>
+
             <FormField
               control={form.control}
               name='estadoSolicitud'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Estado</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Estado</FormLabel>
                     <FormControl>
                       <ProjectStatus
                         {...form.control.estado}
@@ -63,13 +64,16 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
+
+            <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='fechaResolucionFinal'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de resolución final</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha de resolución final</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -86,8 +90,8 @@ function ConcessionStage () {
               name='montoConcedido'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Monto final concedido</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Monto final concedido</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -100,14 +104,14 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
+
             <FormField
               control={form.control}
               name='fechaPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha prevista de primer desembolso</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha prevista de primer desembolso</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -119,13 +123,34 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
+            <Separator className='my-5' />
+
             <FormField
               control={form.control}
-              name='fechaRecepcionDesembolso'
+              name='porcientoPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha recepción de primer desembolso</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='mb-2'>Fecha primer desembolso</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name='montoPrimerDesembolso'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Monto del primer desembolso</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -138,13 +163,14 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name='montoPrimerDesembolso'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Monto del primer desembolso</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Porcentaje primer desembolso</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -157,32 +183,35 @@ function ConcessionStage () {
                 </FormItem>
               )}
             />
+
             <Separator className='my-5' />
-            <FormField
-              control={form.control}
-              name='porcientoPrimerDesembolso'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Porcentaje primer desembolso</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
+
             <FormField
               control={form.control}
               name='fechaInicioGastos'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha inicio de gastos</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha aprobada de inicio gasto</FormLabel>
+                    <FormControl>
+                      <DatePicker
+                        title=''
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name='fechaFinalizacionGastos'
+              render={({ field }) => (
+                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha aprobada de finalización gasto</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -197,29 +226,11 @@ function ConcessionStage () {
             <Separator className='my-5' />
             <FormField
               control={form.control}
-              name='fechaFinalizacionGastos'
-              render={({ field }) => (
-                <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de finalización de gastos</FormLabel>
-                    <FormControl>
-                      <DatePicker
-                        title=''
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name='fechaPrimerSeguimiento'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha primer seguimiento</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha primer informe seguimiento</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -236,8 +247,8 @@ function ConcessionStage () {
               name='fechaLimiteInformeFinalTecnico'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para entrega de informe final técnico</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite entrega informe final técnico</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -250,14 +261,13 @@ function ConcessionStage () {
               )}
             />
 
-            <Separator className='my-5' />
             <FormField
               control={form.control}
               name='fechaLimiteInformeFinalEconomico'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha límite para entrega de informe final económico</FormLabel>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha límite entrega informe final económico</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -277,25 +287,24 @@ function ConcessionStage () {
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Seguimiento de informes</FormLabel>
-                  <FormControl>
-                    <Input type='file' {...field} data-testid='file-memory' />
-                  </FormControl>
+                  <div className='flex flex-col space-y-2 mt-5'>
+                    <FormLabel className='text-sm text-gray-600'>Seguimiento de informes</FormLabel>
+                    <FormControl>
+                      <Input type='file' {...field} data-testid='file-memory' />
+                    </FormControl>
+                  </div>
                 </FormItem>
               )}
             />
-
-            <Separator className='my-5' />
-
-            <div className=' w-full md:w-full mt-5 flex justify-center'>
-              <Button
-                className='w-20 rounded ml-2 '
-                variant='outline'
-              >
-                Actualizar
-              </Button>
-            </div>
           </CardContent>
+          <CardFooter className='flex justify-center space-x-6'>
+            <Button
+              className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'
+              type='submit'
+            >
+              Actualizar
+            </Button>
+          </CardFooter>
         </form>
       </Form>
     </div>

@@ -14,7 +14,7 @@ import {
   FormLabel,
   FormMessage
 } from '../../ui/form'
-import { CardContent } from '../../ui/card'
+import { CardContent, CardFooter } from '../../ui/card'
 import { StatusClose } from './StatusClose'
 
 const closingSchema = z.object({
@@ -43,15 +43,15 @@ function ClosingStage () {
   return (
     <div className='flex flex-wrap'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          <CardContent className='flex flex-wrap'>
             <FormField
               control={form.control}
               name='aprobacionoficial'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de aprobación oficial de informe de justificación</FormLabel>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha de aprobación oficial de informe de justificación</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -68,8 +68,8 @@ function ClosingStage () {
               name='estadoderesolucion'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Estado de resolución</FormLabel>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Estado de resolución</FormLabel>
                     <FormControl>
                       <StatusClose />
                     </FormControl>
@@ -84,8 +84,8 @@ function ClosingStage () {
               name='pagofinal'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Fecha de recepción pago final</FormLabel>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Fecha de recepción pago final</FormLabel>
                     <FormControl>
                       <DatePicker
                         title=''
@@ -102,8 +102,8 @@ function ClosingStage () {
               name='totalrecibido'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Monto total concedido</FormLabel>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Monto total concedido</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -121,8 +121,8 @@ function ClosingStage () {
               name='porcentajerecibido'
               render={({ field }) => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                  <div className='my-2'>
-                    <FormLabel className='mb-2'>Porcentaje de último pago</FormLabel>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Porcentaje de último pago</FormLabel>
                     <FormControl>
                       <Input
                         type='number'
@@ -142,21 +142,24 @@ function ClosingStage () {
               shouldUnregister
               render={({ field }) => (
                 <FormItem className='w-1/2 px-4 mb-4'>
-                  <FormLabel className='mb-2'>Documento de cierre</FormLabel>
-                  <FormControl>
-                    <Input type='file' {...field} data-testid='file-memory' />
-                  </FormControl>
+                  <div className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                    <FormLabel className='text-sm text-gray-600'>Documento de cierre</FormLabel>
+                    <FormControl>
+                      <Input type='file' {...field} data-testid='file-memory' />
+                    </FormControl>
+                  </div>
                 </FormItem>
               )}
             />
-            <Separator className='my-5' />
+          </CardContent>
+          <CardFooter className='flex justify-center space-x-6'>
             <Button
-              className='w-20 rounded ml-2 '
-              variant='outline'
+              className='w-32 hover:bg-FF4700-dark text-white font-bold py-3 rounded'
+              type='submit'
             >
               Actualizar
             </Button>
-          </CardContent>
+          </CardFooter>
         </form>
       </Form>
     </div>

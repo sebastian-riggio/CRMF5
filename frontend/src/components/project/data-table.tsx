@@ -101,6 +101,7 @@ export function DataTable<TData, TValue> ({
       </div>
       <div className='flex items-center justify-end space-x-2 py-4'>
         <Button
+          className='hover:text-orange-600'
           variant='outline'
           size='sm'
           onClick={() => table.previousPage()}
@@ -109,6 +110,7 @@ export function DataTable<TData, TValue> ({
           Anterior
         </Button>
         <Button
+          className='hover:text-orange-600'
           variant='outline'
           size='sm'
           onClick={() => table.nextPage()}

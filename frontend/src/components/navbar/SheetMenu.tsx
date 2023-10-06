@@ -15,7 +15,7 @@ export function SheetMenu () {
     <Sheet>
       <SheetTrigger asChild>
         <Button
-          className='h-7 w-18 md:h-8'
+          className='h-7 w-18 md:h-8 hover:text-orange-600'
           variant='outline'
         >
           Menu

@@ -75,21 +75,20 @@ function MainNewCall () {
   }
 
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto mt-5'>
+      <h1 className='text-4xl font-semibold mb-5'>Nueva Convocatoria</h1>
       <Card>
-        <h1 className='text-4xl font-semibold mb-5'>Nueva Convocatoria</h1>
-        <Separator />
         <div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
-              <CardContent className='flex flex-wrap'>
+              <CardContent>
                 <FormField
                   control={form.control}
                   name='titulo'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Título de convocatoria</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Título de convocatoria</FormLabel>
                         <FormControl>
                           <Input
                             placeholder='Título de convocatoria'
@@ -106,8 +105,8 @@ function MainNewCall () {
                   name='tematica'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Temática</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Temática</FormLabel>
                         <FormControl>
                           <Input placeholder='Temática' {...field} />
                         </FormControl>
@@ -116,13 +115,14 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='entidadConvocante'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Entidad convocante</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Entidad convocante</FormLabel>
                         <FormControl>
                           <Input placeholder='Entidad convocante' {...field} />
                         </FormControl>
@@ -136,8 +136,8 @@ function MainNewCall () {
                   name='departamentoConvocante'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Departamento o centro gestor</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Departamento o centro gestor</FormLabel>
                         <FormControl>
                           <Input placeholder='Departamento o centro gestor' {...field} />
                         </FormControl>
@@ -146,13 +146,14 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='publicacionOficial'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Enlace a publicación oficial</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Enlace a publicación oficial</FormLabel>
                         <FormControl>
                           <Input placeholder='https://' {...field} />
                         </FormControl>
@@ -166,8 +167,8 @@ function MainNewCall () {
                   name='convocatoriaEnlace'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Enlace a bases de convocatoria</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Enlace a bases de convocatoria</FormLabel>
                         <FormControl>
                           <Input placeholder='https://' {...field} />
                         </FormControl>
@@ -181,8 +182,8 @@ function MainNewCall () {
                   name='trabajoLineas'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Líneas específicas de trabajo</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Líneas específicas de trabajo</FormLabel>
                         <FormControl>
                           <Textarea placeholder='Escriba aquí...' {...field} />
                         </FormControl>
@@ -196,8 +197,8 @@ function MainNewCall () {
                   name='dirigidoEntidades'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Entidades a la que se dirige</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Entidades a la que se dirige</FormLabel>
                         <FormControl>
                           <Input placeholder='Entidades a las que se dirige' {...field} />
                         </FormControl>
@@ -206,6 +207,7 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='fechaApertura'
@@ -273,31 +275,15 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
-
-                <FormField
-                  control={form.control}
-                  name='periodoEjecucion'
-                  render={({ field }) => (
-                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Período máximo de ejecución</FormLabel>
-                        <FormControl>
-                          <Input type='number' placeholder='Período máximo de ejecución' {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='auditoria'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2 flex'>
+                      <div className='flex flex-col space-y-2 mt-5'>
                         <div>
-                          <FormLabel className='mb-2'>Auditoría externa obligatoria</FormLabel>
+                          <FormLabel className='text-sm text-gray-600'>Auditoría externa obligatoria</FormLabel>
                         </div>
                         <div>
                           <FormControl>
@@ -309,13 +295,29 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+
+                <FormField
+                  control={form.control}
+                  name='periodoEjecucion'
+                  render={({ field }) => (
+                    <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Período máximo de ejecución</FormLabel>
+                        <FormControl>
+                          <Input type='number' placeholder='Período máximo de ejecución' {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
                 <FormField
                   control={form.control}
                   name='presupuesto'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Presupuesto máximo solicitable</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Presupuesto máximo solicitable</FormLabel>
                         <FormControl>
                           <Input placeholder='€' {...field} />
                         </FormControl>
@@ -324,13 +326,14 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='otraInformacion'
                   render={({ field }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Información de interés</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Información de interés</FormLabel>
                         <FormControl>
                           <Textarea placeholder='Escriba aquí...' {...field} />
                         </FormControl>
@@ -339,13 +342,14 @@ function MainNewCall () {
                     </FormItem>
                   )}
                 />
+                <Separator className='my-5' />
                 <FormField
                   control={form.control}
                   name='memoriaTecnica'
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Memoria Tecnica</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Memoria Tecnica</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -367,8 +371,8 @@ function MainNewCall () {
                   name='modeloPresupuesto'
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Modelo Presupuesto</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Modelo Presupuesto</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -390,8 +394,8 @@ function MainNewCall () {
                   name='formularioSolicitud'
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Formulario Solicitud</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Formulario Solicitud</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -413,8 +417,8 @@ function MainNewCall () {
                   name='otraDocumentacion'
                   render={({ field: { value, onChange, ...field } }) => (
                     <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
-                      <div className='my-2'>
-                        <FormLabel className='mb-2'>Otra Documentación</FormLabel>
+                      <div className='flex flex-col space-y-2 mt-5'>
+                        <FormLabel className='text-sm text-gray-600'>Otra Documentación</FormLabel>
                         <FormControl>
                           <Input
                             {...field}

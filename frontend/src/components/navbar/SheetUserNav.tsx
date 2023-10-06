@@ -15,7 +15,7 @@ export function SheetUserNav () {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
-          <Avatar className='h-7 w-7 md:h-8 md:w-8'>
+          <Avatar className='h-7 w-7 md:h-8 md:w-8 hover:text-orange-600'>
             <AvatarImage src='/avatars/01.png' alt='@shadcn' />
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
@@ -33,13 +33,13 @@ export function SheetUserNav () {
         <Separator className='mt-5' />
         <div>
           <div className='my-4'>
-            <Link to='#'>Perfil<span className='shortcut'>⇧⌘P</span></Link>
+            <Link to='#' className='hover:text-orange-600'>Perfil<span className='shortcut ' /></Link>
           </div>
           <div className='mb-4'>
-            <Link to='#'>Cofiguración<span className='shortcut'>⌘S</span></Link>
+            <Link to='#' className='hover:text-orange-600'>Cofiguración<span className='shortcut' /></Link>
           </div>
           <div>
-            <Link to='#'><LogOut /></Link>
+            <Link to='/login' className='hover:text-orange-600'><LogOut /></Link>
           </div>
         </div>
       </SheetContent>
