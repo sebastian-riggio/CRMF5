@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Calendar, MoreHorizontal, Trash, CalendarPlus } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger
-} from '../ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 
 export function DiaryBox () {
   const [open, setOpen] = React.useState(false)

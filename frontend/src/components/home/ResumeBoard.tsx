@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
-import { TabsContent } from '../ui/tabs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { TabsContent } from '@/components/ui/tabs'
 import React, { useEffect, useState } from 'react'
-import { RecentCloseCalls } from './RecentCloseCalls'
-import { getProjects } from '../../services/proyectos'
-import { getAllConvocatoria } from '../../services/registroConvocatoria'
-import { getConvocatoriasEnCierre } from '../../services/gestion'
+import { RecentCloseCalls } from '@/components/home/RecentCloseCalls'
+import { getProjects } from '@/services/proyectos'
+import { getAllConvocatoria } from '@/services/registroConvocatoria'
+import { getConvocatoriasEnCierre } from '@/services/gestion'
 import {
   Library,
   Users,
@@ -12,7 +12,7 @@ import {
   Activity
 } from 'lucide-react'
 import GraphicData from './GraphicData'
-import { ScrollArea } from '../ui/scroll-area'
+import { ScrollArea } from '@/components/ui/scroll-area'
 interface Convocatoria {
   etapaCierre: { estadoResolucion: string }
 }

@@ -1,11 +1,11 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '../../ui/input'
-import DatePicker from '../../ui/DatePicker'
-import { Button } from '../../ui/button'
-import { Separator } from '../../ui/separator'
-import { toast } from '../../ui/use-toast'
+import { Input } from '@/components/ui/input'
+import DatePicker from '@/components/ui/DatePicker'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { toast } from '@/components/ui/use-toast'
 import {
   Form,
   FormControl,
@@ -13,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../../ui/form'
-import { CardContent, CardFooter } from '../../ui/card'
+} from '@/components/ui/form'
+import { CardContent, CardFooter } from '@/components/ui/card'
 
 const negotationSchema = z.object({
   resolucionprovisional: z.date().optional(),

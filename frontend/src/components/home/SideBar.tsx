@@ -7,8 +7,8 @@ import {
 import {
   Command,
   CommandGroup
-} from '../ui/command'
-import { Button } from '../ui/button'
+} from '@/components/ui/command'
+import { Button } from '@/components/ui/button'
 
 export function SideBar ({ onSidebarItemClick }: { onSidebarItemClick: (component: string) => void }) {
   return (

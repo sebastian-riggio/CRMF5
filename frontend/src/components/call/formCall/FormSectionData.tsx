@@ -1,7 +1,7 @@
-import { FormItem, FormLabel, FormControl, FormMessage } from '../../ui/form'
-import { Input } from '../../ui/input'
-import { Textarea } from '../../ui/textarea'
-import { Switch } from '../../ui/switch'
+import { FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Switch } from '@/components/ui/switch'
 
 export interface FormSectionProps {
     title: string;

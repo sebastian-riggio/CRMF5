@@ -1,14 +1,14 @@
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Textarea } from '../ui/textarea'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Card,
   CardContent,
   CardFooter
-} from '../ui/card'
-import { Switch } from '../ui/switch'
-import { Button } from '../ui/button'
+} from '@/components/ui/card'
+import { Switch } from '@/components/ui/switch'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -16,17 +16,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from '../ui/form'
-import { Input } from '../ui/input'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import {
   Popover,
   PopoverTrigger
-} from '../ui/popover'
+} from '@/components/ui/popover'
 import { AxiosResponse } from 'axios'
 import { createdRegistroGestion } from '../../services/registroConvocatoria'
-import DatePicker from '../ui/DatePicker'
-import { toast } from '../ui/use-toast'
-import { Separator } from '../ui/separator'
+import DatePicker from '@/components/ui/DatePicker'
+import { toast } from '@/components/ui/use-toast'
+import { Separator } from '@/components/ui/separator'
 
 const schema = z.object({
   titulo: z.string().min(3).max(50).optional(),

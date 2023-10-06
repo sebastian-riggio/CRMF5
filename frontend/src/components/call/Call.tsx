@@ -3,13 +3,13 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '../ui/accordion'
-import { Card, CardContent } from '../ui/card'
-import ApplicationStage from '../call/formCall/ApplicationStage'
-import NegotationStage from '../call/formCall/NegotiationStage'
-import ConcessionStage from '../call/formCall/ConcessionStage'
-import JustificationStage from '../call/formCall/JustificationStage'
-import ClosingStage from '../call/formCall/ClosingStage'
+} from '@/components/ui/accordion'
+import { Card, CardContent } from '@/components/ui/card'
+import ApplicationStage from '@/components/call/formCall/ApplicationStage'
+import NegotationStage from '@/components/call/formCall/NegotiationStage'
+import ConcessionStage from '@/components/call/formCall/ConcessionStage'
+import JustificationStage from '@/components/call/formCall/JustificationStage'
+import ClosingStage from '@/components/call/formCall/ClosingStage'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
