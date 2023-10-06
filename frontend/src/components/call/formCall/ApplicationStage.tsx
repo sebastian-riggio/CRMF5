@@ -76,16 +76,12 @@ function ApplicationStage () {
             <FormField
               control={form.control}
               name='convocatoria'
-              render={({ field }) => (
+              render={() => (
                 <FormItem className='w-full md:w-1/2 lg:w-1/3 px-2'>
                   <div className='flex flex-col space-y-2 mt-5'>
                     <FormLabel className='text-sm text-gray-600'>Convocatoria</FormLabel>
                     <FormControl>
-                      <Input
-                        type='text'
-                        placeholder='convocatoria'
-                        {...field}
-                      />
+                      <Searchconvocatoria onSelectConvocatoria={setSelectedConvocatoria} />
                     </FormControl>
                     <FormMessage />
                   </div>
@@ -101,7 +97,6 @@ function ApplicationStage () {
                     <FormLabel className='text-sm text-gray-600'>Financiador</FormLabel>
                     <FormControl>
                       <Input placeholder='financiador' {...field} />
-                      <Searchconvocatoria onSelectConvocatoria={setSelectedConvocatoria} />
                     </FormControl>
                     <FormMessage />
                   </div>
