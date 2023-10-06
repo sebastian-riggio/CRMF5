@@ -78,7 +78,7 @@ function ProyectForm () {
   useEffect(() => {}, [])
   return (
     <div className='container mx-auto mt-5'>
-      <h1 className='text-4xl font-semibold mb-5'>Nuevo Proyecto</h1>
+      <h1 className='text-primary text-4xl font-semibold mb-5'>Nuevo Proyecto</h1>
       <Card>
         <div>
           <Form {...form}>

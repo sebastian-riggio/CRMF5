@@ -16,7 +16,7 @@ import { ConvocatoriaRegistro } from '@/interfaces/convocatoriaRegistro'
 import { getOneConvocatoria } from '@/services/registroConvocatoria'
 import { formatDate } from '@/lib/utils'
 
-function Call() {
+function Call () {
   const { id } = useParams()
   const [convocatoria, setConvocatoria] = useState<ConvocatoriaRegistro>()
   useEffect(() => {
@@ -30,10 +30,10 @@ function Call() {
 
   return (
     <div className='container mx-auto'>
+      <h1 className='text-primary text-4xl font-semibold mb-5'>
+        {convocatoria?.titulo}
+      </h1>
       <Card className='mt-5 pb-5'>
-        <CardHeader>
-          <CardTitle>{convocatoria?.titulo}</CardTitle>
-        </CardHeader>
         <div>
           {/* <Form> */}
           <CardContent className='p-0 flex flex-wrap '>

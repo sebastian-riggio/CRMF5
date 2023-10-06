@@ -127,7 +127,7 @@
   * {
     @apply border-border;
   }
-  body {
+  body { 
     @apply bg-background text-foreground;
     font-family: 'Open Sans Variable', sans-serif;
   }

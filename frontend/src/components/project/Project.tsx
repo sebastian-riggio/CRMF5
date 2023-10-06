@@ -19,7 +19,7 @@ function Project () {
   return (
     <>
       <div className='container mx-auto mt-5'>
-        <h1 className=' text-primary text-4xl font-semibold mb-5'>
+        <h1 className='text-primary text-4xl font-semibold mb-5'>
           {project?.proyectoNombre}
         </h1>
         <h1 className='font-black'>Codigo de proyecto:</h1>

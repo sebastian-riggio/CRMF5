@@ -95,7 +95,7 @@ function AllProjectsPage () {
 
       <Link to='http://localhost:5173/project/:id' />
       <div className='container mx-auto mt-5'>
-        <h1 className='text-4xl font-semibold'>Nuestros proyectos</h1>
+        <h1 className='text-primary text-4xl font-semibold'>Nuestros proyectos</h1>
         <DataTable columns={columns} data={data.proyectos} />
       </div>
     </>

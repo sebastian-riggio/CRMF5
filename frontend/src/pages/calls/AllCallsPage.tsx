@@ -82,7 +82,7 @@ function AllCallsPage () {
         </Link>
       </div>
       <div className='container mx-auto'>
-        <h1 className='text-4xl font-semibold'>Convocatorias</h1>
+        <h1 className='text-primary text-4xl font-semibold'>Convocatorias</h1>
         <DataTableCalls columns={columns} data={data.convocatoria} />
       </div>
       <p>{}</p>
