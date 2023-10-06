@@ -65,12 +65,7 @@ function MainNewCall () {
       console.log(error)
     }
     toast({
-      title: 'Convocatoria registrada con exito:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      )
+      title: 'Convocatoria registrada con exito'
     })
   }
 
@@ -81,7 +76,7 @@ function MainNewCall () {
         <div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
-              <CardContent>
+              <CardContent className='flex flex-wrap'>
                 <FormField
                   control={form.control}
                   name='titulo'
