@@ -1,7 +1,7 @@
 import { Projects } from '../interfaces/projects'
 import { axiosPrivate } from './axiosPrivate'
 
-export const createProject = (data:Projects) => {
+export const createProject = (data: Partial <Projects>) => {
   return axiosPrivate.post('/projects', data)
 }
 

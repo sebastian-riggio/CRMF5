@@ -17,10 +17,10 @@ const proyectPost = z.object({
   proyectoDuracion: z.string().min(1, {
     message: 'Debe completar este campo'
   }),
-  proyectoPresupuesto: z.string().min(2, {
+  proyectoPresupuesto: z.coerce.number().min(2, {
     message: 'Debe completar este campo'
   }),
-  factoriaPresupuesto: z.string().min(2, {
+  factoriaPresupuesto: z.coerce.number().min(2, {
     message: 'Debe completar este campo'
   }),
 
