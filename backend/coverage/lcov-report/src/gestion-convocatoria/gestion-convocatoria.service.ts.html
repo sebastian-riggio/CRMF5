@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">18.51% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/45</span>
+                <span class='fraction'>10/54</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.04% </span>
+                <span class="strong">15.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/42</span>
+                <span class='fraction'>8/51</span>
             </div>
         
             
@@ -190,7 +190,26 @@
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -246,7 +265,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -310,6 +328,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -322,7 +360,7 @@ import { CreateGestionConvocatoriaDto } from "./dto/create-gestion-convocatoria.
 import { UpdateGestionConvocatoriaDto } from "./dto/update-gestion-convocatoria.dto";
 import { InjectModel } from "@nestjs/mongoose";
 import { GestionConvocatoria } from "./schema/gestion-convocatoria.schema";
-import { Model, ObjectId } from "mongoose";
+import { Model, ObjectId, Types } from "mongoose";
 import { ProyectosRegistro } from "../proyectos-registros/schema/proyectos-registro.schema";
 import { autoGenerateCode } from "../utils/autoGenerateCode";
 import { ConvocatoriaRegistro } from "../convocatoria-registro/schema/convocatoria-registro.schema";
@@ -349,29 +387,28 @@ export class GestionConvocatoriaService {
     const codigoConFecha = <span class="cstat-no" title="statement not covered" >`${codigoEtapa}${autoGenerateCode()}`;</span>
     const createdGestion = <span class="cstat-no" title="statement not covered" >await this.ProyectoModel.findOne({proyectoNombre:createGestionConvocatoriaDto["proyecto"]}).exec()</span>
 <span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!createdGestion){</span>
-<span class="cstat-no" title="statement not covered" >      throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyectos']}`)</span>
+<span class="cstat-no" title="statement not covered" >      throw new BadRequestException(`No hay proyectos disponibles para gestionar: ${createGestionConvocatoriaDto ['proyecto']}`)</span>
     }
     const createdConvocatoria = <span class="cstat-no" title="statement not covered" >await this.ConvocatoriaModel.findOne({entidadConvocante:createGestionConvocatoriaDto["financiador"]})</span>
 <span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!createdConvocatoria){</span>
 <span class="cstat-no" title="statement not covered" >      throw new BadRequestException(`No hay finaciadores disponibles para gestionar:${createGestionConvocatoriaDto["financiador"]}`)</span>
     }
 &nbsp;
-    const createdFechaApertura = <span class="cstat-no" title="statement not covered" >await this.ConvocatoriaModel.findOne({fechaApertura:createGestionConvocatoriaDto["fechaApertura"]})</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!createdFechaApertura){</span>
-<span class="cstat-no" title="statement not covered" >      throw new BadRequestException(`No hay fechas disponibles que coincidan:${createGestionConvocatoriaDto["fechaApertura"]}`)</span>
+    const createdTitulo = <span class="cstat-no" title="statement not covered" >await this.ConvocatoriaModel.findOne({titulo:createGestionConvocatoriaDto["convocatoria"]})</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!createdTitulo){</span>
+<span class="cstat-no" title="statement not covered" >      throw new BadRequestException(`No hay titulos disponibles que coincidan:${createGestionConvocatoriaDto["convocatoria"]}`)</span>
     }
 &nbsp;
     const etapa = <span class="cstat-no" title="statement not covered" >new this.GestionModel({</span>
       convocatoria:createGestionConvocatoriaDto.convocatoria,
       financiador:createGestionConvocatoriaDto.financiador,//pudo ponerla asi y la creo por el id createdConvocatoria._id,
       proyecto: createGestionConvocatoriaDto.proyecto,
-      fechaApertura:createGestionConvocatoriaDto.fechaApertura,
       codigoInterno: codigoConFecha,
-      etapaSolicitud: createGestionConvocatoriaDto.etapaSolicitud,
-      etapaResolucion:createGestionConvocatoriaDto.etapaResolucion,
-      etapaOtorgamiento:createGestionConvocatoriaDto.etapaOtorgamiento,
-      etapaJustificacion:createGestionConvocatoriaDto.etapaJustificacion,
-      etapaCierre:createGestionConvocatoriaDto.etapaCierre
+      responsable:createGestionConvocatoriaDto.responsable,
+      fechaPropuesta:createGestionConvocatoriaDto.fechaPropuesta,
+      numeroTramite:createGestionConvocatoriaDto.numeroTramite,
+      numeroExpediente:createGestionConvocatoriaDto.numeroExpediente,
+      reciboOficial:createGestionConvocatoriaDto.reciboOficial
     });
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return etapa.save();</span>
@@ -442,6 +479,26 @@ export class GestionConvocatoriaService {
   }
    
   }
+<span class="fstat-no" title="function not covered" > async </span>findConvocatoriasByProyecto(proyectoNombre: string) {
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const proyecto = <span class="cstat-no" title="statement not covered" >await this.GestionModel.findOne({ proyecto: proyectoNombre }).exec();</span>
+      
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!proyecto) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error(`No se encontró el proyecto con nombre: ${proyectoNombre}`);</span>
+      }
+      const gestionesDeProyecto = <span class="cstat-no" title="statement not covered" >await this.GestionModel.find({ proyecto: proyectoNombre }).exec();</span>
+      const convocatoriasAsociadas = <span class="cstat-no" title="statement not covered" >gestionesDeProyecto.map(<span class="fstat-no" title="function not covered" >(g</span>estion) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          convocatoria: gestion.convocatoria, 
+        };
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return convocatoriasAsociadas;</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >      throw error;</span>
+    }
+  }
+  
 &nbsp;
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -451,7 +508,7 @@ export class GestionConvocatoriaService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-26T08:42:41.838Z
+                at 2023-10-06T21:18:45.191Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
