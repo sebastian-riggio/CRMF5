@@ -44,11 +44,6 @@ const columns: ColumnDef<gestionColumns, estadoColumns>[] = [
     accessorKey: 'fechaCierre',
     header: () => <div className=' font-bold '>Fecha Cierre</div>,
     cell: ({ row }) => formatDate(row.getValue('fechaCierre'))
-  },
-  {
-    accessorKey: 'estado',
-    header: () => <div className=' font-bold '>Estado</div>,
-    cell: ({ row }) => row.getValue('estado')
   }
 ]
 
