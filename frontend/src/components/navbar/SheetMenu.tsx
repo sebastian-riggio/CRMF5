@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger
 } from '../ui/sheet'
-import SearchInput from './search'
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
 
