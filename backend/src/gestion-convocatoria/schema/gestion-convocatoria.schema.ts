@@ -38,7 +38,7 @@ numeroTramite:string;
 @Prop()
 numeroExpediente:string;
 @Prop()
-reciboOficial:string;
+reciboOficial?:string;
 
  @ApiProperty({example:"Etapa Resolucion"})
 @Prop({type:EtapaResolucionDto})

@@ -54,7 +54,7 @@ fechaLimiteInformeFinalTecnico:Date;
 
 @ApiProperty({example:"6/10/2023"})
 @IsDate()
-fechaLimiteInformeFinalEconomico:string;
+fechaLimiteInformeFinalEconomico:Date;
 
 @ApiProperty({example:"(mensual, trimestral, semestral, anual, solo informe final)"})
 @IsString()

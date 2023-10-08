@@ -13,10 +13,10 @@ import {
 } from 'lucide-react'
 import GraphicData from './GraphicData'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { DataItem } from '@/components/home/GraphicData'
 interface Convocatoria {
   etapaCierre: { estadoResolucion: string }
 }
-
 const ResumeBoard: React.FC = () => {
   const [totalProyectos, setTotalProyectos] = useState<number>(0)
   const [totalConvocatorias, setTotalConvocatorias] = useState<number>(0)
@@ -65,6 +65,14 @@ const ResumeBoard: React.FC = () => {
     fetchTotalConvocatorias()
     fetchTotalConvocatoriasCierre()
   }, [])
+
+const data: DataItem[] = [
+  { name: 'Solicitud', value: 10, fill: '#62de31' },
+  { name: 'Negociación', value: 30, fill: '#1e40af' },
+  { name: 'Otorgamiento', value: 20, fill: '#f5630e' },
+  { name: 'Justificación', value: 2, fill: '#f472b6' },
+  { name: 'Cierre', value: convocatoriasCerradas, fill: '#22c55e' }
+]
 
   return (
     <>
@@ -131,7 +139,7 @@ const ResumeBoard: React.FC = () => {
               <CardTitle>Gestión de convocatorias</CardTitle>
             </CardHeader>
             <CardContent className='pl-2'>
-              <GraphicData activeIndex={activeIndex} />
+              <GraphicData activeIndex={activeIndex} data={data} />
             </CardContent>
           </Card>
           <Card className='col-span-3'>
