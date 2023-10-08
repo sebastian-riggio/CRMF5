@@ -28,7 +28,9 @@ Bootcamp Web Full Stack - 850 horas
 9. 🖌[Maquetación UI/UX](#maquetación-uiux)
 10. 📊[Diseño de base de datos](#diseño-de-base-de-datos)
 11. 💻[Presentación de código](#presentación-de-código)
-12. 💞[Agradecimientos](#agradecimientos)
+12. [Deploy](#deploy)
+13. [Entorno de desarrollo y testing](#entorno-de-desarrollo-y-testing)
+14. 💞[Agradecimientos](#agradecimientos)
 
 ## Cliente 👤
 ![Logo de mi proyecto](/frontend/public/logo.png)
@@ -125,6 +127,38 @@ Estructuración de carpetas:
 
 ![backend](/frontend/public/back.png)
 
+# Deploy
+Para el deploy hemos usado [Vercel](https://vercel.com/) para el frontend y [Railway](https://railway.app/) para el backend
+
+# Entorno de desarrollo y testing
+## FrontEnd
+Para levantar el servidor de desarrollo entraremos en la carpeta ```/forntend``` y ejecutamos el siguiente comando desde la terminal.
+
+Instalamos las dependencias:
+```bash
+npm install
+```
+seguido de:
+```bash
+npm run dev
+```
+Y para el testing con playwright
+```bash
+npx playwright test
+```
+## Backend
+Instalamos las dependencias:
+```bash
+npm install
+```
+seguido de:
+```bash
+npm run start:dev
+```
+Y para el testing
+```bash
+npm run test
+```
 # Agradecimientos 💞
 
 Queremos expresar nuestro sincero agradecimiento a todos aquellos que hicieron posible este proyecto y nos brindaron su valioso apoyo a lo largo del camino.
