@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger
 } from '../ui/sheet'
-import SearchInput from './search'
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
 
@@ -22,9 +21,7 @@ export function SheetMenu () {
         </Button>
       </SheetTrigger>
       <SheetContent className='text-sm w-[250px] sm:w-[540px]'>
-        <div className='text-left mt-10 mb-9'>
-          <SearchInput />
-        </div>
+        <div className='text-left mt-10 mb-9' />
         <div className='text-left mb-6'>
 
           <SheetTitle className='text-sm block'>PROYECTOS</SheetTitle>
