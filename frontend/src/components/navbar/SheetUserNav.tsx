@@ -36,7 +36,7 @@ export function SheetUserNav () {
             <Link to='#' className='hover:text-orange-600'>Perfil<span className='shortcut ' /></Link>
           </div>
           <div className='mb-4'>
-            <Link to='#' className='hover:text-orange-600'>Cofiguración<span className='shortcut' /></Link>
+            <Link to='#' className='hover:text-orange-600'>Configuración<span className='shortcut' /></Link>
           </div>
           <div>
             <Link to='/login' className='hover:text-orange-600'><LogOut /></Link>
