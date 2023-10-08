@@ -75,7 +75,7 @@ async function seedGestion() {
           fechaFinalizacionGastos: faker.date.between({from:fechaDesde, to:fechaHasta}),
           fechaPrimerSeguimiento: faker.date.between({from: fechaDesde, to: fechaHasta}),
           fechaLimiteInformeFinalTecnico: faker.date.between({from: fechaDesde,to: fechaHasta}),
-          fechaLimiteInformeFinalEconomico: faker.date.between({from:fechaDesde,to: fechaHasta}).toLocaleDateString(),
+          fechaLimiteInformeFinalEconomico: faker.date.between({from:fechaDesde,to: fechaHasta}),
           seguimientoInformes: faker.helpers.arrayElement(['mensual', 'trimestral', 'semestral', 'anual', 'solo informe final']),
           adjuntarResolucionOtorgamiento: null,
         },
